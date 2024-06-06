@@ -2,30 +2,23 @@ using UnityEngine;
 
 public class Electron : MonoBehaviour
 {
-    public float orbitSpeed = 1f;
-    private LineRenderer lineRenderer;
+    public float orbitSpeed = 100f;
+    private Vector3 orbitCenter;
+    private float orbitRadius;
 
-    void Start()
+    public void SetOrbit(Vector3 center, float radius)
     {
-        lineRenderer = gameObject.AddComponent<LineRenderer>();
-        lineRenderer.startWidth = 0.05f;
-        lineRenderer.endWidth = 0.05f;
-        lineRenderer.positionCount = 100;
-        DrawOrbit();
+        orbitCenter = center;
+        orbitRadius = radius;
     }
 
     void Update()
     {
-        transform.RotateAround(transform.parent.position, Vector3.up, orbitSpeed * Time.deltaTime);
+        Orbit();
     }
 
-    void DrawOrbit()
+    void Orbit()
     {
-        for (int i = 0; i < lineRenderer.positionCount; i++)
-        {
-            float angle = i * 360f / lineRenderer.positionCount;
-            Vector3 position = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), 0, Mathf.Sin(angle * Mathf.Deg2Rad)) * transform.localPosition.magnitude;
-            lineRenderer.SetPosition(i, position);
-        }
+        transform.RotateAround(orbitCenter, Vector3.up, orbitSpeed * Time.deltaTime);
     }
 }
