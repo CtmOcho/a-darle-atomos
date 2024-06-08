@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 3.5.1 commit date:2023-04-24, commit time:18:11, hash:e1ccd9d4a1d3</authoring_tool>
+    </contributor>
+    <created>2024-06-03T14:21:14</created>
+    <modified>2024-06-03T14:21:14</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="chrome-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">0.8 0.8 0.8 1</color>
+            </diffuse>
+            <reflectivity>
+              <float sid="specular">1</float>
+            </reflectivity>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="plastic-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">0 0 0 1</color>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images/>
+  <library_materials>
+    <material id="chrome-material" name="chrome">
+      <instance_effect url="#chrome-effect"/>
+    </material>
+    <material id="plastic-material" name="plastic">
+      <instance_effect url="#plastic-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Torus_002-mesh" name="Torus.002">
+      <mesh>
+        <source id="Torus_002-mesh-positions">
+          <float_array id="Torus_002-mesh-positions-array" count="96">0.003449976 -0.08921414 0 0.002774953 -0.08921414 3.89711e-4 0.002774953 -0.08921414 -3.89711e-4 0.002439498 -0.08677458 0 0.001962184 -0.0872519 3.89711e-4 0.001962184 -0.0872519 -3.89711e-4 0 -0.08576411 0 0 -0.08643913 3.89711e-4 0 -0.08643913 -3.89711e-4 -0.002439498 -0.08677458 0 -0.001962184 -0.0872519 3.89711e-4 -0.001962184 -0.0872519 -3.89711e-4 -0.003449976 -0.08921414 0 -0.002774953 -0.08921414 3.89711e-4 -0.002774953 -0.08921414 -3.89711e-4 -0.002439498 -0.09165364 0 -0.001962184 -0.09117633 3.89711e-4 -0.001962184 -0.09117633 -3.89711e-4 0 -0.09266412 0 0 -0.09198915 3.89711e-4 0 -0.09198915 -3.89711e-4 0.002439498 -0.09165364 0 0.001962184 -0.09117633 3.89711e-4 0.001962184 -0.09117633 -3.89711e-4 -3.2e-4 -0.08643943 -3.2e-4 3.2e-4 -0.08643943 -3.2e-4 -3.2e-4 -0.08643943 3.2e-4 3.2e-4 -0.08643943 3.2e-4 -3.2e-4 -0.07910692 3.2e-4 3.2e-4 -0.07910692 3.2e-4 3.2e-4 -0.07910692 -3.2e-4 -3.2e-4 -0.07910692 -3.2e-4</float_array>
+          <technique_common>
+            <accessor source="#Torus_002-mesh-positions-array" count="32" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Torus_002-mesh-normals">
+          <float_array id="Torus_002-mesh-normals-array" count="165">0.4999997 4.28878e-7 0.8660257 0.3535543 0.3535524 0.8660255 0.4999977 7.25549e-7 0.8660268 -0.7071064 -0.7071072 0 -1 2.25896e-7 0 -1 1.33484e-7 0 0.3535546 0.3535522 -0.8660255 0.5000001 -1.82042e-7 -0.8660254 0.4999977 0 -0.8660268 0 0.499996 0.8660278 0.3535543 0.353553 0.8660252 0 -1 0 -0.7071065 -0.7071071 0 7.55935e-7 0.4999956 -0.8660281 0.3535548 0.3535525 -0.8660252 -0.3535542 0.3535525 0.8660255 0 0.4999955 0.866028 0.7071065 -0.7071071 0 0 -1 0 -0.3535544 0.3535518 -0.8660257 9.88661e-7 0.4999955 -0.866028 -0.4999992 6.20175e-7 0.8660258 -0.3535543 0.353553 0.8660252 1 0 0 0.7071066 -0.7071071 0 -0.4999997 0 -0.8660256 -0.3535548 0.3535525 -0.8660252 -0.3535539 -0.3535524 0.8660258 -0.4999977 8.13253e-7 0.8660267 0.7071066 0.7071071 0 1 0 0 -0.3535546 -0.3535522 -0.8660254 -0.4999977 0 -0.8660267 7.49764e-7 -0.4999979 0.8660267 -0.3535543 -0.353553 0.8660252 -1.48886e-7 1 0 0.7071065 0.7071071 0 8.63926e-7 -0.4999998 -0.8660256 -0.3535548 -0.3535525 -0.8660252 0.3535546 -0.3535504 0.8660262 4.68418e-7 -0.4999967 0.8660274 -0.7071064 0.7071072 0 -2.46431e-7 1 0 3.50815e-7 -0.4999991 -0.8660259 0.3535558 -0.3535518 -0.8660251 0.3535534 -0.3535482 0.8660277 0.3535547 -0.3535495 -0.8660265 -0.7071069 0 0.7071067 -0.7071069 0 -0.7071067 -0.7071067 0 0.7071069 0.7071069 0 -0.7071067 0.7071069 0 0.7071067 0.7071067 0 -0.7071069 -0.7071067 0 -0.7071069 0.7071067 0 0.7071069</float_array>
+          <technique_common>
+            <accessor source="#Torus_002-mesh-normals-array" count="55" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Torus_002-mesh-map-0">
+          <float_array id="Torus_002-mesh-map-0-array" count="336">0.5 0.6666667 0.625 1 0.5 1 0.625 0 0.5 0.3333333 0.5 0 0.625 0.3333333 0.5 0.6666667 0.5 0.3333333 0.75 0.6666667 0.625 1 0.625 0.6666667 0.75 0 0.625 0.3333333 0.625 0 0.625 0.3333333 0.75 0.6666667 0.625 0.6666667 0.75 0.6666667 0.875 1 0.75 1 0.875 0 0.75 0.3333333 0.75 0 0.875 0.3333333 0.75 0.6666667 0.75 0.3333333 1 0.6666667 0.875 1 0.875 0.6666667 1 0 0.875 0.3333333 0.875 0 0.875 0.3333333 1 0.6666667 0.875 0.6666667 0 0.6666667 0.125 1 0 1 0.125 0 0 0.3333333 0 0 0.125 0.3333333 0 0.6666667 0 0.3333333 0.25 0.6666667 0.125 1 0.125 0.6666667 0.25 0 0.125 0.3333333 0.125 0 0.125 0.3333333 0.25 0.6666667 0.125 0.6666667 0.375 0.6666667 0.25 1 0.25 0.6666667 0.375 0 0.25 0.3333333 0.25 0 0.25 0.3333333 0.375 0.6666667 0.25 0.6666667 0.5 0.6666667 0.375 1 0.375 0.6666667 0.5 0 0.375 0.3333333 0.375 0 0.375 0.3333333 0.5 0.6666667 0.375 0.6666667 0 1 0 0 0 1 1 0 1 1 1 0 0 0 1 0 0 0 1 1 0 1 1 1 0.5 0.6666667 0.625 0.6666667 0.625 1 0.625 0 0.625 0.3333333 0.5 0.3333333 0.625 0.3333333 0.625 0.6666667 0.5 0.6666667 0.75 0.6666667 0.75 1 0.625 1 0.75 0 0.75 0.3333333 0.625 0.3333333 0.625 0.3333333 0.75 0.3333333 0.75 0.6666667 0.75 0.6666667 0.875 0.6666667 0.875 1 0.875 0 0.875 0.3333333 0.75 0.3333333 0.875 0.3333333 0.875 0.6666667 0.75 0.6666667 1 0.6666667 1 1 0.875 1 1 0 1 0.3333333 0.875 0.3333333 0.875 0.3333333 1 0.3333333 1 0.6666667 0 0.6666667 0.125 0.6666667 0.125 1 0.125 0 0.125 0.3333333 0 0.3333333 0.125 0.3333333 0.125 0.6666667 0 0.6666667 0.25 0.6666667 0.25 1 0.125 1 0.25 0 0.25 0.3333333 0.125 0.3333333 0.125 0.3333333 0.25 0.3333333 0.25 0.6666667 0.375 0.6666667 0.375 1 0.25 1 0.375 0 0.375 0.3333333 0.25 0.3333333 0.25 0.3333333 0.375 0.3333333 0.375 0.6666667 0.5 0.6666667 0.5 1 0.375 1 0.5 0 0.5 0.3333333 0.375 0.3333333 0.375 0.3333333 0.5 0.3333333 0.5 0.6666667 0 1 0 0 0 0 1 0 1 1 1 1 0 0 1 0 1 0 1 1 0 1 0 1</float_array>
+          <technique_common>
+            <accessor source="#Torus_002-mesh-map-0-array" count="168" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Torus_002-mesh-vertices">
+          <input semantic="POSITION" source="#Torus_002-mesh-positions"/>
+        </vertices>
+        <triangles material="chrome-material" count="56">
+          <input semantic="VERTEX" source="#Torus_002-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Torus_002-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Torus_002-mesh-map-0" offset="2" set="1"/>
+          <p>0 0 0 4 1 1 1 2 2 4 3 3 2 4 4 1 5 5 5 6 6 0 7 7 2 8 8 6 9 9 4 1 10 3 10 11 7 11 12 5 12 13 4 3 14 5 6 15 6 13 16 3 14 17 6 9 18 10 15 19 7 16 20 10 17 21 8 18 22 7 11 23 11 19 24 6 13 25 8 20 26 12 21 27 10 15 28 9 22 29 13 23 30 11 24 31 10 17 32 11 19 33 12 25 34 9 26 35 12 21 36 16 27 37 13 28 38 16 29 39 14 30 40 13 23 41 17 31 42 12 25 43 14 32 44 18 33 45 16 27 46 15 34 47 19 35 48 17 36 49 16 29 50 17 31 51 18 37 52 15 38 53 21 39 54 19 40 55 18 33 56 22 41 57 20 42 58 19 35 59 20 43 60 21 44 61 18 37 62 0 0 63 22 45 64 21 39 65 1 5 66 23 41 67 22 41 68 23 46 69 0 7 70 21 44 71 28 47 72 24 48 73 26 49 74 30 50 75 27 51 76 25 52 77 31 53 78 25 52 79 24 48 80 29 54 81 26 49 82 27 51 83 0 0 84 3 10 85 4 1 86 4 3 87 5 12 88 2 4 89 5 6 90 3 14 91 0 7 92 6 9 93 7 16 94 4 1 95 7 11 96 8 18 97 5 12 98 5 6 99 8 20 100 6 13 101 6 9 102 9 22 103 10 15 104 10 17 105 11 24 106 8 18 107 11 19 108 9 26 109 6 13 110 12 21 111 13 28 112 10 15 113 13 23 114 14 30 115 11 24 116 11 19 117 14 32 118 12 25 119 12 21 120 15 34 121 16 27 122 16 29 123 17 36 124 14 30 125 17 31 126 15 38 127 12 25 128 18 33 129 19 40 130 16 27 131 19 35 132 20 42 133 17 36 134 17 31 135 20 43 136 18 37 137 21 39 138 22 45 139 19 40 140 22 41 141 23 41 142 20 42 143 20 43 144 23 46 145 21 44 146 0 0 147 1 2 148 22 45 149 1 5 150 2 4 151 23 41 152 23 46 153 2 8 154 0 7 155 28 47 156 31 53 157 24 48 158 30 50 159 29 54 160 27 51 161 31 53 162 30 50 163 25 52 164 29 54 165 28 47 166 26 49 167</p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="Torus_001-mesh" name="Torus.001">
+      <mesh>
+        <source id="Torus_001-mesh-positions">
+          <float_array id="Torus_001-mesh-positions-array" count="96">-3.2e-4 -0.04999995 -3.2e-4 3.2e-4 -0.04999995 -3.2e-4 -3.2e-4 -0.04999995 3.2e-4 3.2e-4 -0.04999995 3.2e-4 0 -0.04999995 0.002999961 -0.00149995 -0.04999995 0.002598047 -0.002598047 -0.04999995 0.00149995 -0.002999961 -0.04999995 0 -0.002598047 -0.04999995 -0.00149995 -0.00149995 -0.04999995 -0.002598047 0 -0.04999995 -0.002999961 0.00149995 -0.04999995 -0.002598047 0.002598047 -0.04999995 -0.00149995 0.002999961 -0.04999995 0 0.002598047 -0.04999995 0.00149995 0.00149995 -0.04999995 0.002598047 -0.00149995 0.04999995 0.002598047 0 0.04999995 0.002999961 -0.002598047 0.04999995 0.00149995 -0.002999961 0.04999995 0 -0.002598047 0.04999995 -0.00149995 -0.00149995 0.04999995 -0.002598047 0 0.04999995 -0.002999961 0.00149995 0.04999995 -0.002598047 0.002598047 0.04999995 -0.00149995 0.002999961 0.04999995 0 0.002598047 0.04999995 0.00149995 0.00149995 0.04999995 0.002598047 -3.2e-4 -0.07910692 3.2e-4 3.2e-4 -0.07910692 3.2e-4 3.2e-4 -0.07910692 -3.2e-4 -3.2e-4 -0.07910692 -3.2e-4</float_array>
+          <technique_common>
+            <accessor source="#Torus_001-mesh-positions-array" count="32" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Torus_001-mesh-normals">
+          <float_array id="Torus_001-mesh-normals-array" count="132">0 -1 0 0.7071063 0 0.7071073 -0.7071063 0 0.7071073 0.7071073 0 0.7071063 -0.7071063 0 -0.7071073 0.7071063 0 -0.7071073 -0.7071073 0 -0.7071063 0.7071073 0 -0.7071063 -0.7071073 0 0.7071063 0 1 3.23374e-7 0 1 1.6669e-6 0 1 3.23374e-7 -0.5000001 0 -0.8660254 0 0 -1 -0.5000002 0 -0.8660254 -0.8660254 0 0.5000002 -1 0 -1.9642e-7 -0.8660254 0 0.5000001 1 0 -1.9642e-7 0.8660254 0 0.5000002 1 0 1.9642e-7 0 0 -1 0.5000002 0 -0.8660254 -1 0 1.9642e-7 -0.8660254 0 -0.5000002 0.8660254 0 0.5000001 0.5000002 0 0.8660254 0 0 1 -0.5000002 0 0.8660254 0 0 1 0.5000001 0 -0.8660253 0.8660254 0 -0.5000001 -0.8660254 0 -0.5000001 0.5000001 0 0.8660254 -0.5000001 0 0.8660253 0.8660254 0 -0.5000002 0 1 -1.20686e-5 0 1 -2.41371e-6 0 1 -1.20686e-5 0 1 2.31366e-6 0 1 -6.74445e-6 0 1 1.20686e-5 0 1 1.20686e-5 0 1 2.31366e-6</float_array>
+          <technique_common>
+            <accessor source="#Torus_001-mesh-normals-array" count="44" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Torus_001-mesh-map-0">
+          <float_array id="Torus_001-mesh-map-0-array" count="312">0 0 0 0 0 0 1 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 1 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 1 0 1 0 0 1 0 1 0 1 0 1 1 1 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</float_array>
+          <technique_common>
+            <accessor source="#Torus_001-mesh-map-0-array" count="156" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Torus_001-mesh-vertices">
+          <input semantic="POSITION" source="#Torus_001-mesh-positions"/>
+        </vertices>
+        <triangles material="chrome-material" count="8">
+          <input semantic="VERTEX" source="#Torus_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Torus_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Torus_001-mesh-map-0" offset="2" set="1"/>
+          <p>3 1 3 28 2 4 29 3 5 0 4 6 30 5 7 31 6 8 1 7 9 29 3 10 30 5 11 2 8 12 31 6 13 28 2 14 3 1 81 2 8 82 28 2 83 0 4 84 1 7 85 30 5 86 1 7 87 3 1 88 29 3 89 2 8 90 0 4 91 31 6 92</p>
+        </triangles>
+        <triangles material="plastic-material" count="44">
+          <input semantic="VERTEX" source="#Torus_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Torus_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Torus_001-mesh-map-0" offset="2" set="1"/>
+          <p>8 0 0 12 0 1 4 0 2 26 9 15 22 10 16 18 11 17 21 12 18 10 13 19 9 14 20 18 15 21 7 16 22 6 17 23 25 18 24 14 19 25 13 20 26 22 21 27 11 22 28 10 13 29 19 23 30 8 24 31 7 16 32 26 25 33 15 26 34 14 19 35 17 27 36 5 28 37 4 29 38 23 30 39 12 31 40 11 22 41 20 32 42 9 14 43 8 24 44 27 33 45 4 29 46 15 26 47 16 34 48 6 17 49 5 28 50 24 35 51 13 20 52 12 31 53 4 0 54 5 0 55 6 0 56 6 0 57 7 0 58 4 0 59 7 0 60 8 0 61 4 0 62 8 0 63 9 0 64 10 0 65 10 0 66 11 0 67 12 0 68 12 0 69 13 0 70 4 0 71 13 0 72 14 0 73 4 0 74 14 0 75 15 0 76 4 0 77 8 0 78 10 0 79 12 0 80 18 11 93 16 36 94 17 37 95 17 37 96 27 38 97 26 9 98 26 9 99 25 39 100 22 10 101 25 39 102 24 40 103 22 10 104 24 40 105 23 41 106 22 10 107 22 10 108 21 42 109 20 40 110 20 40 111 19 43 112 22 10 113 19 43 114 18 11 115 22 10 116 18 11 117 17 37 118 26 9 119 21 12 120 22 21 121 10 13 122 18 15 123 19 23 124 7 16 125 25 18 126 26 25 127 14 19 128 22 21 129 23 30 130 11 22 131 19 23 132 20 32 133 8 24 134 26 25 135 27 33 136 15 26 137 17 27 138 16 34 139 5 28 140 23 30 141 24 35 142 12 31 143 20 32 144 21 12 145 9 14 146 27 33 147 17 27 148 4 29 149 16 34 150 18 15 151 6 17 152 24 35 153 25 18 154 13 20 155</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Alambre" name="Alambre" type="NODE">
+        <matrix sid="transform">1 0 0 -0.01298324 0 1 0 0.09368044 0 0 1 0.1484444 0 0 0 1</matrix>
+        <instance_geometry url="#Torus_001-mesh" name="Alambre">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="chrome-material" target="#chrome-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+              <instance_material symbol="plastic-material" target="#plastic-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+        <node id="Circulo" name="Circulo" type="NODE">
+          <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+          <instance_geometry url="#Torus_002-mesh" name="Circulo">
+            <bind_material>
+              <technique_common>
+                <instance_material symbol="chrome-material" target="#chrome-material">
+                  <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+                </instance_material>
+              </technique_common>
+            </bind_material>
+          </instance_geometry>
+        </node>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
