@@ -3,6 +3,20 @@ import mediapipe as mp
 import numpy as np
 import sys
 from utils import DLT, get_projection_matrix, write_keypoints_to_disk
+import asyncio
+import websockets
+import json
+
+async def send_data(uri, data):
+    try:
+        async with websockets.connect(uri) as websocket:
+            wrapped_data = {"array": data}
+            await websocket.send(json.dumps(wrapped_data))
+            print("Data sent to: ", uri)
+    except Exception as e:
+        print(f"Failed to send data to {uri}: {e}")
+
+ws_uri = "ws://localhost:8765"
 
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
@@ -96,7 +110,8 @@ def run_mp(input_stream1, input_stream2, P0, P1):
         '''
         frame_p3ds = np.array(frame_p3ds).reshape((42, 3))
         kpts_3d.append(frame_p3ds)
-        print(frame_p3ds)
+        #print(frame_p3ds)
+        asyncio.get_event_loop().run_until_complete(send_data(ws_uri,frame_p3ds.flatten().tolist()))
 
         # Draw the hand annotations on the image.
         frame0.flags.writeable = True
