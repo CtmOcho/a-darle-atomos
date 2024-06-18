@@ -7,6 +7,7 @@ using NativeWebSocket;
 public class WebSocketClient : MonoBehaviour
 {
     private WebSocket websocket;
+    IntArrayWrapper arrayMessage;
 
     async void Start()
     {
@@ -31,11 +32,11 @@ public class WebSocketClient : MonoBehaviour
         websocket.OnMessage += (bytes) =>
         {
             var message = Encoding.UTF8.GetString(bytes);
-            Debug.Log("Received message: " + message);
+            //Debug.Log("Received message: " + message);
 
             // Deserialize the JSON message to an IntArrayWrapper
-            IntArrayWrapper arrayMessage = JsonUtility.FromJson<IntArrayWrapper>(message);
-            Debug.Log("Deserialized array: " + string.Join(", ", arrayMessage.array));
+            arrayMessage = JsonUtility.FromJson<IntArrayWrapper>(message);
+            //Debug.Log("Deserialized array: " + string.Join(", ", arrayMessage.array));
         };
 
         try
@@ -63,6 +64,15 @@ public class WebSocketClient : MonoBehaviour
             await websocket.SendText("request");
             await Task.Delay(100);  // Wait for 1 second before sending the next request
         }
+    }
+    public WebSocket GetSocket()
+    {
+        return websocket;
+    }
+
+    public float[] GetHandData()
+    {
+        return arrayMessage.array;
     }
 
     private async void OnApplicationQuit()

@@ -10,7 +10,7 @@ import json
 async def send_data(uri, data):
     try:
         async with websockets.connect(uri) as websocket:
-            wrapped_data = {"array": data}
+            wrapped_data = data
             await websocket.send(json.dumps(wrapped_data))
             print("Data sent to: ", uri)
     except Exception as e:
@@ -153,6 +153,6 @@ if __name__ == '__main__':
     kpts_cam0, kpts_cam1, kpts_3d = run_mp(input_stream1, input_stream2, P0, P1)
 
     #this will create keypoints file in current working folder
-    write_keypoints_to_disk('kpts_cam0.dat', kpts_cam0)
-    write_keypoints_to_disk('kpts_cam1.dat', kpts_cam1)
-    write_keypoints_to_disk('kpts_3d.dat', kpts_3d)
+    # write_keypoints_to_disk('kpts_cam0.dat', kpts_cam0)
+    # write_keypoints_to_disk('kpts_cam1.dat', kpts_cam1)
+    # write_keypoints_to_disk('kpts_3d.dat', kpts_3d)

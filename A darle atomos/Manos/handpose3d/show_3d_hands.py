@@ -33,7 +33,7 @@ def visualize_3d(p3ds):
     for frame in p3ds:
         frame_kpts_rotated = []
         for kpt in frame:
-            kpt_rotated = Rz @ Rx @ kpt
+            kpt_rotated =  kpt
             frame_kpts_rotated.append(kpt_rotated)
         p3ds_rotated.append(frame_kpts_rotated)
 
@@ -63,6 +63,8 @@ def visualize_3d(p3ds):
                             ys=[kpts3d[_c[0] + hand_offset, 1], kpts3d[_c[1] + hand_offset, 1]], 
                             zs=[kpts3d[_c[0] + hand_offset, 2], kpts3d[_c[1] + hand_offset, 2]], 
                             linewidth=4, c=finger_color)
+        if i == 343:
+            print(kpts3d)
 
         # Draw axes
         ax.plot(xs=[0, 5], ys=[0, 0], zs=[0, 0], linewidth=2, color='red')
@@ -79,8 +81,8 @@ def visualize_3d(p3ds):
         ax.set_ylabel('y')
         ax.set_zlim3d(0, 15)
         ax.set_zlabel('z')
-        ax.elev = 0.2 * i
-        ax.azim = 0.2 * i
+        #ax.elev = 0.2 * i
+        #ax.azim = 0.2 * i
 
         # Crear el directorio 'figs' si no existe
         if not os.path.exists('figs'):
