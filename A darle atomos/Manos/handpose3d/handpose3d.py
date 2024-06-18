@@ -109,7 +109,7 @@ def run_mp(input_stream1, input_stream2, P0, P1):
         For real time application, this is what you want.
         '''
         frame_p3ds = np.array(frame_p3ds).reshape((42, 3))
-        kpts_3d.append(frame_p3ds)
+        #kpts_3d.append(frame_p3ds)
         #print(frame_p3ds)
         asyncio.get_event_loop().run_until_complete(send_data(ws_uri,frame_p3ds.flatten().tolist()))
 
@@ -140,7 +140,7 @@ def run_mp(input_stream1, input_stream2, P0, P1):
 
 if __name__ == '__main__':
     input_stream1 = 0  # Cámara 1
-    input_stream2 = 1  # Cámara 2
+    input_stream2 = 2  # Cámara 2
 
     if len(sys.argv) == 3:
         input_stream1 = int(sys.argv[1])
