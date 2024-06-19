@@ -6,7 +6,7 @@ public class ReagentProperties : MonoBehaviour
 {
     public string nombreReactivo;
     public float masaMolar;
-    public Color colorLlama;
+    public int colorLlama;
     public bool esSolido = true;
 
     private Reagent reagent;

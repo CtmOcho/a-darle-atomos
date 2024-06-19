@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Reagent
 {
-    public Reagent(string reagentName, float molarMass, Color flameColor, bool isSolid)
+    public Reagent(string reagentName, float molarMass, int flameColor, bool isSolid)
     {
         ReagentName = reagentName;
         MolarMass = molarMass;
@@ -12,6 +12,6 @@ public class Reagent
 
     public string ReagentName { get;}
     public float MolarMass { get;}
-    public Color FlameColor { get;}
+    public int FlameColor { get;}
     public bool IsSolid { get;}
 }
