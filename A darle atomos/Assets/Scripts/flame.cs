@@ -8,6 +8,7 @@ using UnityEngine.VFX;
 
 public class flame : MonoBehaviour
 {
+    private int regularColor = 7;
     private VisualEffect vfx;
     private int currentColor;
     private float blend;
@@ -21,7 +22,7 @@ public class flame : MonoBehaviour
     {
         vfx = GetComponent<VisualEffect>();
         currentColor = vfx.GetInt("Color value");
-        vfx.SetInt("Color value", 4);
+        vfx.SetInt("Color value", 7);
         vfx.SetFloat("Blend", 0);
     }
     
@@ -45,7 +46,11 @@ public class flame : MonoBehaviour
     
     void OnTriggerEnter(Collider other){
         FireReagentController spoon = other.GetComponent<FireReagentController>();
-        StartCoroutine(ChangeFlameColor(spoon.colorLlama));
+            if (spoon.colorLlama >= 0){
+                StartCoroutine(ChangeFlameColor(spoon.colorLlama));
+                StartCoroutine(ReturnToRegularColor(8));
+                spoon.colorLlama = -1;
+            }
     }
     
     public IEnumerator ChangeFlameColor(int targetColor){
@@ -57,5 +62,17 @@ public class flame : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         vfx.SetInt("Color value", targetColor);
+    }
+    
+    IEnumerator ReturnToRegularColor(float delay){
+        yield return new WaitForSeconds(delay);
+        blend = 0;
+        vfx.SetInt("Target Color", regularColor);
+        while (blend < 1){
+            blend += 0.01f;
+            vfx.SetFloat("Blend", blend);
+            yield return new WaitForFixedUpdate();
+        }
+        vfx.SetInt("Color value", regularColor);
     }
 }
