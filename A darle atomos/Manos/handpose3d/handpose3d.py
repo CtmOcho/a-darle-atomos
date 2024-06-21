@@ -12,7 +12,9 @@ async def send_data(uri, data):
         async with websockets.connect(uri) as websocket:
             wrapped_data = data
             await websocket.send(json.dumps(wrapped_data))
+            
             print("Data sent to: ", uri)
+            print("Data:", data[-1])
     except Exception as e:
         print(f"Failed to send data to {uri}: {e}")
 
@@ -21,7 +23,7 @@ ws_uri = "ws://localhost:8765"
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
 
-frame_shape = [720, 1280]
+frame_shape = [480, 640]
 
 def run_mp(input_stream1, input_stream2, P0, P1):
     #input video stream
@@ -111,7 +113,17 @@ def run_mp(input_stream1, input_stream2, P0, P1):
         frame_p3ds = np.array(frame_p3ds).reshape((42, 3))
         #kpts_3d.append(frame_p3ds)
         #print(frame_p3ds)
-        asyncio.get_event_loop().run_until_complete(send_data(ws_uri,frame_p3ds.flatten().tolist()))
+        if -1 not in frame_p3ds:
+            if results0.multi_hand_landmarks:
+                for idx, hand_handedness in enumerate(results0.multi_handedness):
+                    results0_handedness = hand_handedness.classification[0].label
+                    if results0_handedness == "Right": #Al estar mirrored image, están invertidas, por lo que si es right es 0 pero se interpreta como 1. y viceversa DE LA PRIMERA MANO QUE APARECE
+                        results0_handedness = 0
+                    else:
+                        results0_handedness = 1
+            data = frame_p3ds.flatten().tolist()
+            data.append(results0_handedness)
+            asyncio.get_event_loop().run_until_complete(send_data(ws_uri,data))
 
         # Draw the hand annotations on the image.
         frame0.flags.writeable = True
@@ -139,7 +151,7 @@ def run_mp(input_stream1, input_stream2, P0, P1):
     return np.array(kpts_cam0), np.array(kpts_cam1), np.array(kpts_3d)
 
 if __name__ == '__main__':
-    input_stream1 = 1  # Cámara 1
+    input_stream1 = 0  # Cámara 1
     input_stream2 = 2  # Cámara 2
 
     if len(sys.argv) == 3:
@@ -153,6 +165,6 @@ if __name__ == '__main__':
     kpts_cam0, kpts_cam1, kpts_3d = run_mp(input_stream1, input_stream2, P0, P1)
 
     #this will create keypoints file in current working folder
-    #write_keypoints_to_disk('kpts_cam0.dat', kpts_cam0)
-    #write_keypoints_to_disk('kpts_cam1.dat', kpts_cam1)
-    #write_keypoints_to_disk('kpts_3d.dat', kpts_3d)
+    # write_keypoints_to_disk('kpts_cam0.dat', kpts_cam0)
+    # write_keypoints_to_disk('kpts_cam1.dat', kpts_cam1)
+    # write_keypoints_to_disk('kpts_3d.dat', kpts_3d)
