@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class FireReagentController : MonoBehaviour
 {
-    public int colorLlama;
+    [SerializeField]
+    private Color colorLlama;
     [SerializeField]
     private bool estaMojado = false;
 
     private void Start()
     {
-        colorLlama = 4;
+        colorLlama = Color.black;
         estaMojado = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        ReagentProperties reagentProperties = other.GetComponent<ReagentProperties>();
-        if (reagentProperties == null){
-            return;
-        }
-        Reagent reactivo = reagentProperties.getReagent();
+        Reagent reactivo = other.GetComponent<ReagentProperties>().getReagent();
         if (reactivo != null)
         {
             if (!reactivo.IsSolid)
