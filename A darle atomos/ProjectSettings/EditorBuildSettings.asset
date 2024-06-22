@@ -77,4 +77,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu Home/Editar_profe.unity
     guid: 77c7f1149b1cbd24b89ec8e62643c554
+  - enabled: 1
+    path: Assets/Scenes/Menu Home/Borrar_estudiante.unity
+    guid: 5416928329c95724dbfde52b623ecfa3
   m_configObjects: {}

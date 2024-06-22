@@ -3,24 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Networking;
+using Navigation1;
+
+
 
 public class Login : MonoBehaviour
 {
 
+    [System.Serializable]
+    public class LoginResponse
+    {
+        public string username;
+        public string pass;
+        public int progreso;
+        public string[] curso;
+        public string type;
+    }
+
+    public Navigation1.Navigation navigation;
     [SerializeField] private string authenticationEndpointLog = "http://localhost:13756/login";
     [SerializeField] private string authenticationEndpointStudent = "http://localhost:13756/student";
     [SerializeField] private string authenticationEndpointTeacher = "http://localhost:13756/teacher";
     [SerializeField] private TMP_InputField usernameInputField;
     [SerializeField] private TMP_InputField passwordInputField;
+    [SerializeField] private string Flag;
 
     
     public void OnLoginClick(){
         StartCoroutine(TryLogin());
     }
-    /*
+    
     public void OnCreateStudentClick(){
         StartCoroutine(TryCreateStudent());
     }
+    
     public void OnCreateTeacherClick(){
         StartCoroutine(TryCreateTeacher());
     }
@@ -28,30 +44,59 @@ public class Login : MonoBehaviour
     public void OnDeleteStudentClick(){
         StartCoroutine(TryDeleteStudent());
     }
-    */
+    
 
     private IEnumerator TryLogin(){
         
+        string flag = Flag;
         string username = usernameInputField.text;    
         string password = passwordInputField.text;
+        string url = $"{authenticationEndpointLog}/{username}/{password}";
 
-        UnityWebRequest request = UnityWebRequest.Get($"{authenticationEndpointLog}?user={username}&pass={password}");
+        UnityWebRequest request = UnityWebRequest.Get(url);
         var handler = request.SendWebRequest();
 
         float startTime = 0.0f;
         while(!handler.isDone){
             startTime += Time.deltaTime;
-            if(startTime > 10.0f){
+            if(startTime > 20.0f){
                 break;
             }
             yield return null;
         }
 
+        long responseCode = request.responseCode;
         if(request.result == UnityWebRequest.Result.Success){
+            Debug.Log(responseCode);
+            if(responseCode == 200){
+                string responseText = request.downloadHandler.text;
+                LoginResponse loginResponse = JsonUtility.FromJson<LoginResponse>(responseText);
 
-            Debug.Log(request.downloadHandler.text);
+                SessionData.username = loginResponse.username;
+                SessionData.progreso = loginResponse.progreso;
+                SessionData.curso = new List<string>(loginResponse.curso); // Convertir array a lista
+                if(loginResponse.type == "E"){
+
+                navigation = gameObject.AddComponent<Navigation>();
+
+                navigation.LoadScene("Experiencias_alumnos");
+                
+                }
+                else{
+
+                navigation = gameObject.AddComponent<Navigation>();
+
+                navigation.LoadScene("Post_login_profesor");
+
+                }
+            
+
+            }
+
+
+
         }else{
-            Debug.Log("No se puedo conectar al servidor");
+            Debug.Log("No existe el usuario");
         }
 
         Debug.Log($"{username}:{password}");
@@ -59,12 +104,14 @@ public class Login : MonoBehaviour
         yield return null;
     }
 
-    /*
+    
     private IEnumerator TryCreateStudent(){
         string username = usernameInputField.text;    
         string password = passwordInputField.text;
+        string url = $"{authenticationEndpointStudent}?user={username}&pass={password}";
+        
 
-        UnityWebRequest request = UnityWebRequest.Post($"{authenticationEndpointStudent}?user={username}&pass={password}");
+        UnityWebRequest request = UnityWebRequest.PostWwwForm(url, "");
         var handler = request.SendWebRequest();
 
         float startTime = 0.0f;
@@ -76,19 +123,29 @@ public class Login : MonoBehaviour
             yield return null;
         }
 
+        long responseCode = request.responseCode;
         if(request.result == UnityWebRequest.Result.Success){
+            Debug.Log(responseCode);
+            if(responseCode == 201){
+   
+                navigation = gameObject.AddComponent<Navigation>();
 
-            Debug.Log(request.downloadHandler.text);
-        }else{
-            Debug.Log("No se puedo conectar al servidor");
+                navigation.LoadScene("Login_alumno");
+            
+            }
+            else{
+                Debug.Log("Creacion invalida");
+            }
+            
+
         }
     }
-
+    
     private IEnumerator TryCreateTeacher(){
         string username = usernameInputField.text;    
         string password = passwordInputField.text;
 
-        UnityWebRequest request = UnityWebRequest.Post($"{authenticationEndpointTeacher}?user={username}&pass={password}");
+        UnityWebRequest request = UnityWebRequest.PostWwwForm($"{authenticationEndpointTeacher}/{username}/{password}", "");
         var handler = request.SendWebRequest();
 
         float startTime = 0.0f;
@@ -100,37 +157,76 @@ public class Login : MonoBehaviour
             yield return null;
         }
 
+        long responseCode = request.responseCode;
         if(request.result == UnityWebRequest.Result.Success){
+            Debug.Log(responseCode);
+            if(responseCode == 201){
+   
+                navigation = gameObject.AddComponent<Navigation>();
 
-            Debug.Log(request.downloadHandler.text);
-        }else{
+                navigation.LoadScene("Login_profesor");
+            
+            }
+            else{
+                Debug.Log("Creacion invalida");
+            }
+            
+
+        }
+
+
+        else{
             Debug.Log("No se puedo conectar al servidor");
         }
+
+
+
+        yield return null;
     }
+    
+        private IEnumerator TryDeleteStudent(){
+            string username = usernameInputField.text;    
 
-    private IEnumerator TryDeleteTeacher(){
-        string username = usernameInputField.text;    
-        string password = passwordInputField.text;
+            if(SessionData.username == username){
+                UnityWebRequest request = UnityWebRequest.Delete($"{authenticationEndpointStudent}/{username}");
+                var handler = request.SendWebRequest();
 
-        UnityWebRequest request = UnityWebRequest.Delete($"{authenticationEndpointTeacher}/{username}");
-        var handler = request.SendWebRequest();
+                float startTime = 0.0f;
+                while(!handler.isDone){
+                    startTime += Time.deltaTime;
+                    if(startTime > 10.0f){
+                        break;
+                    }
+                    yield return null;
+                }
 
-        float startTime = 0.0f;
-        while(!handler.isDone){
-            startTime += Time.deltaTime;
-            if(startTime > 10.0f){
-                break;
+                long responseCode = request.responseCode;
+                if(request.result == UnityWebRequest.Result.Success){
+                    Debug.Log(responseCode);
+                    if(responseCode == 200){
+        
+                        navigation = gameObject.AddComponent<Navigation>();
+
+                        navigation.LoadScene("Home1");
+
+                        Debug.Log("Eliminado");
+                    
+                    }
+                    else{
+                        Debug.Log("Fallo en la conexion");
+                    }     
+
             }
+
+
+            else{
+                Debug.Log("No se puedo conectar al servidor");
+            }
+
+
+
             yield return null;
         }
-
-        if(request.result == UnityWebRequest.Result.Success){
-
-            Debug.Log(request.downloadHandler.text);
-        }else{
-            Debug.Log("No se puedo conectar al servidor");
-        }
+        
     }
-    */
 }
-
