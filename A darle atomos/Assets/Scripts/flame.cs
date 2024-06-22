@@ -2,17 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.Rendering;
 using UnityEngine.VFX;
 
 public class flame : MonoBehaviour
 {
-    private int regularColor = 7;
     private VisualEffect vfx;
+    private new Light light;
     private int currentColor;
     private float blend;
-    public Transform knob;
+    [SerializeField]
+    private Transform knob;
     public float flameStrength;
     public int targetColor;
     
@@ -21,6 +24,7 @@ public class flame : MonoBehaviour
     void Start()
     {
         vfx = GetComponent<VisualEffect>();
+        light = GetComponentInChildren<Light>();
         currentColor = vfx.GetInt("Color value");
         vfx.SetInt("Color value", 7);
         vfx.SetFloat("Blend", 0);
@@ -36,11 +40,13 @@ public class flame : MonoBehaviour
             float value = knob_rotation_normalized * 8f;
             if (value < 0.2f){
                 vfx.SetInt("spawn_rate", 0);
+                light.intensity = 0;
             } else {
                 vfx.SetInt("spawn_rate", 100000);
+                vfx.SetFloat("Flame Strength", knob_rotation_normalized);
+                light.intensity = Mathf.Lerp(100, 600, knob_rotation_normalized);
+                knob.hasChanged = false;
             }
-            vfx.SetFloat("Flame Strength", knob_rotation_normalized);
-            knob.hasChanged = false;
         }
     }
     
@@ -59,20 +65,36 @@ public class flame : MonoBehaviour
         while (blend < 1){
             blend += 0.01f;
             vfx.SetFloat("Blend", blend);
+            light.color = Color.Lerp(fireColor(currentColor), fireColor(targetColor), blend);
             yield return new WaitForFixedUpdate();
         }
+        currentColor = targetColor;
         vfx.SetInt("Color value", targetColor);
     }
     
     IEnumerator ReturnToRegularColor(float delay){
         yield return new WaitForSeconds(delay);
-        blend = 0;
-        vfx.SetInt("Target Color", regularColor);
-        while (blend < 1){
-            blend += 0.01f;
-            vfx.SetFloat("Blend", blend);
-            yield return new WaitForFixedUpdate();
+        StartCoroutine(ChangeFlameColor(7));
+    }
+    
+    Color fireColor(int id){
+        switch(id){
+            case 0:
+                return Color.green; 
+            case 1:
+                return Color.red; 
+            case 2:
+                return Color.yellow; 
+            case 3:
+                return Color.blue; 
+            case 4:
+                return Color.red; 
+            case 5:
+                return Color.white; 
+            case 6:
+                return Color.magenta; 
+            default:
+                return Color.white;
         }
-        vfx.SetInt("Color value", regularColor);
     }
 }
