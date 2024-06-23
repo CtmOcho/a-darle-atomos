@@ -23,7 +23,7 @@ module.exports = app => {
             return;
         }else{
             if (pass == userAccount.password){
-                res.send('200');
+                res.status(200).send('Creacion Usuario');
                 userAccount.lastAuth = Date.now();
                 await userAccount.save();
                 return;
@@ -136,7 +136,7 @@ module.exports = app => {
        
     });
 
-    app.post('/cursos/:teacher/:course', async (req,res) =>{
+    app.post('/curso/:teacher/:course', async (req,res) =>{
         teacher = req.params.teacher;
         curso = req.params.course;
         if (curso == null || teacher == null){
@@ -158,6 +158,13 @@ module.exports = app => {
                 lastUpd: Date.now(),
             });
             await newCurso.save();
+            
+            await Account.findOneAndUpdate(
+                {username: teacher},
+                {$push: { curso: curso }},
+                { new: true, runValidators: true }
+            );
+
 
             res.status('201').send('Curso Creado');
             return;
@@ -175,6 +182,14 @@ module.exports = app => {
             res.status(400).send('El campo "students" debe ser un array');
             return;
         }
+        for (let i = 0; i < students.length; i++) {
+            const student = students[i];
+            // Realiza la actualización que necesites, por ejemplo, agregar o eliminar
+            const studentAccont = await Account.findOne({username: student},);
+            if (studentAccont == null){
+                res.status(404).send(student +" no encontrado");
+            }
+        }
 
         try {
             const updatedCourse = await Cursos.findOneAndUpdate(
@@ -186,6 +201,15 @@ module.exports = app => {
             if (!updatedCourse) {
                 res.status(404).send('Curso no encontrado');
                 return;
+            }
+            for (let i = 0; i < students.length; i++) {
+                const student = students[i];
+                // Realiza la actualización que necesites, por ejemplo, agregar o eliminar
+                await Account.findOneAndUpdate(
+                    {username: student},
+                    {$push: { curso: course }},
+                    { new: true, runValidators: true }
+                );
             }
 
             res.status(200).send('Estudiantes insertados en el curso');
@@ -204,6 +228,15 @@ module.exports = app => {
             return;
         }
 
+        for (let i = 0; i < students.length; i++) {
+            const student = students[i];
+            // Realiza la actualización que necesites, por ejemplo, agregar o eliminar
+            const studentAccont = await Account.findOne({username: student},);
+            if (studentAccont == null){
+                res.status(404).send(student +" no encontrado");
+            }
+        }
+
         try {
             const updatedCourse = await Cursos.findOneAndUpdate(
                 { course: course },
@@ -214,6 +247,16 @@ module.exports = app => {
             if (!updatedCourse) {
                 res.status(404).send('Curso no encontrado');
                 return;
+            }
+
+            for (let i = 0; i < students.length; i++) {
+                const student = students[i];
+                // Realiza la actualización que necesites, por ejemplo, agregar o eliminar
+                await Account.findOneAndUpdate(
+                    {username: student},
+                    {$pull: { curso: course }},
+                    { new: true, runValidators: true }
+                );
             }
 
             res.status(200).send('Estudiantes eliminados del curso');
