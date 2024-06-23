@@ -266,5 +266,23 @@ module.exports = app => {
         }
     });
 
-
+    app.delete('/curso/:course', async (req, res) => {
+        const curso = req.params.course;
+        const cursoToDelete = await Cursos.findOne({course: curso});
+        if(!cursoToDelete){
+           res.status('404').send('Curso no existe');//Usuario no existe
+           return;
+        }else{
+            console.log('Curso existe');
+            try {
+                await Cursos.deleteOne({ course: curso });
+                res.status(200).send('Curso Eliminado');
+            } catch (err) {
+                console.error(err);
+                res.status(500).send('Error al eliminar el curso');
+            }
+            return;
+        }
+       
+    });
 }
