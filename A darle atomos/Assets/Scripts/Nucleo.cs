@@ -9,11 +9,12 @@ public class Atom : MonoBehaviour
     public int numberOfProtons = 11;
     public int numberOfNeutrons = 12;
     public int numberOfElectrons = 11;
-    public float electronOrbitRadius = 2f;  
-    public float electronOrbitSpeed = 100f;  
+    public float electronOrbitRadius = 2f;
+    public float electronOrbitSpeed = 100f;
 
     private Electron lastCreatedElectron;  // Track the last created electron
     public Image flashImage;
+    public Text explanationText;  // Reference to the UI Text component
 
     void Start()
     {
@@ -62,7 +63,7 @@ public class Atom : MonoBehaviour
 
     void CreateOrbits()
     {
-        int[] energyLevels = new int[] { 2, 8, 8, 18 }; 
+        int[] energyLevels = new int[] { 2, 8, 8, 18 };
         for (int level = 0; level < energyLevels.Length; level++)
         {
             DrawOrbit(electronOrbitRadius + level * 2f);
@@ -92,7 +93,7 @@ public class Atom : MonoBehaviour
 
     void CreateElectrons()
     {
-        int[] energyLevels = new int[] { 2, 8, 8, 18 };  
+        int[] energyLevels = new int[] { 2, 8, 8, 18 };
         int remainingElectrons = numberOfElectrons;
 
         for (int level = 0; level < energyLevels.Length; level++)
@@ -124,6 +125,16 @@ public class Atom : MonoBehaviour
                     else
                     {
                         Debug.LogWarning("Flash Image is not assigned to Atom script.");
+                    }
+
+                    // Asegurar que explanationText esté asignado antes de asignarlo al Electron
+                    if (explanationText != null)
+                    {
+                        electronScript.explanationText = explanationText;  // Asignar la referencia del texto al electron
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Explanation Text is not assigned to Atom script.");
                     }
 
                     electronScript.orbitSpeed = electronOrbitSpeed * (1 - level * 0.1f);
@@ -166,4 +177,3 @@ public class Atom : MonoBehaviour
         }
     }
 }
-
