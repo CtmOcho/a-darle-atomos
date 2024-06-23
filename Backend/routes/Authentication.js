@@ -276,6 +276,10 @@ module.exports = app => {
             console.log('Curso existe');
             try {
                 await Cursos.deleteOne({ course: curso });
+                const result = await Account.updateMany(
+                    { curso: curso },
+                    { $pull: { curso: curso} }
+                );
                 res.status(200).send('Curso Eliminado');
             } catch (err) {
                 console.error(err);
