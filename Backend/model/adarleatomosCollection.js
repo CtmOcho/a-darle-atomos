@@ -11,5 +11,17 @@ const accountSchema = new Schema({
     lastAuth: Date,
 });
 
+const cursosSchema = new Schema({
+    teacher: String,
+    students: {type: Array, default: []},
+    course: String,
+
+    lastUpd: Date,
+});
+
+
+
+mongoose.model('adarleatomosCursos', cursosSchema);
+
 mongoose.model('adarleatomosCollection', accountSchema);
 

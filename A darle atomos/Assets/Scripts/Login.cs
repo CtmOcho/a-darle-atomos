@@ -24,8 +24,13 @@ public class Login : MonoBehaviour
     [SerializeField] private string authenticationEndpointLog = "http://localhost:13756/login";
     [SerializeField] private string authenticationEndpointStudent = "http://localhost:13756/student";
     [SerializeField] private string authenticationEndpointTeacher = "http://localhost:13756/teacher";
+    [SerializeField] private string authenticationEndpointCourses = "http://localhost:13756/curso";
+    [SerializeField] private string authenticationEndpointUpdateCourses = "http://localhost:13756/updateCurso";
+    [SerializeField] private string authenticationEndpointUpdateStudent = "http://localhost:13756/updateStudent";
     [SerializeField] private TMP_InputField usernameInputField;
     [SerializeField] private TMP_InputField passwordInputField;
+    [SerializeField] private TMP_InputField cursoInputField;
+    [SerializeField] private TMP_InputField studentsInputField;
     [SerializeField] private string Flag;
 
     
@@ -41,10 +46,28 @@ public class Login : MonoBehaviour
         StartCoroutine(TryCreateTeacher());
     }
 
+    public void OnCreateCourseClick(){
+        StartCoroutine(TryCreateCourse());
+    }
+
     public void OnDeleteStudentClick(){
         StartCoroutine(TryDeleteStudent());
     }
     
+    public void OnRemoveFromCursoClick(){
+        string inputText = studentsInputField.text;
+        string[] studentsToRemove = inputText.Split(',');
+        StartCoroutine(TryRemoveFromCurso(studentsToRemove));
+    }
+    public void OnInsertInCursoClick(){
+        string inputText = studentsInputField.text;
+        string[] studentsToInsert = inputText.Split(',');
+
+        StartCoroutine(TryInsertInCurso(studentsToInsert));
+    }
+    public void OnUpdateStudentClick(){
+        StartCoroutine(TryUpdateStudent());
+    }
 
     private IEnumerator TryLogin(){
         
@@ -140,6 +163,30 @@ public class Login : MonoBehaviour
 
         }
     }
+    private IEnumerator TryCreateCourse(){
+        string teacher = "teacher"; //cambiar esto por el username en sesion
+        string curso = "curso";//cambiar por el curso que se desea crear
+
+        string url = $"{authenticationEndpointCourses}//{teacher}/{curso}";
+        
+
+        UnityWebRequest request = UnityWebRequest.PostWwwForm(url, "");
+        var handler = request.SendWebRequest();
+
+        float startTime = 0.0f;
+        while(!handler.isDone){
+            startTime += Time.deltaTime;
+            if(startTime > 10.0f){
+                break;
+            }
+            yield return null;
+        }
+
+        long responseCode = request.responseCode; //Devuelve 201 on Success
+        if(request.result == UnityWebRequest.Result.Success){
+            // Ingresar aca lo que se quiera hacer
+        }
+    }
     
     private IEnumerator TryCreateTeacher(){
         string username = usernameInputField.text;    
@@ -228,5 +275,100 @@ public class Login : MonoBehaviour
             yield return null;
         }
         
+    }
+    
+    private IEnumerator TryInsertInCurso(string[] students){
+
+        string curso = cursoInputField.text; //curso donde se quieran insertar los alumnos
+        var jsonData = new
+        {
+            students = students
+        };
+        string json = JsonUtility.ToJson(jsonData);
+
+        UnityWebRequest request = UnityWebRequest.Put($"{authenticationEndpointUpdateCourses}/{curso}/insertStudents",json);
+        var handler = request.SendWebRequest();
+
+        float startTime = 0.0f;
+        while(!handler.isDone){
+            startTime += Time.deltaTime;
+            if(startTime > 10.0f){
+                break;
+            }
+            yield return null;
+        }
+
+        long responseCode = request.responseCode; // devuelve 200 caso OK
+        if(request.result == UnityWebRequest.Result.Success){
+           Debug.Log(request.responseCode);
+        }else{
+            Debug.Log("No se puedo conectar al servidor");
+        }
+
+    }
+
+     private IEnumerator TryRemoveFromCurso(string[] students){
+
+        string curso = cursoInputField.text; //curso donde se quieran eliminar los alumnos
+        var jsonData = new
+        {
+            students = students
+        };
+        string json = JsonUtility.ToJson(jsonData);
+
+        UnityWebRequest request = UnityWebRequest.Put($"{authenticationEndpointUpdateCourses}/{curso}/removeStudents",json);
+        var handler = request.SendWebRequest();
+
+        float startTime = 0.0f;
+        while(!handler.isDone){
+            startTime += Time.deltaTime;
+            if(startTime > 10.0f){
+                break;
+            }
+            yield return null;
+        }
+
+        long responseCode = request.responseCode; // devuelve 200 caso OK
+        if(request.result == UnityWebRequest.Result.Success){
+           Debug.Log(request.responseCode);
+        }else{
+            Debug.Log("No se puedo conectar al servidor");
+        }
+
+    }
+
+    private IEnumerator TryUpdateStudent(){
+        string username = usernameInputField.text;    
+        string password = passwordInputField.text;
+        string sesion = "sesion";
+
+        var jsonData = new
+        {
+            user = username,
+            pass = password
+        };
+
+        string json = JsonUtility.ToJson(jsonData);
+
+        //Reemplazar {sesion} por el usuario de la sesion
+        UnityWebRequest request = UnityWebRequest.Put($"{authenticationEndpointUpdateStudent}/{sesion}",json);
+        var handler = request.SendWebRequest();
+
+        float startTime = 0.0f;
+        while(!handler.isDone){
+            startTime += Time.deltaTime;
+            if(startTime > 10.0f){
+                break;
+            }
+            yield return null;
+        }
+
+        long responseCode = request.responseCode; // Devuelve 200 caso OK
+        if(request.result == UnityWebRequest.Result.Success){
+           Debug.Log(request.responseCode);
+        }else{
+            Debug.Log("No se puedo conectar al servidor");
+        }
+
     }
 }

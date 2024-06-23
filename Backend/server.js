@@ -8,7 +8,10 @@ const mongoose = require('mongoose');
 mongoose.connect( keys.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true});
 //Setting DB models (accounts basically)
 require('./model/adarleatomosCollection.js');
+
+app.use(express.json());
 /*const Account = mongoose.model('adarleatomosCollection');
+
 
 
 app.get('/account', async(req,res) =>{
