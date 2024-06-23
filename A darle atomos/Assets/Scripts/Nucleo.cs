@@ -1,15 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Atom : MonoBehaviour
 {
     public GameObject protonPrefab;
     public GameObject neutronPrefab;
     public GameObject electronPrefab;
-    public int numberOfProtons = 1;
-    public int numberOfNeutrons = 0;
-    public int numberOfElectrons = 1;
-    public float electronOrbitRadius = 2f;  // Ajusta este valor para cambiar el radio de las órbitas de los electrones
-    public float electronOrbitSpeed = 100f;  // Ajusta este valor para cambiar la velocidad de las órbitas de los electrones
+    public int numberOfProtons = 11;
+    public int numberOfNeutrons = 12;
+    public int numberOfElectrons = 11;
+    public float electronOrbitRadius = 2f;  
+    public float electronOrbitSpeed = 100f;  
+
+    private Electron lastCreatedElectron;  // Track the last created electron
+    public Image flashImage;
 
     void Start()
     {
@@ -58,7 +62,7 @@ public class Atom : MonoBehaviour
 
     void CreateOrbits()
     {
-        int[] energyLevels = new int[] { 2, 8, 8, 18 }; // Asegurarse de tener al menos cuatro niveles de energía
+        int[] energyLevels = new int[] { 2, 8, 8, 18 }; 
         for (int level = 0; level < energyLevels.Length; level++)
         {
             DrawOrbit(electronOrbitRadius + level * 2f);
@@ -88,7 +92,7 @@ public class Atom : MonoBehaviour
 
     void CreateElectrons()
     {
-        int[] energyLevels = new int[] { 2, 8, 8, 18 };  // Niveles de energía y su capacidad máxima de electrones
+        int[] energyLevels = new int[] { 2, 8, 8, 18 };  
         int remainingElectrons = numberOfElectrons;
 
         for (int level = 0; level < energyLevels.Length; level++)
@@ -104,24 +108,52 @@ public class Atom : MonoBehaviour
             float angleStep = 360f / electronsInThisLevel;
             for (int i = 0; i < electronsInThisLevel; i++)
             {
-                GameObject electron = Instantiate(electronPrefab, transform);
+                GameObject electronGO = Instantiate(electronPrefab, transform);
                 float angle = angleStep * i;
                 Vector3 position = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), 0, Mathf.Sin(angle * Mathf.Deg2Rad)) * (electronOrbitRadius + level * 2f);
-                electron.transform.localPosition = position;
+                electronGO.transform.localPosition = position;
 
-                Electron electronScript = electron.GetComponent<Electron>();
+                Electron electronScript = electronGO.GetComponent<Electron>();
                 if (electronScript != null)
                 {
-                    electronScript.orbitSpeed = electronOrbitSpeed*(1-level*0.1f);
+                    // Asegurar que flashImage esté asignada antes de asignarla al Electron
+                    if (flashImage != null)
+                    {
+                        electronScript.flashImage = flashImage;  // Asignar la referencia de la imagen al electron
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Flash Image is not assigned to Atom script.");
+                    }
+
+                    electronScript.orbitSpeed = electronOrbitSpeed * (1 - level * 0.1f);
                     electronScript.SetOrbit(transform.position, electronOrbitRadius + level * 2f);
+
+                    lastCreatedElectron = electronScript;  // Track the last created electron
                 }
                 else
                 {
                     Debug.LogWarning("Electron prefab does not have an Electron component attached");
                 }
 
-                DisableCollisions(electron);
+                DisableCollisions(electronGO);
             }
+        }
+    }
+
+    public void ExciteLastElectron()
+    {
+        if (lastCreatedElectron != null)
+        {
+            lastCreatedElectron.ExciteElectron();
+        }
+    }
+
+    public void ReleaseLastElectron()
+    {
+        if (lastCreatedElectron != null)
+        {
+            lastCreatedElectron.ReleaseElectron();
         }
     }
 
@@ -134,3 +166,4 @@ public class Atom : MonoBehaviour
         }
     }
 }
+

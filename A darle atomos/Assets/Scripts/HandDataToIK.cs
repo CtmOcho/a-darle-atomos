@@ -38,8 +38,16 @@ public class HandDataToIK : MonoBehaviour
     public Transform middleTargetAimL;
     public Transform ringTargetAimL;
     public Transform pinkieTargetAimL;
-    Transform leftHandTr;
 
+    public Transform thumbHintAimL;
+    public Transform indexHintAimL;
+    public Transform middleHintAimL;
+    public Transform ringHintAimL;
+    public Transform pinkieHintAimL;
+    Transform leftHandTr;
+    float[] data;
+    int offset0 = 0; // Offset de la primera mitad de datos
+    int offset1 = 0; // Offset de la otra mitad de datos
     void Start()
     {
         rightHandTr = rightHand.transform;
@@ -47,63 +55,73 @@ public class HandDataToIK : MonoBehaviour
 
         wsc = gameObject.GetComponent<WebSocketClient>();
         ws = wsc.GetSocket();
+        data = new float[127];
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        float[] data = wsc.GetHandData();
-        if (data[1] == -1 && data[22] == -1)
+        if (wsc.GetHandData() != null)
         {
-            leftHand.SetActive(false);
-            rightHand.SetActive(false);
-        }
-        else
-        {
-            leftHand.SetActive(true);
-            rightHand.SetActive(true);
-
-            setTargetPosition(leftHandTr, handsPivot, new Vector3(data[0], data[1], data[2]));
-            setTargetPositionAndRotation(wristTargetL, handsPivot, new Vector3(data[0], data[1], data[2]), new Vector3(data[27], data[28], data[29]), new Vector3(data[39], data[40], data[41]), angle);
-            setTargetPosition(thumbTargetL, handsPivot, new Vector3(data[9], data[10], data[11]));
-            setTargetPosition(indexTargetL, handsPivot, new Vector3(data[21], data[22], data[23]));
-            setTargetPosition(middleTargetL, handsPivot, new Vector3(data[33], data[34], data[35]));
-            setTargetPosition(ringTargetL, handsPivot, new Vector3(data[45], data[46], data[47]));
-            setTargetPosition(pinkieTargetL, handsPivot, new Vector3(data[57], data[58], data[59]));
-
-            setTargetPosition(thumbTargetAimL, handsPivot, new Vector3(data[12], data[13], data[14]));
-            setTargetPosition(indexTargetAimL, handsPivot, new Vector3(data[24], data[25], data[26]));
-            setTargetPosition(middleTargetAimL, handsPivot, new Vector3(data[36], data[37], data[38]));
-            setTargetPosition(ringTargetAimL, handsPivot, new Vector3(data[48], data[49], data[50]));
-            setTargetPosition(pinkieTargetAimL, handsPivot, new Vector3(data[60], data[61], data[62]));
-
-            setTargetPosition(rightHandTr, handsPivot, new Vector3(data[63], data[64], data[65]));
-            setTargetPositionAndRotation(wristTargetR, handsPivot, new Vector3(data[63], data[64], data[65]), new Vector3(data[78], data[79], data[80]), new Vector3(data[90], data[91], data[92]), angle);
-            setTargetPosition(thumbTargetR, handsPivot, new Vector3(data[72], data[73], data[74]));
-            setTargetPosition(indexTargetR, handsPivot, new Vector3(data[84], data[85], data[86]));
-            setTargetPosition(middleTargetR, handsPivot, new Vector3(data[96], data[97], data[98]));
-            setTargetPosition(ringTargetR, handsPivot, new Vector3(data[108], data[109], data[110]));
-            setTargetPosition(pinkieTargetR, handsPivot, new Vector3(data[120], data[121], data[122]));
-                
-            setTargetPosition(thumbTargetAimR, handsPivot, new Vector3(data[75], data[76], data[77]));
-            setTargetPosition(indexTargetAimR, handsPivot, new Vector3(data[87], data[88], data[89]));
-            setTargetPosition(middleTargetAimR, handsPivot, new Vector3(data[99], data[100], data[101]));
-            setTargetPosition(ringTargetAimR, handsPivot, new Vector3(data[111], data[112], data[113]));
-            setTargetPosition(pinkieTargetAimR, handsPivot, new Vector3(data[123], data[124], data[125]));
+            data = wsc.GetHandData();
+            if ((int)data[126] == 1)
+            {
+                offset0 = 0;
+                offset1 = 63;
+            }
+            else
+            {
+                offset0 = 63;
+                offset1 = 0;
+            }
+            setHandTargetPosAndRot(leftHandTr, thumbTargetL, indexTargetL, middleTargetL, ringTargetL, pinkieTargetL, handsPivot, data, offset0);
+            setHandTargetPosAndRot(rightHandTr, thumbTargetR, indexTargetR, middleTargetR, ringTargetR, pinkieTargetR, handsPivot, data, offset1);
+            setFingersHintPos(leftHandTr,thumbHintAimL,indexHintAimL,middleHintAimL,ringHintAimL,pinkieHintAimL);
+            setTargetPositionAndRotation(wristTargetL, handsPivot, new Vector3(data[0 + offset0], data[1 + offset0], data[2 + offset0]), new Vector3(data[27 + offset0], data[28 + offset0], data[29+ offset0]), new Vector3(data[15 + offset0], data[16 + offset0], data[17 + offset0]), new Vector3(data[51 + offset0], data[52 + offset0], data[53 + offset0]));
+            setTargetPositionAndRotation(wristTargetR, handsPivot, new Vector3(data[0 + offset1], data[1 + offset1], data[2 + offset1]), new Vector3(data[27 + offset1], data[28 + offset1], data[29 + offset1]), new Vector3(data[51 + offset1], data[52 + offset1], data[53 + offset1]), new Vector3(data[15 + offset1], data[16 + offset1], data[17 + offset1]));
+            setFingersAimPos(thumbTargetAimL, indexTargetAimL, middleTargetAimL, ringTargetAimL, pinkieTargetAimL, handsPivot, data, offset0);
+            setFingersAimPos(thumbTargetAimR, indexTargetAimR, middleTargetAimR, ringTargetAimR, pinkieTargetAimR, handsPivot, data, offset1);
         }
     }
     void setTargetPosition(Transform target, Transform pivot, Vector3 A)
     {
         target.position = pivot.TransformPoint(A);
     }
-    void setTargetPositionAndRotation(Transform target, Transform pivot, Vector3 A, Vector3 B, Vector3 C, float angle)
+    void setTargetPositionAndRotation(Transform target, Transform pivot, Vector3 O, Vector3 B, Vector3 C, Vector3 D)
     {
-        target.position = pivot.TransformPoint(A);
-        Vector3 direction = target.position - pivot.TransformPoint(B);
-        Vector3 upward = -Vector3.Cross(direction, pivot.TransformPoint(C)).normalized;
-        if (direction != Vector3.zero) {
-            target.rotation = Quaternion.LookRotation(direction,upward);
+        target.position = pivot.TransformPoint(O);
+        Vector3 BO = pivot.TransformPoint(O) - pivot.TransformPoint(B); //Direction vec
+        Vector3 CO = pivot.TransformPoint(O) - pivot.TransformPoint(C);
+        Vector3 DO = pivot.TransformPoint(O) - pivot.TransformPoint(D);
+        if (BO != Vector3.zero && CO != Vector3.zero) {
+            Vector3 upwardBO = -Vector3.Cross(CO, DO);
+            target.rotation = Quaternion.LookRotation(BO, upwardBO);
         }
+    }
+    void setHandTargetPosAndRot(Transform wrist, Transform thumb, Transform index, Transform middle, Transform ring, Transform pinkie, Transform pivot, float[] data, int offset)
+    {
+        setTargetPosition(wrist, pivot, new Vector3(data[0 + offset], data[1 + offset], data[2 + offset]));
+        setTargetPosition(thumb, pivot, new Vector3(data[9 + offset], data[10 + offset], data[11 + offset]));
+        setTargetPosition(index, pivot, new Vector3(data[21 + offset], data[22 + offset], data[23 + offset]));
+        setTargetPosition(middle, pivot, new Vector3(data[33 + offset], data[34 + offset], data[35 + offset]));
+        setTargetPosition(ring, pivot, new Vector3(data[45 + offset], data[46 + offset], data[47 + offset]));
+        setTargetPosition(pinkie, pivot, new Vector3(data[57 + offset], data[58 + offset], data[59 + offset]));
+    }
+    void setFingersAimPos(Transform thumb, Transform index, Transform middle, Transform ring, Transform pinkie, Transform pivot, float[] data, int offset)
+    {
+        setTargetPosition(thumb, pivot, new Vector3(data[12 + offset], data[13 + offset], data[14 + offset]));
+        setTargetPosition(index, pivot, new Vector3(data[24 + offset], data[25 + offset], data[26 + offset]));
+        setTargetPosition(middle, pivot, new Vector3(data[36 + offset], data[37 + offset], data[38 + offset]));
+        setTargetPosition(ring, pivot, new Vector3(data[48 + offset], data[49 + offset], data[50 + offset]));
+        setTargetPosition(pinkie, pivot, new Vector3(data[60 + offset], data[61 + offset], data[62 + offset]));
+    }
+    void setFingersHintPos(Transform hand,Transform thumb, Transform index, Transform middle, Transform ring, Transform pinkie)
+    {
+        thumb.position = hand.GetChild(1).transform.GetChild(0).transform.GetChild(0).position;
+        index.position = hand.GetChild(1).transform.GetChild(1).transform.GetChild(0).position;
+        middle.position = hand.GetChild(1).transform.GetChild(2).transform.GetChild(0).position;
+        ring.position = hand.GetChild(1).transform.GetChild(3).transform.GetChild(0).position;
+        pinkie.position = hand.GetChild(1).transform.GetChild(4).transform.GetChild(0).position;
     }
 }
 
