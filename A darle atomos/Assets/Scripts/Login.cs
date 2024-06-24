@@ -98,6 +98,7 @@ public class Login : MonoBehaviour
                 SessionData.username = loginResponse.username;
                 SessionData.progreso = loginResponse.progreso;
                 SessionData.curso = new List<string>(loginResponse.curso); // Convertir array a lista
+                SessionData.type = loginResponse.type;
                 if(loginResponse.type == "E"){
 
                 navigation = gameObject.AddComponent<Navigation>();

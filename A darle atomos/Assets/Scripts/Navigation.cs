@@ -22,7 +22,14 @@ namespace Navigation1{
             return PlayerPrefs.GetString("LastScene", ""); // Retorna una cadena vacía si no hay valor guardado
             }
 
+        public void BackFromLab(){
+            if (SessionData.type == "E"){
+                SceneManager.LoadScene("Experiencias_alumnos");
+            }else{
+                SceneManager.LoadScene("Experiencia_profesores");
+            }
         }
+        }  
 
 }
 

@@ -80,4 +80,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu Home/Borrar_estudiante.unity
     guid: 5416928329c95724dbfde52b623ecfa3
+  - enabled: 1
+    path: Assets/Scenes/Actividad Template.unity
+    guid: 3b4f7b536a2f1cf4699e56a4bd286fd9
+  - enabled: 1
+    path: Assets/Scenes/escena_bohr.unity
+    guid: 2d9a1b20de4b17945ad8a56b00b4c748
   m_configObjects: {}
