@@ -7,7 +7,10 @@ using UnityEngine.SceneManagement;
 namespace Navigation1{
 
     public class Navigation : MonoBehaviour
+        
         {
+
+            public GameObject camera;
         public void LoadScene(string sceneName)
             {
             // Guardar el nombre de la escena actual en PlayerPrefs antes de cambiar
@@ -22,7 +25,12 @@ namespace Navigation1{
             return PlayerPrefs.GetString("LastScene", ""); // Retorna una cadena vacía si no hay valor guardado
             }
 
+
+ public void SendToDatabase(){
+        camera.GetComponent<Login>().OnPutStudentProgress();
+    }
         public void BackFromLab(){
+            
             if (SessionData.type == "E"){
                 SceneManager.LoadScene("Experiencias_alumnos");
             }else{

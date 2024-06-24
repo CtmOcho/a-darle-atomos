@@ -23,6 +23,7 @@ module.exports = app => {
             return;
         }else{
             if (pass == userAccount.password){
+               console.log("Inicio de Sesión",userAccount);
                 res.status(200).send(userAccount);
                 userAccount.lastAuth = Date.now();
                 await userAccount.save();
@@ -53,7 +54,7 @@ module.exports = app => {
                 lastAuth: Date.now(),
             });
             await newAccount.save();
-
+            console.log("Usuario Creado",userAccount);
             res.status('201').send('Usuario Creado');
             return;
         }else{
@@ -80,7 +81,7 @@ module.exports = app => {
                 lastAuth: Date.now(),
             });
             await newAccount.save();
-
+            console.log("Usuario Creado",userAccount);
             res.status('201').send('Usuario Creado');
             return;
         }else{
@@ -128,6 +129,7 @@ module.exports = app => {
                 res.status(404).send('Usuario no encontrado');
                 return;
             }
+            console.log("Progress Increased",updateUser)
             res.status(200).send(updateUser);
         } catch (err) {
             console.error(err);

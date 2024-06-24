@@ -81,6 +81,10 @@ public class Login : MonoBehaviour
         StartCoroutine(TryGetStudentsFromCurso());
     }
 
+    public void OnPutStudentProgress(){
+        StartCoroutine(TryPutStudentProgress());
+    }
+
     private IEnumerator TryLogin(){
         
         string flag = Flag;
@@ -419,5 +423,39 @@ public class Login : MonoBehaviour
             Debug.Log("No se puedo conectar al servidor");
         }
         yield return null;
+    }
+
+
+    private IEnumerator TryPutStudentProgress(){
+        string username = SessionData.username;    
+
+        var jsonData = new
+        {
+            user = username,
+        };
+
+        string json = JsonUtility.ToJson(jsonData);
+
+        //Reemplazar {sesion} por el usuario de la sesion
+        UnityWebRequest request = UnityWebRequest.Put($"{authenticationEndpointUpdateStudent}/{username}/prog",json);
+        var handler = request.SendWebRequest();
+
+        float startTime = 0.0f;
+        while(!handler.isDone){
+            startTime += Time.deltaTime;
+            if(startTime > 10.0f){
+                break;
+            }
+            yield return null;
+        }
+
+        long responseCode = request.responseCode; // Devuelve 200 caso OK
+        Debug.Log(request.responseCode);
+
+        if(responseCode == 200){
+           Debug.Log(request.responseCode);
+        }else{
+            Debug.Log("No se puedo conectar al servidor");
+        }
     }
 }
