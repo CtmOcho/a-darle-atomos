@@ -20,6 +20,14 @@ public class Login : MonoBehaviour
         public string type;
     }
 
+     [System.Serializable]
+    public class Curso
+    {
+        public string course;
+        public string teacher;
+        public string[] students;
+    }
+
     public Navigation1.Navigation navigation;
     [SerializeField] private string authenticationEndpointLog = "http://localhost:13756/login";
     [SerializeField] private string authenticationEndpointStudent = "http://localhost:13756/student";
@@ -67,6 +75,10 @@ public class Login : MonoBehaviour
     }
     public void OnUpdateStudentClick(){
         StartCoroutine(TryUpdateStudent());
+    }
+
+    public void OnGetStudentsFromCursoClick(){
+        StartCoroutine(TryGetStudentsFromCurso());
     }
 
     private IEnumerator TryLogin(){
@@ -370,5 +382,41 @@ public class Login : MonoBehaviour
             Debug.Log("No se puedo conectar al servidor");
         }
 
+    }
+    
+    private IEnumerator TryGetStudentsFromCurso(){
+
+        string curso = cursoInputField.text;
+        string url = $"{authenticationEndpointCourses}/students/{curso}";
+
+        UnityWebRequest request = UnityWebRequest.Get(url);
+        var handler = request.SendWebRequest();
+
+        float startTime = 0.0f;
+        while(!handler.isDone){
+            startTime += Time.deltaTime;
+            if(startTime > 20.0f){
+                break;
+            }
+            yield return null;
+        }
+
+        long responseCode = request.responseCode;
+        if(request.result == UnityWebRequest.Result.Success){
+            Debug.Log(responseCode);
+            if(responseCode == 200){
+                string responseText = request.downloadHandler.text;
+                Curso Response = JsonUtility.FromJson<Curso>(responseText);
+                // 
+                //SessionData.curso = new List<string>(Response.curso); // Convertir array a lista
+            
+            }
+
+
+
+        }else{
+            Debug.Log("No se puedo conectar al servidor");
+        }
+        yield return null;
     }
 }
