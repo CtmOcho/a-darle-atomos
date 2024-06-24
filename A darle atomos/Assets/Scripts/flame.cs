@@ -19,6 +19,8 @@ public class flame : MonoBehaviour
     public float flameStrength;
     public int targetColor;
     
+    bool knobIsPressed;
+    bool isOn;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,7 @@ public class flame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (knob.hasChanged)
         {
             Vector3 knob_euler_angles = knob.transform.localEulerAngles;
@@ -48,6 +51,27 @@ public class flame : MonoBehaviour
                 knob.hasChanged = false;
             }
         }
+        */
+        if (knobIsPressed)
+        {
+            if (!isOn)
+            {
+                vfx.SetInt("spawn_rate", 0);
+                light.intensity = 0;
+            }
+            else
+            {
+                vfx.SetInt("spawn_rate", 100000);
+                vfx.SetFloat("Flame Strength", 1);
+                light.intensity = Mathf.Lerp(100, 200, 1);
+            }
+        }
+    }
+
+    public void KnobState(bool knobState)
+    {
+        knobIsPressed = knobState;
+        if(knobState) isOn = !isOn;
     }
     
     void OnTriggerEnter(Collider other){

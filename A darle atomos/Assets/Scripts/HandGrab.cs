@@ -61,7 +61,7 @@ public class HandController : MonoBehaviour
         rThumbToIndexDist = rThumbFingerTip.position - rIndexFingerTip.position;
         rWristToMiddleDist = rWrist.position - rMiddleFingerTip.position;
         rWristToRingDist = rWrist.position - rRingFingerTip.position;
-        if (lThumbToIndexDist.magnitude < distanceThreshold * 0.8f || lWristToMiddleDist.magnitude < distanceThreshold || lWristToRingDist.magnitude < distanceThreshold)
+        if (lThumbToIndexDist.magnitude < distanceThreshold * 0.9f || lWristToMiddleDist.magnitude < distanceThreshold || lWristToRingDist.magnitude < distanceThreshold)
         {
             //Debug.DrawRay(lIndexFingerTip.position, lThumbToIndexDist, Color.white);
             //Debug.DrawRay(lMiddleFingerTip.position, lWristToMiddleDist, Color.white);
@@ -72,7 +72,7 @@ public class HandController : MonoBehaviour
                 lCurrentObject = hit.transform;
                 lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = false;
-                lCurrentObject.parent = lThumbFingerTip;
+                lCurrentObject.parent = lIndexFingerTip;
             }
             else if (Physics.Raycast(lMiddleFingerTip.position, lWristToMiddleDist, out hit, distanceThreshold, grabbableLayer))
             {
@@ -102,7 +102,7 @@ public class HandController : MonoBehaviour
             }
         }
 
-        if (rThumbToIndexDist.magnitude < distanceThreshold*0.8f || rWristToMiddleDist.magnitude < distanceThreshold || rWristToRingDist.magnitude < distanceThreshold)
+        if (rThumbToIndexDist.magnitude < distanceThreshold*0.9f || rWristToMiddleDist.magnitude < distanceThreshold || rWristToRingDist.magnitude < distanceThreshold)
         {
             //Debug.DrawRay(lIndexFingerTip.position, lThumbToIndexDist, Color.white);
             //Debug.DrawRay(lMiddleFingerTip.position, lWristToMiddleDist, Color.white);
@@ -113,7 +113,7 @@ public class HandController : MonoBehaviour
                 rCurrentObject = hit.transform;
                 rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = false;
-                rCurrentObject.parent = rThumbFingerTip;
+                rCurrentObject.parent = rIndexFingerTip;
             }
             else if (Physics.Raycast(rMiddleFingerTip.position, rWristToMiddleDist, out hit, distanceThreshold, grabbableLayer))
             {
