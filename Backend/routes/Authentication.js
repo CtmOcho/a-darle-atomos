@@ -23,7 +23,7 @@ module.exports = app => {
             return;
         }else{
             if (pass == userAccount.password){
-                res.status(200).send('Creacion Usuario');
+                res.status(200).send(userAccount);
                 userAccount.lastAuth = Date.now();
                 await userAccount.save();
                 return;
