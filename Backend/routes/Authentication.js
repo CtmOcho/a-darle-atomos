@@ -116,6 +116,25 @@ module.exports = app => {
         }
     });
 
+    app.put('/updateStudent/:user/prog',async(req,res) => {
+        const search = req.params.user;
+        try {
+            const updateUser = await Account.findOneAndUpdate(
+                { username: search },
+                { $inc: {progress: 1} },
+                { new: true, runValidators: true }
+            );
+            if (!updateUser) {
+                res.status(404).send('Usuario no encontrado');
+                return;
+            }
+            res.status(200).send(updateUser);
+        } catch (err) {
+            console.error(err);
+            res.status(500).send('Error al actualizar el usuario');
+        }
+    });
+
     app.delete('/student/:user', async (req, res) => {
         const user = req.params.user;
         const userToDelete = await Account.findOne({username: user});
