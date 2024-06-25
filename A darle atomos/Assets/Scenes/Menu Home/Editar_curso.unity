@@ -597,6 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980cb3f0314792f4c90af34097f5cd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
 --- !u!114 &344407966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -678,6 +679,7 @@ RectTransform:
   - {fileID: 972831919}
   - {fileID: 1274201914}
   - {fileID: 670762441}
+  - {fileID: 503575743}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1008,6 +1010,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441652943}
   m_CullTransparentMesh: 1
+--- !u!1 &503575742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 503575743}
+  - component: {fileID: 503575744}
+  m_Layer: 5
+  m_Name: Datamanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &503575743
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503575742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 344407969}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &503575744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503575742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d60d813b7ad5fe47afd9fbd35035190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText: {fileID: 0}
+  studentDropdown: {fileID: 0}
+  courseDropdown: {fileID: 670762442}
+  fieldToDisplay: 2
+  studentScrollViewContent: {fileID: 0}
+  studentTextPrefab: {fileID: 0}
+  loginfunc: {fileID: 0}
 --- !u!1 &670762440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,6 +1077,7 @@ GameObject:
   - component: {fileID: 670762444}
   - component: {fileID: 670762443}
   - component: {fileID: 670762442}
+  - component: {fileID: 670762445}
   m_Layer: 5
   m_Name: Dropdown
   m_TagString: Untagged
@@ -1046,7 +1104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 255, y: 110}
+  m_AnchoredPosition: {x: 255, y: 141}
   m_SizeDelta: {x: 700.6705, y: 66.9484}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &670762442
@@ -1147,6 +1205,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670762440}
   m_CullTransparentMesh: 1
+--- !u!114 &670762445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670762440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d60d813b7ad5fe47afd9fbd35035190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText: {fileID: 0}
+  studentDropdown: {fileID: 0}
+  courseDropdown: {fileID: 0}
+  fieldToDisplay: 2
+  studentScrollViewContent: {fileID: 0}
+  studentTextPrefab: {fileID: 0}
+  loginfunc: {fileID: 0}
 --- !u!1 &865948302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,7 +1503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -215}
+  m_AnchoredPosition: {x: 0, y: -191}
   m_SizeDelta: {x: 962.8, y: 172.4675}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &972831920
@@ -1473,16 +1550,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 344407965}
-        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 1633108565}
+        m_TargetAssemblyTypeName: Login, Assembly-CSharp
+        m_MethodName: OnGetStudentsFromCursoClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Editar_curso2
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &972831921
@@ -2010,7 +2087,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -256, y: 100}
+  m_AnchoredPosition: {x: -256, y: 131}
   m_SizeDelta: {x: 1821.4136, y: 316.6168}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1339769609
@@ -2158,6 +2235,7 @@ GameObject:
   - component: {fileID: 1633108563}
   - component: {fileID: 1633108562}
   - component: {fileID: 1633108561}
+  - component: {fileID: 1633108565}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2368,6 +2446,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1633108565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633108560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1e7045838e0db4a8705d571fe59540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navigation: {fileID: 0}
+  authenticationEndpointLog: http://localhost:13756/login
+  authenticationEndpointStudent: http://localhost:13756/student
+  authenticationEndpointTeacher: http://localhost:13756/teacher
+  authenticationEndpointCourses: http://localhost:13756/curso
+  authenticationEndpointUpdateCourses: http://localhost:13756/updateCurso
+  authenticationEndpointUpdateStudent: http://localhost:13756/updateStudent
+  usernameInputField: {fileID: 0}
+  passwordInputField: {fileID: 0}
+  cursoInputField: {fileID: 0}
+  studentsInputField: {fileID: 0}
+  nivelInputField: {fileID: 0}
+  letraInputField: {fileID: 0}
+  Flag: 
 --- !u!1 &1653853164
 GameObject:
   m_ObjectHideFlags: 0

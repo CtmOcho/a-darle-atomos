@@ -942,7 +942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1eb09f5a84caf3048ac7ef1a63f8051d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.262
+      value: -0.294
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1eb09f5a84caf3048ac7ef1a63f8051d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4873,6 +4873,8 @@ MonoBehaviour:
   passwordInputField: {fileID: 0}
   cursoInputField: {fileID: 0}
   studentsInputField: {fileID: 0}
+  nivelInputField: {fileID: 0}
+  letraInputField: {fileID: 0}
   Flag: 
 --- !u!1 &985324749
 GameObject:
@@ -8160,15 +8162,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d9eaff9d3370c9b4a9fc63e26182fb71, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.609
+      value: -0.769
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d9eaff9d3370c9b4a9fc63e26182fb71, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.982
+      value: 0.954
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d9eaff9d3370c9b4a9fc63e26182fb71, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.209
+      value: -0.212
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d9eaff9d3370c9b4a9fc63e26182fb71, type: 3}
       propertyPath: m_LocalRotation.w

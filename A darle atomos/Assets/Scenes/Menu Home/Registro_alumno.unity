@@ -334,8 +334,15 @@ MonoBehaviour:
   authenticationEndpointLog: http://localhost:13756/login
   authenticationEndpointStudent: http://localhost:13756/student
   authenticationEndpointTeacher: http://localhost:13756/teacher
+  authenticationEndpointCourses: http://localhost:13756/curso
+  authenticationEndpointUpdateCourses: http://localhost:13756/updateCurso
+  authenticationEndpointUpdateStudent: http://localhost:13756/updateStudent
   usernameInputField: {fileID: 1529691157}
   passwordInputField: {fileID: 1842385712}
+  cursoInputField: {fileID: 0}
+  studentsInputField: {fileID: 0}
+  nivelInputField: {fileID: 0}
+  letraInputField: {fileID: 0}
   Flag: E
 --- !u!114 &117253096
 MonoBehaviour:
@@ -2309,10 +2316,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 117253095}
-        m_TargetAssemblyTypeName: Login, Assembly-CSharp
-        m_MethodName: OnCreateStudentClick
-        m_Mode: 1
+      - m_Target: {fileID: 1732557490}
+        m_TargetAssemblyTypeName: Navigation1.Navigation, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

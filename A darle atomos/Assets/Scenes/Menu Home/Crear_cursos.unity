@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 233449889}
   - component: {fileID: 233449888}
   m_Layer: 5
-  m_Name: InputField (TMP)
+  m_Name: NIvel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -343,14 +343,14 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_RegexValue: 
   m_GlobalPointSize: 80
   m_CharacterLimit: 0
@@ -764,6 +764,7 @@ GameObject:
   - component: {fileID: 451205835}
   - component: {fileID: 451205834}
   - component: {fileID: 451205837}
+  - component: {fileID: 451205838}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -974,6 +975,32 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &451205838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451205833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1e7045838e0db4a8705d571fe59540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navigation: {fileID: 0}
+  authenticationEndpointLog: http://localhost:13756/login
+  authenticationEndpointStudent: http://localhost:13756/student
+  authenticationEndpointTeacher: http://localhost:13756/teacher
+  authenticationEndpointCourses: http://localhost:13756/curso
+  authenticationEndpointUpdateCourses: http://localhost:13756/updateCurso
+  authenticationEndpointUpdateStudent: http://localhost:13756/updateStudent
+  usernameInputField: {fileID: 0}
+  passwordInputField: {fileID: 0}
+  cursoInputField: {fileID: 0}
+  studentsInputField: {fileID: 0}
+  nivelInputField: {fileID: 233449888}
+  letraInputField: {fileID: 1003660901}
+  Flag: 
 --- !u!1 &589656615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,7 +1706,7 @@ GameObject:
   - component: {fileID: 1003660902}
   - component: {fileID: 1003660901}
   m_Layer: 5
-  m_Name: InputField (TMP) (2)
+  m_Name: Letra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1753,8 +1780,8 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 7
-  m_InputType: 2
+  m_ContentType: 0
+  m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -2294,16 +2321,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1688984907}
-        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 451205838}
+        m_TargetAssemblyTypeName: Login, Assembly-CSharp
+        m_MethodName: OnCreateCourseClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Editor_cursos
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1304432397

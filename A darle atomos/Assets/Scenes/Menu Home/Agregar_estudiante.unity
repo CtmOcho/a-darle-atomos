@@ -472,10 +472,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1730208968}
-        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 514302185}
+        m_TargetAssemblyTypeName: Login, Assembly-CSharp
+        m_MethodName: OnInsertInCursoClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -534,6 +534,7 @@ GameObject:
   - component: {fileID: 514302182}
   - component: {fileID: 514302181}
   - component: {fileID: 514302184}
+  - component: {fileID: 514302185}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -744,6 +745,32 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &514302185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514302180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1e7045838e0db4a8705d571fe59540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navigation: {fileID: 0}
+  authenticationEndpointLog: http://localhost:13756/login
+  authenticationEndpointStudent: http://localhost:13756/student
+  authenticationEndpointTeacher: http://localhost:13756/teacher
+  authenticationEndpointCourses: http://localhost:13756/curso
+  authenticationEndpointUpdateCourses: http://localhost:13756/updateCurso
+  authenticationEndpointUpdateStudent: http://localhost:13756/updateStudent
+  usernameInputField: {fileID: 0}
+  passwordInputField: {fileID: 0}
+  cursoInputField: {fileID: 0}
+  studentsInputField: {fileID: 1518333236}
+  nivelInputField: {fileID: 0}
+  letraInputField: {fileID: 0}
+  Flag: 
 --- !u!1 &613101393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,8 +1924,8 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 7
-  m_InputType: 2
+  m_ContentType: 0
+  m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -2145,7 +2172,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Experiencias_alumnos
+          m_StringArgument: Editar_curso
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1710215961

@@ -313,11 +313,12 @@ module.exports = app => {
     app.get('/curso/students/:course', async(req,res) =>{
         const curso = req.params.course;
         var getCurso = await Cursos.findOne({course: curso});
-        console.log(getCurso);
+
         if (getCurso == null){
             res.status('404').send('Curso no encontrado');
             return;
         }else{
+            console.log(getCurso.students);
             res.status('200').send(getCurso.students);
         }
     });

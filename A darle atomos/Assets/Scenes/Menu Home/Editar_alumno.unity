@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 143518115}
   - component: {fileID: 143518114}
   m_Layer: 5
-  m_Name: InputField (TMP) (2)
+  m_Name: password
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -780,6 +780,7 @@ GameObject:
   - component: {fileID: 319876280}
   - component: {fileID: 319876279}
   - component: {fileID: 319876282}
+  - component: {fileID: 319876283}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -990,6 +991,32 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &319876283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319876278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1e7045838e0db4a8705d571fe59540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navigation: {fileID: 0}
+  authenticationEndpointLog: http://localhost:13756/login
+  authenticationEndpointStudent: http://localhost:13756/student
+  authenticationEndpointTeacher: http://localhost:13756/teacher
+  authenticationEndpointCourses: http://localhost:13756/curso
+  authenticationEndpointUpdateCourses: http://localhost:13756/updateCurso
+  authenticationEndpointUpdateStudent: http://localhost:13756/updateStudent
+  usernameInputField: {fileID: 1848732416}
+  passwordInputField: {fileID: 143518114}
+  cursoInputField: {fileID: 0}
+  studentsInputField: {fileID: 0}
+  nivelInputField: {fileID: 0}
+  letraInputField: {fileID: 0}
+  Flag: 
 --- !u!1001 &488963294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2039,16 +2066,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1553918067}
-        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 319876283}
+        m_TargetAssemblyTypeName: Login, Assembly-CSharp
+        m_MethodName: OnUpdateStudentClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Perfil_estudiante
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1690322028
@@ -2102,7 +2129,7 @@ GameObject:
   - component: {fileID: 1848732417}
   - component: {fileID: 1848732416}
   m_Layer: 5
-  m_Name: InputField (TMP)
+  m_Name: username
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

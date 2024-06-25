@@ -86,4 +86,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/escena_bohr.unity
     guid: 2d9a1b20de4b17945ad8a56b00b4c748
+  - enabled: 1
+    path: Assets/Scenes/Menu Home/Mis_cursos.unity
+    guid: dd5f9fb2480f0214f8af17c0130fc086
+  - enabled: 1
+    path: Assets/Scenes/Menu Home/Mis_cursos2.unity
+    guid: 7e61cec509a77a148ad43f76668d17d5
   m_configObjects: {}
