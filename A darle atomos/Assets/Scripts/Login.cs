@@ -303,53 +303,93 @@ public class Login : MonoBehaviour
         yield return null;
     }
     
-        private IEnumerator TryDeleteStudent(){
-            string username = usernameInputField.text;    
+    private IEnumerator TryDeleteStudent()
+    {
+        string username = usernameInputField.text;
+        Debug.Log(SessionData.username);
+        Debug.Log(username);
 
-            if(SessionData.username == username){
+
+        if (SessionData.username == username)
+        {
+            Debug.Log(SessionData.type);
+            if (SessionData.type == "E")
+            {
                 UnityWebRequest request = UnityWebRequest.Delete($"{authenticationEndpointStudent}/{username}");
-                var handler = request.SendWebRequest();
+                UnityWebRequestAsyncOperation handler = request.SendWebRequest();
 
                 float startTime = 0.0f;
-                while(!handler.isDone){
+                while (!handler.isDone)
+                {
                     startTime += Time.deltaTime;
-                    if(startTime > 10.0f){
+                    if (startTime > 20.0f)
+                    {
                         break;
                     }
                     yield return null;
                 }
 
                 long responseCode = request.responseCode;
-                if(request.result == UnityWebRequest.Result.Success){
+                if (request.result == UnityWebRequest.Result.Success)
+                {
                     Debug.Log(responseCode);
-                    if(responseCode == 200){
-    
+                    if (responseCode == 200)
+                    {
                         Debug.Log("El usuario fue eliminado");
-        
-                        navigation = gameObject.AddComponent<Navigation>();
 
+                        Navigation navigation = gameObject.AddComponent<Navigation>();
                         navigation.LoadScene("Home1");
-
-
-                    
                     }
-                    else{
+                    else
+                    {
                         Debug.Log("No se pudo eliminar");
-                    }     
-
+                    }
+                }
             }
+            else
+            {
 
+                UnityWebRequest request = UnityWebRequest.Delete($"{authenticationEndpointStudent}/{username}");
+                UnityWebRequestAsyncOperation handler = request.SendWebRequest();
 
-            else{
-                Debug.Log("No se puedo conectar al servidor");
+                float startTime = 0.0f;
+                while (!handler.isDone)
+                {
+                    startTime += Time.deltaTime;
+                    if (startTime > 20.0f)
+                    {
+                        break;
+                    }
+                    yield return null;
+                }
+                Debug.Log("Entre");
+                long responseCode = request.responseCode;
+                Debug.Log(responseCode);
+                if (request.result == UnityWebRequest.Result.Success)
+                {
+                    Debug.Log(responseCode);
+                    if (responseCode == 200)
+                    {
+                        Debug.Log("El usuario fue eliminado");
+
+                        Navigation navigation = gameObject.AddComponent<Navigation>();
+                        navigation.LoadScene("Home2");
+                    }
+                    else
+                    {
+                        Debug.Log("No se pudo eliminar");
+                    }
+                }
             }
-
-
-
-            yield return null;
         }
-        
+        else
+        {
+            Debug.Log("No se pudo conectar al servidor");
+        }
+
+        yield return null;
     }
+
     
     private IEnumerator TryInsertInCurso(string[] students){
 

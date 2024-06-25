@@ -92,4 +92,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu Home/Mis_cursos2.unity
     guid: 7e61cec509a77a148ad43f76668d17d5
+  - enabled: 1
+    path: Assets/Scenes/Menu Home/Borrar_profesor.unity
+    guid: 926b62931536d674588b428b17d66468
   m_configObjects: {}
