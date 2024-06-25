@@ -106,6 +106,10 @@ public class Login : MonoBehaviour
         StartCoroutine(TryPutStudentProgress());
     }
 
+    public void OnGetStudentProgress(){
+        StartCoroutine(TryGetStudentProgress());
+    }
+
     private IEnumerator TryLogin(){
         
         string flag = Flag;
@@ -686,4 +690,38 @@ public class Login : MonoBehaviour
             Debug.Log("No se puedo conectar al servidor");
         }
     }
+
+    private IEnumerator TryGetStudentProgress(){
+        string username = usernameInputField.text;    
+        string url = $"{authenticationEndpointStudent}/{username}/prog";
+
+        UnityWebRequest request = UnityWebRequest.Get(url);
+        var handler = request.SendWebRequest();
+
+        float startTime = 0.0f;
+        while(!handler.isDone){
+            startTime += Time.deltaTime;
+            if(startTime > 20.0f){
+                break;
+            }
+            yield return null;
+        }
+
+        long responseCode = request.responseCode;
+        if(request.result == UnityWebRequest.Result.Success){
+            Debug.Log(responseCode);
+            if(responseCode == 200){
+                
+            
+
+            }
+
+
+
+        }else{
+            Debug.Log("No existe el usuario");
+        }
+        yield return null;
+    }
+
 }

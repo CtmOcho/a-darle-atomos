@@ -23,7 +23,6 @@ module.exports = app => {
             return;
         }else{
             if (pass == userAccount.password){
-               console.log("Inicio de Sesión",userAccount);
                 res.status(200).send(userAccount);
                 userAccount.lastAuth = Date.now();
                 await userAccount.save();
@@ -54,7 +53,7 @@ module.exports = app => {
                 lastAuth: Date.now(),
             });
             await newAccount.save();
-            console.log("Usuario Creado",userAccount);
+
             res.status('201').send('Usuario Creado');
             return;
         }else{
@@ -81,7 +80,7 @@ module.exports = app => {
                 lastAuth: Date.now(),
             });
             await newAccount.save();
-            console.log("Usuario Creado",userAccount);
+
             res.status('201').send('Usuario Creado');
             return;
         }else{
@@ -99,6 +98,7 @@ module.exports = app => {
         if (pass !== null) updateFields.password = pass;
 
         try {
+            
             const updateUser = await Account.findOneAndUpdate(
                 { username: search },
                 {$set: updateFields },
@@ -109,6 +109,12 @@ module.exports = app => {
                 res.status(404).send('Usuario no encontrado');
                 return;
             }
+            updateFields.students = updateFields.username;
+            await Cursos.findOneAndUpdate(
+                {students: search},
+                {$set: {"students.$":updateFields.students}},
+                { new: true, runValidators: true }
+            );
     
             res.status(200).send(updateUser);
         } catch (err) {
@@ -129,7 +135,6 @@ module.exports = app => {
                 res.status(404).send('Usuario no encontrado');
                 return;
             }
-            console.log("Progress Increased",updateUser)
             res.status(200).send(updateUser);
         } catch (err) {
             console.error(err);
@@ -146,7 +151,28 @@ module.exports = app => {
         }else{
             console.log('User exists');
             try {
-                await Account.deleteOne({ username: user });
+                if (userToDelete.type == "P"){
+                    await Cursos.deleteMany({teacher: userToDelete.username})
+
+                    for (let i = 0; i < userToDelete.curso.length; i++) {
+                        const curso = userToDelete.curso[i];
+                        // Realiza la actualización que necesites, por ejemplo, agregar o eliminar
+                        await Account.updateMany(
+                            { curso: curso},
+                            { $pull: { curso: curso }},
+                            { new: true, runValidators: true }
+                        );
+                    }
+                    await Account.deleteOne({ username: user });
+                }else{
+                    await Cursos.findOneAndUpdate(
+                        { students: userToDelete.username},
+                        { $pull: { students: userToDelete.username} },
+                        { new: true, runValidators: true }
+                    );
+                    await Account.deleteOne({ username: user });
+                }
+
                 res.status(200).send('Usuario Eliminado');
             } catch (err) {
                 console.error(err);
@@ -313,13 +339,24 @@ module.exports = app => {
     app.get('/curso/students/:course', async(req,res) =>{
         const curso = req.params.course;
         var getCurso = await Cursos.findOne({course: curso});
-
+        console.log(getCurso);
         if (getCurso == null){
             res.status('404').send('Curso no encontrado');
             return;
         }else{
-            console.log(getCurso.students);
             res.status('200').send(getCurso.students);
+        }
+    });
+
+    app.get('/student/:user/prog', async(req,res) =>{
+        const user = req.params.user;
+        var getAccount = await Account.findOne({username: user});
+        console.log(getAccount);
+        if (getAccount == null){
+            res.status('404').send('Usuario no encontrado');
+            return;
+        }else{
+            res.status('200').send(String(getAccount.progress));
         }
     });
 }
