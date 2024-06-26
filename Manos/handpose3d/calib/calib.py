@@ -525,8 +525,8 @@ def get_cam1_to_world_transforms(cmtx0, dist0, R_W0, T_W0,
 def save_extrinsic_calibration_parameters(R0, T0, R1, T1, prefix = ''):
     
     #create folder if it does not exist
-    if not os.path.exists('camera_parameters'):
-        os.mkdir('camera_parameters')
+    if not os.path.exists('..\camera_parameters'):
+        os.mkdir('..\camera_parameters')
 
     camera0_rot_trans_filename = os.path.join('..\camera_parameters', prefix + 'rot_trans_c0.dat')
     outf = open(camera0_rot_trans_filename, 'w')
