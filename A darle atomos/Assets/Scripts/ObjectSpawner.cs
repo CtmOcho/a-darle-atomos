@@ -4,11 +4,10 @@ public class ObjectSpawner : MonoBehaviour
 {
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == 7)
+        if (other.gameObject.layer == 7 && !other.gameObject.GetComponent<Rigidbody>().isKinematic)
         {
             GrabbableObjectInitPos g = other.gameObject.GetComponent<GrabbableObjectInitPos>();
-            Instantiate(other.gameObject, g.GetInitPos(), g.GetInitRot());
-            Destroy(other.gameObject);
+            other.transform.SetPositionAndRotation(g.GetInitPos(),g.GetInitRot());
         }
     }
 }
