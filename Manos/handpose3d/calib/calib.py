@@ -186,8 +186,8 @@ def calibrate_camera_for_intrinsic_parameters(images_prefix):
 def save_camera_intrinsics(camera_matrix, distortion_coefs, camera_name):
 
     #create folder if it does not exist
-    if not os.path.exists('camera_parameters'):
-        os.mkdir('camera_parameters')
+    if not os.path.exists('..\camera_parameters'):
+        os.mkdir('..\camera_parameters')
 
     out_filename = os.path.join('..\camera_parameters', camera_name + '.dat')
     outf = open(out_filename, 'w')

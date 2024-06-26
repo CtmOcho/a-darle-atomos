@@ -119,4 +119,13 @@ public class DisplaySessionData : MonoBehaviour
         SessionData.CursoSeleccionado = selectedCourse;
         UpdateStudentDropdown(studentDropdown, selectedCourse);
     }
+
+    private void DropdownValueChanged(TMP_Dropdown dropdown)
+    {
+        string selectedStudent = dropdown.options[dropdown.value].text;
+        SessionData.AlumnoSeleccionado = selectedStudent; // Guardar el alumno seleccionado en SessionData
+        StartCoroutine(loginfunc.OnGetStudentProgress(selectedStudent));
+    }
+
+
 }

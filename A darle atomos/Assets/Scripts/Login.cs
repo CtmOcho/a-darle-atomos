@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Networking;
 using Navigation1;
+using interfaz = UnityEngine.UI;
 
 
 
@@ -56,6 +57,7 @@ public class Login : MonoBehaviour
     [SerializeField] private TMP_InputField nivelInputField;
     [SerializeField] private TMP_InputField letraInputField;
     [SerializeField] public string Flag;
+    public GameObject progressBar;
 
     
     public void OnLoginClick(){
@@ -106,8 +108,8 @@ public class Login : MonoBehaviour
         StartCoroutine(TryPutStudentProgress());
     }
 
-    public void OnGetStudentProgress(){
-        StartCoroutine(TryGetStudentProgress());
+    public void OnGetStudentProgress(string user){
+        StartCoroutine(TryGetStudentProgress(user));
     }
 
     private IEnumerator TryLogin(){
@@ -726,13 +728,14 @@ public class Login : MonoBehaviour
 
         if(responseCode == 200){
            Debug.Log(request.responseCode);
+           SessionData.progreso +=1;
         }else{
             Debug.Log("No se puedo conectar al servidor");
         }
     }
 
-    private IEnumerator TryGetStudentProgress(){
-        string username = usernameInputField.text;    
+    private IEnumerator TryGetStudentProgress(string user){
+        string username = user;    
         string url = $"{authenticationEndpointStudent}/{username}/prog";
 
         UnityWebRequest request = UnityWebRequest.Get(url);
@@ -751,6 +754,12 @@ public class Login : MonoBehaviour
         if(request.result == UnityWebRequest.Result.Success){
             Debug.Log(responseCode);
             if(responseCode == 200){
+
+                string data = request.downloadHandler.text;
+                float data1 = float.Parse(data);
+
+                progressBar.GetComponent<interfaz.Image>().fillAmount = data1/4;
+
                 
             
 

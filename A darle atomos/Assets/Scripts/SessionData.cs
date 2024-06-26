@@ -10,5 +10,7 @@ public class SessionData
     public static string type;
     public static Dictionary<string, List<string>> alumnosPorCurso = new Dictionary<string, List<string>>();
     public static string CursoSeleccionado;
+    public static string AlumnoSeleccionado;
+    
     
 }

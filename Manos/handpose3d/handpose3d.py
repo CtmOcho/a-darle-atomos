@@ -54,9 +54,9 @@ def run_mp(input_stream1, input_stream2, P0, P1):
 
         #crop to 720x720.
         #Note: camera calibration parameters are set to this resolution. If you change this, make sure to also change camera intrinsic parameters
-        if frame0.shape[1] != 720:
-            frame0 = frame0[:, frame_shape[1] // 2 - frame_shape[0] // 2:frame_shape[1] // 2 + frame_shape[0] // 2]
-            frame1 = frame1[:, frame_shape[1] // 2 - frame_shape[0] // 2:frame_shape[1] // 2 + frame_shape[0] // 2]
+        #if frame0.shape[1] != 720:
+        #    frame0 = frame0[:, frame_shape[1] // 2 - frame_shape[0] // 2:frame_shape[1] // 2 + frame_shape[0] // 2]
+        #    frame1 = frame1[:, frame_shape[1] // 2 - frame_shape[0] // 2:frame_shape[1] // 2 + frame_shape[0] // 2]
 
         # the BGR image to RGB.
         frame0 = cv.cvtColor(frame0, cv.COLOR_BGR2RGB)
