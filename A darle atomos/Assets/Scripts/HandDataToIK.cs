@@ -64,7 +64,7 @@ public class HandDataToIK : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (wsc.GetHandData() != null)
         {

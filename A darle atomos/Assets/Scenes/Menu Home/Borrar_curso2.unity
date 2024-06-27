@@ -385,6 +385,7 @@ MonoBehaviour:
   nivelInputField: {fileID: 0}
   letraInputField: {fileID: 0}
   Flag: 
+  progressBar: {fileID: 0}
 --- !u!114 &243722724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -881,7 +882,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Borrar cuenta
+  m_text: Borrar curso
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
   m_sharedMaterial: {fileID: 3382691729065641351, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
@@ -988,10 +989,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: {fileID: 886442572}
+  studentDropdown: {fileID: 0}
   courseDropdown: {fileID: 0}
   fieldToDisplay: 4
   studentScrollViewContent: {fileID: 0}
   studentTextPrefab: {fileID: 0}
+  loginfunc: {fileID: 0}
+  progressBool: 0
 --- !u!4 &645079067
 Transform:
   m_ObjectHideFlags: 0
@@ -1440,6 +1444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980cb3f0314792f4c90af34097f5cd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
 --- !u!114 &1136715730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2322,10 +2327,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayText: {fileID: 273824151}
+  studentDropdown: {fileID: 0}
   courseDropdown: {fileID: 0}
   fieldToDisplay: 4
   studentScrollViewContent: {fileID: 0}
   studentTextPrefab: {fileID: 0}
+  loginfunc: {fileID: 0}
+  progressBool: 0
 --- !u!4 &1690134587
 Transform:
   m_ObjectHideFlags: 0

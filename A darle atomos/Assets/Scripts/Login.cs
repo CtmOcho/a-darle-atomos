@@ -26,7 +26,6 @@ public class Login : MonoBehaviour
     {
         public string user;
         public string pass;
-        public string[] students;
     }
 
      [System.Serializable]
@@ -202,8 +201,8 @@ public class Login : MonoBehaviour
             Debug.Log(responseCode);
             if(responseCode == 201){
 
-                Debug.Log($"Usuario={username} con clave: pass={password} fue creado exitosamente");
-   
+                //Debug.Log($"Usuario={username} con clave: pass={password} fue creado exitosamente");
+                Debug.Log($"Usuario creado exitosamente , codigo: {responseCode}");
                 navigation = gameObject.AddComponent<Navigation>();
 
                 navigation.LoadScene("Login_alumno");
@@ -213,7 +212,6 @@ public class Login : MonoBehaviour
                 Debug.Log("Creacion invalida");
             }
             
-
         }
         else{
  
@@ -396,7 +394,7 @@ public class Login : MonoBehaviour
     private IEnumerator TryInsertInCurso(string[] students){
 
         string curso = SessionData.CursoSeleccionado; //curso donde se quieran insertar los alumnos
-        UpdateResponse updateResponse = new UpdateResponse
+        UpdateResponseRemove updateResponse = new UpdateResponseRemove
         {
             students = students
         };
@@ -734,13 +732,14 @@ public class Login : MonoBehaviour
         }
     }
 
-    private IEnumerator TryGetStudentProgress(string user){
-        string username = user;    
+    public IEnumerator TryGetStudentProgress(string user){
+        string username = user.Replace("\"", "");    
+
         string url = $"{authenticationEndpointStudent}/{username}/prog";
 
         UnityWebRequest request = UnityWebRequest.Get(url);
         var handler = request.SendWebRequest();
-
+        //Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         float startTime = 0.0f;
         while(!handler.isDone){
             startTime += Time.deltaTime;
@@ -757,11 +756,8 @@ public class Login : MonoBehaviour
 
                 string data = request.downloadHandler.text;
                 float data1 = float.Parse(data);
-
+                Debug.Log(data1);
                 progressBar.GetComponent<interfaz.Image>().fillAmount = data1/4;
-
-                
-            
 
             }
 

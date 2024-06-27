@@ -51,7 +51,7 @@ public class HandController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         RaycastHit hit;
         lThumbToIndexDist = lThumbFingerTip.position - lIndexFingerTip.position;
@@ -61,30 +61,14 @@ public class HandController : MonoBehaviour
         rThumbToIndexDist = rThumbFingerTip.position - rIndexFingerTip.position;
         rWristToMiddleDist = rWrist.position - rMiddleFingerTip.position;
         rWristToRingDist = rWrist.position - rRingFingerTip.position;
-        if (lThumbToIndexDist.magnitude < distanceThreshold * 0.9f || lWristToMiddleDist.magnitude < distanceThreshold || lWristToRingDist.magnitude < distanceThreshold)
+
+        if (lThumbToIndexDist.magnitude < distanceThreshold|| lWristToMiddleDist.magnitude < distanceThreshold * 1.9 || lWristToRingDist.magnitude < distanceThreshold * 1.9)
         {
-            //Debug.DrawRay(lIndexFingerTip.position, lThumbToIndexDist, Color.white);
-            //Debug.DrawRay(lMiddleFingerTip.position, lWristToMiddleDist, Color.white);
-            //Debug.DrawRay(lRingFingerTip.position, lWristToRingDist, Color.white);
-            if (Physics.Raycast(lIndexFingerTip.position, lThumbToIndexDist, out hit, distanceThreshold, grabbableLayer))
+            if (Physics.Raycast(lIndexFingerTip.position, lThumbToIndexDist, out hit, distanceThreshold, grabbableLayer)) lGrabbingObject = true;
+            else if (Physics.Raycast(lMiddleFingerTip.position, lWristToMiddleDist, out hit, distanceThreshold, grabbableLayer)) lGrabbingObject = true;
+            else if (Physics.Raycast(lRingFingerTip.position, lWristToRingDist, out hit, distanceThreshold, grabbableLayer)) lGrabbingObject = true;
+            if (lGrabbingObject && lCurrentObject == null)
             {
-                lGrabbingObject = true;
-                lCurrentObject = hit.transform;
-                lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = false;
-                lCurrentObject.parent = lIndexFingerTip;
-            }
-            else if (Physics.Raycast(lMiddleFingerTip.position, lWristToMiddleDist, out hit, distanceThreshold, grabbableLayer))
-            {
-                lGrabbingObject = true;
-                lCurrentObject = hit.transform;
-                lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = false;
-                lCurrentObject.parent = lWrist;
-            }
-            else if (Physics.Raycast(lRingFingerTip.position, lWristToRingDist, out hit, distanceThreshold, grabbableLayer))
-            {
-                lGrabbingObject = true;
                 lCurrentObject = hit.transform;
                 lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = false;
@@ -93,39 +77,23 @@ public class HandController : MonoBehaviour
         }
         else
         {
-            if(lGrabbingObject)
+            if(lGrabbingObject && lCurrentObject != null)
             {
                 lCurrentObject.parent = null;
                 lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = true;
                 lGrabbingObject = false;
+                lCurrentObject = null;
             }
         }
 
-        if (rThumbToIndexDist.magnitude < distanceThreshold*0.9f || rWristToMiddleDist.magnitude < distanceThreshold || rWristToRingDist.magnitude < distanceThreshold)
+        if (rThumbToIndexDist.magnitude < distanceThreshold || rWristToMiddleDist.magnitude < distanceThreshold*1.9 || rWristToRingDist.magnitude < distanceThreshold * 1.9)
         {
-            //Debug.DrawRay(lIndexFingerTip.position, lThumbToIndexDist, Color.white);
-            //Debug.DrawRay(lMiddleFingerTip.position, lWristToMiddleDist, Color.white);
-            //Debug.DrawRay(lRingFingerTip.position, lWristToRingDist, Color.white);
-            if (Physics.Raycast(rIndexFingerTip.position, rThumbToIndexDist, out hit, distanceThreshold, grabbableLayer))
+            if (Physics.Raycast(rIndexFingerTip.position, rThumbToIndexDist, out hit, distanceThreshold, grabbableLayer)) rGrabbingObject = true;
+            else if (Physics.Raycast(rMiddleFingerTip.position, rWristToMiddleDist, out hit, distanceThreshold, grabbableLayer)) rGrabbingObject = true;
+            else if (Physics.Raycast(rRingFingerTip.position, rWristToRingDist, out hit, distanceThreshold, grabbableLayer)) rGrabbingObject = true;
+            if (rGrabbingObject && rCurrentObject == null)
             {
-                rGrabbingObject = true;
-                rCurrentObject = hit.transform;
-                rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = false;
-                rCurrentObject.parent = rIndexFingerTip;
-            }
-            else if (Physics.Raycast(rMiddleFingerTip.position, rWristToMiddleDist, out hit, distanceThreshold, grabbableLayer))
-            {
-                rGrabbingObject = true;
-                rCurrentObject = hit.transform;
-                rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = false;
-                rCurrentObject.parent = rWrist;
-            }
-            else if (Physics.Raycast(rRingFingerTip.position, rWristToRingDist, out hit, distanceThreshold, grabbableLayer))
-            {
-                rGrabbingObject = true;
                 rCurrentObject = hit.transform;
                 rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = false;
@@ -134,12 +102,13 @@ public class HandController : MonoBehaviour
         }
         else
         {
-            if (rGrabbingObject)
+            if (rGrabbingObject && rCurrentObject != null)
             {
                 rCurrentObject.parent = null;
                 rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = true;
                 rGrabbingObject = false;
+                rCurrentObject = null;
             }
         }
 

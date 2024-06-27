@@ -515,6 +515,7 @@ MonoBehaviour:
   studentScrollViewContent: {fileID: 0}
   studentTextPrefab: {fileID: 0}
   loginfunc: {fileID: 0}
+  progressBool: 0
 --- !u!1 &242457839
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,6 +571,63 @@ MonoBehaviour:
   studentScrollViewContent: {fileID: 0}
   studentTextPrefab: {fileID: 0}
   loginfunc: {fileID: 0}
+  progressBool: 0
+--- !u!1 &311129077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 311129078}
+  - component: {fileID: 311129079}
+  m_Layer: 5
+  m_Name: Displayer_progress
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &311129078
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311129077}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1972591860}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &311129079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311129077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d60d813b7ad5fe47afd9fbd35035190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayText: {fileID: 0}
+  studentDropdown: {fileID: 0}
+  courseDropdown: {fileID: 0}
+  fieldToDisplay: 1
+  studentScrollViewContent: {fileID: 0}
+  studentTextPrefab: {fileID: 0}
+  loginfunc: {fileID: 2032742222}
+  progressBool: 1
 --- !u!1 &459627491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,7 +1960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6114649760571507405, guid: ec019941f90ec41e5ad2df28607525e8, type: 3}
       propertyPath: m_FillAmount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6114649760571507405, guid: ec019941f90ec41e5ad2df28607525e8, type: 3}
       propertyPath: m_PreserveAspect
@@ -1919,6 +1977,11 @@ PrefabInstance:
 --- !u!224 &1321656742 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6114649759895021424, guid: ec019941f90ec41e5ad2df28607525e8, type: 3}
+  m_PrefabInstance: {fileID: 1321656741}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1321656743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6114649760571507403, guid: ec019941f90ec41e5ad2df28607525e8, type: 3}
   m_PrefabInstance: {fileID: 1321656741}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1635877106
@@ -2028,7 +2091,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6114649760571507405, guid: ec019941f90ec41e5ad2df28607525e8, type: 3}
   m_PrefabInstance: {fileID: 1321656741}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1321656743}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -2291,6 +2354,7 @@ RectTransform:
   - {fileID: 1028117159}
   - {fileID: 242457840}
   - {fileID: 230405501}
+  - {fileID: 311129078}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2560,6 +2624,7 @@ MonoBehaviour:
   nivelInputField: {fileID: 0}
   letraInputField: {fileID: 0}
   Flag: 
+  progressBar: {fileID: 1321656743}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

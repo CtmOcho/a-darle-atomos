@@ -69,7 +69,6 @@ module.exports = app => {
             return;
         }
         var userAccount =  await Account.findOne({username: user});
-        console.log(userAccount);
         if (userAccount == null){
             var newAccount = new Account({
                 username: user,
@@ -82,10 +81,14 @@ module.exports = app => {
             await newAccount.save();
 
             res.status('201').send('Usuario Creado');
+            console.log('Usuario Creado');
+            console.log(newAccount);
             return;
         }else{
             res.status('409').send('Usuario ya existe');
-            return
+            console.log('Usuario ya existe');
+
+            return;
         }
     });
 
@@ -156,7 +159,7 @@ module.exports = app => {
 
                     for (let i = 0; i < userToDelete.curso.length; i++) {
                         const curso = userToDelete.curso[i];
-                        // Realiza la actualización que necesites, por ejemplo, agregar o eliminar
+                        // Realiza la actualizaci贸n que necesites, por ejemplo, agregar o eliminar
                         await Account.updateMany(
                             { curso: curso},
                             { $pull: { curso: curso }},
@@ -231,7 +234,7 @@ module.exports = app => {
         }
         for (let i = 0; i < students.length; i++) {
             const student = students[i];
-            // Realiza la actualización que necesites, por ejemplo, agregar o eliminar
+            // Realiza la actualizaci贸n que necesites, por ejemplo, agregar o eliminar
             const studentAccont = await Account.findOne({username: student},);
             if (studentAccont == null){
                 res.status(404).send(student +" no encontrado");
@@ -251,7 +254,7 @@ module.exports = app => {
             }
             for (let i = 0; i < students.length; i++) {
                 const student = students[i];
-                // Realiza la actualización que necesites, por ejemplo, agregar o eliminar
+                // Realiza la actualizaci贸n que necesites, por ejemplo, agregar o eliminar
                 await Account.findOneAndUpdate(
                     {username: student},
                     {$push: { curso: course }},
@@ -277,7 +280,7 @@ module.exports = app => {
 
         for (let i = 0; i < students.length; i++) {
             const student = students[i];
-            // Realiza la actualización que necesites, por ejemplo, agregar o eliminar
+            // Realiza la actualizaci贸n que necesites, por ejemplo, agregar o eliminar
             const studentAccont = await Account.findOne({username: student},);
             if (studentAccont == null){
                 res.status(404).send(student +" no encontrado");
@@ -298,7 +301,7 @@ module.exports = app => {
 
             for (let i = 0; i < students.length; i++) {
                 const student = students[i];
-                // Realiza la actualización que necesites, por ejemplo, agregar o eliminar
+                // Realiza la actualizaci贸n que necesites, por ejemplo, agregar o eliminar
                 await Account.findOneAndUpdate(
                     {username: student},
                     {$pull: { curso: course }},

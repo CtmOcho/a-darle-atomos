@@ -21,12 +21,17 @@ public class DisplaySessionData : MonoBehaviour
     public Transform studentScrollViewContent; // Contenedor del Scroll View para los alumnos
     public GameObject studentTextPrefab; // Prefab del Text para los nombres de los alumnos
     public Login loginfunc;
+    public bool progressBool; 
+    [SerializeField] public TMP_Text label;
+    //public GameObject studentBar;
+
+
 
     void Start()
     {
         if (displayText != null)
         {
-            string textToDisplay = GetSessionDataField(fieldToDisplay);
+            string textToDisplay = GetSessionDataField(fieldToDisplay); 
             displayText.text = textToDisplay;
         }
         else
@@ -55,11 +60,19 @@ public class DisplaySessionData : MonoBehaviour
         {
             // Inicialmente actualiza el dropdown de estudiantes con el curso seleccionado por defecto
             UpdateStudentDropdown(studentDropdown, SessionData.CursoSeleccionado);
+            
         }
         else
         {
             Debug.Log("Student dropdown is not set.");
         }
+
+        if(progressBool){
+            string selectedStudent = SessionData.username;
+            studentProfileProgress(selectedStudent);
+        }
+
+    
     }
 
     private string GetSessionDataField(SessionDataField field)
@@ -120,12 +133,16 @@ public class DisplaySessionData : MonoBehaviour
         UpdateStudentDropdown(studentDropdown, selectedCourse);
     }
 
-    private void DropdownValueChanged(TMP_Dropdown dropdown)
+    public void DropdownValueChanged(TMP_Text label)
     {
-        string selectedStudent = dropdown.options[dropdown.value].text;
+        string selectedStudent = label.text;
         SessionData.AlumnoSeleccionado = selectedStudent; // Guardar el alumno seleccionado en SessionData
-        StartCoroutine(loginfunc.OnGetStudentProgress(selectedStudent));
+        StartCoroutine(loginfunc.TryGetStudentProgress(selectedStudent));
     }
 
+    public void studentProfileProgress(string selectedStudent){
+        
+        StartCoroutine(loginfunc.TryGetStudentProgress(selectedStudent));
+    }
 
 }
