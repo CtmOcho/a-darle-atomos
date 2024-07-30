@@ -1,0 +1,43 @@
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 5rem;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  max-width: 15rem;
+}
+
+.form-group input[type="checkbox"] {
+  margin-right: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+button.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #5A8884;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.btn:hover {
+  background-color: #49756e;
+}
