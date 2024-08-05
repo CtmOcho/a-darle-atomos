@@ -11,6 +11,7 @@ module.exports = app => {
     app.get('/login/:user/:pass', async(req,res) =>{
         const user = req.params.user;
         const pass = req.params.pass;
+        console.log(user,pass);
         if (user == null || pass == null){
             res.status('409').send('Credenciales invalidas');
             return;

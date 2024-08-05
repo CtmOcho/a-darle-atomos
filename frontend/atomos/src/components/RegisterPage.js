@@ -1,59 +1,117 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './RegisterPage.css';
 
 const RegisterPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isStudent, setIsStudent] = useState(false);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    const userType = isStudent ? 'student' : 'non-student';
-    const response = await fetch('http://localhost:5000/api/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ username, password, userType }),
-    });
-    const data = await response.json();
-    console.log(data);
+    if (isStudent) {
+      await tryCreateStudent();
+    } else {
+      await tryCreateTeacher();
+    }
+  };
+
+  const tryCreateStudent = async () => {
+    const authenticationEndpointStudent = 'http://localhost:13756/student';
+    const url = `${authenticationEndpointStudent}?user=${username}&pass=${password}`;
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded', // Necesario para PostWwwForm
+        },
+        body: "", // `PostWwwForm` en Unity no envía ningún cuerpo adicional
+      });
+
+      if (!response.ok) {
+        throw new Error('Creación inválida');
+      }
+
+      if (response.status === 201) {
+        console.log(`Usuario creado exitosamente, código: ${response.status}`);
+        navigate('/login'); // Redirigir a la página de login de alumnos
+      } else {
+        console.error('Creación inválida');
+      }
+    } catch (err) {
+      setError('Conexión fallida');
+      console.error(err);
+    }
+  };
+
+  const tryCreateTeacher = async () => {
+    const authenticationEndpointTeacher = 'http://localhost:13756/teacher';
+    const url = `${authenticationEndpointTeacher}/${username}/${password}`;
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded', // Necesario para PostWwwForm
+        },
+        body: "", // `PostWwwForm` en Unity no envía ningún cuerpo adicional
+      });
+
+      if (!response.ok) {
+        throw new Error('Creación inválida');
+      }
+
+      if (response.status === 201) {
+        console.log('Profesor fue creado exitosamente');
+        navigate('/login  '); // Redirigir a la página de login de profesores
+      } else {
+        console.error('Creación inválida');
+      }
+    } catch (err) {
+      setError('No se pudo conectar al servidor');
+      console.error(err);
+    }
   };
 
   return (
-    <div className="register-container">
-      <h2>Registro</h2>
-      <form onSubmit={handleRegister}>
-        <div className="form-group">
-          <label>Nombre de usuario:</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Contraseña:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>
+    <div className="page-container">
+      <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
+      <div className="register-container">
+        <h2>Registro</h2>
+        <form onSubmit={handleRegister}>
+          <div className="form-group">
+            <label>Nombre de usuario:</label>
             <input
-              type="checkbox"
-              checked={isStudent}
-              onChange={(e) => setIsStudent(e.target.checked)}
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
             />
-            Soy estudiante
-          </label>
-        </div>
-        <button type="submit" className="btn">Registrarse</button>
-      </form>
+          </div>
+          <div className="form-group">
+            <label>Contraseña:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>
+              <input
+                type="checkbox"
+                checked={isStudent}
+                onChange={(e) => setIsStudent(e.target.checked)}
+              />
+              Soy estudiante
+            </label>
+          </div>
+          {error && <p className="error">{error}</p>}
+          <button type="submit" className="btn">Registrarse</button>
+        </form>
+      </div>
     </div>
   );
 };

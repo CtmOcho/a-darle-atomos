@@ -1,8 +1,9 @@
 const express = require('express');
+const cors = require('cors');
 const keys = require('./config/keys.js');
 
 const app = express();
-
+app.use(cors()); 
 //Setting Database
 const mongoose = require('mongoose');
 mongoose.connect( keys.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true});
