@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.Rendering;
 using UnityEngine.VFX;
+using UnityEngine.Rendering.Universal;
 
 public class flame : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class flame : MonoBehaviour
     private Transform knob;
     public float flameStrength;
     public int targetColor;
-    
+
     bool knobIsPressed;
     bool isOn;
 
@@ -31,7 +32,7 @@ public class flame : MonoBehaviour
         vfx.SetInt("Color value", 7);
         vfx.SetFloat("Blend", 0);
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -71,22 +72,28 @@ public class flame : MonoBehaviour
     public void KnobState(bool knobState)
     {
         knobIsPressed = knobState;
-        if(knobState) isOn = !isOn;
+        if (knobState) isOn = !isOn;
     }
-    
-    void OnTriggerEnter(Collider other){
-        FireReagentController spoon = other.GetComponent<FireReagentController>();
-            if (spoon.colorLlama >= 0){
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent<FireReagentController>(out var spoon))
+        {
+            if (spoon.colorLlama >= 0)
+            {
                 StartCoroutine(ChangeFlameColor(spoon.colorLlama));
                 StartCoroutine(ReturnToRegularColor(8));
                 spoon.colorLlama = -1;
             }
+        }
     }
-    
-    public IEnumerator ChangeFlameColor(int targetColor){
+
+    public IEnumerator ChangeFlameColor(int targetColor)
+    {
         blend = 0;
         vfx.SetInt("Target Color", targetColor);
-        while (blend < 1){
+        while (blend < 1)
+        {
             blend += 0.01f;
             vfx.SetFloat("Blend", blend);
             light.color = Color.Lerp(fireColor(currentColor), fireColor(targetColor), blend);
@@ -95,28 +102,31 @@ public class flame : MonoBehaviour
         currentColor = targetColor;
         vfx.SetInt("Color value", targetColor);
     }
-    
-    IEnumerator ReturnToRegularColor(float delay){
+
+    IEnumerator ReturnToRegularColor(float delay)
+    {
         yield return new WaitForSeconds(delay);
         StartCoroutine(ChangeFlameColor(7));
     }
-    
-    Color fireColor(int id){
-        switch(id){
+
+    Color fireColor(int id)
+    {
+        switch (id)
+        {
             case 0:
-                return Color.green; 
+                return Color.green;
             case 1:
-                return Color.red; 
+                return Color.red;
             case 2:
-                return Color.yellow; 
+                return Color.yellow;
             case 3:
-                return Color.blue; 
+                return Color.blue;
             case 4:
-                return Color.red; 
+                return Color.red;
             case 5:
-                return Color.white; 
+                return Color.white;
             case 6:
-                return Color.magenta; 
+                return Color.magenta;
             default:
                 return Color.white;
         }

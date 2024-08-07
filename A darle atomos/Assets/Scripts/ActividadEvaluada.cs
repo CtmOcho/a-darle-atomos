@@ -5,7 +5,7 @@ using UnityEngine;
 public class ActividadEvaluada : MonoBehaviour
 {
     public bool[] respuestasCorrectas;
-    public GameObject camera;
+    public GameObject cam;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +26,6 @@ public class ActividadEvaluada : MonoBehaviour
     }
     
     public void SendToDatabase(){
-        camera.GetComponent<Login>().OnPutStudentProgress();
+        cam.GetComponent<Login>().OnPutStudentProgress();
     }
 }

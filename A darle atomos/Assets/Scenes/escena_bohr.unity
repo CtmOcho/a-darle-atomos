@@ -715,6 +715,7 @@ GameObject:
   - component: {fileID: 876995344}
   - component: {fileID: 876995343}
   - component: {fileID: 876995342}
+  - component: {fileID: 876995345}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -855,8 +856,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 100000
+  m_Color: {r: 0.81960785, g: 0.89411765, b: 0.99215686, a: 1}
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -900,7 +901,7 @@ Light:
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
-  m_UseColorTemperature: 1
+  m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 1e-45}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
@@ -914,13 +915,36 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876995341}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.66515934, y: 0.009304469, z: 0.010443316, w: 0.74657047}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 83.208, y: 13.589, z: 13.681}
+--- !u!114 &876995345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876995341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &1230783488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1102,7 @@ GameObject:
   - component: {fileID: 1474357524}
   - component: {fileID: 1474357527}
   - component: {fileID: 1474357528}
+  - component: {fileID: 1474357529}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1314,6 +1339,51 @@ MonoBehaviour:
   nivelInputField: {fileID: 0}
   letraInputField: {fileID: 0}
   Flag: 
+  progressBar: {fileID: 0}
+--- !u!114 &1474357529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474357523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &1494699364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,6 +1579,10 @@ PrefabInstance:
       propertyPath: flashImage
       value: 
       objectReference: {fileID: 1404846838}
+    - target: {fileID: 6757995797642117579, guid: 0265917dfd152f34d81245336d53ea83, type: 3}
+      propertyPath: orbitMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: ebe4174f0a7c7354bb0a2c7c7610f421, type: 2}
     - target: {fileID: 6757995797642117579, guid: 0265917dfd152f34d81245336d53ea83, type: 3}
       propertyPath: explanationText
       value: 
@@ -1709,7 +1783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6ae58e4f169d64095a8cc9f1e31287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1474357523}
+  cam: {fileID: 0}
 --- !u!1 &2038366497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,7 +2049,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 24e3b1bffcf321241ab9fd38934d969e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
