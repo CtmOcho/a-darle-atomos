@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 public class CambiarEscena : MonoBehaviour
 {
 
-    public GameObject camera;
+    public GameObject cam;
     public void Goto()
     {
-        camera.GetComponent<Login>().OnPutStudentProgress();
+        cam.GetComponent<Login>().OnPutStudentProgress();
         
         SceneManager.LoadScene("Laboratorio");
     }

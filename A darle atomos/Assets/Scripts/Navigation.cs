@@ -10,7 +10,7 @@ namespace Navigation1{
         
         {
 
-            public GameObject camera;
+            public GameObject cam;
         public void LoadScene(string sceneName)
             {
             // Guardar el nombre de la escena actual en PlayerPrefs antes de cambiar
@@ -27,7 +27,7 @@ namespace Navigation1{
 
 
  public void SendToDatabase(){
-        camera.GetComponent<Login>().OnPutStudentProgress();
+        cam.GetComponent<Login>().OnPutStudentProgress();
     }
         public void BackFromLab(){
             

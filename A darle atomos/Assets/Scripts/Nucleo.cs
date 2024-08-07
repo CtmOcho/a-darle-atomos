@@ -11,6 +11,7 @@ public class Atom : MonoBehaviour
     public int numberOfElectrons = 11;
     public float electronOrbitRadius = 2f;
     public float electronOrbitSpeed = 100f;
+    public Material orbitMaterial;
 
     private Electron lastCreatedElectron;  // Track the last created electron
     public Image flashImage;
@@ -79,6 +80,7 @@ public class Atom : MonoBehaviour
         lineRenderer.endWidth = 0.1f;
         lineRenderer.positionCount = 100;
         lineRenderer.useWorldSpace = false;
+        lineRenderer.material = orbitMaterial;
 
         float angleStep = 360f / lineRenderer.positionCount;
         for (int i = 0; i < lineRenderer.positionCount; i++)
