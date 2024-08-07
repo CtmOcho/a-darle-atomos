@@ -24,10 +24,11 @@
     color: white;
     border: none;
     border-radius: 0.5rem;
-    padding: 1.5rem 3rem; /* Agranda el botón de volver */
+    padding: 0.5rem 1rem;
     cursor: pointer;
-    font-size: 2rem; /* Agranda la fuente del botón de volver */
+    font-size: 1rem;
   }
+  
   
   .btn-back:hover {
     background-color: #49756e;
@@ -40,7 +41,7 @@
     justify-content: center;
     height: 100%;
     padding: 2rem;
-    background-color: rgba(245, 245, 245, 0.8); /* Fondo transparente */
+    background-color: rgba(245, 245, 245, 0); /* Fondo transparente */
   }
   
   h1 {

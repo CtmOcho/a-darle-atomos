@@ -5,16 +5,10 @@
   font-family: 'BobbyJones', sans-serif;
 }
 
-.profile-page-container {
+.page-container {
   height: 100vh;
   width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   position: relative;
-  padding: 2rem;
-  background-color: rgba(245, 245, 245, 0.8); /* Fondo transparente */
 }
 
 .btn-back {
@@ -34,59 +28,62 @@
   background-color: #49756e;
 }
 
-h1 {
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem;
+  background-color: rgba(245, 245, 245, 0); /* Fondo transparente */
+  border-radius: 1rem;
+  /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+}
+
+h2 {
   text-align: center;
   margin-bottom: 2rem;
   font-size: 4rem;
 }
 
-.profile-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-
-.profile-item {
-  margin-bottom: 1rem;
-  font-size: 2rem;
-}
-
-.username.professor {
-  font-size: 3rem;
-  font-weight: bold;
-  text-align: center;
-}
-
-.progress-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+form {
   width: 100%;
   max-width: 500px;
 }
 
-.progress-bar {
+.form-group {
+  margin-bottom: 1rem;
   width: 100%;
-  height: 1.5rem;
-  background-color: #ccc;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  margin-top: 0.5rem;
 }
 
-.progress {
-  height: 100%;
-  background-color: #5A8884;
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
 }
 
-.profile-buttons {
+.form-group input[type="text"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1.2rem;
+  font-variant: normal;
+  text-transform: none;
+}
+
+.form-group input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.form-group label.checkbox-label {
   display: flex;
-  justify-content: center;
-  gap: 2rem; /* Espacio entre los botones */
+  align-items: center;
+  font-size: 1.5rem;
 }
 
-.btn-edit, .btn-delete {
+.btn {
   background-color: #5A8884;
   color: white;
   border: none;
@@ -94,8 +91,11 @@ h1 {
   padding: 1rem 2rem;
   cursor: pointer;
   font-size: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
 }
 
-.btn-edit:hover, .btn-delete:hover {
+.btn:hover {
   background-color: #49756e;
 }

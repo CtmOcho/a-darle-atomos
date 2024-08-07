@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'BobbyJones';
-  src: url('./fonts/BobbyRoughSoft.ttf') format('truetype');
+  src: url('./fonts/BobbyJonesSoft.otf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -31,7 +31,6 @@ body {
   border-radius: 1rem;
   text-align: center;
   width: 90%;
-
 }
 
 button.btn {
@@ -46,6 +45,7 @@ button.btn {
   cursor: pointer;
   font-size: 1rem;
   max-width: 15rem;
+
 }
 
 button.btn:hover {

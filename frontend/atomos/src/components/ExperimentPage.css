@@ -24,10 +24,11 @@ body, html {
   color: white;
   border: none;
   border-radius: 0.5rem;
-  padding: 1rem 2rem; /* Agranda el botón de volver */
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  font-size: 1.5rem; /* Agranda la fuente del botón de volver */
+  font-size: 1rem;
 }
+
 
 .btn-back:hover {
   background-color: #49756e;

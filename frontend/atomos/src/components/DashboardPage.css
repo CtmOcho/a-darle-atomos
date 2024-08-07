@@ -50,7 +50,7 @@ img.btn-profile {
   right: 0;
   background: #764652;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0);
   z-index: 1;
 }
 

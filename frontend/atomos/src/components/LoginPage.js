@@ -13,7 +13,8 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     const authenticationEndpointLog = 'http://localhost:13756/login';
-    const url = `${authenticationEndpointLog}/${username}/${password}`;
+    const upperCaseUsername = username.toUpperCase();
+    const url = `${authenticationEndpointLog}/${upperCaseUsername}/${password}`;
 
     try {
       const response = await fetch(url, {
@@ -32,10 +33,10 @@ const LoginPage = () => {
 
       // Aquí puedes manejar la respuesta del login y navegar a la página adecuada
       if (data.type === 'E') {
-        console.log(`${username}:${password}`);
+        console.log(`${upperCaseUsername}:${password}`);
         navigate('/dashboard'); // Redirigir a la página de dashboard para alumnos
       } else {
-        console.log(`${username}:${password}`);
+        console.log(`${upperCaseUsername}:${password}`);
         console.log('Profesor ingresó al sistema');
         navigate('/dashboard'); // Redirigir a la página post login para profesores
       }
@@ -56,7 +57,9 @@ const LoginPage = () => {
             <input
               type="text"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              autoCapitalize="none"
+              autoCorrect="off"
+              onChange={(e) => setUsername(e.target.value.toUpperCase())} // Convertir a mayúsculas al escribir
               required
             />
           </div>
@@ -65,6 +68,8 @@ const LoginPage = () => {
             <input
               type="password"
               value={password}
+              autoCapitalize="none"
+              autoCorrect="off"
               onChange={(e) => setPassword(e.target.value)}
               required
             />

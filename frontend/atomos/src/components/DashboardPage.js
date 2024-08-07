@@ -1,14 +1,23 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 import './DashboardPage.css';
-import profileImage from '../media/perfil.png'; // Importa la imagen correctamente
+import profileImage from '../media/perfil.png';
 
 const DashboardPage = () => {
   const navigate = useNavigate();
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    // Mostrar popup y redirigir a home si no hay datos en la sesión
+    if (!user || !user.username) {
+      setShowPopup(true);
+      navigate('/');
+    }
+  }, [user, navigate]);
 
   const carouselItems = [
     'Color a la Llama', 'Sublimación del Yodo Sólido', 'Experimento de Destilación', 'Ley de Gases', 'Experimento de Rutherford',
@@ -16,7 +25,9 @@ const DashboardPage = () => {
   ];
 
   const handleLogout = () => {
-    // Aquí puedes manejar la lógica de cierre de sesión si es necesario
+    // Reiniciar datos de la sesión
+    setUser(null);
+    localStorage.removeItem('user'); // Si guardaste los datos de sesión en localStorage
     navigate('/');
   };
 
@@ -40,6 +51,10 @@ const DashboardPage = () => {
     navigate(`/experiment/${carouselItems[currentIndex]}`);
   };
 
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
   return (
     <div className="dashboard-container">
       <div className="top-buttons">
@@ -54,7 +69,7 @@ const DashboardPage = () => {
             <div className="dropdown-content">
               <button onClick={handleProfile}>Mi Perfil</button>
               <button onClick={handleLogout}>Cerrar Sesión</button>
-              {user.type === 'P' && (
+              {user && user.type === 'P' && (
                 <button onClick={handleCourseEdit}>Editar Cursos</button>
               )}
             </div>
@@ -68,6 +83,14 @@ const DashboardPage = () => {
         </div>
         <button className="carousel-btn right-btn" onClick={handleNext}>▶</button>
       </div>
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <p>No se puede volver al dashboard de sesión finalizada</p>
+            <button onClick={handleClosePopup}>Cerrar</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -20,7 +20,8 @@ const RegisterPage = () => {
 
   const tryCreateStudent = async () => {
     const authenticationEndpointStudent = 'http://localhost:13756/student';
-    const url = `${authenticationEndpointStudent}?user=${username}&pass=${password}`;
+    const upperCaseUsername = username.toUpperCase();
+    const url = `${authenticationEndpointStudent}?user=${upperCaseUsername}&pass=${password}`;
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -48,7 +49,8 @@ const RegisterPage = () => {
 
   const tryCreateTeacher = async () => {
     const authenticationEndpointTeacher = 'http://localhost:13756/teacher';
-    const url = `${authenticationEndpointTeacher}/${username}/${password}`;
+    const upperCaseUsername = username.toUpperCase();
+    const url = `${authenticationEndpointTeacher}/${upperCaseUsername}/${password}`;
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -64,7 +66,7 @@ const RegisterPage = () => {
 
       if (response.status === 201) {
         console.log('Profesor fue creado exitosamente');
-        navigate('/login  '); // Redirigir a la página de login de profesores
+        navigate('/login'); // Redirigir a la página de login de profesores
       } else {
         console.error('Creación inválida');
       }
@@ -84,8 +86,10 @@ const RegisterPage = () => {
             <label>Nombre de usuario:</label>
             <input
               type="text"
+              autoCapitalize="none"
+              autoCorrect="off"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setUsername(e.target.value.toUpperCase())} // Convertir a mayúsculas al escribir
               required
             />
           </div>
@@ -93,6 +97,8 @@ const RegisterPage = () => {
             <label>Contraseña:</label>
             <input
               type="password"
+              autoCapitalize="none"
+              autoCorrect="off"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
