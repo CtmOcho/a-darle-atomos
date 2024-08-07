@@ -10,24 +10,22 @@ const ProfilePage = () => {
   return (
     <div className="profile-page-container">
       <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
-      <h1>Perfil del Usuario</h1>
-      <div className="profile-info">
-        <div className="profile-item username">
-          <p>{user.username}</p>
-        </div>
-        <div className="profile-item course">
-          <p>{user.course}</p>
-        </div>
-        <div className="profile-item progress-container">
-          <p>Progreso:</p>
-          <div className="progress-bar">
-            <div className="progress" style={{ width: `${user.progress}%` }}></div>
+      <div className="profile-container">
+        <h1>Perfil del Usuario</h1>
+        <div className="profile-info">
+          <div className={`profile-item username ${user.type === 'P' ? 'professor' : ''}`}>
+            <p>{user.username}</p>
           </div>
+          {user.type === 'E' && (
+            <div className="profile-item course">
+              <p>{user.course}</p>
+            </div>
+          )}
         </div>
-      </div>
-      <div className="profile-buttons">
-        <button className="btn-edit">Editar</button>
-        <button className="btn-delete">Borrar</button>
+        <div className="profile-buttons">
+          <button className="btn-edit" onClick={() => navigate('/edit-profile')}>Editar</button>
+          <button className="btn-delete" onClick={() => navigate('/delete-profile')}>Borrar</button>
+        </div>
       </div>
     </div>
   );

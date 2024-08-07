@@ -363,4 +363,56 @@ module.exports = app => {
             res.status('200').send(String(getAccount.progress));
         }
     });
+
+    app.get('/curso/:teacher', async (req, res) => {
+        const teacher = req.params.teacher;
+        const userAccount = await Account.findOne({ username: teacher, type: 'P' });
+        if (!userAccount) {
+          res.status(404).send('Profesor no existe');
+          return;
+        }
+        const cursos = await Cursos.find({ teacher });
+        res.status(200).json(cursos);
+      });
+
+      app.get('/students/not-in-course/:course', async (req, res) => {
+        const courseName = req.params.course;
+        try {
+          const course = await Cursos.findOne({ course: courseName });
+          if (!course) {
+            res.status(404).send('Curso no encontrado');
+            return;
+          }
+          const studentsInCourse = course.students;
+          const studentsNotInCourse = await Account.find({
+            type: 'E',
+            username: { $nin: studentsInCourse }
+          });
+          res.status(200).json(studentsNotInCourse);
+        } catch (error) {
+          console.error('Error al obtener los estudiantes:', error);
+          res.status(500).send('Error al obtener los estudiantes');
+        }
+      });
+    
+      app.get('/students/in-course/:course', async (req, res) => {
+        const courseName = req.params.course;
+        try {
+          const course = await Cursos.findOne({ course: courseName });
+          if (!course) {
+            res.status(404).send('Curso no encontrado');
+            return;
+          }
+          const studentsInCourse = course.students;
+          const students = await Account.find({
+            type: 'E',
+            username: { $in: studentsInCourse }
+          });
+          res.status(200).json(students);
+        } catch (error) {
+          console.error('Error al obtener los estudiantes:', error);
+          res.status(500).send('Error al obtener los estudiantes');
+        }
+      });
+      
 }

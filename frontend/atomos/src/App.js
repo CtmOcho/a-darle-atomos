@@ -5,6 +5,13 @@ import RegisterPage from './components/RegisterPage';
 import LoginPage from './components/LoginPage';
 import DashboardPage from './components/DashboardPage';
 import ProfilePage from './components/ProfilePage';
+import ExperimentPage from './components/ExperimentPage';
+import EditCoursesPage from './components/EditCoursesPage';
+import CreateCoursePage from './components/CreateCoursePage';
+import ModifyCoursePage from './components/ModifyCoursePage';
+import AddStudentPage from './components/AddStudentPage';
+import RemoveStudentPage from './components/RemoveStudentPage';
+import DeleteCoursePage from './components/DeleteCoursePage';
 import { UserProvider } from './context/UserContext';
 import './App.css';
 
@@ -19,6 +26,13 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/experiment/:experimentName" element={<ExperimentPage />} />
+            <Route path="/edit-courses" element={<EditCoursesPage />} />
+            <Route path="/create-course" element={<CreateCoursePage />} />
+            <Route path="/modify-course" element={<ModifyCoursePage />} />
+            <Route path="/add-student/:courseName" element={<AddStudentPage />} />
+            <Route path="/remove-student/:courseName" element={<RemoveStudentPage />} />
+            <Route path="/delete-course" element={<DeleteCoursePage />} />
           </Routes>
         </div>
       </Router>

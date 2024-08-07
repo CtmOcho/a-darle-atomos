@@ -28,7 +28,7 @@ const LoginPage = () => {
       }
 
       const data = await response.json();
-      setUser({ username: data.username, course: data.curso, progress: data.progress }); // Guardar la información del usuario en el contexto
+      setUser({ username: data.username, course: data.curso, progress: data.progress, type: data.type }); // Guardar la información del usuario en el contexto
 
       // Aquí puedes manejar la respuesta del login y navegar a la página adecuada
       if (data.type === 'E') {
@@ -37,7 +37,7 @@ const LoginPage = () => {
       } else {
         console.log(`${username}:${password}`);
         console.log('Profesor ingresó al sistema');
-        navigate('/post_login_profesor'); // Redirigir a la página post login para profesores
+        navigate('/dashboard'); // Redirigir a la página post login para profesores
       }
     } catch (err) {
       setError('No existe el usuario');

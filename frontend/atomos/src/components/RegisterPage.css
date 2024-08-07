@@ -1,63 +1,23 @@
-.page-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.register-container {
-  width: 90%;
-  max-width: 500px;
-  margin: 50px auto;
-  padding: 2rem;
-  border: 1px solid #ccc;
-  border-radius: 1rem;
-  background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-  font-size: 2rem;
-}
-
-.form-group {
-  margin-bottom: 1rem;
-  font-size: 1rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.form-group input[type="text"],
-.form-group input[type="password"] {
-  width: 100%;
-  padding: 0.5rem;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  max-width: 15rem;
+  font-family: 'BobbyJones', sans-serif;
 }
 
-button.btn {
-  width: 100%;
-  padding: 1rem;
-  background-color: #5A8884;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
+.profile-page-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2rem;
+  background-color: rgba(245, 245, 245, 0.8); /* Fondo transparente */
 }
 
-button.btn:hover {
-  background-color: #49756e;
-}
-
-button.btn-back {
+.btn-back {
   position: absolute;
   top: 1rem;
   left: 1rem;
@@ -65,16 +25,77 @@ button.btn-back {
   color: white;
   border: none;
   border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 1.5rem 3rem;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 2rem;
 }
 
-button.btn-back:hover {
+.btn-back:hover {
   background-color: #49756e;
 }
 
-.error {
-  color: red;
-  margin-top: 1rem;
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 4rem;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.profile-item {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.username.professor {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 1.5rem;
+  background-color: #ccc;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.progress {
+  height: 100%;
+  background-color: #5A8884;
+}
+
+.profile-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* Espacio entre los botones */
+}
+
+.btn-edit, .btn-delete {
+  background-color: #5A8884;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.btn-edit:hover, .btn-delete:hover {
+  background-color: #49756e;
 }
