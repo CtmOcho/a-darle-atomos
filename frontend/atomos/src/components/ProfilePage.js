@@ -2,6 +2,10 @@ import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 import './ProfilePage.css';
+import config from '../config/config';
+//${config.backendUrl} -> reemplazar http://localhost:13756 por esto!!!
+
+
 
 const ProfilePage = () => {
   const { user } = useContext(UserContext);

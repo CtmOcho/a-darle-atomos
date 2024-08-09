@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './AddStudentPage.css';
+import config from '../config/config';
 
 const AddStudentPage = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const AddStudentPage = () => {
 
   useEffect(() => {
     const fetchStudents = async () => {
-      const url = `http://localhost:13756/students/not-in-course/${courseName}`;
+      const url = `${config.backendUrl}/students/not-in-course/${courseName}`;
       try {
         const response = await fetch(url);
         if (response.ok) {
@@ -30,7 +31,7 @@ const AddStudentPage = () => {
 
   const handleAddStudent = async (e) => {
     e.preventDefault();
-    const url = `http://localhost:13756/updateCurso/${courseName}/insertStudents`;
+    const url = `${config.backendUrl}/updateCurso/${courseName}/insertStudents`;
     try {
       const response = await fetch(url, {
         method: 'PUT',

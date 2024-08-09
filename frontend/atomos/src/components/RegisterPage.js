@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './RegisterPage.css';
+import config from '../config/config';
+//${config.backendUrl} -> reemplazar ht tp://localhost:13756 por esto!!!
+
+
 
 const RegisterPage = () => {
   const [username, setUsername] = useState('');
@@ -19,7 +23,7 @@ const RegisterPage = () => {
   };
 
   const tryCreateStudent = async () => {
-    const authenticationEndpointStudent = 'http://localhost:13756/student';
+    const authenticationEndpointStudent = '${config.backendUrl}/student';
     const upperCaseUsername = username.toUpperCase();
     const url = `${authenticationEndpointStudent}?user=${upperCaseUsername}&pass=${password}`;
     try {
@@ -48,7 +52,7 @@ const RegisterPage = () => {
   };
 
   const tryCreateTeacher = async () => {
-    const authenticationEndpointTeacher = 'http://localhost:13756/teacher';
+    const authenticationEndpointTeacher = `${config.backendUrl}/teacher`;
     const upperCaseUsername = username.toUpperCase();
     const url = `${authenticationEndpointTeacher}/${upperCaseUsername}/${password}`;
     try {

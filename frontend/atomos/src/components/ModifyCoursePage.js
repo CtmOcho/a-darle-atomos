@@ -2,6 +2,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 import './ModifyCoursePage.css';
+import config from '../config/config';
+//${config.backendUrl} -> reemplazar http://localhost:13756 por esto!!!
+
+
 
 const ModifyCoursePage = () => {
   const navigate = useNavigate();
@@ -12,7 +16,7 @@ const ModifyCoursePage = () => {
 
   useEffect(() => {
     const fetchCourses = async () => {
-      const url = `http://localhost:13756/curso/${user.username}`;
+      const url = `${config.backendUrl}/curso/${user.username}`;
       try {
         const response = await fetch(url);
         if (response.ok) {

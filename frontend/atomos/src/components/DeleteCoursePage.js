@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 import './DeleteCoursePage.css';
+import config from '../config/config';
+
 
 const DeleteCoursePage = () => {
   const navigate = useNavigate();
@@ -12,7 +14,7 @@ const DeleteCoursePage = () => {
 
   useEffect(() => {
     const fetchCourses = async () => {
-      const url = `http://localhost:13756/curso/${user.username}`;
+      const url = `${config.backendUrl}/curso/${user.username}`;
       try {
         const response = await fetch(url);
         if (response.ok) {
@@ -31,7 +33,7 @@ const DeleteCoursePage = () => {
 
   const handleDeleteCourse = async (e) => {
     e.preventDefault();
-    const url = `http://localhost:13756/curso/${selectedCourse}`;
+    const url = `${config.backendUrl}/curso/${selectedCourse}`;
     try {
       const response = await fetch(url, {
         method: 'DELETE',

@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 import './LoginPage.css';
 
+import config from '../config/config';
+//${config.backendUrl} -> reemplazar ht tp://localhost:13756/ por esto!!!
+
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -12,7 +15,7 @@ const LoginPage = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const authenticationEndpointLog = 'http://localhost:13756/login';
+    const authenticationEndpointLog = `${config.backendUrl}/login`;
     const upperCaseUsername = username.toUpperCase();
     const url = `${authenticationEndpointLog}/${upperCaseUsername}/${password}`;
 

@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 import './CreateCoursePage.css';
+import config from '../config/config';
 
 const CreateCoursePage = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const CreateCoursePage = () => {
 
   const handleCreateCourse = async (e) => {
     e.preventDefault();
-    const url = `http://localhost:13756/curso/${user.username}/${courseName}`;
+    const url = `${config.backendUrl}/curso/${user.username}/${courseName}`;
 
     try {
       const response = await fetch(url, {

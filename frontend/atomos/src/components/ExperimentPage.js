@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './ExperimentPage.css';
+import config from '../config/config';
+//${config.backendUrl} -> reemplazar http://localhost:13756 por esto!!!
+
+
 
 const ExperimentPage = () => {
   const { experimentName } = useParams();

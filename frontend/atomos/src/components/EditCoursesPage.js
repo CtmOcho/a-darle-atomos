@@ -2,6 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './EditCoursesPage.css';
 
+import config from '../config/config';
+//${config.backendUrl} -> reemplazar http://localhost:13756 por esto!!!
+
+
 const EditCoursesPage = () => {
   const navigate = useNavigate();
 

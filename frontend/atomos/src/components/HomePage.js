@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import logo from '../media/logo.png'; // Asegúrate de que la ruta sea correcta
 import './HomePage.css';
 
+
+import config from '../config/config';
+//${config.backendUrl} -> reemplazar http://localhost:13756 por esto!!!
+
 const HomePage = () => {
   const navigate = useNavigate();
 

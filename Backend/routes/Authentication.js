@@ -414,5 +414,9 @@ module.exports = app => {
           res.status(500).send('Error al obtener los estudiantes');
         }
       });
+
+      app.get('/test', (req, res) => {
+        res.send('Ngrok is working');
+    });
       
 }

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 import './DashboardPage.css';
 import profileImage from '../media/perfil.png';
+//import config from '../config/config';
 
 const DashboardPage = () => {
   const navigate = useNavigate();
