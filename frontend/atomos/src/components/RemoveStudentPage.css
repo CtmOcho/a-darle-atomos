@@ -1,33 +1,11 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'BobbyJones', sans-serif;
-  }
-  
-  .page-container {
+
+  div.page-container {
     height: 100vh;
     width: 100vw;
     position: relative;
   }
   
-  .btn-back {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background-color: #5A8884;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  
-  .btn-back:hover {
-    background-color: #49756e;
-  }
+
   
   .remove-student-container {
     display: flex;
@@ -39,36 +17,39 @@
     background-color: rgba(245, 245, 245, 0); /* Fondo transparente */
   }
   
-  h1 {
+  .remove-student-container h1 {
     text-align: center;
     margin-bottom: 2rem;
     font-size: 4rem;
   }
   
-  .form-group {
+  .remove-student-container .form-group {
     margin-bottom: 1rem;
     width: 100%;
     max-width: 500px;
   }
   
-  .form-group label {
+  .remove-student-container .form-group label {
     display: block;
     margin-bottom: 0.5rem;
+    font-size: 2rem;
+    text-align: center;
   }
   
-  .form-group select {
+  .remove-student-container .form-group select {
     width: 100%;
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 0.25rem;
+    font-size: 2rem;
   }
   
-  .error-message {
+  .remove-student-container .error-message {
     color: red;
     margin-bottom: 1rem;
   }
   
-  .form-buttons {
+  .remove-student-container .form-buttons {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -76,17 +57,17 @@
     gap: 1rem; /* Agrega espacio entre los botones */
   }
   
-  .btn {
-    background-color: #5A8884;
+  .remove-student-container .btn {
     color: white;
     border: none;
     border-radius: 0.5rem;
-    padding: 1rem 2rem;
+    padding: 0rem 0.5rem;
     cursor: pointer;
     font-size: 1.5rem;
+    width: 12rem;
   }
   
-  .btn:hover {
+  .remove-student-container .btn:hover {
     background-color: #49756e;
   }
   

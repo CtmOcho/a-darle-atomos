@@ -54,7 +54,7 @@ const LoginPage = () => {
       <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
       <div className="login-container">
         <h2>Inicio de Sesión</h2>
-        <form onSubmit={handleLogin}>
+        <form className= "form-login" onSubmit={handleLogin}>
           <div className="form-group">
             <label>Nombre de usuario:</label>
             <input

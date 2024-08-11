@@ -1,5 +1,5 @@
 
-.logo {
+.home-container .logo {
   position: absolute;
   top: 1rem;
   left: 1rem;
@@ -7,32 +7,47 @@
   height: auto;
 }
 
-.title {
+.home-container .title {
   font-size: 7rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
-.buttons-container {
+.home-container{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.home-container .buttons-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2rem;
+  margin: 1rem;
+  width: 60%;
+  max-width:100%;
+  padding: 1rem;
+
 }
 
-button.btn {
+.home-container button.btn {
   font-family: 'BobbyJones', sans-serif;
   background: #5A8884;
   color: white;
-  padding: 1rem 2rem;
-  margin: 1rem 0;
+  padding: 1rem;
+  margin: 1rem;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 2.5rem;
   width: 100%;
-  max-width: 15rem; /* Máximo ancho de los botones */
+  height: 5rem;
+  max-width: 50%; /* Máximo ancho de los botones */
 }
 
-button.btn:hover {
+.home-container button.btn:hover {
   background: #49756e;
 }

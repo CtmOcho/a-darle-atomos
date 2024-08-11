@@ -14,7 +14,6 @@ const EditCoursesPage = () => {
       <button className="btn-back" onClick={() => navigate('/dashboard')}>Volver</button>
       <div className="edit-courses-page-container">
         <h1>Editar Cursos</h1>
-        <p>Aquí puedes editar los cursos.</p>
         <div className="course-buttons">
           <button className="btn-create-course" onClick={() => navigate('/create-course')}>Crear Curso</button>
           <button className="btn-modify-course" onClick={() => navigate('/modify-course')}>Modificar Curso</button>

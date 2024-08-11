@@ -1,31 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'BobbyJones', sans-serif;
-}
-
-.page-container {
+div.page-container {
   height: 100vh;
   width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-}
-
-.btn-back {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background-color: #5A8884;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 1.5rem 3rem;
-  cursor: pointer;
-  font-size: 2rem;
-}
-
-.btn-back:hover {
-  background-color: #49756e;
 }
 
 .register-container {
@@ -33,57 +12,68 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
   padding: 2rem;
-  background-color: rgba(245, 245, 245, 0); /* Fondo transparente */
   border-radius: 1rem;
-  /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+  width: 100%;
+  max-width: 600px; /* Ajusta este valor según sea necesario */
+  text-align: center;
 }
 
-h2 {
+.register-container h2 {
   text-align: center;
   margin-bottom: 2rem;
   font-size: 4rem;
 }
 
-form {
+.register-container .form-register {
   width: 100%;
-  max-width: 500px;
+  max-width: 500px; /* Ajusta el tamaño máximo del formulario */
+  padding: 2rem;
+  background-color: #ddd;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.form-group {
-  margin-bottom: 1rem;
+.form-register .form-group {
   width: 100%;
+  
 }
 
-.form-group label {
+.form-register .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
-.form-group input[type="text"],
-.form-group input[type="password"] {
-  width: 100%;
+.form-register .form-group input[type="text"],
+.form-register .form-group input[type="password"] {
+  width: 90%;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 0.25rem;
-  font-size: 1.2rem;
-  font-variant: normal;
-  text-transform: none;
+  font-size: 2rem;
 }
 
-.form-group input[type="checkbox"] {
-  margin-right: 0.5rem;
-}
 
-.form-group label.checkbox-label {
+.form-register .form-group label.checkbox-label {
   display: flex;
   align-items: center;
+  justify-content: space-between; /* Asegura que la checkbox esté a la derecha */
+  width: 100%;
   font-size: 1.5rem;
 }
 
-.btn {
+.form-register .form-group input[type="checkbox"] {
+  margin: 1rem; /* Mueve la checkbox al lado derecho del label */
+  width: 2rem;
+  height: 2rem;
+
+}
+
+
+button.btn {
   background-color: #5A8884;
   color: white;
   border: none;
@@ -96,6 +86,6 @@ form {
   text-align: center;
 }
 
-.btn:hover {
+button.btn:hover {
   background-color: #49756e;
 }

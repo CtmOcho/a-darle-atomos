@@ -48,7 +48,7 @@ const CreateCoursePage = () => {
         <h1>Crear Curso</h1>
         <form onSubmit={handleCreateCourse}>
           <div className="form-group">
-            <label>Nombre del Curso:</label>
+            <label>Nombre del Curso</label>
             <input
               type="text"
               value={courseName}

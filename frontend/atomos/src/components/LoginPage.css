@@ -1,43 +1,24 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'BobbyJones', sans-serif;
-}
 
-.page-container {
+div.page-container {
   height: 100vh;
   width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
 
-.btn-back {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background-color: #5A8884;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.btn-back:hover {
-  background-color: #49756e;
-}
 
 .login-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
   padding: 2rem;
-  background-color: rgba(245, 245, 245, 0); /* Fondo transparente */
   border-radius: 1rem;
-  /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+  width: 100%;
+  max-width: 600px; /* Ajusta este valor según sea necesario */
+  text-align: center;
 }
 
 h2 {
@@ -46,60 +27,55 @@ h2 {
   font-size: 4rem;
 }
 
-form {
+form.form-login {
   width: 100%;
-  max-width: 500px;
+  max-width: 500px; /* Ajusta el tamaño máximo del formulario */
+  padding: 2rem;
+  background-color: #ddd;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.form-group {
+.form-login .form-group {
+  width: 100%;
   margin-bottom: 1rem;
-  width: 100%;
 }
 
-.form-group label {
+.form-login .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
-.form-group input[type="text"],
-.form-group input[type="password"]
-{
-  width: 100%;
+.form-login .form-group input[type="text"],
+.form-login .form-group input[type="password"] {
+  width: 90%;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 0.25rem;
-  font-size: 1.2rem;
+  font-size: 2rem;
 }
 
-.form-group input[type="text"] {
+.form-login .form-group input[type="text"] {
   text-transform: uppercase; /* Mostrar texto en mayúsculas */
 }
 
-.form-group input[type="checkbox"] {
-  margin-right: 0.5rem;
-}
-
-.form-group label.checkbox-label {
-  display: flex;
-  align-items: center;
-  font-size: 1.5rem;
-}
-
-.btn {
+button.btn {
   background-color: #5A8884;
   color: white;
   border: none;
   border-radius: 0.5rem;
   padding: 1rem 2rem;
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.5rem;
   width: 100%;
-  
+  max-width: 500px;
   text-align: center;
 }
 
-.btn:hover {
+button.btn:hover {
   background-color: #49756e;
 }
 

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './RemoveStudentPage.css';
+import config from '../config/config';
+//${config.backendUrl} -> reemplazar ht tp://localhost:13756 por esto!!!
+
 
 const RemoveStudentPage = () => {
   const navigate = useNavigate();
@@ -11,7 +14,7 @@ const RemoveStudentPage = () => {
 
   useEffect(() => {
     const fetchStudents = async () => {
-      const url = `http://localhost:13756/students/in-course/${courseName}`;
+      const url = `${config.backendUrl}/students/in-course/${courseName}`;
       try {
         const response = await fetch(url);
         if (response.ok) {
@@ -30,7 +33,7 @@ const RemoveStudentPage = () => {
 
   const handleRemoveStudent = async (e) => {
     e.preventDefault();
-    const url = `http://localhost:13756/updateCurso/${courseName}/removeStudents`;
+    const url = `${config.backendUrl}/updateCurso/${courseName}/removeStudents`;
     try {
       const response = await fetch(url, {
         method: 'PUT',

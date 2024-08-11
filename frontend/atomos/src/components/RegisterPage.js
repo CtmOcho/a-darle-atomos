@@ -85,7 +85,7 @@ const RegisterPage = () => {
       <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
       <div className="register-container">
         <h2>Registro</h2>
-        <form onSubmit={handleRegister}>
+        <form className="form-register"  onSubmit={handleRegister}>
           <div className="form-group">
             <label>Nombre de usuario:</label>
             <input

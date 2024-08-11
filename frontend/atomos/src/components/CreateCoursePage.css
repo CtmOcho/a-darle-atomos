@@ -1,39 +1,12 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'BobbyJones', sans-serif; /* Asegura que se usa la fuente correcta */
-  }
+
   
-  body, html {
-    height: 100%;
-    overflow: hidden; /* Evita el scroll */
-  }
   
-  .page-container {
+  div.page-container {
     height: 100vh;
     width: 100vw;
     position: relative;
   }
-  
-  .btn-back {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background-color: #5A8884;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  
-  .btn-back:hover {
-    background-color: #49756e;
-  }
-  
+ 
   .create-course-container {
     display: flex;
     flex-direction: column;
@@ -42,39 +15,43 @@
     height: 100%;
     padding: 2rem;
     background-color: rgba(245, 245, 245, 0); /* Fondo transparente */
+    width: 50%;
   }
   
-  h1 {
+  .create-course-container h1 {
     text-align: center;
     margin-bottom: 2rem;
     font-size: 4rem; /* Agranda la fuente del encabezado */
   }
   
-  .form-group {
+  .create-course-container .form-group {
     margin-bottom: 1rem;
     width: 100%;
     max-width: 500px;
   }
   
-  .form-group label {
+  .create-course-container .form-group label {
     display: block;
+    font-size: 2rem;
+    text-align: center;
     margin-bottom: 0.5rem;
   }
   
-  .form-group input,
-  .form-group textarea {
+  .create-course-container .form-group input,
+  .create-course-container .form-group textarea {
     width: 100%;
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 0.25rem;
+    font-size: 2rem;
   }
   
-  .error-message {
+  .create-course-container  .error-message {
     color: red;
     margin-bottom: 1rem;
   }
   
-  .form-buttons {
+  .create-course-container .form-buttons {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -82,7 +59,7 @@
     gap: 1rem; /* Agrega espacio entre los botones */
   }
   
-  .btn {
+  .create-course-container .btn {
     background-color: #5A8884;
     color: white;
     border: none;
@@ -90,9 +67,10 @@
     padding: 1rem 2rem; /* Agranda los botones */
     cursor: pointer;
     font-size: 1.5rem; /* Agranda la fuente de los botones */
+    width: 12rem;
   }
   
-  .btn:hover {
+  .create-course-container  .btn:hover {
     background-color: #49756e;
   }
   

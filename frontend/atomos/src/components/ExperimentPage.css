@@ -1,70 +1,47 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'BobbyJones', sans-serif; /* Asegura que se usa la fuente correcta */
-}
 
-body, html {
-  height: 100%;
-  overflow: hidden; /* Evita el scroll */
-}
-
-.page-container {
+div.page-container {
   height: 100vh;
   width: 100vw;
   position: relative;
-}
-
-.btn-back {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background-color: #5A8884;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-size: 1rem;
+  height: 100vh;
+  width: 100vw;
 }
 
 
-.btn-back:hover {
-  background-color: #49756e;
-}
 
 .experiment-page-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 60%;
+  width: 60%;
+  border-radius: 5%;
   padding: 2rem;
   background-color: #f5f5f5;
 }
 
-h1 {
+.experiment-page-container h1 {
   text-align: center;
   margin-bottom: 2rem;
   font-size: 3rem; /* Agranda la fuente del encabezado */
 }
 
-p {
+.experiment-page-container p {
   text-align: center;
   margin-bottom: 2rem;
   font-size: 1.5rem;
   width: 80%;
 }
 
-.quiz-buttons {
+.experiment-page-container .quiz-buttons {
   display: flex;
   justify-content: center; /* Centra los botones */
   gap: 2rem; /* Aumenta el espacio entre los botones */
   margin-top: 2rem; /* Mueve los botones más abajo */
 }
 
-.btn-pre-quiz, .btn-new-quiz, .btn-additional-content {
+.experiment-page-container .btn-pre-quiz,.experiment-page-container .btn-new-quiz,.experiment-page-container .btn-additional-content {
   background-color: #5A8884;
   color: white;
   border: none;
@@ -74,11 +51,11 @@ p {
   font-size: 1.5rem; /* Agranda la fuente de los botones */
 }
 
-.btn-new-quiz:disabled {
+.experiment-page-container .btn-new-quiz:disabled {
   background-color: #ddd;
   cursor: not-allowed;
 }
 
-.btn-pre-quiz:hover, .btn-new-quiz:hover:not(:disabled), .btn-additional-content:hover {
+.experiment-page-container .btn-pre-quiz:hover,.experiment-page-container .btn-new-quiz:hover:not(:disabled),.experiment-page-container .btn-additional-content:hover {
   background-color: #49756e;
 }

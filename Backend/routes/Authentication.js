@@ -11,14 +11,14 @@ module.exports = app => {
     app.get('/login/:user/:pass', async(req,res) =>{
         const user = req.params.user;
         const pass = req.params.pass;
-        console.log(user,pass);
+        
         if (user == null || pass == null){
             res.status('409').send('Credenciales invalidas');
             return;
         }
 
         var userAccount = await Account.findOne({username: user});
-        console.log(userAccount);
+        
         if (userAccount == null){
             res.status('404').send('Credenciales invalidas');;//Credenciales invalidas
             return;
@@ -43,7 +43,7 @@ module.exports = app => {
             return;
         }
         var userAccount = await Account.findOne({username: user});
-        console.log(userAccount);
+        
         if (userAccount == null){
             var newAccount = new Account({
                 username: user,
@@ -84,7 +84,7 @@ module.exports = app => {
 
             res.status('201').send('Usuario Creado');
             console.log('Usuario Creado');
-            console.log(newAccount);
+            
             return;
         }else{
             res.status('409').send('Usuario ya existe');
@@ -154,7 +154,7 @@ module.exports = app => {
            res.status('404').send('Usuario no existe');//Usuario no existe
            return;
         }else{
-            console.log('User exists');
+            console.log('Usuario existe');
             try {
                 if (userToDelete.type == "P"){
                     await Cursos.deleteMany({teacher: userToDelete.username})
@@ -201,7 +201,7 @@ module.exports = app => {
             return;
         }
         var Findcurso =  await Cursos.findOne({course: curso});
-        console.log(Findcurso);
+
         if (Findcurso == null){
             var newCurso = new Cursos({
                 teacher: teacher,
@@ -344,7 +344,7 @@ module.exports = app => {
     app.get('/curso/students/:course', async(req,res) =>{
         const curso = req.params.course;
         var getCurso = await Cursos.findOne({course: curso});
-        console.log(getCurso);
+        
         if (getCurso == null){
             res.status('404').send('Curso no encontrado');
             return;
@@ -356,7 +356,7 @@ module.exports = app => {
     app.get('/student/:user/prog', async(req,res) =>{
         const user = req.params.user;
         var getAccount = await Account.findOne({username: user});
-        console.log(getAccount);
+  
         if (getAccount == null){
             res.status('404').send('Usuario no encontrado');
             return;

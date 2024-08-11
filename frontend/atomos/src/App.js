@@ -14,7 +14,7 @@ import RemoveStudentPage from './components/RemoveStudentPage';
 import DeleteCoursePage from './components/DeleteCoursePage';
 import { UserProvider } from './context/UserContext';
 import AdditionalContentPage from './components/AdditionalContentPage';
-
+import QuizPage from './components/QuizPage';
 import './App.css';
 
 function App() {
@@ -36,6 +36,7 @@ function App() {
             <Route path="/remove-student/:courseName" element={<RemoveStudentPage />} />
             <Route path="/delete-course" element={<DeleteCoursePage />} />
             <Route path="/experiment/:experimentName/additional-content" element={<AdditionalContentPage />} />
+            <Route path="/quiz" element={<QuizPage />} />
           </Routes>
         </div>
       </Router>
