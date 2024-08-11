@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'BobbyJones', sans-serif; /* Asegura que se usa la fuente correcta */
+}
+
+body, html {
+  height: 100%;
+  overflow: hidden; /* Evita el scroll */
+}
+
+.page-container {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.btn-back {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: #5A8884;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-back:hover {
+  background-color: #49756e;
+}
+
+.edit-courses-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 2rem;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 4rem; /* Agranda la fuente del encabezado */
+}
+
+p {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  width: 80%;
+}
+
+.course-buttons {
+  display: flex;
+  flex-direction: column; /* Coloca los botones de forma vertical */
+  justify-content: center; /* Centra los botones verticalmente */
+  align-items: center;
+  gap: 2rem; /* Aumenta el espacio entre los botones */
+  margin-top: 2rem; /* Mueve los botones más abajo */
+}
+
+.btn-create-course, .btn-modify-course, .btn-delete-course {
+  background-color: #5A8884;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 2rem 4rem; /* Agranda los botones */
+  cursor: pointer;
+  font-size: 2rem; /* Agranda la fuente de los botones */
+  width: 100%; /* Asegura que los botones ocupen todo el ancho disponible */
+  max-width: 400px; /* Define un ancho máximo para los botones */
+}
+
+.btn-create-course:hover, .btn-modify-course:hover, .btn-delete-course:hover {
+  background-color: #49756e;
+}
