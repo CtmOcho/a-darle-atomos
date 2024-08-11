@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import './ExperimentPage.css';
-import config from '../config/config';
-//${config.backendUrl} -> reemplazar http://localhost:13756 por esto!!!
-
-
+import config from '../config/config'; // Asegúrate de tener la configuración correcta
 
 const ExperimentPage = () => {
   const { experimentName } = useParams();
@@ -16,7 +13,6 @@ const ExperimentPage = () => {
   };
 
   const handlePreQuizClick = () => {
-    // Lógica para manejar el pre cuestionario
     handlePreQuizComplete();
   };
 
@@ -26,15 +22,19 @@ const ExperimentPage = () => {
     }
   };
 
+  const handleAdditionalContentClick = () => {
+    navigate(`/experiment/${experimentName}/additional-content`);
+  };
+
   return (
     <div className="page-container">
       <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
       <div className="experiment-page-container">
         <h1>{experimentName}</h1>
-        <p>Aquí va la información adicional del experimento {experimentName}.</p>
         <div className="quiz-buttons">
+          <button className="btn-additional-content" onClick={handleAdditionalContentClick}>Contenido Adicional</button>
           <button className="btn-pre-quiz" onClick={handlePreQuizClick}>Pre Cuestionario</button>
-          <button className="btn-new-quiz" onClick={handleNewQuizClick} disabled={!preQuizCompleted}>Nuevo Cuestionario</button>
+          <button className="btn-new-quiz" onClick={handleNewQuizClick} disabled={!preQuizCompleted}>Post Cuestionario</button>
         </div>
       </div>
     </div>

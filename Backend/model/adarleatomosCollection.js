@@ -7,7 +7,7 @@ const accountSchema = new Schema({
     progress: Number,
     type: String,
     curso: Array,
-
+    progressdata: Array,
     lastAuth: Date,
 });
 

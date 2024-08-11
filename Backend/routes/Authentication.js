@@ -50,7 +50,7 @@ module.exports = app => {
                 password: pass,
                 progress: 0,
                 type: "P",
-
+                progressdata:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 lastAuth: Date.now(),
             });
             await newAccount.save();
@@ -76,6 +76,7 @@ module.exports = app => {
                 password: pass,
                 progress: 0,
                 type: "E",
+                progressdata:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
                 lastAuth: Date.now(),
             });
@@ -418,5 +419,32 @@ module.exports = app => {
       app.get('/test', (req, res) => {
         res.send('Ngrok is working');
     });
+
+    app.put('/updateStudent/:user/prog/:progressvalue', async (req, res) => {
+        const search = req.params.user;
+        const progressIndex = req.params.progressvalue - 1;
+    
+        if (progressIndex < 0 || progressIndex >= 55) {
+            res.status(400).send('Valor de progressvalue inválido');
+            return;
+        }
+    
+        try {
+            const updateUser = await Account.findOneAndUpdate(
+                { username: search },
+                { $set: { [`progressdata.${progressIndex}`]: 1 } },
+                { new: true, runValidators: true }
+            );
+            if (!updateUser) {
+                res.status(404).send('Usuario no encontrado');
+                return;
+            }
+            res.status(200).send(updateUser);
+        } catch (err) {
+            console.error(err);
+            res.status(500).send('Error al actualizar el usuario');
+        }
+    });
+    
       
 }

@@ -41,14 +41,18 @@ public class Login : MonoBehaviour
     {
         public string[] students;
     }
+    private string baseBackendUrl = "http://localhost:13756"; // Puedes cambiar esta URL cuando cambie la URL de Ngrok
 
     public Navigation1.Navigation navigation;
-    [SerializeField] private string authenticationEndpointLog = "http://localhost:13756/login";
-    [SerializeField] private string authenticationEndpointStudent = "http://localhost:13756/student";
-    [SerializeField] private string authenticationEndpointTeacher = "http://localhost:13756/teacher";
-    [SerializeField] private string authenticationEndpointCourses = "http://localhost:13756/curso";
-    [SerializeField] private string authenticationEndpointUpdateCourses = "http://localhost:13756/updateCurso";
-    [SerializeField] private string authenticationEndpointUpdateStudent = "http://localhost:13756/updateStudent";
+        // Usar la URL base para definir los endpoints
+    private string authenticationEndpointLog => $"{baseBackendUrl}/login";
+    private string authenticationEndpointStudent => $"{baseBackendUrl}/student";
+    private string authenticationEndpointTeacher => $"{baseBackendUrl}/teacher";
+    private string authenticationEndpointCourses => $"{baseBackendUrl}/curso";
+    private string authenticationEndpointUpdateCourses => $"{baseBackendUrl}/updateCurso";
+    private string authenticationEndpointUpdateStudent => $"{baseBackendUrl}/updateStudent";
+
+
     [SerializeField] private TMP_InputField usernameInputField;
     [SerializeField] private TMP_InputField passwordInputField;
     [SerializeField] private TMP_InputField cursoInputField;
@@ -111,6 +115,31 @@ public class Login : MonoBehaviour
         StartCoroutine(TryGetStudentProgress(user));
     }
 
+    public void StartUpdateProgress(string user, int progressDetail)
+    {
+        if (progressDetail < 1 || progressDetail > 55)
+        {
+            Debug.LogError("El valor de progressDetail debe estar entre 1 y 55");
+            return;
+        }
+
+        StartCoroutine(UpdateProgressCoroutine(user, progressDetail));
+    }
+
+    public void StartGetProgress(string user, int progressDetail)
+    {
+        if (progressDetail < 1 || progressDetail > 55)
+        {
+            Debug.LogError("El valor de progressDetail debe estar entre 1 y 55");
+            return;
+        }
+
+        StartCoroutine(GetProgressCoroutine(user, progressDetail));
+    }
+
+
+
+
     private IEnumerator TryLogin(){
         
         string flag = Flag;
@@ -159,7 +188,7 @@ public class Login : MonoBehaviour
 
                 navigation = gameObject.AddComponent<Navigation>();
 
-                navigation.LoadScene("Post_login_profesor");
+                navigation.LoadScene("Experiencia_profesores");
 
                 }
             
@@ -517,7 +546,7 @@ public class Login : MonoBehaviour
         Debug.Log(json);
 
         // Crear la solicitud PUT con los datos JSON
-        UnityWebRequest request = new UnityWebRequest($"{authenticationEndpointUpdateStudent}/{sesion}", UnityWebRequest.kHttpVerbPUT);
+        UnityWebRequest request = new UnityWebRequest($"{authenticationEndpointUpdateStudent}//{sesion}", UnityWebRequest.kHttpVerbPUT);
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
@@ -709,7 +738,7 @@ public class Login : MonoBehaviour
         string json = JsonUtility.ToJson(jsonData);
 
         //Reemplazar {sesion} por el usuario de la sesion
-        UnityWebRequest request = UnityWebRequest.Put($"{authenticationEndpointUpdateStudent}/{username}/prog",json);
+        UnityWebRequest request = UnityWebRequest.Put($"{authenticationEndpointUpdateStudent}//{username}/prog",json);
         var handler = request.SendWebRequest();
 
         float startTime = 0.0f;
@@ -768,5 +797,54 @@ public class Login : MonoBehaviour
         }
         yield return null;
     }
+
+    private IEnumerator UpdateProgressCoroutine(string user, int progressDetail)
+    {
+        int progressValue = progressDetail;
+        string url = $"{authenticationEndpointUpdateStudent}/{user}/prog/{progressValue}";
+
+        UnityWebRequest www = UnityWebRequest.Put(url, "");
+        www.SetRequestHeader("Content-Type", "application/json");
+
+        yield return www.SendWebRequest();
+
+        if (www.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log("Progreso actualizado exitosamente");
+        }
+        else
+        {
+            Debug.LogError("Error al actualizar el progreso: " + www.error);
+        }
+    }
+private int progressValue;
+
+   private IEnumerator GetProgressCoroutine(string user, int progressDetail)
+{
+    string url = $"{baseBackendUrl}/getStudent/{user}/prog/{progressDetail}";
+
+    UnityWebRequest www = UnityWebRequest.Get(url);
+    www.SetRequestHeader("Content-Type", "application/json");
+
+    yield return www.SendWebRequest();
+
+    if (www.result == UnityWebRequest.Result.Success)
+    {
+        string jsonResponse = www.downloadHandler.text;
+
+        if (int.TryParse(jsonResponse, out progressValue))
+        {
+            Debug.Log("Valor del progreso: " + progressValue);
+        }
+        else
+        {
+            Debug.LogError("Error al parsear la respuesta: " + jsonResponse);
+        }
+    }
+    else
+    {
+        Debug.LogError("Error al obtener el progreso: " + www.error);
+    }
+}
 
 }

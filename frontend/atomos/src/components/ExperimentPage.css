@@ -64,7 +64,7 @@ p {
   margin-top: 2rem; /* Mueve los botones más abajo */
 }
 
-.btn-pre-quiz, .btn-new-quiz {
+.btn-pre-quiz, .btn-new-quiz, .btn-additional-content {
   background-color: #5A8884;
   color: white;
   border: none;
@@ -79,6 +79,6 @@ p {
   cursor: not-allowed;
 }
 
-.btn-pre-quiz:hover, .btn-new-quiz:hover:not(:disabled) {
+.btn-pre-quiz:hover, .btn-new-quiz:hover:not(:disabled), .btn-additional-content:hover {
   background-color: #49756e;
 }

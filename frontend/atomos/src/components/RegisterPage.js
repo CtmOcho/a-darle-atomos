@@ -23,7 +23,7 @@ const RegisterPage = () => {
   };
 
   const tryCreateStudent = async () => {
-    const authenticationEndpointStudent = '${config.backendUrl}/student';
+    const authenticationEndpointStudent = `${config.backendUrl}/student`;
     const upperCaseUsername = username.toUpperCase();
     const url = `${authenticationEndpointStudent}?user=${upperCaseUsername}&pass=${password}`;
     try {
