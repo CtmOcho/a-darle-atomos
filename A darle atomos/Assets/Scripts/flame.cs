@@ -36,23 +36,11 @@ public class flame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (knob.hasChanged)
-        {
-            Vector3 knob_euler_angles = knob.transform.localEulerAngles;
-            float knob_rotation_normalized = Mathf.InverseLerp(10f, 80f, knob_euler_angles.x);
-            float value = knob_rotation_normalized * 8f;
-            if (value < 0.2f){
-                vfx.SetInt("spawn_rate", 0);
-                light.intensity = 0;
-            } else {
-                vfx.SetInt("spawn_rate", 100000);
-                vfx.SetFloat("Flame Strength", knob_rotation_normalized);
-                light.intensity = Mathf.Lerp(100, 600, knob_rotation_normalized);
-                knob.hasChanged = false;
-            }
-        }
-        */
+        TurnOnAndOff();
+    }
+
+    void TurnOnAndOff()
+    {
         if (knobIsPressed)
         {
             if (!isOn)
@@ -62,7 +50,7 @@ public class flame : MonoBehaviour
             }
             else
             {
-                vfx.SetInt("spawn_rate", 100000);
+                vfx.SetInt("spawn_rate", 500000);
                 vfx.SetFloat("Flame Strength", 1);
                 light.intensity = Mathf.Lerp(100, 200, 1);
             }
@@ -86,6 +74,16 @@ public class flame : MonoBehaviour
                 spoon.colorLlama = -1;
             }
         }
+        else if (other.gameObject.tag == "Glass")
+        {
+            activateGlassCollision(other.gameObject.GetComponent<MeshCollider>());
+        }
+    }
+
+    void activateGlassCollision(MeshCollider glassCollider)
+    {
+        // TODO: implement dynamic particle collisions
+        Vector3 center = glassCollider.bounds.center;
     }
 
     public IEnumerator ChangeFlameColor(int targetColor)
