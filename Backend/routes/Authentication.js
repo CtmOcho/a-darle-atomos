@@ -130,6 +130,7 @@ module.exports = app => {
 
     app.put('/updateStudent/:user/prog',async(req,res) => {
         const search = req.params.user;
+        console.log("EN EL PUT PARA SUMAR 1");
         try {
             const updateUser = await Account.findOneAndUpdate(
                 { username: search },
@@ -140,6 +141,7 @@ module.exports = app => {
                 res.status(404).send('Usuario no encontrado');
                 return;
             }
+            console.log("SE DEBERÍA HABER ACTUALIZADO EN LA BD")
             res.status(200).send(updateUser);
         } catch (err) {
             console.error(err);
@@ -423,7 +425,7 @@ module.exports = app => {
     app.put('/updateStudent/:user/prog/:progressvalue', async (req, res) => {
         const search = req.params.user;
         const progressIndex = req.params.progressvalue - 1;
-    
+        console.log("AAAAAAAAAAAAAAAAAAA");
         if (progressIndex < 0 || progressIndex >= 55) {
             res.status(400).send('Valor de progressvalue inválido');
             return;
@@ -439,12 +441,40 @@ module.exports = app => {
                 res.status(404).send('Usuario no encontrado');
                 return;
             }
-            res.status(200).send(updateUser);
+            console.log("ANTES DEL SEND EN CAMBIO ARRAY");
+            res.status(200).send("Valor del array cambiado");
         } catch (err) {
             console.error(err);
             res.status(500).send('Error al actualizar el usuario');
         }
     });
     
-      
+    app.get('/getStudent/:user/prog/:progressvalue', async (req, res) => {
+        const search = req.params.user;
+        const progressIndex = req.params.progressvalue - 1;
+        console.log("DENTRO DEL GET LOL");
+        console.log(search);
+        console.log(progressIndex);
+
+        if (progressIndex < 0 || progressIndex >= 55) {
+            res.status(400).send('Valor de progressvalue inválido');
+            return;
+        }
+    
+        try {
+            const user = await Account.findOne({ username: search });
+            if (!user) {
+                res.status(404).send('Usuario no encontrado');
+                return;
+            }
+            console.log("ANTES DEL SEND");    
+            console.log(user.progressdata[progressIndex]);
+            const progressValue = user.progressdata[progressIndex];
+            res.status(200).send({"progressValue": progressValue});
+        } catch (err) {
+            console.error(err);
+            res.status(500).send('Error al obtener el progreso del usuario');
+        }
+    });
+    
 }

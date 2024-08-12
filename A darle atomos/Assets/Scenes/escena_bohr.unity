@@ -1326,12 +1326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navigation: {fileID: 0}
-  authenticationEndpointLog: http://localhost:13756/login
-  authenticationEndpointStudent: http://localhost:13756/student
-  authenticationEndpointTeacher: http://localhost:13756/teacher
-  authenticationEndpointCourses: http://localhost:13756/curso
-  authenticationEndpointUpdateCourses: http://localhost:13756/updateCurso
-  authenticationEndpointUpdateStudent: http://localhost:13756/updateStudent
   usernameInputField: {fileID: 0}
   passwordInputField: {fileID: 0}
   cursoInputField: {fileID: 0}
@@ -1783,7 +1777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6ae58e4f169d64095a8cc9f1e31287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  cam: {fileID: 1474357523}
 --- !u!1 &2038366497
 GameObject:
   m_ObjectHideFlags: 0

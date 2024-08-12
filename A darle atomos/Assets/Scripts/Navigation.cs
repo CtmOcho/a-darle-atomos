@@ -27,7 +27,7 @@ namespace Navigation1{
 
 
  public void SendToDatabase(){
-        cam.GetComponent<Login>().OnPutStudentProgress();
+        cam.GetComponent<Login>().OnPutStudentProgress(1);
     }
         public void BackFromLab(){
             
