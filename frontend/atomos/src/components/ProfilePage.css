@@ -76,3 +76,31 @@
 .profile-page-container .btn-edit:hover,.profile-page-container .btn-delete:hover {
   background-color: #49756e;
 }
+
+.profile-page-container .profile-item.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.profile-page-container .progress-bar {
+  width: 80%;
+  background-color: #ddd;
+  border-radius: 1rem;
+  overflow: hidden;
+  height: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile-page-container .progress {
+  height: 100%;
+  background-color: #5A8884;
+  border-radius: 1rem;
+  transition: width 0.5s ease;
+}
+
+.profile-page-container .profile-item p {
+  font-size: 1.5rem;
+}
