@@ -19,9 +19,28 @@ const cursosSchema = new Schema({
     lastUpd: Date,
 });
 
+const testSchema = new Schema({
+    teacher: String,
+    quiz1: {type: Array, default: [0,0,0,0,0,0]},
+    quiz2: {type: Array, default: [0,0,0,0,0,0]},
+    quiz3: {type: Array, default: [0,0,0,0,0,0]},
+    quiz4: {type: Array, default: [0,0,0,0,0,0]},
+    quiz5: {type: Array, default: [0,0,0,0,0,0]},
+    quiz6: {type: Array, default: [0,0,0,0,0,0]},
+    quiz7: {type: Array, default: [0,0,0,0,0,0]},
+    quiz8: {type: Array, default: [0,0,0,0,0,0]},
+    quiz9: {type: Array, default: [0,0,0,0,0,0]},
+    quiz10: {type: Array, default: [0,0,0,0,0,0]},
+    quiz11: {type: Array, default: [0,0,0,0,0,0]},
+
+    lastUpd: Date,
+});
+
 
 
 mongoose.model('adarleatomosCursos', cursosSchema);
 
 mongoose.model('adarleatomosCollection', accountSchema);
+
+mongoose.model('adarleatomosTests', testSchema);
 

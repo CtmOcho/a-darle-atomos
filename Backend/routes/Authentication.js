@@ -4,6 +4,8 @@ const Account = mongoose.model('adarleatomosCollection');
 
 const Cursos = mongoose.model('adarleatomosCursos');
 
+const Quiz = mongoose.model('adarleatomosCursos');
+
 
 module.exports = app => {
 
@@ -82,6 +84,14 @@ module.exports = app => {
             });
             await newAccount.save();
 
+            var quizAccount = await Quiz.findOne({username: user});
+            if(quizAccount == null){
+                var newQuiz = new Quiz({
+                    username: user,
+                });
+            }
+            await quizAccount.save();
+
             res.status('201').send('Usuario Creado');
             console.log('Usuario Creado');
             
@@ -130,7 +140,6 @@ module.exports = app => {
 
     app.put('/updateStudent/:user/prog',async(req,res) => {
         const search = req.params.user;
-        console.log("EN EL PUT PARA SUMAR 1");
         try {
             const updateUser = await Account.findOneAndUpdate(
                 { username: search },
@@ -141,7 +150,6 @@ module.exports = app => {
                 res.status(404).send('Usuario no encontrado');
                 return;
             }
-            console.log("SE DEBERÍA HABER ACTUALIZADO EN LA BD")
             res.status(200).send(updateUser);
         } catch (err) {
             console.error(err);
@@ -224,7 +232,7 @@ module.exports = app => {
             return;
         }else{
             res.status('409').send('Curso ya existe');
-            return
+            return;
         }
     });
 
@@ -242,6 +250,7 @@ module.exports = app => {
             const studentAccont = await Account.findOne({username: student},);
             if (studentAccont == null){
                 res.status(404).send(student +" no encontrado");
+                return;
             }
         }
 
@@ -288,6 +297,7 @@ module.exports = app => {
             const studentAccont = await Account.findOne({username: student},);
             if (studentAccont == null){
                 res.status(404).send(student +" no encontrado");
+                return;
             }
         }
 
@@ -425,7 +435,7 @@ module.exports = app => {
     app.put('/updateStudent/:user/prog/:progressvalue', async (req, res) => {
         const search = req.params.user;
         const progressIndex = req.params.progressvalue - 1;
-        console.log("AAAAAAAAAAAAAAAAAAA");
+    
         if (progressIndex < 0 || progressIndex >= 55) {
             res.status(400).send('Valor de progressvalue inválido');
             return;
@@ -441,14 +451,13 @@ module.exports = app => {
                 res.status(404).send('Usuario no encontrado');
                 return;
             }
-            console.log("ANTES DEL SEND EN CAMBIO ARRAY");
-            res.status(200).send("Valor del array cambiado");
+            res.status(200).send(updateUser);
         } catch (err) {
             console.error(err);
             res.status(500).send('Error al actualizar el usuario');
         }
     });
-    
+
     app.get('/getStudent/:user/prog/:progressvalue', async (req, res) => {
         const search = req.params.user;
         const progressIndex = req.params.progressvalue - 1;
@@ -476,5 +485,18 @@ module.exports = app => {
             res.status(500).send('Error al obtener el progreso del usuario');
         }
     });
+
+    app.get('/quiz', async (req, res) => {
+        const {user,quiz} = req.body;
+        const studentSearch = Quiz.findOne({student: user}, { projection: { [quiz]: 1, _id: 0 } });
+        if (studentSearch == null){
+            res.status(404).send('Usuario no encontrado');
+            return;
+        }
+        res.status(200).send(studentSearch);
+    });
+
+
     
+      
 }
