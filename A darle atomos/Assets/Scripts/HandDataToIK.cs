@@ -1,79 +1,153 @@
 using UnityEngine;
-using NativeWebSocket;
-using UnityEngine.XR;
+using System;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
+using UnityEngine.Rendering;
+using System.Collections;
 
 public class HandDataToIK : MonoBehaviour
 {
-    public Transform handsPivot;
-    public float angle;
+    public float tolerance = 0.4f;
+    float currTolerance;
+    public float smoothTime = 0.3f;
+    private Vector3 velocityL = Vector3.zero;
+    private Vector3 velocityR = Vector3.zero;
     WebSocketClient wsc;
-    WebSocket ws;
 
-    [Header("Mano Derecha")]
-    public GameObject rightHand;
-    public Transform wristTargetR;
-    public Transform thumbTargetR;
-    public Transform indexTargetR;
-    public Transform middleTargetR;
-    public Transform ringTargetR;
-    public Transform pinkieTargetR;
+    Transform handsPivot;
 
-    public Transform thumbTargetAimR;
-    public Transform indexTargetAimR;
-    public Transform middleTargetAimR;
-    public Transform ringTargetAimR;
-    public Transform pinkieTargetAimR;
-    Transform rightHandTr;
+    //Mano Izquerda
+    Transform leftHand;
+    Transform wristTargetL;
+    Transform thumbTargetL;
+    Transform indexTargetL;
+    Transform middleTargetL;
+    Transform ringTargetL;
+    Transform pinkieTargetL;
+    Transform thumbTargetAimL;
+    Transform indexTargetAimL;
+    Transform middleTargetAimL;
+    Transform ringTargetAimL;
+    Transform pinkieTargetAimL;
 
-    [Header("Mano Izquerda")]
-    public GameObject leftHand;
-    public Transform wristTargetL;
-    public Transform thumbTargetL;
-    public Transform indexTargetL;
-    public Transform middleTargetL;
-    public Transform ringTargetL;
-    public Transform pinkieTargetL;
+    Transform thumbHintAimL;
+    Transform indexHintAimL;
+    Transform middleHintAimL;
+    Transform ringHintAimL;
+    Transform pinkieHintAimL;
 
-    public Transform thumbTargetAimL;
-    public Transform indexTargetAimL;
-    public Transform middleTargetAimL;
-    public Transform ringTargetAimL;
-    public Transform pinkieTargetAimL;
+    //Mano derecha
+    Transform rightHand;
+    Transform wristTargetR;
+    Transform thumbTargetR;
+    Transform indexTargetR;
+    Transform middleTargetR;
+    Transform ringTargetR;
+    Transform pinkieTargetR;
+    Transform thumbTargetAimR;
+    Transform indexTargetAimR;
+    Transform middleTargetAimR;
+    Transform ringTargetAimR;
+    Transform pinkieTargetAimR;
 
-    public Transform thumbHintAimL;
-    public Transform indexHintAimL;
-    public Transform middleHintAimL;
-    public Transform ringHintAimL;
-    public Transform pinkieHintAimL;
-    Transform leftHandTr;
+    Transform thumbHintAimR;
+    Transform indexHintAimR;
+    Transform middleHintAimR;
+    Transform ringHintAimR;
+    Transform pinkieHintAimR;
 
     Vector3[] vecArray;
+    Vector3[] prevVecArray;
     float[] data;
-    bool fistData;
+    float lWristDistanceMagnitude;
+    float rWristDistanceMagnitude;
+    bool firstCycleFlag = true;
     int offset0 = 0; // Offset de la primera mitad de datos
     int offset1 = 0; // Offset de la otra mitad de datos
+    bool interpreterReady = true;
+
     void Start()
     {
-        rightHandTr = rightHand.transform;
-        leftHandTr = leftHand.transform;
+        handsPivot = gameObject.transform.GetChild(0).transform;
+        leftHand = gameObject.transform.GetChild(1).transform;
+        rightHand = gameObject.transform.GetChild(2).transform;
+
+        wristTargetL = leftHand.GetChild(3).transform.GetChild(0).transform.GetChild(0).transform;
+        thumbTargetL = leftHand.GetChild(2).transform.GetChild(0).transform.GetChild(0).transform;
+        indexTargetL = leftHand.GetChild(2).transform.GetChild(1).transform.GetChild(0).transform;
+        middleTargetL = leftHand.GetChild(2).transform.GetChild(2).transform.GetChild(0).transform;
+        ringTargetL = leftHand.GetChild(2).transform.GetChild(3).transform.GetChild(0).transform;
+        pinkieTargetL = leftHand.GetChild(2).transform.GetChild(4).transform.GetChild(0).transform;
+
+        thumbHintAimL = leftHand.GetChild(2).transform.GetChild(0).transform.GetChild(1).transform;
+        indexHintAimL = leftHand.GetChild(2).transform.GetChild(1).transform.GetChild(1).transform;
+        middleHintAimL = leftHand.GetChild(2).transform.GetChild(2).transform.GetChild(1).transform;
+        ringHintAimL = leftHand.GetChild(2).transform.GetChild(3).transform.GetChild(1).transform;
+        pinkieHintAimL = leftHand.GetChild(2).transform.GetChild(4).transform.GetChild(1).transform;
+
+        thumbTargetAimL = leftHand.GetChild(4).transform.GetChild(0).transform.GetChild(0).transform;
+        indexTargetAimL = leftHand.GetChild(4).transform.GetChild(1).transform.GetChild(0).transform;
+        middleTargetAimL = leftHand.GetChild(4).transform.GetChild(2).transform.GetChild(0).transform;
+        ringTargetAimL = leftHand.GetChild(4).transform.GetChild(3).transform.GetChild(0).transform;
+        pinkieTargetAimL = leftHand.GetChild(4).transform.GetChild(4).transform.GetChild(0).transform;
+
+        wristTargetR = rightHand.GetChild(3).transform.GetChild(0).transform.GetChild(0).transform;
+        thumbTargetR = rightHand.GetChild(2).transform.GetChild(0).transform.GetChild(0).transform;
+        indexTargetR = rightHand.GetChild(2).transform.GetChild(1).transform.GetChild(0).transform;
+        middleTargetR = rightHand.GetChild(2).transform.GetChild(2).transform.GetChild(0).transform;
+        ringTargetR = rightHand.GetChild(2).transform.GetChild(3).transform.GetChild(0).transform;
+        pinkieTargetR = rightHand.GetChild(2).transform.GetChild(4).transform.GetChild(0).transform;
+        thumbTargetAimR = rightHand.GetChild(4).transform.GetChild(0).transform.GetChild(0).transform;
+        indexTargetAimR = rightHand.GetChild(4).transform.GetChild(1).transform.GetChild(0).transform;
+        middleTargetAimR = rightHand.GetChild(4).transform.GetChild(2).transform.GetChild(0).transform;
+        ringTargetAimR = rightHand.GetChild(4).transform.GetChild(3).transform.GetChild(0).transform;
+        pinkieTargetAimR = rightHand.GetChild(4).transform.GetChild(4).transform.GetChild(0).transform;
+
+        thumbHintAimR = rightHand.GetChild(2).transform.GetChild(0).transform.GetChild(1).transform;
+        indexHintAimR = rightHand.GetChild(2).transform.GetChild(1).transform.GetChild(1).transform;
+        middleHintAimR = rightHand.GetChild(2).transform.GetChild(2).transform.GetChild(1).transform;
+        ringHintAimR = rightHand.GetChild(2).transform.GetChild(3).transform.GetChild(1).transform;
+        pinkieHintAimR = rightHand.GetChild(2).transform.GetChild(4).transform.GetChild(1).transform;
 
         wsc = gameObject.GetComponent<WebSocketClient>();
-        ws = wsc.GetSocket();
         data = new float[127];
-        vecArray = new Vector3[42];
+        setVectorsZero(ref prevVecArray);
+        setVectorsZero(ref vecArray);
+        currTolerance = 100;
     }
 
-    // Update is called once per frame
+    private void Update()
+    {
+        Vector3 newPosL = prevVecArray[0 + offset0], newPosR = prevVecArray[0 + offset1];
+        if (!interpreterReady)
+        {
+            if (offset0 + offset1 != 0 && lWristDistanceMagnitude < tolerance && rWristDistanceMagnitude < tolerance)
+            {
+                //newPosL = Vector3.SmoothDamp(prevVecArray[0 + offset0], vecArray[0 + offset0], ref velocityL, smoothTime);
+                newPosL = Vector3.Slerp(prevVecArray[0 + offset0], vecArray[0 + offset0], smoothTime);
+                //newPosR = Vector3.SmoothDamp(prevVecArray[0 + offset1], vecArray[0 + offset1], ref velocityR, smoothTime);
+                newPosR = Vector3.Slerp(prevVecArray[0 + offset1], vecArray[0 + offset1], smoothTime);
+            }
+        }
+        setTargetPosition(leftHand, handsPivot, newPosL);
+        setTargetPosition(rightHand, handsPivot, newPosR);
+        setHandPositionAndRotation(wristTargetL, handsPivot, newPosL, prevVecArray[9 + offset0], prevVecArray[5 + offset0], prevVecArray[17 + offset0]);
+        setHandPositionAndRotation(wristTargetR, handsPivot, newPosR, prevVecArray[9 + offset1], prevVecArray[17 + offset1], prevVecArray[5 + offset1]);
+
+    }
     void FixedUpdate()
     {
+        if(interpreterReady)
+        {
+            StartCoroutine(dataInterpreter(0.035f));
+        }
+    }
+
+    IEnumerator dataInterpreter(float dataDelay)
+    {
+        interpreterReady = false;
         if (wsc.GetHandData() != null)
         {
-
             data = wsc.GetHandData();
-            if (fistData)
-            {
-
-            }
             if ((int)data[126] == 1)
             {
                 offset0 = 0;
@@ -84,16 +158,43 @@ public class HandDataToIK : MonoBehaviour
                 offset0 = 21;
                 offset1 = 0;
             }
-            getDataVectors(data, vecArray);
-            setHandTargetPosAndRot(leftHandTr, thumbTargetL, indexTargetL, middleTargetL, ringTargetL, pinkieTargetL, handsPivot, vecArray, offset0);
-            setHandTargetPosAndRot(rightHandTr, thumbTargetR, indexTargetR, middleTargetR, ringTargetR, pinkieTargetR, handsPivot, vecArray, offset1);
-            setFingersHintPos(leftHandTr,thumbHintAimL,indexHintAimL,middleHintAimL,ringHintAimL,pinkieHintAimL);
-            setHandPositionAndRotation(wristTargetL, handsPivot, vecArray[0 + offset0], vecArray[9 + offset0], vecArray[5 + offset0], vecArray[17 + offset0]);
-            setHandPositionAndRotation(wristTargetR, handsPivot, vecArray[0 + offset1], vecArray[9 + offset1], vecArray[17 + offset1], vecArray[5 + offset1]);
-            setFingersAimPos(thumbTargetAimL, indexTargetAimL, middleTargetAimL, ringTargetAimL, pinkieTargetAimL, handsPivot, vecArray, offset0);
-            setFingersAimPos(thumbTargetAimR, indexTargetAimR, middleTargetAimR, ringTargetAimR, pinkieTargetAimR, handsPivot, vecArray, offset1);
+            if (firstCycleFlag)
+            {
+                getDataVectors(data,ref prevVecArray);
+                setHandTargetPosAndRot(leftHand, thumbTargetL, indexTargetL, middleTargetL, ringTargetL, pinkieTargetL, handsPivot, prevVecArray, offset0);
+                setHandTargetPosAndRot(rightHand, thumbTargetR, indexTargetR, middleTargetR, ringTargetR, pinkieTargetR, handsPivot, prevVecArray, offset1);
+                setFingersHintPos(leftHand, thumbHintAimL, indexHintAimL, middleHintAimL, ringHintAimL, pinkieHintAimL);
+                setFingersHintPos(rightHand, thumbHintAimR, indexHintAimR, middleHintAimR, ringHintAimR, pinkieHintAimR);
+
+                setFingersAimPos(thumbTargetAimL, indexTargetAimL, middleTargetAimL, ringTargetAimL, pinkieTargetAimL, handsPivot, prevVecArray, offset0);
+                setFingersAimPos(thumbTargetAimR, indexTargetAimR, middleTargetAimR, ringTargetAimR, pinkieTargetAimR, handsPivot, prevVecArray, offset1);
+                firstCycleFlag = false;
+            }
+            else
+            {
+                getDataVectors(data, ref vecArray);
+                lWristDistanceMagnitude = (vecArray[0 + offset0] - prevVecArray[0 + offset0]).magnitude;
+                rWristDistanceMagnitude = (vecArray[0 + offset1] - prevVecArray[0 + offset1]).magnitude;
+                if (lWristDistanceMagnitude > 0 && rWristDistanceMagnitude > 0)
+                {
+                    //if (lWristDistanceMagnitude < tolerance && rWristDistanceMagnitude < tolerance)
+                    //{
+                        Debug.Log((vecArray[0 + offset0] - prevVecArray[0 + offset0]).magnitude.ToString("F8"));
+                        setHandTargetPosAndRot(leftHand, thumbTargetL, indexTargetL, middleTargetL, ringTargetL, pinkieTargetL, handsPivot, prevVecArray, offset0);
+                        setHandTargetPosAndRot(rightHand, thumbTargetR, indexTargetR, middleTargetR, ringTargetR, pinkieTargetR, handsPivot, prevVecArray, offset1);
+                        setFingersHintPos(leftHand, thumbHintAimL, indexHintAimL, middleHintAimL, ringHintAimL, pinkieHintAimL);
+                        setFingersHintPos(rightHand, thumbHintAimR, indexHintAimR, middleHintAimR, ringHintAimR, pinkieHintAimR);
+                        setFingersAimPos(thumbTargetAimL, indexTargetAimL, middleTargetAimL, ringTargetAimL, pinkieTargetAimL, handsPivot, prevVecArray, offset0);
+                        setFingersAimPos(thumbTargetAimR, indexTargetAimR, middleTargetAimR, ringTargetAimR, pinkieTargetAimR, handsPivot, prevVecArray, offset1);
+                    //}
+                }
+                getDataVectors(data, ref prevVecArray);
+            }
         }
+        yield return new WaitForSeconds(dataDelay);
+        interpreterReady = true;
     }
+
     void setTargetPosition(Transform target, Transform pivot, Vector3 O)
     {
         target.position = pivot.TransformPoint(O);
@@ -122,7 +223,7 @@ public class HandDataToIK : MonoBehaviour
     }
     void setHandTargetPosAndRot(Transform wrist, Transform thumb, Transform index, Transform middle, Transform ring, Transform pinkie, Transform pivot, Vector3[] vecArr, int offset)
     {
-        setTargetPosition(wrist, pivot, vecArray[0 + offset]);
+        //setTargetPosition(wrist, pivot, vecArray[0 + offset]);
         setTargetPositionAndRotation(thumb, pivot, vecArr[3 + offset], vecArr[4 + offset], vecArr[1 + offset], vecArr[5 + offset], offset);
         setTargetPositionAndRotation(index, pivot, vecArr[7 + offset], vecArr[8 + offset], vecArr[5 + offset], vecArr[9 + offset], offset);
         setTargetPositionAndRotation(middle,pivot, vecArr[11 + offset],vecArr[12 + offset],vecArr[5 + offset], vecArr[9 + offset], offset);
@@ -146,12 +247,20 @@ public class HandDataToIK : MonoBehaviour
         pinkie.position = hand.GetChild(1).transform.GetChild(4).transform.GetChild(0).position;
     }
 
-    void getDataVectors(float[] data, Vector3[] vecArray)
+    void getDataVectors(float[] data, ref Vector3[] vecArray)
     {
         int counter = 0;
         for(int i = 0; i < 126; i+=3) {
-            vecArray[counter] = new Vector3(data[i], data[i+1], data[i+2]);
+            vecArray[counter] = new Vector3(Mathf.Round(data[i]*100.0f)*0.01f, Mathf.Round(data[i+1] * 100.0f) * 0.01f, Mathf.Round(data[i+2] * 100.0f) * 0.01f);
             counter++;
+        }
+    }
+    void setVectorsZero(ref Vector3[] arr)
+    {
+        arr = new Vector3[42];
+        for (int i = 0; i < 42; i += 1)
+        {
+            arr[i] = Vector3.zero;
         }
     }
 }

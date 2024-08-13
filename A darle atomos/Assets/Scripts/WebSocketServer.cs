@@ -63,7 +63,7 @@ public class WebSocketClient : MonoBehaviour
         while (websocket.State == WebSocketState.Open)
         {
             await websocket.SendText("request");
-            await Task.Delay(100);  // Wait for 1 second before sending the next request
+            await Task.Delay(35);  // Wait for 1 second before sending the next request
         }
     }
     public WebSocket GetSocket()
