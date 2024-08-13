@@ -89,8 +89,9 @@ module.exports = app => {
                 var newQuiz = new Quiz({
                     username: user,
                 });
+                 await newQuiz.save();
             }
-            await quizAccount.save();
+           
 
             res.status('201').send('Usuario Creado');
             console.log('Usuario Creado');
