@@ -20,7 +20,7 @@ const cursosSchema = new Schema({
 });
 
 const testSchema = new Schema({
-    teacher: String,
+    username: String,
     quiz1: {type: Array, default: [0,0,0,0,0,0]},
     quiz2: {type: Array, default: [0,0,0,0,0,0]},
     quiz3: {type: Array, default: [0,0,0,0,0,0]},

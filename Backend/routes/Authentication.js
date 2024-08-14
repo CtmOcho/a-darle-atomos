@@ -4,7 +4,7 @@ const Account = mongoose.model('adarleatomosCollection');
 
 const Cursos = mongoose.model('adarleatomosCursos');
 
-const Quiz = mongoose.model('adarleatomosCursos');
+const Quiz = mongoose.model('adarleatomosTests');
 
 
 module.exports = app => {
@@ -85,13 +85,25 @@ module.exports = app => {
             await newAccount.save();
 
             var quizAccount = await Quiz.findOne({username: user});
+            console.log(quizAccount);
             if(quizAccount == null){
                 var newQuiz = new Quiz({
                     username: user,
+                    /*quiz1: [0,0,0,0,0,0],
+                    quiz2: [0,0,0,0,0,0],
+                    quiz3: [0,0,0,0,0,0],
+                    quiz4: [0,0,0,0,0,0],
+                    quiz5: [0,0,0,0,0,0],
+                    quiz6: [0,0,0,0,0,0],
+                    quiz7: [0,0,0,0,0,0],
+                    quiz8: [0,0,0,0,0,0],
+                    quiz9: [0,0,0,0,0,0],
+                    quiz10: [0,0,0,0,0,0],
+                    quiz11: [0,0,0,0,0,0]*/
                 });
-                 await newQuiz.save();
+                await newQuiz.save();
             }
-           
+            
 
             res.status('201').send('Usuario Creado');
             console.log('Usuario Creado');
@@ -186,6 +198,7 @@ module.exports = app => {
                         { $pull: { students: userToDelete.username} },
                         { new: true, runValidators: true }
                     );
+                    await Quiz.deleteOne({username: user});
                     await Account.deleteOne({ username: user });
                 }
 
