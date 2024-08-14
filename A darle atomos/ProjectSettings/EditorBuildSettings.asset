@@ -84,7 +84,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Actividad Template.unity
     guid: 3b4f7b536a2f1cf4699e56a4bd286fd9
   - enabled: 1
-    path: Assets/Scenes/escena_bohr.unity
+    path: Assets/Scenes/Moleculares/escena_bohr.unity
     guid: 2d9a1b20de4b17945ad8a56b00b4c748
   - enabled: 0
     path: Assets/Scenes/Menu Home/Mis_cursos.unity
