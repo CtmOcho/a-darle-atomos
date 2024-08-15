@@ -50,9 +50,9 @@ public class flame : MonoBehaviour
             }
             else
             {
-                vfx.SetInt("spawn_rate", 500000);
+                vfx.SetInt("spawn_rate", 100000);
                 vfx.SetFloat("Flame Strength", 1);
-                light.intensity = Mathf.Lerp(100, 200, 1);
+                light.intensity = 0.015f;
             }
         }
     }
