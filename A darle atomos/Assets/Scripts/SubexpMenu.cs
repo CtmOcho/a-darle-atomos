@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SubexpMenuTrigger : MonoBehaviour
 {
@@ -24,7 +25,6 @@ public class SubexpMenuTrigger : MonoBehaviour
     {
         if (other.gameObject.layer == 8) // Verifica si el objeto está en la capa 8
         {
-            // Aquí no se reinicia el estado, se espera que esto se haga en el método ResumeGame
             isTouching = false;
             StopAllCoroutines(); // Asegura que no haya corrutinas activas
         }
@@ -38,7 +38,7 @@ public class SubexpMenuTrigger : MonoBehaviour
 
             if (timer >= holdTime)
             {
-                ActivatePauseMenu();
+                ActivateSubexperienceMenu();
                 yield break; // Termina la corrutina después de activar el menú
             }
 
@@ -46,17 +46,17 @@ public class SubexpMenuTrigger : MonoBehaviour
         }
     }
 
-    private void ActivatePauseMenu()
+    private void ActivateSubexperienceMenu()
     {
         if (Subexperience != null)
         {
             Subexperience.SetActive(true);
             Time.timeScale = 0f; // Pausar el juego
-            Debug.Log("Pause menu activated and game paused.");
+            Debug.Log("Subexperience menu activated and game paused.");
         }
         else
         {
-            Debug.LogWarning("No se ha asignado el objeto del menú de pausa.");
+            Debug.LogWarning("No se ha asignado el objeto de la Subexperience.");
         }
     }
 
@@ -76,7 +76,28 @@ public class SubexpMenuTrigger : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No se ha asignado el objeto del menú de pausa.");
+            Debug.LogWarning("No se ha asignado el objeto de la Subexperience.");
+        }
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        // Reanudar el tiempo antes de cambiar de escena      
+        Time.timeScale = 1f;
+        Debug.Log("Loading scene: " + sceneName);
+
+        // Cargar la nueva escena de manera asíncrona
+        StartCoroutine(LoadSceneAsync(sceneName));
+    }
+
+    private IEnumerator LoadSceneAsync(string sceneName)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+
+        // Espera hasta que la escena esté completamente cargada
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
         }
     }
 
