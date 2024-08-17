@@ -8,6 +8,7 @@ TagManager:
   - Boundary
   - Iodine
   - Fire
+  - IodineCrystal
   layers:
   - Default
   - TransparentFX

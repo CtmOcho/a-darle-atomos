@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 3.5.1 commit date:2023-04-24, commit time:18:11, hash:e1ccd9d4a1d3</authoring_tool>
+    </contributor>
+    <created>2024-08-17T12:42:20</created>
+    <modified>2024-08-17T12:42:20</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="Metallic_iodine-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">0.2310997 0.1967711 0.222215 1</color>
+            </diffuse>
+            <reflectivity>
+              <float sid="specular">1</float>
+            </reflectivity>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images/>
+  <library_materials>
+    <material id="Metallic_iodine-material" name="Metallic iodine">
+      <instance_effect url="#Metallic_iodine-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Cube_016-mesh" name="Cube.016">
+      <mesh>
+        <source id="Cube_016-mesh-positions">
+          <float_array id="Cube_016-mesh-positions-array" count="27">5e-4 0 -5e-4 4.22176e-4 9.92436e-4 -4.22176e-4 5e-4 0 5e-4 4.22176e-4 0.001112997 4.22176e-4 -5e-4 0 -5e-4 -4.22176e-4 8.49581e-4 -4.22176e-4 -5e-4 0 5e-4 -4.22176e-4 9.92436e-4 4.22176e-4 0 0.00131303 0</float_array>
+          <technique_common>
+            <accessor source="#Cube_016-mesh-positions-array" count="9" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cube_016-mesh-normals">
+          <float_array id="Cube_016-mesh-normals-array" count="39">0.9969395 0.07817739 0 0 0.07817739 0.9969395 -0.9958307 0.09122115 0 0 0.09122121 -0.9958307 0 -1 0 -0.1206822 0.8449764 0.5210094 0.5210097 0.8449763 -0.1206821 -0.1230366 0.7272123 -0.6752957 -0.6752958 0.7272123 -0.1230365 0.9975637 0.0690611 -0.009863376 -0.009863495 0.0690611 0.9975637 -0.9969338 0.07715332 -0.01305359 -0.01305347 0.07715326 -0.9969338</float_array>
+          <technique_common>
+            <accessor source="#Cube_016-mesh-normals-array" count="13" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cube_016-mesh-map-0">
+          <float_array id="Cube_016-mesh-map-0-array" count="84">0.625 0 0.375 0.25 0.375 0 0.375 0.25 0.625 0.5 0.375 0.5 0.375 0.5 0.625 0.75 0.375 0.75 0.625 0.75 0.375 1 0.375 0.75 0.375 0.5 0.125 0.75 0.125 0.5 0.625 0.5 0.875 0.5 0.75 0.625 0.875 0.5 0.875 0.75 0.75 0.625 0.875 0.75 0.625 0.75 0.75 0.625 0.625 0.75 0.625 0.5 0.75 0.625 0.625 0 0.625 0.25 0.375 0.25 0.375 0.25 0.625 0.25 0.625 0.5 0.375 0.5 0.625 0.5 0.625 0.75 0.625 0.75 0.625 1 0.375 1 0.375 0.5 0.375 0.75 0.125 0.75</float_array>
+          <technique_common>
+            <accessor source="#Cube_016-mesh-map-0-array" count="42" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Cube_016-mesh-vertices">
+          <input semantic="POSITION" source="#Cube_016-mesh-positions"/>
+        </vertices>
+        <triangles material="Metallic_iodine-material" count="14">
+          <input semantic="VERTEX" source="#Cube_016-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Cube_016-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Cube_016-mesh-map-0" offset="2" set="1"/>
+          <p>1 0 0 2 0 1 0 0 2 2 1 3 7 1 4 6 1 5 6 2 6 5 2 7 4 2 8 5 3 9 0 3 10 4 3 11 6 4 12 0 4 13 2 4 14 7 5 15 3 5 16 8 5 17 3 6 18 1 6 19 8 6 20 1 7 21 5 7 22 8 7 23 5 8 24 7 8 25 8 8 26 1 9 27 3 9 28 2 9 29 2 10 30 3 10 31 7 10 32 6 11 33 7 11 34 5 11 35 5 12 36 1 12 37 0 12 38 6 4 39 4 4 40 0 4 41</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Iodine_crystal" name="Iodine_crystal" type="NODE">
+        <matrix sid="transform">1 0 0 -0.00359581 0 4.521492 0 0.008479012 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#Cube_016-mesh" name="Iodine_crystal">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Metallic_iodine-material" target="#Metallic_iodine-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
