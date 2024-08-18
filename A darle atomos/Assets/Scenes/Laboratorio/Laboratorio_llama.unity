@@ -1699,6 +1699,7 @@ MonoBehaviour:
   knob: {fileID: 1189876772}
   flameStrength: 0.1
   targetColor: 5
+  tripodCollision: 0
 --- !u!65 &252103665
 BoxCollider:
   m_ObjectHideFlags: 0

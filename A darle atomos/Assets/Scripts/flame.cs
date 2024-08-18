@@ -19,6 +19,7 @@ public class flame : MonoBehaviour
     private Transform knob;
     public float flameStrength;
     public int targetColor;
+    public bool tripodCollision;
 
     bool knobIsPressed;
     bool isOn;
@@ -29,8 +30,13 @@ public class flame : MonoBehaviour
         vfx = GetComponent<VisualEffect>();
         light = GetComponentInChildren<Light>();
         currentColor = vfx.GetInt("Color value");
-        vfx.SetInt("Color value", 7);
+        vfx.SetInt("Color value", -1);
         vfx.SetFloat("Blend", 0);
+        vfx.SetInt("spawn_rate", 100000);
+        if (tripodCollision)
+        {
+            vfx.SetBool("Tripod Collision", true);
+        }
     }
 
     // Update is called once per frame
@@ -80,10 +86,15 @@ public class flame : MonoBehaviour
         }
     }
 
+    void OnTriggerExit()
+    {
+        vfx.SetBool("Tripod Collision", false);
+    }
+
     void activateGlassCollision(MeshCollider glassCollider)
     {
         // TODO: implement dynamic particle collisions
-        Vector3 center = glassCollider.bounds.center;
+        vfx.SetBool("Tripod Collision", true);
     }
 
     public IEnumerator ChangeFlameColor(int targetColor)

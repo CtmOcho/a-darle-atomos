@@ -26,7 +26,6 @@ public class IodineReaction : MonoBehaviour
         if (on)
         {
             StartCoroutine(Sublimate());
-            on = !on;
         }
     }
 
@@ -37,11 +36,11 @@ public class IodineReaction : MonoBehaviour
         for (int i = 0; i < 300; i++)
         {
             yield return new WaitForFixedUpdate();
-            iodine.localScale -= originalScale / 500;
+            iodine.localScale -= originalScale / 400;
         }
         mesh.enabled = false;
         vfx.SetInt("spawn_rate", 0);
-        yield return new WaitForSeconds(3);
-        Destroy(transform.parent.gameObject);
+        yield return new WaitForSeconds(2);
+        Destroy(transform.gameObject);
     }
 }
