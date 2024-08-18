@@ -10,13 +10,11 @@ public class MoleculeBehavior : MonoBehaviour
 
     private Rigidbody rb;
     public float currentTemperature;
-    private Vector3 initialPosition;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         currentTemperature = initialTemperature;
-        initialPosition = transform.localPosition; // Guardar la posición inicial relativa
     }
 
     void Update()
@@ -24,17 +22,26 @@ public class MoleculeBehavior : MonoBehaviour
         if (isVibrating)
         {
             Vibrate();
+            AttractNearbyMolecules();
+            //PropagateVibrations();
         }
-        // Eliminar la llamada a AdjustDistanceBasedOnTemperature() ya que no se aplicará una distancia máxima.
+/*
+        // Propagar vibraciones antes de los 60º
+        if (currentTemperature < 30f)
+        {
+            AttractNearbyMolecules();
+            PropagateVibrations();
+        }
+    */
     }
 
     void Vibrate()
     {
         // Limitar el movimiento de la vibración a un rango razonable
         Vector3 vibration = Random.insideUnitSphere * vibrationIntensity * Time.deltaTime;
-        
+
         // Aplicar un factor de amortiguación para evitar movimientos excesivos
-        rb.velocity *= 0.9f; 
+        rb.velocity *= 0.9f;
 
         rb.MovePosition(rb.position + vibration);
     }
@@ -42,7 +49,7 @@ public class MoleculeBehavior : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         MoleculeBehavior otherMolecule = collision.gameObject.GetComponent<MoleculeBehavior>();
-        
+
         if (otherMolecule != null)
         {
             // Transmitir la temperatura si la otra molécula está más caliente
@@ -50,7 +57,7 @@ public class MoleculeBehavior : MonoBehaviour
             {
                 currentTemperature = otherMolecule.currentTemperature;
             }
-            
+
             // Asegurar que la molécula comience a vibrar al colisionar
             StartVibration();
         }
@@ -61,28 +68,68 @@ public class MoleculeBehavior : MonoBehaviour
         isVibrating = true;
         // Limitar la intensidad de la vibración a un valor razonable
         vibrationIntensity = Mathf.Clamp(
-            Mathf.Lerp(0f, maxVibrationIntensity, Mathf.InverseLerp(20f, 114f, currentTemperature)), 
-            0f, 
+            Mathf.Lerp(0f, maxVibrationIntensity, Mathf.InverseLerp(20f, 114f, currentTemperature)),
+            0f,
             maxVibrationIntensity
         );
     }
 
     void OnTriggerEnter(Collider other)
+{
+    if (other.CompareTag("Boundary"))
     {
-        if (other.CompareTag("Boundary"))
+        if (rb != null)
         {
-            // Asegurarse de que el Rigidbody no sea nulo antes de intentar acceder a él
-            if (rb != null)
-            {
-                // Invertir la dirección del movimiento cuando toca los bordes
-                rb.velocity = -rb.velocity;
-            }
+            // Aplicar una fuerza hacia el centro del cubo
+            Vector3 directionToCenter = (Vector3.zero - transform.position).normalized;
+            rb.AddForce(directionToCenter * 500f); // Ajusta la magnitud de la fuerza según sea necesario
         }
     }
+}
+
 
     public void IncreaseTemperature(float amount)
     {
         currentTemperature += amount;
         StartVibration();
     }
+
+    public void AttractNearbyMolecules()
+{
+    // Encuentra todas las moléculas cercanas y atrae esta molécula hacia ellas
+    Collider[] nearbyMolecules = Physics.OverlapSphere(transform.position, 0.2f); // Radio ajustable
+
+    foreach (Collider collider in nearbyMolecules)
+    {
+        // Verificar si el collider pertenece a una molécula individual dentro de Yodo_Pair
+        MoleculeBehavior otherMolecule = collider.GetComponentInParent<MoleculeBehavior>();
+
+        if (otherMolecule != null && otherMolecule != this)
+        {
+            // Atrae la molécula hacia la posición de la otra molécula cercana
+            Vector3 directionToOther = (otherMolecule.transform.position - transform.position).normalized;
+            rb.velocity += directionToOther * vibrationSpeed * 0.02f * Time.deltaTime;
+        }
+    }
+}
+
+/*
+    public void PropagateVibrations()
+{
+    // Encuentra todas las moléculas cercanas
+    Collider[] nearbyMolecules = Physics.OverlapSphere(transform.position, 0.45f); // Radio ajustable
+
+    foreach (Collider collider in nearbyMolecules)
+    {
+        MoleculeBehavior otherMolecule = collider.GetComponentInParent<MoleculeBehavior>();
+
+        if (otherMolecule != null && otherMolecule != this && otherMolecule.currentTemperature < currentTemperature)
+        {
+            // Igualar la temperatura de la otra molécula a la temperatura de esta molécula
+            otherMolecule.currentTemperature = currentTemperature;
+            otherMolecule.StartVibration(); // Iniciar la vibración en la molécula afectada
+        }
+    }
+}
+*/
 }
