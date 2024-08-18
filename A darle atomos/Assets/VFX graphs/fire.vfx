@@ -135,6 +135,20 @@ MonoBehaviour:
     max: 1
     enumValues: []
     descendantCount: 0
+  - name: spawn_rate
+    path: spawn_rate
+    tooltip: 
+    sheetType: m_Int
+    realType: Int32
+    defaultValue:
+      m_Type:
+        m_SerializableType: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 100000
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
   - name: Glass
     path: 
     tooltip: 
@@ -6555,7 +6569,7 @@ MonoBehaviour:
   m_OutputSlots:
   - {fileID: 8926484042661615296}
   m_ExposedName: spawn_rate
-  m_Exposed: 0
+  m_Exposed: 1
   m_Order: 4
   m_Category: 
   m_Min:
