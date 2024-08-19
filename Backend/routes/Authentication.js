@@ -75,16 +75,11 @@ module.exports = app => {
                 });
                 await newQuiz.save();
             }
-            
 
             res.status('201').send('Usuario Creado');
-            console.log('Usuario Creado');
-            
             return;
         }else{
             res.status('409').send('Usuario ya existe');
-            console.log('Usuario ya existe');
-
             return;
         }
     });
@@ -196,11 +191,8 @@ module.exports = app => {
 
     app.delete('/student/:user', async (req, res) => {
         const user = req.params.user;
-        //console.log(user);
         const userToDelete = await Account.findOne({username: user});
-        //console.log(userToDelete);
         if(!userToDelete){
-            //console.log("No existe jaja");
            res.status('404').send('Usuario no existe');//Usuario no existe
            return;
         }else{
@@ -424,7 +416,6 @@ module.exports = app => {
             }
         }
     });
-    
 
     app.get('/curso/:teacher', async (req, res) => {
         const teacher = req.params.teacher;
@@ -535,16 +526,49 @@ module.exports = app => {
         }
     });
 
-    app.get('/quiz', async (req, res) => {
-        const {user,quiz} = req.body;
-        const studentSearch = Quiz.findOne({student: user}, { projection: { [quiz]: 1, _id: 0 } });
+    app.get('/quiz/:user/:test', async (req, res) => {
+        const user = req.params.user;
+        const test = req.params.test;
+        const studentSearch = await Quiz.findOne({username: user});
         if (studentSearch == null){
             res.status(404).send('Usuario no encontrado');
             return;
         }
-        res.status(200).send(studentSearch);
+        console.log(test);
+        console.log(studentSearch);
+        res.status(200).send(studentSearch[test]);
     });
 
+    app.put('/updateQuiz/:user/:test/:quizValue', async (req, res) => {
+        const search = req.params.user;
+        const quiz = req.params.test;
+        const quizIndex = req.params.quizValue - 1;
+    
+        if (quizIndex < 0 || quizIndex >= 5) {
+            res.status(400).send('Valor de progressvalue inválido');
+            return;
+        }
+    
+        try {
+            const set = {};
+            set[`${quiz}.${quizIndex}`] = 0;
+            console.log(`${quiz}.${quizIndex}`);
+            const updateUser = await Quiz.findOneAndUpdate(
+                { username: search },
+                { $set: set },
+                { new: true, runValidators: true }
+            );
+            console.log(updateUser)
+            if (!updateUser) {
+                res.status(404).send('Usuario no encontrado');
+                return;
+            }
+            res.status(200).send(updateUser[quiz]);
+        } catch (err) {
+            console.error(err);
+            res.status(500).send('Error al actualizar el usuario');
+        }
+    });
 
     
       
