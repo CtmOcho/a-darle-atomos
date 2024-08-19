@@ -15,6 +15,8 @@ import DeleteCoursePage from './components/DeleteCoursePage';
 import { UserProvider } from './context/UserContext';
 import AdditionalContentPage from './components/AdditionalContentPage';
 import QuizPage from './components/QuizPage';
+import DeleteProfilePage from './components/DeleteProfilePage';
+import EditProfilePage from './components/EditProfilePage';
 import './App.css';
 
 function App() {
@@ -37,6 +39,8 @@ function App() {
             <Route path="/delete-course" element={<DeleteCoursePage />} />
             <Route path="/experiment/:experimentName/additional-content" element={<AdditionalContentPage />} />
             <Route path="/quiz" element={<QuizPage />} />
+            <Route path="/delete-profile" element={<DeleteProfilePage />} />
+            <Route path="/edit-profile" element={<EditProfilePage />} />
           </Routes>
         </div>
       </Router>

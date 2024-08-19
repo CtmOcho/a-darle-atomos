@@ -52,16 +52,40 @@ module.exports = app => {
                 password: pass,
                 progress: 0,
                 type: "P",
-                progressdata:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                //progressdata:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
                 lastAuth: Date.now(),
             });
             await newAccount.save();
+            var quizAccount = await Quiz.findOne({username: user});
+            console.log(quizAccount);
+            if(quizAccount == null){
+                var newQuiz = new Quiz({
+                    username: user,
+                    /*quiz1: [0,0,0,0,0,0],
+                    quiz2: [0,0,0,0,0,0],
+                    quiz3: [0,0,0,0,0,0],
+                    quiz4: [0,0,0,0,0,0],
+                    quiz5: [0,0,0,0,0,0],
+                    quiz6: [0,0,0,0,0,0],
+                    quiz7: [0,0,0,0,0,0],
+                    quiz8: [0,0,0,0,0,0],
+                    quiz9: [0,0,0,0,0,0],
+                    quiz10: [0,0,0,0,0,0],
+                    quiz11: [0,0,0,0,0,0]*/
+                });
+                await newQuiz.save();
+            }
+            
 
             res.status('201').send('Usuario Creado');
+            console.log('Usuario Creado');
+            
             return;
         }else{
             res.status('409').send('Usuario ya existe');
-            return
+            console.log('Usuario ya existe');
+
+            return;
         }
     });
 
@@ -78,7 +102,7 @@ module.exports = app => {
                 password: pass,
                 progress: 0,
                 type: "E",
-                progressdata:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                //progressdata:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
                 lastAuth: Date.now(),
             });
@@ -172,8 +196,11 @@ module.exports = app => {
 
     app.delete('/student/:user', async (req, res) => {
         const user = req.params.user;
+        //console.log(user);
         const userToDelete = await Account.findOne({username: user});
+        //console.log(userToDelete);
         if(!userToDelete){
+            //console.log("No existe jaja");
            res.status('404').send('Usuario no existe');//Usuario no existe
            return;
         }else{
@@ -191,6 +218,7 @@ module.exports = app => {
                             { new: true, runValidators: true }
                         );
                     }
+                    await Quiz.deleteOne({username: user});
                     await Account.deleteOne({ username: user });
                 }else{
                     await Cursos.findOneAndUpdate(
@@ -379,17 +407,24 @@ module.exports = app => {
         }
     });
 
-    app.get('/student/:user/prog', async(req,res) =>{
+    app.get('/student/:user/prog', async (req, res) => {
         const user = req.params.user;
-        var getAccount = await Account.findOne({username: user});
-  
-        if (getAccount == null){
-            res.status('404').send('Usuario no encontrado');
+        var getAccount = await Account.findOne({ username: user });
+    
+        if (getAccount == null) {
+            res.status(404).send('Usuario no encontrado');
             return;
-        }else{
-            res.status('200').send(String(getAccount.progress));
+        } else {
+            // Asegurarse de que progressdata existe y es un array
+            if (Array.isArray(getAccount.progressdata)) {
+                const progressSum = getAccount.progressdata.reduce((acc, val) => acc + val, 0);
+                res.status(200).send(String(progressSum));
+            } else {
+                res.status(500).send('Error: progressdata no es un array');
+            }
         }
     });
+    
 
     app.get('/curso/:teacher', async (req, res) => {
         const teacher = req.params.teacher;
@@ -475,9 +510,9 @@ module.exports = app => {
     app.get('/getStudent/:user/prog/:progressvalue', async (req, res) => {
         const search = req.params.user;
         const progressIndex = req.params.progressvalue - 1;
-        console.log("DENTRO DEL GET LOL");
-        console.log(search);
-        console.log(progressIndex);
+        //console.log("DENTRO DEL GET LOL");
+        //console.log(search);
+        //console.log(progressIndex);
 
         if (progressIndex < 0 || progressIndex >= 55) {
             res.status(400).send('Valor de progressvalue inválido');
@@ -490,8 +525,8 @@ module.exports = app => {
                 res.status(404).send('Usuario no encontrado');
                 return;
             }
-            console.log("ANTES DEL SEND");    
-            console.log(user.progressdata[progressIndex]);
+            //console.log("ANTES DEL SEND");    
+            //console.log(user.progressdata[progressIndex]);
             const progressValue = user.progressdata[progressIndex];
             res.status(200).send({"progressValue": progressValue});
         } catch (err) {

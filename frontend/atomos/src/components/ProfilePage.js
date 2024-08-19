@@ -14,8 +14,8 @@ const ProfilePage = () => {
       try {
         const response = await fetch(`${config.backendUrl}/student/${user.username}/prog`);
         if (response.ok) {
-          const data = await response.json();
-          setProgress(data.progress);
+          const progressSum = await response.text(); // Cambiado de response.json() a response.text()
+          setProgress(Number(progressSum)); // Convertir el texto recibido a número
         } else {
           console.error('Error al obtener el progreso');
         }
@@ -44,9 +44,9 @@ const ProfilePage = () => {
               <div className="profile-item progress-container">
                 <p>Progreso:</p>
                 <div className="progress-bar">
-                  <div className="progress" style={{ width: `${progress}%` }}></div>
+                  <div className="progress" style={{ width: `${progress / 55 * 100}%` }}></div>
                 </div>
-                <p>{progress}/100</p> {/* Ajusta esto según sea necesario */}
+                <p>{(progress / 55 * 100).toFixed(2)}%</p> {/* Ajusta esto según sea necesario */}
               </div>
             </>
           )}
@@ -58,6 +58,6 @@ const ProfilePage = () => {
       </div>
     </div>
   );
-};
+};  
 
 export default ProfilePage;

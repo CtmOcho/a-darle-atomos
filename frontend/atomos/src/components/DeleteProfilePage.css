@@ -1,0 +1,65 @@
+.delete-profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .delete-profile-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .delete-profile-container  .delete-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .delete-profile-container  .form-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+  
+  .delete-profile-container  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .delete-profile-container  .form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    text-transform: uppercase; /* Convertir a mayúsculas automáticamente */
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+  }
+  
+  .delete-profile-container  .btn-delete {
+    background-color: #5A8884;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  .delete-profile-container .btn-delete:hover {
+    background-color: #49756e;
+  }
+  
+  .delete-profile-container .error {
+    color: red;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+  
