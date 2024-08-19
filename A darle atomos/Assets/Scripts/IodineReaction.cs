@@ -10,6 +10,10 @@ public class IodineReaction : MonoBehaviour
     private MeshRenderer mesh;
     private Transform iodine;
     public bool on;
+    private float elapsedTime;
+    public float duration;
+    public Vector3 originalScale;
+    private Transform generator;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +21,10 @@ public class IodineReaction : MonoBehaviour
         vfx.SetInt("spawn_rate", 0);
         iodine = GetComponent<Transform>();
         mesh = GetComponent<MeshRenderer>();
+        GetComponentInChildren<inverseSublimation>().isActive = false;
         on = false;
+        originalScale = iodine.localScale;
+        elapsedTime = 0f;
     }
 
     // Update is called once per frame
@@ -25,22 +32,21 @@ public class IodineReaction : MonoBehaviour
     {
         if (on)
         {
-            StartCoroutine(Sublimate());
+            GetComponentInChildren<inverseSublimation>().isActive = true;
+            Sublimate();
         }
     }
 
-    IEnumerator Sublimate()
+    void Sublimate()
     {
-        Vector3 originalScale = iodine.localScale;
+        elapsedTime += Time.fixedDeltaTime;
         vfx.SetInt("spawn_rate", 50);
-        for (int i = 0; i < 300; i++)
+        iodine.localScale = Vector3.Lerp(originalScale, new Vector3(0, 0, 0), elapsedTime / duration);
+        if (iodine.localScale.magnitude < 0.000001)
         {
-            yield return new WaitForFixedUpdate();
-            iodine.localScale -= originalScale / 400;
+            mesh.enabled = false;
+            vfx.SetInt("spawn_rate", 0);
+            Destroy(transform.gameObject);
         }
-        mesh.enabled = false;
-        vfx.SetInt("spawn_rate", 0);
-        yield return new WaitForSeconds(2);
-        Destroy(transform.gameObject);
     }
 }

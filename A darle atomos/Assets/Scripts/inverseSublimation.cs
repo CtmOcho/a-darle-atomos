@@ -15,7 +15,7 @@ public class inverseSublimation : MonoBehaviour
 
     float randAngle;
     float randRadius;
-    
+
     int counter;
 
     void Start()
@@ -33,7 +33,7 @@ public class inverseSublimation : MonoBehaviour
             Vector3 point = new Vector3(randRadius, 0, 0);
             Vector3 dir = transform.TransformPoint(point) - transform.position;
             //Vector3 rotatedPoint = Quaternion.AngleAxis(randAngle, transform.TransformPoint(transform.up)) * point;
-            Vector3 rotatedPoint = Quaternion.Euler(0, randAngle,0)*dir;
+            Vector3 rotatedPoint = Quaternion.Euler(0, randAngle, 0) * dir;
             point = rotatedPoint + transform.position;
             if (Physics.Raycast(point, Vector3.up, out hit, 2f))
             {
