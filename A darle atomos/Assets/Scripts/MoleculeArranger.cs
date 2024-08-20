@@ -84,25 +84,22 @@ void OnTemperatureSliderChanged(float value)
 
     void ShowExplanation()
     {
-        explanationText.text = "Las moléculas de yodo están en estado sólido. A medida que aumentas la temperatura con el slider, las moléculas comienzan a vibrar. \n\n" +
-                               "Entre 20º y 60º, la vibración aumenta lentamente, ya que la estructura sólida sigue siendo estable. \n\n" +
-                               "Entre 60º y 113º, la energía se transmite más rápidamente a través de toda la estructura, aumentando la vibración en todas las moléculas. \n\n" +
-                               "Al alcanzar los 114º, el yodo se sublima: las moléculas se separan y vibran intensamente, representando el estado gaseoso.";
+        explanationText.text = "Las moléculas de yodo están en estado sólido. A medida que aumentas la temperatura con el slider, las moléculas comienzan a vibrar.";
     }
 
     void UpdateExplanationText(float temperature)
     {
         if (temperature < 60f)
         {
-            explanationText.text = "Las moléculas están en estado sólido y vibran lentamente.";
+            explanationText.text = "Las moléculas están en estado sólido y vibran lentamente.\nEntre 20º y 60º, la vibración aumenta lentamente, ya que la estructura sólida sigue siendo estable. ";
         }
         else if (temperature >= 60f && temperature < 114f)
         {
-            explanationText.text = "Las moléculas están transmitiendo la energía a través de la estructura, aumentando la vibración.";
+            explanationText.text = "Entre 60º y 113º, la energía se transmite más rápidamente la energía a través de la estructura, aumentando la vibración.";
         }
         else if (temperature >= 114f)
         {
-            explanationText.text = "Las moléculas se han sublimado, separándose y vibrando intensamente.";
+            explanationText.text = "Al alcanzar los 114º, el yodo se sublima: las moléculas se separan y vibran intensamente, representando el estado gaseoso.";
         }
     }
 }
