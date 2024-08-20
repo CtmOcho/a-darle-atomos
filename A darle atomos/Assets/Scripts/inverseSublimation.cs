@@ -8,7 +8,7 @@ public class inverseSublimation : MonoBehaviour
     public int quantity;
     public AnimationCurve weight;
 
-    [HideInInspector]
+    // [HideInInspector]
     public bool isActive = true;
 
     public GameObject crystal;

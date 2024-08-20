@@ -9,11 +9,11 @@ public class IodineReaction : MonoBehaviour
     public VisualEffect vfx;
     private MeshRenderer mesh;
     private Transform iodine;
-    public bool on;
     private float elapsedTime;
     public float duration;
     public Vector3 originalScale;
     private Transform generator;
+    public float temperature;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,6 @@ public class IodineReaction : MonoBehaviour
         iodine = GetComponent<Transform>();
         mesh = GetComponent<MeshRenderer>();
         GetComponentInChildren<inverseSublimation>().isActive = false;
-        on = false;
         originalScale = iodine.localScale;
         elapsedTime = 0f;
     }
@@ -30,7 +29,7 @@ public class IodineReaction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (on)
+        if (temperature > 120)
         {
             GetComponentInChildren<inverseSublimation>().isActive = true;
             Sublimate();
@@ -45,6 +44,7 @@ public class IodineReaction : MonoBehaviour
         if (iodine.localScale.magnitude < 0.000001)
         {
             mesh.enabled = false;
+            GetComponentInChildren<inverseSublimation>().isActive = false;
             vfx.SetInt("spawn_rate", 0);
             Destroy(transform.gameObject);
         }
