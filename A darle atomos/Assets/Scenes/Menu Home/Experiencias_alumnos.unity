@@ -2280,7 +2280,7 @@ MonoBehaviour:
     rgba: 4283582070
   m_fontColor: {r: 0.4627451, g: 0.27450982, b: 0.32156864, a: 1}
   m_enableVertexGradient: 1
-  m_colorMode: 0
+  m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 0.4627451, g: 0.27450982, b: 0.32156864, a: 1}
     topRight: {r: 0.4627451, g: 0.27450982, b: 0.32156864, a: 1}
