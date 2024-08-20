@@ -38,7 +38,7 @@ function App() {
             <Route path="/remove-student/:courseName" element={<RemoveStudentPage />} />
             <Route path="/delete-course" element={<DeleteCoursePage />} />
             <Route path="/experiment/:experimentName/additional-content" element={<AdditionalContentPage />} />
-            <Route path="/quiz" element={<QuizPage />} />
+            <Route path="/quiz/:experimentName/:quizType" element={<QuizPage />} />
             <Route path="/delete-profile" element={<DeleteProfilePage />} />
             <Route path="/edit-profile" element={<EditProfilePage />} />
           </Routes>

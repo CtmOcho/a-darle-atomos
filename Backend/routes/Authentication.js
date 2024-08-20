@@ -539,36 +539,45 @@ module.exports = app => {
         res.status(200).send(studentSearch[test]);
     });
 
-    app.put('/updateQuiz/:user/:test/:quizValue', async (req, res) => {
+    app.put('/updateQuiz/:user/:test/:type/:values', async (req, res) => {
         const search = req.params.user;
         const quiz = req.params.test;
-        const quizIndex = req.params.quizValue - 1;
+        const type = req.params.type;
+        const values = req.params.values.split('').map(Number); // Convertimos la cadena de valores en un array de números
     
-        if (quizIndex < 0 || quizIndex >= 5) {
-            res.status(400).send('Valor de progressvalue inválido');
+        if (values.length !== 3 || !values.every(v => v === 0 || v === 1)) {
+            res.status(400).send('Valores inválidos. Deben ser tres números binarios (0 o 1).');
             return;
         }
     
+        // Definir los índices para pre y post quiz
+        const startIndex = type === 'pre' ? 0 : 3;
+    
         try {
+            // Generar el objeto de actualización basado en los valores recibidos
             const set = {};
-            set[`${quiz}.${quizIndex}`] = 0;
-            console.log(`${quiz}.${quizIndex}`);
+            for (let i = 0; i < 3; i++) {
+                set[`${quiz}.${startIndex + i}`] = values[i];
+            }
+    
             const updateUser = await Quiz.findOneAndUpdate(
                 { username: search },
                 { $set: set },
                 { new: true, runValidators: true }
             );
-            console.log(updateUser)
+    
             if (!updateUser) {
                 res.status(404).send('Usuario no encontrado');
                 return;
             }
+    
             res.status(200).send(updateUser[quiz]);
         } catch (err) {
             console.error(err);
             res.status(500).send('Error al actualizar el usuario');
         }
     });
+    
 
     
       

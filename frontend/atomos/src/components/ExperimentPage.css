@@ -18,7 +18,7 @@ div.page-container {
   width: 60%;
   border-radius: 5%;
   padding: 2rem;
-  background-color: #f5f5f5;
+  background-color: rgba(245, 245, 245, 0.1);
 }
 
 .experiment-page-container h1 {
@@ -41,7 +41,7 @@ div.page-container {
   margin-top: 2rem; /* Mueve los botones más abajo */
 }
 
-.experiment-page-container .btn-pre-quiz,.experiment-page-container .btn-new-quiz,.experiment-page-container .btn-additional-content {
+.experiment-page-container .btn-pre-quiz,.experiment-page-container .btn-post-quiz,.experiment-page-container .btn-additional-content {
   background-color: #5A8884;
   color: white;
   border: none;
@@ -51,11 +51,11 @@ div.page-container {
   font-size: 1.5rem; /* Agranda la fuente de los botones */
 }
 
-.experiment-page-container .btn-new-quiz:disabled {
+.experiment-page-container .btn-post-quiz:disabled {
   background-color: #ddd;
   cursor: not-allowed;
 }
 
-.experiment-page-container .btn-pre-quiz:hover,.experiment-page-container .btn-new-quiz:hover:not(:disabled),.experiment-page-container .btn-additional-content:hover {
+.experiment-page-container .btn-pre-quiz:hover,.experiment-page-container .btn-post-quiz:hover:not(:disabled),.experiment-page-container .btn-additional-content:hover {
   background-color: #49756e;
 }
