@@ -214,7 +214,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: False
+      m_SerializableObject: True
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -7661,7 +7661,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.TCone, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"transform":{"position":{"x":-8.748618256504415e-7,"y":0.893753170967102,"z":0.05999954044818878},"angles":{"x":0.0,"y":0.0,"z":0.10000000149011612},"scale":{"x":0.9999998807907105,"y":0.9999998807907105,"z":1.0}},"baseRadius":0.5,"topRadius":0.5,"height":1.1200000047683716}'
+      m_SerializableObject: '{"transform":{"position":{"x":-8.748618256504415e-7,"y":0.893753170967102,"z":0.05999954044818878},"angles":{"x":0.0,"y":0.0,"z":0.10000000149011612},"scale":{"x":0.9999998807907105,"y":0.9999998807907105,"z":1.0}},"baseRadius":0.4699999988079071,"topRadius":0.5,"height":1.1200000047683716}'
     m_Space: 0
   m_Property:
     name: cone
@@ -10123,7 +10123,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: False
+      m_SerializableObject: True
     m_Space: 2147483647
   m_Property:
     name: o
