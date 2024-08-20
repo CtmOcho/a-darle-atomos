@@ -74,7 +74,7 @@ public class MoleculeBehavior : MonoBehaviour
         );
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collider other)
 {
     if (other.CompareTag("Boundary"))
     {
@@ -97,7 +97,7 @@ public class MoleculeBehavior : MonoBehaviour
     public void AttractNearbyMolecules()
 {
     // Encuentra todas las moléculas cercanas y atrae esta molécula hacia ellas
-    Collider[] nearbyMolecules = Physics.OverlapSphere(transform.position, 0.2f); // Radio ajustable
+    Collider[] nearbyMolecules = Physics.OverlapSphere(transform.position, 0.45f); // Radio ajustable
 
     foreach (Collider collider in nearbyMolecules)
     {
@@ -108,7 +108,7 @@ public class MoleculeBehavior : MonoBehaviour
         {
             // Atrae la molécula hacia la posición de la otra molécula cercana
             Vector3 directionToOther = (otherMolecule.transform.position - transform.position).normalized;
-            rb.velocity += directionToOther * vibrationSpeed * 0.02f * Time.deltaTime;
+            rb.velocity += directionToOther * vibrationSpeed * 0.1f * Time.deltaTime;
         }
     }
 }
