@@ -296,8 +296,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18, y: -39.11}
-  m_SizeDelta: {x: 635.55005, y: 440.21997}
+  m_AnchoredPosition: {x: 39.11, y: -11.61}
+  m_SizeDelta: {x: 677.78, y: 385.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &169435551
 MonoBehaviour:
@@ -503,9 +503,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'YODO
-
-'
+  m_text: "Sublimaci\xF3n del yodo"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
   m_sharedMaterial: {fileID: 3382691729065641351, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
@@ -1376,7 +1374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3757445410364236870, guid: be7d20501c40e7b47aaf2e60c3020dce, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 0.00061035
       objectReference: {fileID: 0}
     - target: {fileID: 3757445410364236870, guid: be7d20501c40e7b47aaf2e60c3020dce, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1412,7 +1410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3757445410364236870, guid: be7d20501c40e7b47aaf2e60c3020dce, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.00024414062
       objectReference: {fileID: 0}
     - target: {fileID: 3757445410364236870, guid: be7d20501c40e7b47aaf2e60c3020dce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1740,8 +1738,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -14.0044, y: -6.9972043}
-  m_SizeDelta: {x: 611.87, y: 368.15}
+  m_AnchoredPosition: {x: -0.000034332, y: 0}
+  m_SizeDelta: {x: 643.78, y: 368.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1239697217
 MonoBehaviour:
@@ -2418,10 +2416,10 @@ RectTransform:
   - {fileID: 947103404}
   m_Father: {fileID: 1040700140}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -44.109, y: -0.0000038147}
-  m_SizeDelta: {x: 611.87, y: 368.15}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 305.891, y: -204}
+  m_SizeDelta: {x: 611.87, y: 368.15002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1429322447
 MonoBehaviour:

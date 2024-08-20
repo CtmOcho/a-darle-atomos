@@ -98,4 +98,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Laboratorio/Laboratorio_Yodo.unity
     guid: 15a3e6c305a44164b8fbaa0a858a7142
+  - enabled: 1
+    path: Assets/Scenes/Moleculares/sublimacion.unity
+    guid: 140d78784a7431e488a60e4384e03c4c
   m_configObjects: {}
