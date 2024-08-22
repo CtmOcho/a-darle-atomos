@@ -15,20 +15,23 @@ public class flame : MonoBehaviour
     private new Light light;
     private int currentColor;
     private float blend;
+    private AudioSource sfx;
+    private Glass glass;
     [SerializeField]
     private Transform knob;
     public float flameStrength;
     public int targetColor;
     public bool tripodCollision;
 
-    bool knobIsPressed;
-    bool isOn;
+    public bool knobIsPressed;
+    public bool isOn;
 
     // Start is called before the first frame update
     void Start()
     {
         vfx = GetComponent<VisualEffect>();
         light = GetComponentInChildren<Light>();
+        sfx = GetComponentInChildren<AudioSource>();
         currentColor = vfx.GetInt("Color value");
         vfx.SetInt("Color value", -1);
         vfx.SetFloat("Blend", 0);
@@ -53,11 +56,12 @@ public class flame : MonoBehaviour
             {
                 vfx.SetInt("spawn_rate", 0);
                 light.intensity = 0;
+                sfx.enabled = false;
             }
             else
             {
                 vfx.SetInt("spawn_rate", 100000);
-                vfx.SetFloat("Flame Strength", 1);
+                sfx.enabled = true;
                 light.intensity = 0.015f;
             }
         }

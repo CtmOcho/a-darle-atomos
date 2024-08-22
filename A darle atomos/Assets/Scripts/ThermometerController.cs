@@ -5,43 +5,23 @@ using UnityEngine;
 
 public class ThermometerController : MonoBehaviour
 {
-    TextMeshPro thermometerLCD;
+    private TextMeshPro thermometerLCD;
+    public float temperature;
+    public GameObject glass;
+    private Glass glassScript;
 
-    public float speed;
-    public float minTemp;
-    public float maxTemp;
-
-    public bool pause = true;
-    public bool chill = false;
-
-    public AnimationCurve warmOverTime;
-    public AnimationCurve chillOverTime;
-
-    float timeCounter = 0;
 
     void Start()
     {
         thermometerLCD = GetComponentInChildren<TextMeshPro>();
-        thermometerLCD.text = minTemp.ToString("F1");
+        glassScript = glass.GetComponent<Glass>();
+        temperature = 20;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeCounter = Mathf.Clamp(timeCounter,0,25);
-        if (!pause)
-        {
-            if (!chill)
-            {
-                timeCounter += Time.deltaTime;
-                thermometerLCD.text = Mathf.Lerp(minTemp, maxTemp, warmOverTime.Evaluate(timeCounter * speed)).ToString("F1");
-            }
-            else
-            {
-                timeCounter -= Time.deltaTime;
-                thermometerLCD.text = Mathf.Lerp(minTemp, maxTemp, chillOverTime.Evaluate(timeCounter * speed)).ToString("F1");
-            }
-
-        }
+        temperature = glassScript.temperature;
+        thermometerLCD.text = temperature.ToString();
     }
 }
