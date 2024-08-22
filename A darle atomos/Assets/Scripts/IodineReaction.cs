@@ -29,7 +29,7 @@ public class IodineReaction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (temperature > 120)
+        if (temperature > 113)
         {
             GetComponentInChildren<inverseSublimation>().isActive = true;
             Sublimate();

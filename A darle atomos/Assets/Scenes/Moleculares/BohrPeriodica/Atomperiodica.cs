@@ -1,23 +1,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Atomperiodica : MonoBehaviour
 {
+    public GameObject tableElementPrefab; // Prefab del elemento de la tabla
+    public Transform gridParent; // Parent de la grid (puede ser un Canvas o un objeto en la escena)
+    public Vector2 gridSpacing = new Vector2(50, 50); // Espaciado entre elementos de la tabla
+
+    private Dictionary<int, Element> elements;
     public GameObject coreProtonPrefab;
     public GameObject coreNeutronPrefab;
     public GameObject orbitElectronPrefab;
-    public int orbitElectrons = 11;
+    public int orbitElectrons = 0;
     public float electronOrbitDistance = 2f;
     public float electronRotationSpeed = 100f;
     public Material electronOrbitMaterial;
     public TMP_Text uiText;
 
-    private Dictionary<int, Element> elements;
+    private Dictionary<int, Vector2> customElementPositions;
 
-    void Start()
+   void Start()
     {
         InitializePeriodicTable();
+        InitializeCustomPositions();
+        CreatePeriodicTable();
+        
         CreateCore();
         CreateElectronOrbits();
         CreateOrbitingElectrons();
@@ -148,8 +157,206 @@ public class Atomperiodica : MonoBehaviour
             { 118, new Element("Oganesón", "Og", 294.0f, 18, 7) }
         };
     }
+void InitializeCustomPositions()
+{
+    customElementPositions = new Dictionary<int, Vector2>
+    {
+        // Primera fila
+        { 1, new Vector2(0, 0) },   // Hidrógeno
+        { 2, new Vector2(17, 0) },  // Helio
 
-    void DisplayElementProperties()
+        // Segunda fila
+        { 3, new Vector2(0, -1) },  // Litio
+        { 4, new Vector2(1, -1) },  // Berilio
+        { 5, new Vector2(12, -1) }, // Boro
+        { 6, new Vector2(13, -1) }, // Carbono
+        { 7, new Vector2(14, -1) }, // Nitrógeno
+        { 8, new Vector2(15, -1) }, // Oxígeno
+        { 9, new Vector2(16, -1) }, // Flúor
+        { 10, new Vector2(17, -1) },// Neón
+
+        // Tercera fila
+        { 11, new Vector2(0, -2) },  // Sodio
+        { 12, new Vector2(1, -2) },  // Magnesio
+        { 13, new Vector2(12, -2) }, // Aluminio
+        { 14, new Vector2(13, -2) }, // Silicio
+        { 15, new Vector2(14, -2) }, // Fósforo
+        { 16, new Vector2(15, -2) }, // Azufre
+        { 17, new Vector2(16, -2) }, // Cloro
+        { 18, new Vector2(17, -2) }, // Argón
+
+        // Cuarta fila
+        { 19, new Vector2(0, -3) },  // Potasio
+        { 20, new Vector2(1, -3) },  // Calcio
+        { 21, new Vector2(2, -3) },  // Escandio
+        { 22, new Vector2(3, -3) },  // Titanio
+        { 23, new Vector2(4, -3) },  // Vanadio
+        { 24, new Vector2(5, -3) },  // Cromo
+        { 25, new Vector2(6, -3) },  // Manganeso
+        { 26, new Vector2(7, -3) },  // Hierro
+        { 27, new Vector2(8, -3) },  // Cobalto
+        { 28, new Vector2(9, -3) },  // Níquel
+        { 29, new Vector2(10, -3) }, // Cobre
+        { 30, new Vector2(11, -3) }, // Zinc
+        { 31, new Vector2(12, -3) }, // Galio
+        { 32, new Vector2(13, -3) }, // Germanio
+        { 33, new Vector2(14, -3) }, // Arsénico
+        { 34, new Vector2(15, -3) }, // Selenio
+        { 35, new Vector2(16, -3) }, // Bromo
+        { 36, new Vector2(17, -3) }, // Kriptón
+
+        // Quinta fila
+        { 37, new Vector2(0, -4) },  // Rubidio
+        { 38, new Vector2(1, -4) },  // Estroncio
+        { 39, new Vector2(2, -4) },  // Itrio
+        { 40, new Vector2(3, -4) },  // Zirconio
+        { 41, new Vector2(4, -4) },  // Niobio
+        { 42, new Vector2(5, -4) },  // Molibdeno
+        { 43, new Vector2(6, -4) },  // Tecnecio
+        { 44, new Vector2(7, -4) },  // Rutenio
+        { 45, new Vector2(8, -4) },  // Rodio
+        { 46, new Vector2(9, -4) },  // Paladio
+        { 47, new Vector2(10, -4) }, // Plata
+        { 48, new Vector2(11, -4) }, // Cadmio
+        { 49, new Vector2(12, -4) }, // Indio
+        { 50, new Vector2(13, -4) }, // Estaño
+        { 51, new Vector2(14, -4) }, // Antimonio
+        { 52, new Vector2(15, -4) }, // Telurio
+        { 53, new Vector2(16, -4) }, // Yodo
+        { 54, new Vector2(17, -4) }, // Xenón
+
+        // Sexta fila
+        { 55, new Vector2(0, -5) },  // Cesio
+        { 56, new Vector2(1, -5) },  // Bario
+        { 57, new Vector2(2, -7) },  // Lantano (Lantánidos)
+        { 72, new Vector2(3, -5) },  // Hafnio
+        { 73, new Vector2(4, -5) },  // Tantalio
+        { 74, new Vector2(5, -5) },  // Wolframio
+        { 75, new Vector2(6, -5) },  // Renio
+        { 76, new Vector2(7, -5) },  // Osmio
+        { 77, new Vector2(8, -5) },  // Iridio
+        { 78, new Vector2(9, -5) },  // Platino
+        { 79, new Vector2(10, -5) }, // Oro
+        { 80, new Vector2(11, -5) }, // Mercurio
+        { 81, new Vector2(12, -5) }, // Talio
+        { 82, new Vector2(13, -5) }, // Plomo
+        { 83, new Vector2(14, -5) }, // Bismuto
+        { 84, new Vector2(15, -5) }, // Polonio
+        { 85, new Vector2(16, -5) }, // Astato
+        { 86, new Vector2(17, -5) }, // Radón
+
+        // Séptima fila
+        { 87, new Vector2(0, -6) },  // Francio
+        { 88, new Vector2(1, -6) },  // Radio
+        { 89, new Vector2(2, -8) },  // Actinio (Actínidos)
+        { 104, new Vector2(3, -6) }, // Rutherfordio
+        { 105, new Vector2(4, -6) }, // Dubnio
+        { 106, new Vector2(5, -6) }, // Seaborgio
+        { 107, new Vector2(6, -6) }, // Bohrio
+        { 108, new Vector2(7, -6) }, // Hassio
+        { 109, new Vector2(8, -6) }, // Meitnerio
+        { 110, new Vector2(9, -6) }, // Darmstadio
+        { 111, new Vector2(10, -6) },// Roentgenio
+        { 112, new Vector2(11, -6) },// Copernicio
+        { 113, new Vector2(12, -6) },// Nihonio
+        { 114, new Vector2(13, -6) },// Flerovio
+        { 115, new Vector2(14, -6) },// Moscovio
+        { 116, new Vector2(15, -6) },// Livermorio
+        { 117, new Vector2(16, -6) },// Tenesino
+        { 118, new Vector2(17, -6) },// Oganesón
+
+        // Lantánidos (Sexta fila)
+        { 58, new Vector2(3, -7) },  // Cerio
+        { 59, new Vector2(4, -7) },  // Praseodimio
+        { 60, new Vector2(5, -7) },  // Neodimio
+        { 61, new Vector2(6, -7) },  // Prometio
+        { 62, new Vector2(7, -7) },  // Samario
+        { 63, new Vector2(8, -7) },  // Europio
+        { 64, new Vector2(9, -7) },  // Gadolinio
+        { 65, new Vector2(10, -7) }, // Terbio
+        { 66, new Vector2(11, -7) }, // Disprosio
+        { 67, new Vector2(12, -7) }, // Holmio
+        { 68, new Vector2(13, -7) }, // Erbio
+        { 69, new Vector2(14, -7) }, // Tulio
+        { 70, new Vector2(15, -7) }, // Iterbio
+        { 71, new Vector2(16, -7) }, // Lutecio
+
+        // Actínidos (Séptima fila)
+        { 90, new Vector2(3, -8) },  // Torio
+        { 91, new Vector2(4, -8) },  // Protactinio
+        { 92, new Vector2(5, -8) },  // Uranio
+        { 93, new Vector2(6, -8) },  // Neptunio
+        { 94, new Vector2(7, -8) },  // Plutonio
+        { 95, new Vector2(8, -8) },  // Americio
+        { 96, new Vector2(9, -8) },  // Curio
+        { 97, new Vector2(10, -8) }, // Berkelio
+        { 98, new Vector2(11, -8) }, // Californio
+        { 99, new Vector2(12, -8) }, // Einstenio
+        { 100, new Vector2(13, -8) },// Fermio
+        { 101, new Vector2(14, -8) },// Mendelevio
+        { 102, new Vector2(15, -8) },// Nobelio
+        { 103, new Vector2(16, -8) } // Lawrencio
+    };
+}
+
+
+void CreatePeriodicTable()
+{
+    // Desactivar el prefab original
+    tableElementPrefab.SetActive(false);
+
+    // Obtener las dimensiones del prefab para calcular el desplazamiento
+    RectTransform prefabRect = tableElementPrefab.GetComponent<RectTransform>();
+    Vector2 elementSize = new Vector2(prefabRect.rect.width, prefabRect.rect.height);
+
+    foreach (KeyValuePair<int, Element> entry in elements)
+    {
+        Element element = entry.Value;
+        int atomicNumber = entry.Key;
+
+        // Crear instancia del prefab
+        GameObject elementGO = Instantiate(tableElementPrefab, gridParent);
+        // Asegurar que la instancia esté activa
+        elementGO.SetActive(true);
+
+        // Obtener la posición personalizada del elemento
+        Vector2 customPosition = customElementPositions[atomicNumber];
+
+        // Calcular la posición final considerando el tamaño del elemento y el espaciado
+        Vector2 finalPosition = new Vector2(
+            customPosition.x * (elementSize.x + gridSpacing.x),
+            customPosition.y * (elementSize.y + gridSpacing.y)
+        );
+
+        // Posicionar el elemento en la grilla usando RectTransform
+        RectTransform rt = elementGO.GetComponent<RectTransform>();
+        rt.anchoredPosition = finalPosition;
+
+        // Configurar el texto TMP para el símbolo del elemento
+        TMP_Text symbolText = elementGO.GetComponentInChildren<TMP_Text>();
+        if (symbolText != null)
+        {
+            symbolText.text = element.Symbol;
+        }
+
+        // Configurar el texto y panel de información
+        Transform panel = elementGO.transform.Find("Panel");
+        if (panel != null)
+        {
+            TMP_Text panelText = panel.GetComponentInChildren<TMP_Text>();
+            if (panelText != null)
+            {
+                panelText.text = $"{element.Symbol}\n{element.AtomicMass}";
+            }
+        }
+    }
+}
+
+
+
+
+
+     void DisplayElementProperties()
     {
         int atomicNumber = orbitElectrons;
 
@@ -178,8 +385,14 @@ public class Atomperiodica : MonoBehaviour
         }
     }
 
-     void CreateCore()
+    void CreateCore()
     {
+        if (orbitElectrons <= 0)
+        {
+            Debug.LogError("El número de electrones en órbita no es válido.");
+            return;
+        }
+
         int coreProtons = orbitElectrons;
         int coreNeutrons = Mathf.RoundToInt(elements[coreProtons].AtomicMass) - coreProtons;
 
@@ -196,6 +409,7 @@ public class Atomperiodica : MonoBehaviour
             DisableCollisions(neutron);
         }
     }
+
     void CreateElectronOrbits()
     {
         int[] energyLevels = new int[] { 2, 8, 18, 32, 32, 18, 8 };
@@ -212,7 +426,7 @@ public class Atomperiodica : MonoBehaviour
         }
     }
 
-     void DrawOrbitPath(float radius)
+    void DrawOrbitPath(float radius)
     {
         GameObject orbit = new GameObject("OrbitPath");
         orbit.transform.parent = transform;
@@ -234,6 +448,7 @@ public class Atomperiodica : MonoBehaviour
 
         DisableCollisions(orbit);
     }
+
     void CreateOrbitingElectrons()
     {
         int[] energyLevels = new int[] { 2, 8, 18, 32, 32, 18, 8 };
@@ -290,6 +505,7 @@ public class Atomperiodica : MonoBehaviour
             Period = period;
         }
     }
+
     void DisableCollisions(GameObject obj)
     {
         Collider collider = obj.GetComponent<Collider>();

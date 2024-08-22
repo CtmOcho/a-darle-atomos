@@ -64,7 +64,7 @@ public class Glass : MonoBehaviour
     }
     private void AddHeat()
     {
-        if (temperature > 120f)
+        if (temperature > 114f)
         {
             return;
         }
