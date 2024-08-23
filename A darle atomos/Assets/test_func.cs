@@ -35,125 +35,125 @@ public class Test_func : MonoBehaviour
     {
         elements = new Dictionary<int, Element>
         {
-            { 1, new Element("Hidrógeno", "H", 1.008f, 1, 1) },
-            { 2, new Element("Helio", "He", 4.0026f, 18, 1) },
-            { 3, new Element("Litio", "Li", 6.94f, 1, 2) },
-            { 4, new Element("Berilio", "Be", 9.0122f, 2, 2) },
-            { 5, new Element("Boro", "B", 10.81f, 13, 2) },
-            { 6, new Element("Carbono", "C", 12.01f, 14, 2) },
-            { 7, new Element("Nitrógeno", "N", 14.01f, 15, 2) },
-            { 8, new Element("Oxígeno", "O", 16.00f, 16, 2) },
-            { 9, new Element("Flúor", "F", 19.00f, 17, 2) },
-            { 10, new Element("Neón", "Ne", 20.18f, 18, 2) },
-            { 11, new Element("Sodio", "Na", 22.990f, 1, 3) },
-            { 12, new Element("Magnesio", "Mg", 24.305f, 2, 3) },
-            { 13, new Element("Aluminio", "Al", 26.982f, 13, 3) },
-            { 14, new Element("Silicio", "Si", 28.085f, 14, 3) },
-            { 15, new Element("Fósforo", "P", 30.974f, 15, 3) },
-            { 16, new Element("Azufre", "S", 32.06f, 16, 3) },
-            { 17, new Element("Cloro", "Cl", 35.45f, 17, 3) },
-            { 18, new Element("Argón", "Ar", 39.948f, 18, 3) },
-            { 19, new Element("Potasio", "K", 39.10f, 1, 4) },
-            { 20, new Element("Calcio", "Ca", 40.08f, 2, 4) },
-            { 21, new Element("Escandio", "Sc", 44.96f, 3, 4) },
-            { 22, new Element("Titanio", "Ti", 47.87f, 4, 4) },
-            { 23, new Element("Vanadio", "V", 50.94f, 5, 4) },
-            { 24, new Element("Cromo", "Cr", 51.996f, 6, 4) },
-            { 25, new Element("Manganeso", "Mn", 54.94f, 7, 4) },
-            { 26, new Element("Hierro", "Fe", 55.85f, 8, 4) },
-            { 27, new Element("Cobalto", "Co", 58.93f, 9, 4) },
-            { 28, new Element("Níquel", "Ni", 58.69f, 10, 4) },
-            { 29, new Element("Cobre", "Cu", 63.55f, 11, 4) },
-            { 30, new Element("Zinc", "Zn", 65.38f, 12, 4) },
-            { 31, new Element("Galio", "Ga", 69.72f, 13, 4) },
-            { 32, new Element("Germanio", "Ge", 72.63f, 14, 4) },
-            { 33, new Element("Arsénico", "As", 74.92f, 15, 4) },
-            { 34, new Element("Selenio", "Se", 78.97f, 16, 4) },
-            { 35, new Element("Bromo", "Br", 79.90f, 17, 4) },
-            { 36, new Element("Kriptón", "Kr", 83.80f, 18, 4) },
-            { 37, new Element("Rubidio", "Rb", 85.47f, 1, 5) },
-            { 38, new Element("Estroncio", "Sr", 87.62f, 2, 5) },
-            { 39, new Element("Itrio", "Y", 88.91f, 3, 5) },
-            { 40, new Element("Zirconio", "Zr", 91.22f, 4, 5) },
-            { 41, new Element("Niobio", "Nb", 92.91f, 5, 5) },
-            { 42, new Element("Molibdeno", "Mo", 95.94f, 6, 5) },
-            { 43, new Element("Tecnecio", "Tc", 98.00f, 7, 5) },
-            { 44, new Element("Rutenio", "Ru", 101.07f, 8, 5) },
-            { 45, new Element("Rodio", "Rh", 102.91f, 9, 5) },
-            { 46, new Element("Paladio", "Pd", 106.42f, 10, 5) },
-            { 47, new Element("Plata", "Ag", 107.87f, 11, 5) },
-            { 48, new Element("Cadmio", "Cd", 112.41f, 12, 5) },
-            { 49, new Element("Indio", "In", 114.82f, 13, 5) },
-            { 50, new Element("Estaño", "Sn", 118.71f, 14, 5) },
-            { 51, new Element("Antimonio", "Sb", 121.76f, 15, 5) },
-            { 52, new Element("Telurio", "Te", 127.60f, 16, 5) },
-            { 53, new Element("Yodo", "I", 126.90f, 17, 5) },
-            { 54, new Element("Xenón", "Xe", 131.29f, 18, 5) },
-            { 55, new Element("Cesio", "Cs", 132.91f, 1, 6) },
-            { 56, new Element("Bario", "Ba", 137.33f, 2, 6) },
-            { 57, new Element("Lantano", "La", 138.91f, 3, 6) },
-            { 58, new Element("Cerio", "Ce", 140.12f, 4, 6) },
-            { 59, new Element("Praseodimio", "Pr", 140.91f, 5, 6) },
-            { 60, new Element("Neodimio", "Nd", 144.24f, 6, 6) },
-            { 61, new Element("Prometio", "Pm", 145.00f, 7, 6) },
-            { 62, new Element("Samario", "Sm", 150.36f, 8, 6) },
-            { 63, new Element("Europio", "Eu", 151.96f, 9, 6) },
-            { 64, new Element("Gadolinio", "Gd", 157.25f, 10, 6) },
-            { 65, new Element("Terbio", "Tb", 158.93f, 11, 6) },
-            { 66, new Element("Disprosio", "Dy", 162.50f, 12, 6) },
-            { 67, new Element("Holmio", "Ho", 164.93f, 13, 6) },
-            { 68, new Element("Erbio", "Er", 167.26f, 14, 6) },
-            { 69, new Element("Tulio", "Tm", 168.93f, 15, 6) },
-            { 70, new Element("Iterbio", "Yb", 173.04f, 16, 6) },
-            { 71, new Element("Lutecio", "Lu", 174.97f, 17, 6) },
-            { 72, new Element("Hafnio", "Hf", 178.49f, 4, 6) },
-            { 73, new Element("Tantalio", "Ta", 180.95f, 5, 6) },
-            { 74, new Element("Wolframio", "W", 183.84f, 6, 6) },
-            { 75, new Element("Renio", "Re", 186.21f, 7, 6) },
-            { 76, new Element("Osmio", "Os", 190.23f, 8, 6) },
-            { 77, new Element("Iridio", "Ir", 192.22f, 9, 6) },
-            { 78, new Element("Platino", "Pt", 195.08f, 10, 6) },
-            { 79, new Element("Oro", "Au", 196.97f, 11, 6) },
-            { 80, new Element("Mercurio", "Hg", 200.59f, 12, 6) },
-            { 81, new Element("Talio", "Tl", 204.38f, 13, 6) },
-            { 82, new Element("Plomo", "Pb", 207.2f, 14, 6) },
-            { 83, new Element("Bismuto", "Bi", 209.0f, 15, 6) },
-            { 84, new Element("Polonio", "Po", 209.0f, 16, 6) },
-            { 85, new Element("Astato", "At", 210.0f, 17, 6) },
-            { 86, new Element("Radón", "Rn", 222.0f, 18, 6) },
-            { 87, new Element("Francio", "Fr", 223.0f, 1, 7) },
-            { 88, new Element("Radio", "Ra", 226.0f, 2, 7) },
-            { 89, new Element("Actinio", "Ac", 227.0f, 3, 7) },
-            { 90, new Element("Torio", "Th", 232.04f, 4, 7) },
-            { 91, new Element("Protactinio", "Pa", 231.04f, 5, 7) },
-            { 92, new Element("Urano", "U", 238.03f, 6, 7) },
-            { 93, new Element("Neptunio", "Np", 237.0f, 7, 7) },
-            { 94, new Element("Plutonio", "Pu", 244.0f, 8, 7) },
-            { 95, new Element("Americio", "Am", 243.0f, 9, 7) },
-            { 96, new Element("Curio", "Cm", 247.0f, 10, 7) },
-            { 97, new Element("Berkelio", "Bk", 247.0f, 11, 7) },
-            { 98, new Element("Californio", "Cf", 251.0f, 12, 7) },
-            { 99, new Element("Einstenio", "Es", 252.0f, 13, 7) },
-            { 100, new Element("Fermio", "Fm", 257.0f, 14, 7) },
-            { 101, new Element("Mendelevio", "Md", 258.0f, 15, 7) },
-            { 102, new Element("Nobelio", "No", 259.0f, 16, 7) },
-            { 103, new Element("Lawrencio", "Lr", 266.0f, 17, 7) },
-            { 104, new Element("Rutherfordio", "Rf", 267.0f, 4, 7) },
-            { 105, new Element("Dubnio", "Db", 270.0f, 5, 7) },
-            { 106, new Element("Seaborgio", "Sg", 271.0f, 6, 7) },
-            { 107, new Element("Bohrio", "Bh", 270.0f, 7, 7) },
-            { 108, new Element("Hassium", "Hs", 277.0f, 8, 7) },
-            { 109, new Element("Meitnerio", "Mt", 278.0f, 9, 7) },
-            { 110, new Element("Darmstadio", "Ds", 281.0f, 10, 7) },
-            { 111, new Element("Roentgenio", "Rg", 282.0f, 11, 7) },
-            { 112, new Element("Copernicio", "Cn", 285.0f, 12, 7) },
-            { 113, new Element("Nihonio", "Nh", 286.0f, 13, 7) },
-            { 114, new Element("Flerovio", "Fl", 289.0f, 14, 7) },
-            { 115, new Element("Moscovio", "Mc", 290.0f, 15, 7) },
-            { 116, new Element("Livermorio", "Lv", 293.0f, 16, 7) },
-            { 117, new Element("Tenesino", "Ts", 294.0f, 17, 7) },
-            { 118, new Element("Oganesón", "Og", 294.0f, 18, 7) }
-        };
+        { 1, new Element("Hidrógeno", "H", 1.008f, 1, 1, "No Metal") },
+        { 2, new Element("Helio", "He", 4.0026f, 18, 1, "Gas Noble") },
+        { 3, new Element("Litio", "Li", 6.94f, 1, 2, "Metal Alcalino") },
+        { 4, new Element("Berilio", "Be", 9.0122f, 2, 2, "Metal Alcalinotérreo") },
+        { 5, new Element("Boro", "B", 10.81f, 13, 2, "Metaloide") },
+        { 6, new Element("Carbono", "C", 12.01f, 14, 2, "No Metal") },
+        { 7, new Element("Nitrógeno", "N", 14.01f, 15, 2, "No Metal") },
+        { 8, new Element("Oxígeno", "O", 16.00f, 16, 2, "No Metal") },
+        { 9, new Element("Flúor", "F", 19.00f, 17, 2, "Halógeno") },
+        { 10, new Element("Neón", "Ne", 20.18f, 18, 2, "Gas Noble") },
+        { 11, new Element("Sodio", "Na", 22.990f, 1, 3, "Metal Alcalino") },
+        { 12, new Element("Magnesio", "Mg", 24.305f, 2, 3, "Metal Alcalinotérreo") },
+        { 13, new Element("Aluminio", "Al", 26.982f, 13, 3, "Metal") },
+        { 14, new Element("Silicio", "Si", 28.085f, 14, 3, "Metaloide") },
+        { 15, new Element("Fósforo", "P", 30.974f, 15, 3, "No Metal") },
+        { 16, new Element("Azufre", "S", 32.06f, 16, 3, "No Metal") },
+        { 17, new Element("Cloro", "Cl", 35.45f, 17, 3, "Halógeno") },
+        { 18, new Element("Argón", "Ar", 39.948f, 18, 3, "Gas Noble") },
+        { 19, new Element("Potasio", "K", 39.10f, 1, 4, "Metal Alcalino") },
+        { 20, new Element("Calcio", "Ca", 40.08f, 2, 4, "Metal Alcalinotérreo") },
+        { 21, new Element("Escandio", "Sc", 44.96f, 3, 4, "Metal de Transición") },
+        { 22, new Element("Titanio", "Ti", 47.87f, 4, 4, "Metal de Transición") },
+        { 23, new Element("Vanadio", "V", 50.94f, 5, 4, "Metal de Transición") },
+        { 24, new Element("Cromo", "Cr", 51.996f, 6, 4, "Metal de Transición") },
+        { 25, new Element("Manganeso", "Mn", 54.94f, 7, 4, "Metal de Transición") },
+        { 26, new Element("Hierro", "Fe", 55.85f, 8, 4, "Metal de Transición") },
+        { 27, new Element("Cobalto", "Co", 58.93f, 9, 4, "Metal de Transición") },
+        { 28, new Element("Níquel", "Ni", 58.69f, 10, 4, "Metal de Transición") },
+        { 29, new Element("Cobre", "Cu", 63.55f, 11, 4, "Metal de Transición") },
+        { 30, new Element("Zinc", "Zn", 65.38f, 12, 4, "Metal de Transición") },
+        { 31, new Element("Galio", "Ga", 69.72f, 13, 4, "Metal") },
+        { 32, new Element("Germanio", "Ge", 72.63f, 14, 4, "Metaloide") },
+        { 33, new Element("Arsénico", "As", 74.92f, 15, 4, "Metaloide") },
+        { 34, new Element("Selenio", "Se", 78.97f, 16, 4, "No Metal") },
+        { 35, new Element("Bromo", "Br", 79.90f, 17, 4, "Halógeno") },
+        { 36, new Element("Kriptón", "Kr", 83.80f, 18, 4, "Gas Noble") },
+        { 37, new Element("Rubidio", "Rb", 85.47f, 1, 5, "Metal Alcalino") },
+        { 38, new Element("Estroncio", "Sr", 87.62f, 2, 5, "Metal Alcalinotérreo") },
+        { 39, new Element("Itrio", "Y", 88.91f, 3, 5, "Metal de Transición") },
+        { 40, new Element("Zirconio", "Zr", 91.22f, 4, 5, "Metal de Transición") },
+        { 41, new Element("Niobio", "Nb", 92.91f, 5, 5, "Metal de Transición") },
+        { 42, new Element("Molibdeno", "Mo", 95.94f, 6, 5, "Metal de Transición") },
+        { 43, new Element("Tecnecio", "Tc", 98.00f, 7, 5, "Metal de Transición") },
+        { 44, new Element("Rutenio", "Ru", 101.07f, 8, 5, "Metal de Transición") },
+        { 45, new Element("Rodio", "Rh", 102.91f, 9, 5, "Metal de Transición") },
+        { 46, new Element("Paladio", "Pd", 106.42f, 10, 5, "Metal de Transición") },
+        { 47, new Element("Plata", "Ag", 107.87f, 11, 5, "Metal de Transición") },
+        { 48, new Element("Cadmio", "Cd", 112.41f, 12, 5, "Metal de Transición") },
+        { 49, new Element("Indio", "In", 114.82f, 13, 5, "Metal") },
+        { 50, new Element("Estaño", "Sn", 118.71f, 14, 5, "Metal") },
+        { 51, new Element("Antimonio", "Sb", 121.76f, 15, 5, "Metaloide") },
+        { 52, new Element("Telurio", "Te", 127.60f, 16, 5, "Metaloide") },
+        { 53, new Element("Yodo", "I", 126.90f, 17, 5, "Halógeno") },
+        { 54, new Element("Xenón", "Xe", 131.29f, 18, 5, "Gas Noble") },
+        { 55, new Element("Cesio", "Cs", 132.91f, 1, 6, "Metal Alcalino") },
+        { 56, new Element("Bario", "Ba", 137.33f, 2, 6, "Metal Alcalinotérreo") },
+        { 57, new Element("Lantano", "La", 138.91f, 3, 6, "Lantánido") },
+        { 58, new Element("Cerio", "Ce", 140.12f, 4, 6, "Lantánido") },
+        { 59, new Element("Praseodimio", "Pr", 140.91f, 5, 6, "Lantánido") },
+        { 60, new Element("Neodimio", "Nd", 144.24f, 6, 6, "Lantánido") },
+        { 61, new Element("Prometio", "Pm", 145.00f, 7, 6, "Lantánido") },
+        { 62, new Element("Samario", "Sm", 150.36f, 8, 6, "Lantánido") },
+        { 63, new Element("Europio", "Eu", 151.96f, 9, 6, "Lantánido") },
+        { 64, new Element("Gadolinio", "Gd", 157.25f, 10, 6, "Lantánido") },
+        { 65, new Element("Terbio", "Tb", 158.93f, 11, 6, "Lantánido") },
+        { 66, new Element("Disprosio", "Dy", 162.50f, 12, 6, "Lantánido") },
+        { 67, new Element("Holmio", "Ho", 164.93f, 13, 6, "Lantánido") },
+        { 68, new Element("Erbio", "Er", 167.26f, 14, 6, "Lantánido") },
+        { 69, new Element("Tulio", "Tm", 168.93f, 15, 6, "Lantánido") },
+        { 70, new Element("Iterbio", "Yb", 173.04f, 16, 6, "Lantánido") },
+        { 71, new Element("Lutecio", "Lu", 174.97f, 17, 6, "Lantánido") },
+        { 72, new Element("Hafnio", "Hf", 178.49f, 4, 6, "Metal de Transición") },
+        { 73, new Element("Tántalo", "Ta", 180.95f, 5, 6, "Metal de Transición") },
+        { 74, new Element("Wolframio", "W", 183.84f, 6, 6, "Metal de Transición") },
+        { 75, new Element("Renio", "Re", 186.21f, 7, 6, "Metal de Transición") },
+        { 76, new Element("Osmio", "Os", 190.23f, 8, 6, "Metal de Transición") },
+        { 77, new Element("Iridio", "Ir", 192.22f, 9, 6, "Metal de Transición") },
+        { 78, new Element("Platino", "Pt", 195.08f, 10, 6, "Metal de Transición") },
+        { 79, new Element("Oro", "Au", 196.97f, 11, 6, "Metal de Transición") },
+        { 80, new Element("Mercurio", "Hg", 200.59f, 12, 6, "Metal de Transición") },
+        { 81, new Element("Talio", "Tl", 204.38f, 13, 6, "Metal") },
+        { 82, new Element("Plomo", "Pb", 207.2f, 14, 6, "Metal") },
+        { 83, new Element("Bismuto", "Bi", 208.98f, 15, 6, "Metal") },
+        { 84, new Element("Polonio", "Po", 209.00f, 16, 6, "Metaloide") },
+        { 85, new Element("Astato", "At", 210.00f, 17, 6, "Halógeno") },
+        { 86, new Element("Radón", "Rn", 222.00f, 18, 6, "Gas Noble") },
+        { 87, new Element("Francio", "Fr", 223.00f, 1, 7, "Metal Alcalino") },
+        { 88, new Element("Radio", "Ra", 226.00f, 2, 7, "Metal Alcalinotérreo") },
+        { 89, new Element("Actinio", "Ac", 227.00f, 3, 7, "Actínido") },
+        { 90, new Element("Torio", "Th", 232.04f, 4, 7, "Actínido") },
+        { 91, new Element("Protactinio", "Pa", 231.04f, 5, 7, "Actínido") },
+        { 92, new Element("Uranio", "U", 238.03f, 6, 7, "Actínido") },
+        { 93, new Element("Neptunio", "Np", 237.00f, 7, 7, "Actínido") },
+        { 94, new Element("Plutonio", "Pu", 244.00f, 8, 7, "Actínido") },
+        { 95, new Element("Americio", "Am", 243.00f, 9, 7, "Actínido") },
+        { 96, new Element("Curio", "Cm", 247.00f, 10, 7, "Actínido") },
+        { 97, new Element("Berkelio", "Bk", 247.00f, 11, 7, "Actínido") },
+        { 98, new Element("Californio", "Cf", 251.00f, 12, 7, "Actínido") },
+        { 99, new Element("Einsteinio", "Es", 252.00f, 13, 7, "Actínido") },
+        { 100, new Element("Fermio", "Fm", 257.00f, 14, 7, "Actínido") },
+        { 101, new Element("Mendelevio", "Md", 258.00f, 15, 7, "Actínido") },
+        { 102, new Element("Nobelio", "No", 259.00f, 16, 7, "Actínido") },
+        { 103, new Element("Lawrencio", "Lr", 262.00f, 17, 7, "Actínido") },
+        { 104, new Element("Rutherfordio", "Rf", 267.00f, 4, 7, "Metal de Transición") },
+        { 105, new Element("Dubnio", "Db", 270.00f, 5, 7, "Metal de Transición") },
+        { 106, new Element("Seaborgio", "Sg", 271.00f, 6, 7, "Metal de Transición") },
+        { 107, new Element("Bohrio", "Bh", 270.00f, 7, 7, "Metal de Transición") },
+        { 108, new Element("Hassio", "Hs", 277.00f, 8, 7, "Metal de Transición") },
+        { 109, new Element("Meitnerio", "Mt", 278.00f, 9, 7, "Metal de Transición") },
+        { 110, new Element("Darmstadtio", "Ds", 281.00f, 10, 7, "Metal de Transición") },
+        { 111, new Element("Roentgenio", "Rg", 282.00f, 11, 7, "Metal de Transición") },
+        { 112, new Element("Copernicio", "Cn", 285.00f, 12, 7, "Metal de Transición") },
+        { 113, new Element("Nihonio", "Nh", 286.00f, 13, 7, "Metal") },
+        { 114, new Element("Flerovio", "Fl", 289.00f, 14, 7, "Metal") },
+        { 115, new Element("Moscovio", "Mc", 290.00f, 15, 7, "Metal") },
+        { 116, new Element("Livermorio", "Lv", 293.00f, 16, 7, "Metal") },
+        { 117, new Element("Tenesino", "Ts", 294.00f, 17, 7, "Halógeno") },
+        { 118, new Element("Oganesón", "Og", 294.00f, 18, 7, "Gas Noble") }
+    };
     }
 void InitializeCustomPositions()
 {
@@ -341,16 +341,56 @@ void CreatePeriodicTable()
         Transform panel = elementGO.transform.Find("Panel");
         if (panel != null)
         {
+            // Obtener el componente de Image del panel
+            Image panelImage = panel.GetComponent<Image>();
+            
+            // Cambiar el color del panel basado en el tipo de elemento
+            if (panelImage != null)
+            {
+                SetPanelColor(panelImage, element.Type);
+            }
+
+            // Configurar el texto de información en el panel
             TMP_Text panelText = panel.GetComponentInChildren<TMP_Text>();
             if (panelText != null)
             {
                 panelText.text = $"{element.Symbol}\n{element.AtomicMass}";
             }
         }
+
         // Agregar eventos de UI para hover y clic
-            AddUIEvents(elementGO, atomicNumber);
+        AddUIEvents(elementGO, atomicNumber);
     }
 }
+
+// Método para establecer el color del panel basado en el tipo de elemento
+private void SetPanelColor(Image panelImage, string elementType)
+{
+    Dictionary<string, Color> elementTypeColors = new Dictionary<string, Color>
+    {
+        { "Metal Alcalino", Color.red }, // Rojo para Metales Alcalinos
+        { "Metal Alcalinotérreo", new Color(1.0f, 0.64f, 0.0f) }, // Naranja (RGB: 255, 165, 0)
+        { "Lantánido", new Color(0.8f, 0.4f, 0.1f) }, // Marrón claro personalizado
+        { "Actínido", new Color(0.5f, 0.0f, 0.5f) }, // Púrpura oscuro personalizado
+        { "Metal de Transición", Color.yellow }, // Amarillo para Metales de Transición
+        { "Metal", Color.gray }, // Gris para otros Metales
+        { "Metaloide", Color.green }, // Verde para Metaloides
+        { "No Metal", Color.blue }, // Azul para No Metales
+        { "Halógeno", Color.magenta }, // Magenta para Halógenos
+        { "Gas Noble", Color.cyan } // Cian para Gases Nobles
+    };
+
+    if (elementTypeColors.TryGetValue(elementType, out Color color))
+    {
+        panelImage.color = color;
+    }
+    else
+    {
+        panelImage.color = Color.white; // Color por defecto si el tipo no es reconocido
+    }
+}
+
+
 
 
 
@@ -489,22 +529,25 @@ void CreatePeriodicTable()
     }
 
     private class Element
-    {
-        public string Name { get; }
-        public string Symbol { get; }
-        public float AtomicMass { get; }
-        public int Group { get; }
-        public int Period { get; }
+{
+    public string Name { get; private set; }
+    public string Symbol { get; private set; }
+    public float AtomicMass { get; private set; }
+    public int Group { get; private set; }
+    public int Period { get; private set; }
+    public string Type { get; private set; }  // Nuevo campo para el tipo de elemento
 
-        public Element(string name, string symbol, float atomicMass, int group, int period)
-        {
-            Name = name;
-            Symbol = symbol;
-            AtomicMass = atomicMass;
-            Group = group;
-            Period = period;
-        }
+    public Element(string name, string symbol, float atomicMass, int group, int period, string type)
+    {
+        Name = name;
+        Symbol = symbol;
+        AtomicMass = atomicMass;
+        Group = group;
+        Period = period;
+        Type = type;
     }
+}
+
 
     void DisableCollisions(GameObject obj)
     {
