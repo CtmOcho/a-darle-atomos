@@ -2956,7 +2956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7186369673588395523, guid: 4e5b6b23eb9374e4aa2d3d2c506066af, type: 3}
       propertyPath: m_Name
-      value: LoadingPanel
+      value: LoadingPanel_llama
       objectReference: {fileID: 0}
     - target: {fileID: 7186369673588395523, guid: 4e5b6b23eb9374e4aa2d3d2c506066af, type: 3}
       propertyPath: m_IsActive
