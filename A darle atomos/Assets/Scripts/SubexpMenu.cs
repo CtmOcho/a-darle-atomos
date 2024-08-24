@@ -82,6 +82,10 @@ public class SubexpMenuTrigger : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+        // Guardar el nombre de la escena actual en PlayerPrefs antes de cambiar
+        PlayerPrefs.SetString("LastScene", SceneManager.GetActiveScene().name);
+        PlayerPrefs.Save();
+
         // Reanudar el tiempo antes de cambiar de escena      
         Time.timeScale = 1f;
         Debug.Log("Loading scene: " + sceneName);
