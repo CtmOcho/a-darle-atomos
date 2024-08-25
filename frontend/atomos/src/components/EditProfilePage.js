@@ -46,12 +46,13 @@ const EditProfilePage = () => {
   };
 
   return (
-    <div className="edit-profile-container">
-    <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
-
-      <h2>Editar Perfil</h2>
+    <div className="edit-profile-container col-12">
+    <nav className="navbar col-12">
+      <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
+    </nav>
+      <h2 className='display-2'>Editar Perfil</h2>
       <form onSubmit={handleUpdateProfile} className="edit-form">
-        <div className="form-group">
+        <div className="form-group display-6">
           <label>Nuevo Nombre de Usuario:</label>
           <input
             type="text"
@@ -59,7 +60,7 @@ const EditProfilePage = () => {
             onChange={(e) => setNewUsername(e.target.value.toUpperCase())}
           />
         </div>
-        <div className="form-group">
+        <div className="form-group display-6">
           <label>Nueva Contraseña:</label>
           <input
             type="password"

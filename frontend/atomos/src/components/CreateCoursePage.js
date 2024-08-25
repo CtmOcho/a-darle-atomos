@@ -43,13 +43,16 @@ const CreateCoursePage = () => {
 
   return (
     <div className="page-container">
-      <button className="btn-back" onClick={() => navigate('/edit-courses')}>Volver</button>
-      <div className="create-course-container">
-        <h1>Crear Curso</h1>
-        <form onSubmit={handleCreateCourse}>
+    <nav className="navbar col-12">
+      <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
+    </nav>
+      <div className="create-course-container justify-content-center col-lg-8 col-xs-12 col-md-10 col-sm-10 col-xl-8 col-xxl-6">
+        <h1 className='display-2'>Crear Curso</h1>
+        <form className="col-10 justify-content-center p-1 m-1 align-items-center" onSubmit={handleCreateCourse}>
           <div className="form-group">
-            <label>Nombre del Curso</label>
+            <label className='col-6 display-4'>Nombre del Curso</label>
             <input
+            className='col-6'
               type="text"
               value={courseName}
               onChange={(e) => setCourseName(e.target.value)}
@@ -57,9 +60,8 @@ const CreateCoursePage = () => {
             />
           </div>
           {error && <p className="error-message">{error}</p>}
-          <div className="form-buttons">
-            <button type="submit" className="btn">Crear</button>
-            <button type="button" className="btn" onClick={() => navigate('/edit-courses')}>Cancelar</button>
+          <div className="form-buttons justify-content-center col-12 p-1 m-1">
+            <button type="submit" className="btn col-6 p-2 m-4">Crear</button>
           </div>
         </form>
       </div>

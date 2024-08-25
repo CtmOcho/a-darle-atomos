@@ -1,32 +1,57 @@
 
-.dashboard-container body, .dashboard-container html {
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden; /* Evita el scroll */
-  font-family: 'BobbyJones', sans-serif; /* Asegura que se usa la fuente correcta */
-}
-
 .dashboard-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 100vh;
-  width: 100vw; /* Asegura que el contenedor ocupe todo el ancho de la ventana */
-  padding: 0.1rem; /* Aumenta el padding para agrandar el contenedor */
+  position: relative;
+  align-items: center;
+  height: 100%;
 }
 
 .dashboard-container .top-buttons {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  height: 100%;
 }
 
 .dashboard-container .dropdown {
   position: relative;
-  display: inline-block;
+  display: flex;
+}
+
+.dashboard-container .dropdown-content {
+  display: none; /* Escondemos el contenido por defecto */
+  position: absolute;
+  top: 100%; /* Muestra el contenido justo debajo de la imagen de perfil */
+  
+  background: #764652;
+  width: 100%;
+  
+  z-index: 1;
+  font-size: 5rem;
+}
+
+.dashboard-container .dropdown:hover .dropdown-content {
+  display: flex; /* Muestra el dropdown al hacer hover */
+  flex-direction: column;
+}
+
+.dashboard-container .dropdown-content button {
+  background-color: #764652;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 2rem;
+  text-align: right;
+  width: 100%;
+}
+
+.dashboard-container .dropdown-content button:hover {
+  background-color: #633a44;
 }
 
 .dashboard-container img.btn-profile {
@@ -36,6 +61,8 @@
   border-radius: 50%; /* Hace la imagen circular si es cuadrada */
   background-color: transparent; /* Asegura que no haya fondo por defecto */
   border: 2px solid #5A8884; /* Añade un borde para estilizar */
+  position: relative;
+  display: flex;
 }
 
 .dashboard-container img.btn-profile:hover, img.btn-profile:active{
@@ -43,53 +70,26 @@
 }
 
 
-.dashboard-container .dropdown-content {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: auto; /* Ajusta para estar justo debajo del botón */
-  right: 0;
-  background: #764652;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0);
-  z-index: 1;
-}
-
-.dashboard-container .dropdown-content button {
-  background-color: #764652;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-size: 1rem;
-  text-align: right;
-  width: 100%;
-}
-
-.dashboard-container .dropdown-content button:hover {
-  background-color: #633a44;;
-}
 
 .dashboard-container .carousel-container {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 60vh; /* Ajusta la altura del carrusel */
+  height: 100%; /* Ajusta la altura del carrusel */
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
 .dashboard-container .carousel {
   display: flex;
-  overflow: hidden;
-  width: 100%;
-  justify-content: center; /* Centra los elementos del carrusel */
-  height: 100%; /* Asegura que el carrusel ocupe toda la altura del contenedor */
+ 
 }
 
 .dashboard-container .carousel-item {
-  flex: 0 0 60%; /* 60% del ancho del contenedor */
-  max-width: 60%; /* Asegura que el botón no exceda el 60% del ancho del contenedor */
+  max-width: 600px;
+  width: 100%;
   height: 100%; /* Ocupa el 100% de la altura del carrusel */
   padding: 2rem; /* Reduce el padding para ajustar mejor el botón */
   background-color: #5A8884;
@@ -108,19 +108,24 @@
 }
 .dashboard-container .carousel-btn {
   background-color: transparent;
+  position: relative;
   border: none;
-  font-size: 6rem;
+  font-size: 10rem;
   cursor: pointer;
+
+  
 }
 
 .dashboard-container .carousel-btn.left-btn {
   color: #764652;
-  margin-right: 0.1rem;
+  
+
 }
 
 .dashboard-container .carousel-btn.right-btn {
   color: #764652;
-  margin-left: 0.1rem;
+ 
+
 }
 .dashboard-container .carousel-btn:hover{
   color: #633a44;

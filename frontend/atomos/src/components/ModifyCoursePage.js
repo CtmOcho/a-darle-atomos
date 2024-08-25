@@ -42,30 +42,33 @@ const ModifyCoursePage = () => {
   };
 
   return (
-    <div className="page-container">
-      <button className="btn-back" onClick={() => navigate('/edit-courses')}>Volver</button>
-      <div className="modify-course-container">
-        <h1>Modificar Curso</h1>
+    <div className="page-container container-fluid col-12">
+          <nav className="navbar col-12">
+      <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
+    </nav>
+      <div className="row modify-course-container justify-content-center col-lg-8 col-xs-12 col-md-10 col-sm-10 col-xl-8 col-xxl-6 ">
+        <h1 className='display-2'>Modificar Curso</h1>
         {error && <p className="error-message">{error}</p>}
-        <div className="form-group">
-          <label>Seleccionar Curso:</label>
+        <div className="form-group col-10 justify-content-center">
+          <label className='col-12 display-4'>Seleccionar Curso:</label>
           <select
             value={selectedCourse}
             onChange={(e) => setSelectedCourse(e.target.value)}
             required
+            className='col-8 p-1 m-1'
           >
-            <option value="" disabled>Seleccione un curso</option>
+            <option value="" disabled className='col-8 p-1 m-1'>Seleccione un curso</option>
             {courses.map(course => (
               <option key={course._id} value={course.course}>{course.course}</option>
             ))}
           </select>
-        </div>
         {selectedCourse && (
-          <div className="course-buttons">
-            <button className="btn" onClick={handleAddStudent}>Agregar Alumno</button>
-            <button className="btn" onClick={handleRemoveStudent}>Eliminar Alumno</button>
+          <div className="row course-buttons justify-content-center p-1 m-1 col-12">
+            <button className="btn col-4 p-2 m-4 " onClick={handleAddStudent}>Agregar Alumno</button>
+            <button className="btn col-4 p-2 m-4" onClick={handleRemoveStudent}>Eliminar Alumno</button>
           </div>
         )}
+        </div>
       </div>
     </div>
   );

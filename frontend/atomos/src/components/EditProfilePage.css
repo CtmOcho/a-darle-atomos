@@ -6,20 +6,24 @@
     padding: 2rem;
     text-align: center;
     width: 100%;
-    max-width: 500px;
     margin: 0 auto;
   }
+
   
   .edit-profile-container h2 {
-    font-size: 2.5rem;
+
     margin-bottom: 2rem;
   }
   
   .edit-profile-container .edit-form {
+    width: 100%;
+    max-width: 500px; /* Ajusta el tamaño máximo del formulario */
+    padding: 2rem;
+    background-color: #ddd;
+    border-radius: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
   }
   
   .edit-profile-container .form-group {
@@ -30,7 +34,7 @@
   .edit-profile-container .form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    font-size: 1.5rem;
+
   }
   
   .edit-profile-container .form-group input {

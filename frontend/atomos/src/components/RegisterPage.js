@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './RegisterPage.css';
 import config from '../config/config';
-//${config.backendUrl} -> reemplazar ht tp://localhost:13756 por esto!!!
-
-
 
 const RegisterPage = () => {
   const [username, setUsername] = useState('');
@@ -30,9 +27,9 @@ const RegisterPage = () => {
       const response = await fetch(url, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded', // Necesario para PostWwwForm
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: "", // `PostWwwForm` en Unity no envía ningún cuerpo adicional
+        body: "",
       });
 
       if (!response.ok) {
@@ -41,7 +38,7 @@ const RegisterPage = () => {
 
       if (response.status === 201) {
         console.log(`Usuario creado exitosamente, código: ${response.status}`);
-        navigate('/login'); // Redirigir a la página de login de alumnos
+        navigate('/login');
       } else {
         console.error('Creación inválida');
       }
@@ -59,9 +56,9 @@ const RegisterPage = () => {
       const response = await fetch(url, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded', // Necesario para PostWwwForm
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: "", // `PostWwwForm` en Unity no envía ningún cuerpo adicional
+        body: "",
       });
 
       if (!response.ok) {
@@ -70,7 +67,7 @@ const RegisterPage = () => {
 
       if (response.status === 201) {
         console.log('Profesor fue creado exitosamente');
-        navigate('/login'); // Redirigir a la página de login de profesores
+        navigate('/login');
       } else {
         console.error('Creación inválida');
       }
@@ -82,48 +79,55 @@ const RegisterPage = () => {
 
   return (
     <div className="page-container">
-      <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
-      <div className="register-container">
-        <h2>Registro</h2>
-        <form className="form-register"  onSubmit={handleRegister}>
-          <div className="form-group">
-            <label>Nombre de usuario:</label>
-            <input
-              type="text"
-              autoCapitalize="none"
-              autoCorrect="off"
-              value={username}
-              onChange={(e) => setUsername(e.target.value.toUpperCase())} // Convertir a mayúsculas al escribir
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Contraseña:</label>
-            <input
-              type="password"
-              autoCapitalize="none"
-              autoCorrect="off"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>
-              <input
-                type="checkbox"
-                checked={isStudent}
-                onChange={(e) => setIsStudent(e.target.checked)}
-              />
-              Soy estudiante
-            </label>
-          </div>
-          {error && <p className="error">{error}</p>}
-          <button type="submit" className="btn">Registrarse</button>
-        </form>
-      </div>
+<nav className="navbar col-12">
+    <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
+</nav>
+    <div className="register-container col-lg-12 col-xs-12 col-md-10 col-sm-10 col-xl-12 col-xxl-12 justify-content-center">
+      <h2 className='display-2'>Registro</h2>
+      <form className="form-register" onSubmit={handleRegister}>
+        <div className="form-group">
+          <label>Nombre de usuario:</label>
+          <input
+            type="text"
+            className="form-control"
+            autoCapitalize="none"
+            autoCorrect="off"
+            value={username}
+            onChange={(e) => setUsername(e.target.value.toUpperCase())}
+            required
+          />
+        </div>
+        <div className="form-group justify-content-center">
+          <label>Contraseña:</label>
+          <input
+            type="password"
+            className="form-control"
+            autoCapitalize="none"
+            autoCorrect="off"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group form-check">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="studentCheck"
+            checked={isStudent}
+            onChange={(e) => setIsStudent(e.target.checked)}
+          />
+          <label className="form-check-label" htmlFor="studentCheck">
+            Soy estudiante
+          </label>
+        </div>
+        {error && <p className="text-danger">{error}</p>}
+        <button type="submit" className="btn btn-success w-100">Registrarse</button>
+      </form>
     </div>
-  );
+  </div>
+);
 };
+
 
 export default RegisterPage;

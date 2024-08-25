@@ -57,12 +57,14 @@ const AddStudentPage = () => {
 
   return (
     <div className="page-container">
-      <button className="btn-back" onClick={() => navigate('/modify-course')}>Volver</button>
-      <div className="add-student-container">
-        <h1>Agregar Alumno a {courseName}</h1>
+          <nav className="navbar col-12">
+      <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
+    </nav>
+      <div className="add-student-container justify-content-center col-lg-8 col-xs-12 col-md-10 col-sm-10 col-xl-8 col-xxl-6">
+        <h1 className='display-2' >Agregar Alumno a {courseName}</h1>
         <form onSubmit={handleAddStudent}>
           <div className="form-group">
-            <label>Nombre del Alumno:</label>
+            <label className='display-4'>Nombre del Alumno:</label>
             <select
               value={selectedStudent}
               onChange={(e) => setSelectedStudent(e.target.value)}
@@ -75,9 +77,8 @@ const AddStudentPage = () => {
             </select>
           </div>
           {error && <p className="error-message">{error}</p>}
-          <div className="form-buttons">
-            <button type="submit" className="btn">Agregar</button>
-            <button type="button" className="btn" onClick={() => navigate('/modify-course')}>Cancelar</button>
+          <div className="form-buttons col-12 justify-content-center">
+            <button type="submit" className="btn col-6 p-2 m-4">Agregar</button>
           </div>
         </form>
       </div>

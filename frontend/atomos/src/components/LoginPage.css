@@ -1,14 +1,4 @@
 
-div.page-container {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-
 .login-container {
   display: flex;
   flex-direction: column;
@@ -21,13 +11,13 @@ div.page-container {
   text-align: center;
 }
 
-h2 {
+.login-container h2 {
   text-align: center;
   margin-bottom: 2rem;
   font-size: 4rem;
 }
 
-form.form-login {
+.login-container form.form-login {
   width: 100%;
   max-width: 500px; /* Ajusta el tamaño máximo del formulario */
   padding: 2rem;
@@ -38,31 +28,31 @@ form.form-login {
   align-items: center;
 }
 
-.form-login .form-group {
+.login-container .form-login .form-group {
   width: 100%;
   margin-bottom: 1rem;
 }
 
-.form-login .form-group label {
+.login-container .form-login .form-group label {
   display: block;
   margin-bottom: 0.5rem;
   font-size: 2rem;
 }
 
-.form-login .form-group input[type="text"],
-.form-login .form-group input[type="password"] {
-  width: 90%;
+.login-container .form-login .form-group input[type="text"],
+.login-container .form-login .form-group input[type="password"] {
+  width: 100%;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 0.25rem;
   font-size: 2rem;
 }
 
-.form-login .form-group input[type="text"] {
+.login-container .form-login .form-group input[type="text"] {
   text-transform: uppercase; /* Mostrar texto en mayúsculas */
 }
 
-button.btn {
+.login-container button.btn {
   background-color: #5A8884;
   color: white;
   border: none;
@@ -75,11 +65,11 @@ button.btn {
   text-align: center;
 }
 
-button.btn:hover {
+.login-container button.btn:hover {
   background-color: #49756e;
 }
 
-.error {
+.login-container .error {
   color: red;
   margin-top: 1rem;
 }

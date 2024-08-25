@@ -197,14 +197,16 @@ const AdditionalContentPage = () => {
   }, [experimentName, user.username]); // Dependencias
 
   return (
-    <div className="additional-content-page-container">
+    <div className="additional-content-page-container col-12">
+                    <nav className="navbar col-12">
       <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
-      <h1>Contenido Adicional: {experimentName}</h1>
-      <div className="content-grid">
+    </nav>
+      <h1 className='display-3'>Contenido Adicional: {experimentName}</h1>
+      <div className="content-grid col-12">
         {content.map((item, index) => (
-          <div key={index} className="content-item">
-            <img src={item.imgSrc} alt={`Contenido ${index + 1}`} />
-            <p>{item.description}</p>
+          <div key={index} className="content-item col-3.5">
+            <img className='img-fluid' src={item.imgSrc} alt={`Contenido ${index + 1}`} />
+            <p className='col-12 text-align-center'>{item.description}</p>
           </div>
         ))}
       </div>

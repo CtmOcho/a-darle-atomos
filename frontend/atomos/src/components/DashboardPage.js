@@ -59,15 +59,14 @@ const DashboardPage = () => {
 
   return (
     <div className="dashboard-container">
-      <div className="top-buttons">
-        <div className="dropdown">
-          <img
-            src={profileImage}
-            alt="Perfil"
-            className="btn-profile"
-            onClick={() => setDropdownVisible(!dropdownVisible)}
-          />
-          {dropdownVisible && (
+      <nav className="navbar col-12 justify-content-end">
+        <div className="top-buttons col-1">
+          <div className="dropdown col-12">
+            <img
+              src={profileImage}
+              alt="Perfil"
+              className="btn-profile "
+            />
             <div className="dropdown-content">
               <button onClick={handleProfile}>Mi Perfil</button>
               <button onClick={handleLogout}>Cerrar Sesión</button>
@@ -75,16 +74,22 @@ const DashboardPage = () => {
                 <button onClick={handleCourseEdit}>Editar Cursos</button>
               )}
             </div>
-          )}
+          </div>
+        </div>
+      </nav>
+  
+      <div className="row col-12 justify-content-center align-items-center" style={{ flex: 1 }}>
+        <div className="carousel-container">
+          <button className="carousel-btn left-btn justify-content-start" onClick={handlePrev}>◀</button>
+          <div className="carousel">
+            <button className="carousel-item" onClick={handleItemClick}>
+              {carouselItems[currentIndex]}
+            </button>
+          </div>
+          <button className="carousel-btn right-btn justify-content-end" onClick={handleNext}>▶</button>
         </div>
       </div>
-      <div className="carousel-container">
-        <button className="carousel-btn left-btn" onClick={handlePrev}>◀</button>
-        <div className="carousel">
-          <button className="carousel-item" onClick={handleItemClick}>{carouselItems[currentIndex]}</button>
-        </div>
-        <button className="carousel-btn right-btn" onClick={handleNext}>▶</button>
-      </div>
+  
       {showPopup && (
         <div className="popup">
           <div className="popup-content">
@@ -95,6 +100,8 @@ const DashboardPage = () => {
       )}
     </div>
   );
+  
+  
 };
 
 export default DashboardPage;

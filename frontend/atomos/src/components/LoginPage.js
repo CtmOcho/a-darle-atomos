@@ -51,10 +51,13 @@ const LoginPage = () => {
 
   return (
     <div className="page-container">
-      <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
-      <div className="login-container">
-        <h2>Inicio de Sesión</h2>
-        <form className= "form-login" onSubmit={handleLogin}>
+      <nav className="navbar col-12">
+        <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
+      </nav>
+  
+      <div className="login-container col-lg-12 col-xs-12 col-md-10 col-sm-10 col-xl-12 col-xxl-12 justify-content-center">
+        <h2 className='display-2'>Inicio de Sesión</h2>
+        <form className="form-login" onSubmit={handleLogin}>
           <div className="form-group">
             <label>Nombre de usuario:</label>
             <input
@@ -62,7 +65,7 @@ const LoginPage = () => {
               value={username}
               autoCapitalize="none"
               autoCorrect="off"
-              onChange={(e) => setUsername(e.target.value.toUpperCase())} // Convertir a mayúsculas al escribir
+              onChange={(e) => setUsername(e.target.value.toUpperCase())} 
               required
             />
           </div>
@@ -83,6 +86,7 @@ const LoginPage = () => {
       </div>
     </div>
   );
+  
 };
 
 export default LoginPage;

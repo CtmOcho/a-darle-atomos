@@ -1,43 +1,32 @@
 
-div.page-container {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-}
-
-
-
 .experiment-page-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 60%;
-  width: 60%;
-  border-radius: 5%;
-  padding: 2rem;
-  background-color: rgba(245, 245, 245, 0.1);
+  background-color: #ddd;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .experiment-page-container h1 {
   text-align: center;
   margin-bottom: 2rem;
-  font-size: 3rem; /* Agranda la fuente del encabezado */
+/* Agranda la fuente del encabezado */
 }
 
 .experiment-page-container p {
   text-align: center;
   margin-bottom: 2rem;
   font-size: 1.5rem;
-  width: 80%;
+
 }
 
 .experiment-page-container .quiz-buttons {
   display: flex;
   justify-content: center; /* Centra los botones */
-  gap: 2rem; /* Aumenta el espacio entre los botones */
+  gap: 0.5rem; /* Aumenta el espacio entre los botones */
   margin-top: 2rem; /* Mueve los botones más abajo */
 }
 
@@ -46,7 +35,7 @@ div.page-container {
   color: white;
   border: none;
   border-radius: 0.5rem;
-  padding: 1.5rem 3rem; /* Agranda los botones */
+
   cursor: pointer;
   font-size: 1.5rem; /* Agranda la fuente de los botones */
 }

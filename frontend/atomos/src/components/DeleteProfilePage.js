@@ -41,12 +41,14 @@ const DeleteProfilePage = () => {
   };
 
   return (
-    <div className="delete-profile-container">
-    <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
-      <h2>¿Seguro que desea borrar su perfil?</h2>
-      <form onSubmit={handleDeleteProfile} className="delete-form">
-        <div className="form-group">
-          <label>Ingrese su nombre de usuario para confirmar:</label>
+    <div className="delete-profile-container col-12">
+        <nav className="navbar col-12">
+      <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
+    </nav>
+      <h2 className='display-2'>Borrar perfil</h2>
+      <form onSubmit={handleDeleteProfile} className="delete-form col-lg-12 col-xs-12 col-md-10 col-sm-10 col-xl-12 col-xxl-12 justify-content-center">
+        <div className="form-group display-6">
+          <label>Ingrese su nombre de usuario para borrarlo:</label>
           <input
             type="text"
             value={inputUsername}

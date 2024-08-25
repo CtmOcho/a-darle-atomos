@@ -1,12 +1,12 @@
 .additional-content-page-container {
-    padding: 0.1rem;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #F0F0F0;
-    overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ddd;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     
   }
 
@@ -18,15 +18,13 @@
   
 .additional-content-page-container h1 {
     margin-bottom: 2rem;
-    font-size: 2rem;
+
   }
   
   .additional-content-page-container .content-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
     gap: 1rem;
-    width: 100%;
-   
+
   }
   
   .additional-content-page-container .content-item {
@@ -38,7 +36,6 @@
   }
   
   .additional-content-page-container .content-item img {
-    max-width: 100%;
 
     border-radius: 0.5rem;
   }

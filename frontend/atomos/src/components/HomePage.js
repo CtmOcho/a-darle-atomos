@@ -12,11 +12,19 @@ const HomePage = () => {
 
   return (
     <div className="home-container">
-      <img src={logo} alt="Logo" className="logo" />
-      <h1 className="title">A darle átomos</h1>
-      <div className="buttons-container">
-        <button className="btn" onClick={() => navigate('/register')}>Registrarse</button>
-        <button className="btn" onClick={() => navigate('/login')}>Iniciar Sesión</button>
+        <nav className="navbar col-12">
+          <div>
+          <img src={logo} alt="Logo" className="logo" />
+          </div>
+        </nav>
+      <div className="row align-items-center text-center col-lg-8 col-xs-12 col-md-10 col-sm-10 col-xl-8 col-xxl-6 justify-content-center">
+        <div className="col-12">
+          <h1 className="title display-1">A darle átomos</h1>
+          <div className="buttons-container justify-content-center align-items-center text-center">
+            <button className="btn btn-block" onClick={() => navigate('/register')}>Registrarse</button>
+            <button className="btn btn-block" onClick={() => navigate('/login')}>Iniciar Sesión</button>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -29,24 +29,26 @@ const ProfilePage = () => {
 
   return (
     <div className="profile-page-container">
-      <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
-      <div className="profile-container">
-        <h1>Perfil del Usuario</h1>
-        <div className="profile-info">
+      <nav className='navbar col-12'>
+        <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
+      </nav>
+      <div className="profile-container col-lg-8 col-xs-12 col-md-10 col-sm-10 col-xl-8 col-xxl-6 justify-content-center">
+        <h1 className='display-1'>Perfil del Usuario</h1>
+        <div className="profile-info  col-12">
           <div className={`profile-item username ${user.type === 'P' ? 'professor' : ''}`}>
-            <p>{user.username}</p>
+            <h1 className='display-4 col-6' >{user.username}</h1>
           </div>
           {user.type === 'E' && (
             <>
-              <div className="profile-item course">
-                <p>{user.course}</p>
+              <div className="profile-item course col-12">
+                <h1 className='diplay-4 col-6'>{user.course}</h1>
               </div>
               <div className="profile-item progress-container">
-                <p>Progreso:</p>
+                <h1 className='display-4'>Progreso:</h1>
                 <div className="progress-bar">
                   <div className="progress" style={{ width: `${progress / 55 * 100}%` }}></div>
                 </div>
-                <p>{(progress / 55 * 100).toFixed(2)}%</p> {/* Ajusta esto según sea necesario */}
+                <h1 className='display-4'>{(progress / 55 * 100).toFixed(2)}%</h1> {/* Ajusta esto según sea necesario */}
               </div>
             </>
           )}

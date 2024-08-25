@@ -54,14 +54,19 @@ const ExperimentPage = () => {
   };
 
   return (
-    <div className="page-container">
-      <button className="btn-back" onClick={() => navigate('/dashboard')}>Volver</button>
-      <div className="experiment-page-container">
-        <h1>{experimentName}</h1>
-        <div className="quiz-buttons">
-          <button className="btn-additional-content" onClick={handleAdditionalContentClick}>Contenido Adicional</button>
-          <button className="btn-pre-quiz" onClick={handlePreQuizClick}>Pre Cuestionario</button>
-          <button className="btn-post-quiz" onClick={handlePostQuizClick} disabled={!preQuizCompleted}>Post Cuestionario</button>
+    <div className="page-container col-12 ">
+              <nav className="navbar col-12">
+      <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
+    </nav>
+      <div className="experiment-page-container col-lg-8 col-xs-12 col-md-10 col-sm-10 col-xl-8 col-xxl-6 justify-content-center">
+        <div className='row col-12'>
+
+        <h1 className='display-1'>{experimentName}</h1>
+        </div>
+        <div className="quiz-buttons row col-12">
+          <button className="btn-additional-content col-3 p-2 m-1.5" onClick={handleAdditionalContentClick}>Contenido Adicional</button>
+          <button className="btn-pre-quiz col-3 p-2 m-1.5" onClick={handlePreQuizClick}>Pre Cuestionario</button>
+          <button className="btn-post-quiz col-3 p-2 m-1.5 " onClick={handlePostQuizClick} disabled={!preQuizCompleted}>Post Cuestionario</button>
         </div>
       </div>
     </div>

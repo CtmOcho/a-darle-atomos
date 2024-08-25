@@ -1,10 +1,4 @@
 
-  div.page-container {
-    height: 100vh;
-    width: 100vw;
-    position: relative;
-  }
-  
 
   
   .remove-student-container {
@@ -12,15 +6,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    padding: 2rem;
-    background-color: rgba(245, 245, 245, 0); /* Fondo transparente */
+    background-color: #ddd;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
   
   .remove-student-container h1 {
     text-align: center;
     margin-bottom: 2rem;
-    font-size: 4rem;
+
   }
   
   .remove-student-container .form-group {
@@ -32,7 +27,6 @@
   .remove-student-container .form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    font-size: 2rem;
     text-align: center;
   }
   
@@ -58,16 +52,18 @@
   }
   
   .remove-student-container .btn {
+  background-color: #5A8884;
+
     color: white;
     border: none;
     border-radius: 0.5rem;
-    padding: 0rem 0.5rem;
     cursor: pointer;
-    font-size: 1.5rem;
-    width: 12rem;
+    font-size: 2rem;
   }
   
   .remove-student-container .btn:hover {
     background-color: #49756e;
+    color: white;
+
   }
   

@@ -1,11 +1,3 @@
-div.page-container {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
 
 .register-container {
   display: flex;
@@ -15,7 +7,7 @@ div.page-container {
   padding: 2rem;
   border-radius: 1rem;
   width: 100%;
-  max-width: 600px; /* Ajusta este valor según sea necesario */
+  max-width: 600px;
   text-align: center;
 }
 
@@ -27,7 +19,7 @@ div.page-container {
 
 .register-container .form-register {
   width: 100%;
-  max-width: 500px; /* Ajusta el tamaño máximo del formulario */
+  max-width: 500px;
   padding: 2rem;
   background-color: #ddd;
   border-radius: 1rem;
@@ -38,7 +30,8 @@ div.page-container {
 
 .form-register .form-group {
   width: 100%;
-  
+  margin-bottom: 1rem;
+
 }
 
 .form-register .form-group label {
@@ -49,31 +42,28 @@ div.page-container {
 
 .form-register .form-group input[type="text"],
 .form-register .form-group input[type="password"] {
-  width: 90%;
+  width: 100%;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 0.25rem;
   font-size: 2rem;
 }
 
-
 .form-register .form-group label.checkbox-label {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Asegura que la checkbox esté a la derecha */
+  justify-content: space-between;
   width: 100%;
   font-size: 1.5rem;
 }
 
 .form-register .form-group input[type="checkbox"] {
-  margin: 1rem; /* Mueve la checkbox al lado derecho del label */
+  margin: 1rem;
   width: 2rem;
   height: 2rem;
-
 }
 
-
-button.btn {
+.form-register button.btn {
   background-color: #5A8884;
   color: white;
   border: none;
@@ -86,6 +76,6 @@ button.btn {
   text-align: center;
 }
 
-button.btn:hover {
+.form-register button.btn:hover {
   background-color: #49756e;
 }

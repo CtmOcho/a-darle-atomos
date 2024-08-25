@@ -230,16 +230,18 @@ const QuizPage = () => {
 };
 
   return (
-    <div className="quiz-page-container page-container">
+    <div className="quiz-page-container page-container col-12">
+                          <nav className="navbar col-12">
       <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
-      <div className="quiz">
-        <h1>{quizType === 'pre' ? 'Pre Cuestionario' : 'Post Cuestionario'}: {experimentName}</h1>
+    </nav>
+      <div className="quiz col-8">
+        <h1 className='display-2'>{quizType === 'pre' ? 'Pre Cuestionario' : 'Post Cuestionario'}:<br/> {experimentName}</h1>
         {shuffledQuizData.map((q, qi) => (
-          <div key={qi} className="question-container">
-            <p>{q.question}</p>
-            <div className="options-container">
+          <div key={qi} className="question-container col-12 display-7">
+            <p className='fs-1'>{q.question}</p>
+            <div className="options-container col-12 justify-content-center align-items-start fs-4">
               {q.options.map((option, oi) => (
-                <label key={oi} className="quiz-label">
+                <label key={oi} className="quiz-label col-2 fs-5 p-2 m-1 ">
                   <input
                     type="radio"
                     name={`question-${qi}`}
@@ -253,7 +255,7 @@ const QuizPage = () => {
             </div>
           </div>
         ))}
-        <button className="btn-submit quiz-submit" onClick={handleSubmit} disabled={isSubmitDisabled}>
+        <button className="btn-submit quiz-submit col-3" onClick={handleSubmit} disabled={isSubmitDisabled}>
           Enviar
         </button>
       </div>

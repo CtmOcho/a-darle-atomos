@@ -10,11 +10,13 @@ const EditCoursesPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="page-container">
-      <button className="btn-back" onClick={() => navigate('/dashboard')}>Volver</button>
-      <div className="edit-courses-page-container">
-        <h1>Editar Cursos</h1>
-        <div className="course-buttons">
+    <div className="page-container col-12">
+    <nav className="navbar col-12">
+      <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
+    </nav>
+      <div className="edit-courses-page-container col-lg-6 col-xs-12 col-md-10 col-sm-10 col-xl-6 col-xxl-6 justify-content-center">
+        <h1 className='display-2'>Editar Cursos</h1>
+        <div className="course-buttons p-3">
           <button className="btn-create-course" onClick={() => navigate('/create-course')}>Crear Curso</button>
           <button className="btn-modify-course" onClick={() => navigate('/modify-course')}>Modificar Curso</button>
           <button className="btn-delete-course" onClick={() => navigate('/delete-course')}>Eliminar Curso</button>
