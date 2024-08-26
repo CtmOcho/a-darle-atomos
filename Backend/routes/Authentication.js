@@ -162,7 +162,12 @@ module.exports = app => {
                 {$set: {"students.$":updateFields.students}},
                 { new: true, runValidators: true }
             );
-    
+            await Quiz.findOneAndUpdate(
+                {username: search},
+                {username: updateFields.username},
+                { new: true, runValidators: true }
+            );
+
             res.status(200).send(updateUser);
         } catch (err) {
             console.error(err);
@@ -577,7 +582,6 @@ module.exports = app => {
             res.status(500).send('Error al actualizar el usuario');
         }
     });
-    
 
     
       
