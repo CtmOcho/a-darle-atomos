@@ -104,4 +104,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Moleculares/tabla_periodica_color.unity
     guid: 08bf4420a6a0a184b843a69d49f7084a
+  - enabled: 1
+    path: Assets/Scenes/Laboratorio/Laboratorio_Yodo.unity
+    guid: e36e239da1430754a9576b99d1b1e4f1
   m_configObjects: {}
