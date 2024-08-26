@@ -232,7 +232,7 @@ const QuizPage = () => {
   return (
     <div className="quiz-page-container page-container col-12">
                           <nav className="navbar col-12">
-      <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
+      <button className="btn-back" onClick={() => navigate('/dashboard')}>Volver</button>
     </nav>
       <div className="quiz col-8">
         <h1 className='display-2'>{quizType === 'pre' ? 'Pre Cuestionario' : 'Post Cuestionario'}:<br/> {experimentName}</h1>

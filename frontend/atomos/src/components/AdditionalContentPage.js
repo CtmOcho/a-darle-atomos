@@ -8,6 +8,7 @@ import config from '../config/config'; // Asegúrate de tener la configuración 
 import image1 from '../media/bohr.png';
 import image2 from '../media/fuegos-artificiales-san-juan-y-san-pedro-leon-2019.png';
 import image3 from '../media/Heisenberg.png';
+import image4 from '../media/sublimacion-1.jpg'
 // Agrega los demás imports de imágenes aquí
 
 const AdditionalContentPage = () => {
@@ -33,7 +34,7 @@ const AdditionalContentPage = () => {
       ],
       'Sublimación del Yodo Sólido': [
         {
-          imgSrc: 'image4',
+          imgSrc: image4,
           description: 'La sublimación es el proceso mediante el cual una sustancia pasa directamente de sólido a gas sin pasar por el estado líquido. Esto ocurre porque las moléculas de yodo tienen fuerzas intermoleculares débiles, lo que permite que se vaporizen a bajas temperaturas.',
         },
         {

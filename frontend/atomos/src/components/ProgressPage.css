@@ -20,7 +20,7 @@
     width: 100%;
   }
   
-  .progress-bar {
+  .progress-details-container .progress-bar {
     background-color: #f8f8f8;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -29,7 +29,7 @@
     height: 2rem;
   }
   
-  .progress {
+  .progress-details-container .progress {
     height: 100%;
     background-color: #5A8884;
     width: 0;
