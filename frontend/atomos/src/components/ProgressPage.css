@@ -1,0 +1,62 @@
+.progress-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  
+  .progress-details-container {
+    background-color: #ddd;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 100%;
+  }
+  
+  .progress-bar {
+    background-color: #f8f8f8;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin: 1rem 0;
+    width: 100%;
+    height: 2rem;
+  }
+  
+  .progress {
+    height: 100%;
+    background-color: #5A8884;
+    width: 0;
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .table {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .table th{
+    color: #764652FF;
+  }
+
+  .table th, .table td {
+    text-align: center;
+  }
+  
+  .table .first-column {
+    color:#764652
+  }
+  .table  .completed {
+    background-color: #d4edda; /* Verde claro para completado */
+    color: #155724; /* Texto verde oscuro */
+  }
+  
+  .table  .not-completed {
+    background-color: #f8d7da; /* Rojo claro para no completado */
+    color: #721c24; /* Texto rojo oscuro */
+  }

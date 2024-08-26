@@ -41,6 +41,9 @@ const DashboardPage = () => {
     navigate('/edit-courses');
   };
 
+const handleCheckProgress = () => {
+  navigate('/check-progress');
+};
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? carouselItems.length - 1 : prevIndex - 1));
   };
@@ -60,18 +63,21 @@ const DashboardPage = () => {
   return (
     <div className="dashboard-container">
       <nav className="navbar col-12 justify-content-end">
-        <div className="top-buttons col-1">
+        <div className="top-buttons col-2">
           <div className="dropdown col-12">
             <img
               src={profileImage}
               alt="Perfil"
-              className="btn-profile "
+              className="btn-profile img-fluid"
             />
             <div className="dropdown-content">
               <button onClick={handleProfile}>Mi Perfil</button>
               <button onClick={handleLogout}>Cerrar Sesión</button>
               {user && user.type === 'P' && (
+                <>
                 <button onClick={handleCourseEdit}>Editar Cursos</button>
+                <button onClick={handleCheckProgress}>Ver Progresos</button>
+                </>
               )}
             </div>
           </div>

@@ -33,7 +33,6 @@
   
   .modify-course-container .form-group {
     align-items: center; 
-    border: 1px solid #ccc;
     border-radius: 0.25rem;
     font-size: 2rem;
     text-align: center;
@@ -58,6 +57,7 @@
   
   .modify-course-container .btn:hover {
     background-color: #49756e;
+    color: white;
   }
   
   .modify-course-container .error-message {

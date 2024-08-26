@@ -17,6 +17,9 @@ import AdditionalContentPage from './components/AdditionalContentPage';
 import QuizPage from './components/QuizPage';
 import DeleteProfilePage from './components/DeleteProfilePage';
 import EditProfilePage from './components/EditProfilePage';
+import ProgressPage from './components/ProgressPage';
+import TeacherProgressPage from './components/TeacherProgressPage';
+import TeacherProgressCourse from './components/TeacherProgressCourse';
 import './App.css';
 
 function App() {
@@ -41,6 +44,10 @@ function App() {
             <Route path="/quiz/:experimentName/:quizType" element={<QuizPage />} />
             <Route path="/delete-profile" element={<DeleteProfilePage />} />
             <Route path="/edit-profile" element={<EditProfilePage />} />
+            <Route path="/progress-detail/:username" element={<ProgressPage />} />
+            <Route path="/check-progress" element={<TeacherProgressPage />} />
+            <Route path="/check-student-course/:courseName" element={<TeacherProgressCourse />} />
+
           </Routes>
         </div>
       </Router>

@@ -1,6 +1,6 @@
 
   
-  .delete-course-container {
+  .teacher-progress-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,55 +9,58 @@
     padding: 0.5rem;
     border-radius: 1rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
   }
   
-  .delete-course-container h1 {
+  .teacher-progress-container h1 {
     text-align: center;
     margin-bottom: 2rem;
+
   }
   
-  .delete-course-container .form-group {
+  .teacher-progress-container .form-group {
     margin-bottom: 1rem;
+    justify-self:center;
+    position: relative;
   }
   
-  .delete-course-container .form-group label {
-    display: block;
+  .teacher-progress-container .form-group label {
+
     margin-bottom: 0.5rem;
+
+    text-align: center;
+  }
+  
+  .teacher-progress-container .form-group {
+    align-items: center; 
+    border-radius: 0.25rem;
     font-size: 2rem;
     text-align: center;
   }
   
-  .delete-course-container .form-group select {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
-    font-size: 2rem;
-  }
   
-  .delete-course-container .form-buttons {
+  .teacher-progress-container .course-buttons {
     display: flex;
-    justify-content: center;
 
   }
   
-  .delete-course-container .btn {
+  .teacher-progress-container .btn {
     background-color: #5A8884;
-
     color: white;
     border: none;
     border-radius: 0.5rem;
+
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 1.5rem;
+
   }
   
-  .delete-course-container .btn:hover {
+  .teacher-progress-container .btn:hover {
     background-color: #49756e;
     color: white;
-  
   }
   
-  .delete-course-container .error-message {
+  .teacher-progress-container .error-message {
     color: red;
     margin-bottom: 1rem;
   }

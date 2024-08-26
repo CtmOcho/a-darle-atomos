@@ -584,5 +584,27 @@ module.exports = app => {
     });
 
     
+// Ruta GET para obtener el array progressdata de un usuario
+app.get('/getProgressData/:username', async (req, res) => {
+    const { username } = req.params;
+
+    try {
+        // Busca el usuario por su nombre de usuario
+        const user = await Account.findOne({ username });
+
+        // Si el usuario no es encontrado, retorna un error 404
+        if (!user) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+
+        // Retorna el array progressdata
+        return res.status(200).json({ progressdata: user.progressdata });
+    } catch (err) {
+        console.error('Error al obtener el progreso del usuario:', err);
+        return res.status(500).json({ message: 'Error interno del servidor' });
+    }
+});
+
+
       
 }

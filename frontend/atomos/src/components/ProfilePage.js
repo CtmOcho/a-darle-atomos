@@ -40,7 +40,7 @@ const ProfilePage = () => {
           </div>
           {user.type === 'E' && (
             <>
-              <div className="profile-item course col-12">
+              <div className="profile-item course">
                 <h1 className='diplay-4 col-6'>{user.course}</h1>
               </div>
               <div className="profile-item progress-container">
@@ -53,9 +53,16 @@ const ProfilePage = () => {
             </>
           )}
         </div>
-        <div className="profile-buttons">
+        <div className="profile-buttons col-lg-8 col-xs-12 col-md-10 col-sm-10 col-xl-8 col-xxl-6">
           <button className="btn-edit" onClick={() => navigate('/edit-profile')}>Editar</button>
           <button className="btn-delete" onClick={() => navigate('/delete-profile')}>Borrar</button>
+          {user.type === 'E' && (
+            <>
+        
+          <button className="btn-progress" onClick={() => navigate(`/progress-detail/${user.username}`)}>Progreso</button>
+          </>
+
+          )}
         </div>
       </div>
     </div>

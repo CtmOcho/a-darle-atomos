@@ -1,0 +1,67 @@
+
+
+
+.teacher-progress-course-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ddd;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .teacher-progress-course-container h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  
+  }
+  
+  .teacher-progress-course-container .form-group {
+    margin-bottom: 1rem;
+
+  }
+  
+  .teacher-progress-course-container .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+  
+    text-align: center;
+  }
+  
+  .teacher-progress-course-container .form-group select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+  }
+  
+  .teacher-progress-course-container .error-message {
+    color: red;
+    margin-bottom: 1rem;
+  }
+  
+  .teacher-progress-course-container .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 500px;
+    gap: 1rem; /* Agrega espacio entre los botones */
+  }
+  
+  .teacher-progress-course-container .btn {
+    background-color: #5A8884;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 2rem; /* Agranda la fuente de los botones */
+  
+  }
+  
+  .teacher-progress-course-container .btn:hover {
+    background-color: #49756e;
+    color:white;  
+  }
+  
