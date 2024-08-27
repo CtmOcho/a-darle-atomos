@@ -8,6 +8,8 @@ using UnityEngine;
 public class Glass : MonoBehaviour
 {
     public float temperature;
+    public float maxTemperature = 114f;
+    public float minTemperature = 20f;
     private float tempStep;
     public List<GameObject> contents;
     public bool isHot;
@@ -64,7 +66,7 @@ public class Glass : MonoBehaviour
     }
     private void AddHeat()
     {
-        if (temperature > 114f)
+        if (temperature > maxTemperature)
         {
             return;
         }
@@ -86,7 +88,7 @@ public class Glass : MonoBehaviour
 
     private void Cooldown()
     {
-        if (temperature < 20f)
+        if (temperature < minTemperature)
         {
             return;
         }

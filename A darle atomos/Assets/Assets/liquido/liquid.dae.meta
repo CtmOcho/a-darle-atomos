@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8372d1b97587b2c40a11429e372c84db
+guid: 531f4b5c57dfad94f8040eed76b66d77
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,23 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Glass
-    second: {fileID: 2100000, guid: 5e215c9b2d957af4a831a443d5d31a23, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Rubber cork
-    second: {fileID: 2100000, guid: e6a022168a46a834ab2f60f169cc6d5f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: chrome
-    second: {fileID: 2100000, guid: f643d30cd4097df4b8b275798bd52aac, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: plastic
-    second: {fileID: 2100000, guid: 78156fb6c9ca1d749a0d4adfe1bb3968, type: 2}
+      name: Liquid
+    second: {fileID: 2100000, guid: 86b5c5690efeffb49b9528659dcfeeb1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -52,7 +37,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -113,7 +98,7 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
