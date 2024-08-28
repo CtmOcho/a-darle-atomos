@@ -525,6 +525,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 17835
       objectReference: {fileID: 0}
+    - target: {fileID: 7165850243238994536, guid: be7d20501c40e7b47aaf2e60c3020dce, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7165850243238994536, guid: be7d20501c40e7b47aaf2e60c3020dce, type: 3}
+      propertyPath: m_Color.b
+      value: 0.19215688
+      objectReference: {fileID: 0}
+    - target: {fileID: 7165850243238994536, guid: be7d20501c40e7b47aaf2e60c3020dce, type: 3}
+      propertyPath: m_Color.g
+      value: 0.19215688
+      objectReference: {fileID: 0}
+    - target: {fileID: 7165850243238994536, guid: be7d20501c40e7b47aaf2e60c3020dce, type: 3}
+      propertyPath: m_Color.r
+      value: 0.19215688
+      objectReference: {fileID: 0}
     - target: {fileID: 8879962758444432946, guid: be7d20501c40e7b47aaf2e60c3020dce, type: 3}
       propertyPath: m_SizeDelta.x
       value: 628.306
@@ -769,8 +785,8 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0.4627451, g: 0.27450982, b: 0.32156864, a: 1}
-  m_enableVertexGradient: 1
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 0.4627451, g: 0.27450982, b: 0.32156864, a: 1}
