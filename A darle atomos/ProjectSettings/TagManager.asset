@@ -9,6 +9,7 @@ TagManager:
   - Iodine
   - Fire
   - IodineCrystal
+  - Liquid
   layers:
   - Default
   - TransparentFX
