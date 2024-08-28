@@ -218,7 +218,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 392261084}
+      - m_Target: {fileID: 1980389813}
         m_TargetAssemblyTypeName: LoadingScene, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
@@ -3198,6 +3198,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966781319}
   m_CullTransparentMesh: 1
+--- !u!1 &1980389812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1980389814}
+  - component: {fileID: 1980389813}
+  m_Layer: 0
+  m_Name: LoadingManager (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1980389813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980389812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87cd37d502927e84c8ac2863adc6c7fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadingScreen: {fileID: 4082937772794198270}
+  LoadingBarFill: {fileID: 2034246487}
+  ScrollView: {fileID: 169435549}
+  canvasGroup: {fileID: 5724847}
+  delayAfterLoad: 1
+  fillSpeed: 0.5
+  fadeOutDuration: 1
+--- !u!4 &1980389814
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980389812}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2034246487 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8510896192173131673, guid: 4e5b6b23eb9374e4aa2d3d2c506066af, type: 3}
@@ -3342,4 +3393,5 @@ SceneRoots:
   - {fileID: 1296225272}
   - {fileID: 1001616164}
   - {fileID: 392261085}
+  - {fileID: 1980389814}
   - {fileID: 5724851}
