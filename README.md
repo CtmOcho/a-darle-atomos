@@ -1,4 +1,5 @@
 # A darle átomos
+Un proyecto para la _Feria de Software 2024_ creado por _UltimateSpiderMonke (USM)_ pre-empresa de desarrollo informático compuesto por el mejor equipo de ingenieros en informática de la generación 2019 😎👌.  
 
 Este proyecto integra el reconocimiento de manos, la calibración de cámaras, un servidor backend, un frontend en React y un proyecto en Unity para ofrecer una experiencia completa. A continuación, se detallan los pasos para la configuración y ejecución de cada componente del proyecto.
 
