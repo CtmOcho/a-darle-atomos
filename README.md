@@ -90,7 +90,7 @@ Para compilar y ejecutar el reconocimiento de manos:
 2. Actualiza el valor de la variable `baseBackendUrl` en el archivo `Assets/Scripts/Login.cs` con la URL generada por Ngrok para el backend (``localhost:13756``).
 ## 4.2 Ejecución
 1. Ejecuta el proyecto en modo juego desde la escena Inicio.
-- Esta es una alternativa temporal a la compilación de una versión del proyecto en Unity.
+- Esta es una alternativa temporal a la compilación de una versión del proyecto en Unity. 🥱
 
 # Futuro
 En el futuro, se planea que `wsserver.py`, `calib.py` y `handpose3d.py` sean ejecutables con rutas relativas, permitiendo su uso como aplicativos sin necesidad de compilación en Python.
