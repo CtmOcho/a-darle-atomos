@@ -11,6 +11,8 @@ public class BoilingBehaviour : MonoBehaviour
     private BubblesAnimation bubblesAnimation;
     private AudioSource audioSource;
     private VisualEffect[] visualEffects;
+    private bool isBoiling = false;
+    public float boilingTime = 120;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +20,6 @@ public class BoilingBehaviour : MonoBehaviour
         glass = GetComponentInChildren<Glass>();
         edgeSlide = GetComponentInChildren<EdgeSlide>();
         fluidDrip = GetComponentInChildren<FluidDrip>();
-        print(fluidDrip);
         bubblesAnimation = GetComponentInChildren<BubblesAnimation>();
         audioSource = GetComponentInChildren<AudioSource>();
         visualEffects = GetComponentsInChildren<VisualEffect>();
@@ -27,13 +28,15 @@ public class BoilingBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (glass.temperature >= 80)
+        if (glass.temperature >= 80 && isBoiling == false)
         {
-            StartBoiling();
+            StartCoroutine(Boiling());
+            isBoiling = true;
         }
+
     }
 
-    public void StartBoiling()
+    public IEnumerator Boiling()
     {
         edgeSlide.enabled = true;
         audioSource.enabled = true;
@@ -41,14 +44,13 @@ public class BoilingBehaviour : MonoBehaviour
         bubblesAnimation.enabled = true;
         visualEffects[0].enabled = true;
         visualEffects[1].enabled = true;
-    }
 
-    public void FinishBoiling()
-    {
+        yield return new WaitForSeconds(boilingTime);
+
         edgeSlide.enabled = false;
         audioSource.enabled = false;
-        fluidDrip.enabled = false;
-        bubblesAnimation.enabled = false;
+        Destroy(fluidDrip.gameObject);
+        Destroy(bubblesAnimation.gameObject);
         visualEffects[0].enabled = false;
         visualEffects[1].enabled = false;
     }
