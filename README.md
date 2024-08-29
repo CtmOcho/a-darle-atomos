@@ -67,11 +67,10 @@ Para compilar y ejecutar el reconocimiento de manos:
     ```bash 
     ngrok start node-backend react-app
 2. Copia la URL generada para el Backend (`localhost:13756`) para actualizarla en el Frontend ## y en Unity.
-## 3 Front1. end
-### 3.1 Co- nfiguración
+## 3 Frontend
+### 3.1 Configuración
 1. Navega a la carpeta `frontend/atomos`.
-2. Actuali
-# za el valor de `BackendUrl` en el archivo `src/config/config.js` con la URL copiada desde` la termina`l `Ngrok para` `el Backend.`
+2. Actualiza el valor de `BackendUrl` en el archivo `src/config/config.js` con la URL copiada desde` la termina`l `Ngrok para` `el Backend.`
 ### 3.2 Compilación
 1. Buildea el proyecto con el siguiente comando:
     ```bash 
