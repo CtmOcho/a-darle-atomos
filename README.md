@@ -1,19 +1,99 @@
-# a-darle-atomos
-GitHub proyecto FSW-2024 Grupo Ultimate Spider Monke
+# A darle átomos
 
-### Reconocimiento de manos
-Es necesario tener 2 cámaras en el computador donde se ejecute el algoritmo _handpose3d.py_ en caso de no tener una como tal instalen DroidCamClient en su pc y en su teléfono, básicamente usa una conexión entre la ip de su celu y su pc para usar la cámara del celu en el pc.
-Actualizacion: Droidcam te utiliza para siempre el slot 1, en caso de tener las 2 camaras, cambiar 2 y 3 los id en handpose3d.py.
-## PARA LA CALIBRACIÓN:
-### Se debe ejecutar el archivo _calib.py_ en la carpeta calib que está dentro de la carpeta handpose3d en Manos, se debe ingresar por consola un espacio en blanco y enter para recalibrar de manera intrínseca las cámaras, los valores que están por defecto son para la cámara 0 y 1 dentro de _calibration_settings.yaml_ si no le reconoce las cámaras deben cambiar estos números para las correctas. Luego se hará la calibración estereo, donde se tomaran captura de los frames de ambas cámaras y debe verse el _checkerboard_ en ambas cámaras.
-### Para ambas calibraciones, la intrínseca y la externa, se aceptan los frames con "ESPACIO" y se ignoran con "S" se termina el programa con "ESC" luego para la calibración de coordenadas del WORLD se mostrarán las capturas de la calibración externa y se debe seleccionar el par de frames que mejor representen el "origen" para ambas cámaras y donde estará el lugar de trabajo final. 
-# SE DEBE ESPERAR UNA CALIBRACIÓN CON RMSE < 5 PARA QUE SEA ACEPTABLE, PERO LO IDEAL ES LLEVAR EL VALOR DE RMSE < 0.5 o RMSE < 0.3 , LA CALIBRACIÓN MODIFICARÁ LOS ARCHIVOS EN LA CARPETA DE HANDPOSE3D PARA LA TOMA DE COORDENADAS 3D
+Este proyecto integra el reconocimiento de manos, la calibración de cámaras, un servidor backend, un frontend en React y un proyecto en Unity para ofrecer una experiencia completa. A continuación, se detallan los pasos para la configuración y ejecución de cada componente del proyecto.
 
-  
+## 1. Reconocimiento de Manos
+
+### 1.1 Requerimientos
+
+- Mediapipe
+- Python 3.8
+- OpenCV
+- Matplotlib
+
+### 1.2 Calibración de Cámaras
+
+Para realizar la calibración de las cámaras, navega a la carpeta `Manos/handpose3d/calib`.
+
+**Proceso de Calibración:**
+1. Se te preguntará por consola si deseas recalibrar las cámaras de manera individual.
+   - Ingresa `""` (sin comillas) para hacer la calibración individual o intrínseca.
+2. Sigue el proceso descrito en el `README.md` de la carpeta `calib` para calibrar ambas cámaras.
+   - Selecciona los frames que reconozcan mejor los puntos de referencia.
+   - Se recomienda apuntar a un RMSE < 0.5.
+
+### 1.3 Ejecución
+
+Para compilar y ejecutar el reconocimiento de manos:
+
+1. Ejecuta el servidor WebSocket:
+   ```bash
+   python wsserver.py
+2. En otra consola, ejecuta el siguiente comando:
+   ```bash
+   python handpose3d.py cam_0 cam_1
+- Donde cam_0 y cam_1 corresponden a las cámaras calibradas previamente.
+## 2 Backend
+### 2.1 Ejecución del Servidor
+1. Navega a la carpeta `Backend/`.
+2. Ejecuta el servidor backend localmente:
+    ```bash
+    npm run production
+### 2.2 Configuración de Ngrok
+1. Si no tienes `ngrok.exe` descárgalo [aquí](https://dashboard.ngrok.com/get-started/setup/windows).
+2. Ejecuta `ngrok.exe`.
+3. Ingresa el token de autorización:
+    ```bash
+    ngrok config add-authtoken $_TOKEN
+
+- El token debe solicitarse al encargado de la cuenta para tunneling [Octavio V.](github.com/CtmOcho/).
+### 2.3 Configuración de Túneles
+1. En la consola de `ngrok.exe` edita la configuración:
+    ```bash
+    ngrok config edit
+2. Agrega la siguiente configuración de túneles al archivo `.yaml`
+    ```yaml
+        tunnels:
+    react-app:
+        addr: 3000
+        proto: http
+    
+    node-backend:
+        addr: 13756
+        proto: http
+### 2.4 Inicio de los túneles
+1. En la consola `ngrok.exe` inicia los túneles:
+    ```bash 
+    ngrok start node-backend react-app
+2. Copia la URL generada para el Backend (`localhost:13756`) para actualizarla en el Frontend ## y en Unity.
+## 3 Front1. end
+### 3.1 Co- nfiguración
+1. Navega a la carpeta `frontend/atomos`.
+2. Actuali
+# za el valor de `BackendUrl` en el archivo `src/config/config.js` con la URL copiada desde` la termina`l `Ngrok para` `el Backend.`
+### 3.2 Compilación
+1. Buildea el proyecto con el siguiente comando:
+    ```bash 
+    npm run build
+### 3.3 Servicio del Proyecto
+1. Asegurate de tener instalado `serve`, sino ejecuta en la terminal:
+    ```bash
+    npm install -g serve
+2. Sirve el proyecto:
+    ```bash
+    serve -s build 3000
+- Ahora podrás acceder al frontend desde la URL generada por Ngrok para `localhost:3000/ `
+
+# 4 Unity
+## 4.1 Configuración
+1. Navega a la carpeta `A darle átomos/`.
+2. Actualiza el valor de la variable `baseBackendUrl` en el archivo `Assets/Scripts/Login.cs` con la URL generada por Ngrok para el backend (``localhost:13756``).
+## 4.2 Ejecución
+1. Ejecuta el proyecto en modo juego desde la escena Inicio.
+- Esta es una alternativa temporal a la compilación de una versión del proyecto en Unity.
+
+# Futuro
+En el futuro, se planea que `wsserver.py`, `calib.py` y `handpose3d.py` sean ejecutables con rutas relativas, permitiendo su uso como aplicativos sin necesidad de compilación en Python.
 
 
-
-
-Para recibir la data de las manos en tiempo real a la simulación en unity, se debe ejecutar el archivo _wsserver.py_ luego el _handpose3d.py_ y finalmente la simulación en unity, la visualización en las pantallas del código se ven medio lentas, pero la manda de data está muy optimizada, se manda cada frame y en el archivo _WebServerSocket.cs_ en la carpeta _Scripts_ se tiene un timer de 100 ms para consultar por los datos de los frames, se puede bajar para que las consultas sean en menor tiempo entre unity y el webserver.
-El array que se manda corresponde a un _flatten()_ de la matriz de tamaño (42 x 3), por lo que es un array de 126 elementos, para rearmar la matriz se debería iterar hasta 42 e iterar hasta 3 para crear la matriz de coordenadas de los 21 nodos creados por [mediapipe ](https://chuoling.github.io/mediapipe/solutions/hands.html).
 
