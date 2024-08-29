@@ -2215,7 +2215,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252103660}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 3161db40fcc564542bd773c6865f196b, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 1454ee728e04df845b8865b19c14c6dd, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -2237,7 +2237,10 @@ VisualEffect:
     m_Vector2f:
       m_Array: []
     m_Vector3f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 0, y: 1, z: 0}
+        m_Name: Glass_position
+        m_Overridden: 1
     m_Vector4f:
       m_Array: []
     m_Uint:
@@ -2259,7 +2262,10 @@ VisualEffect:
     m_NamedObject:
       m_Array: []
     m_Bool:
-      m_Array: []
+      m_Array:
+      - m_Value: 0
+        m_Name: Tripod Collision
+        m_Overridden: 1
 --- !u!4 &252103663
 Transform:
   m_ObjectHideFlags: 0
@@ -7412,7 +7418,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 232945451}
+      - m_Target: {fileID: 306089269}
         m_TargetAssemblyTypeName: SubexpMenuTrigger, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -11806,7 +11812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980cb3f0314792f4c90af34097f5cd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  cam: {fileID: 963194225}
 --- !u!224 &1179475442312940221
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12112,21 +12118,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 634234054684317997}
+      - m_Target: {fileID: 963194233}
         m_TargetAssemblyTypeName: Navigation1.Navigation, Assembly-CSharp
         m_MethodName: BackFromLab
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 634234054684317997}
-        m_TargetAssemblyTypeName: Navigation1.Navigation, Assembly-CSharp
-        m_MethodName: SendToDatabase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

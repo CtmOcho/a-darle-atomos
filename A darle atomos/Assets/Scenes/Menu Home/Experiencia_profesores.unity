@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 5724848}
   - component: {fileID: 5724847}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: FADEIN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 392261085}
   - component: {fileID: 392261084}
   m_Layer: 0
-  m_Name: LoadingManager (1)
+  m_Name: LoadingYodo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1769,7 +1769,7 @@ GameObject:
   - component: {fileID: 1001616164}
   - component: {fileID: 1001616163}
   m_Layer: 0
-  m_Name: LoadingManager
+  m_Name: LoadingLLama
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2387,7 +2387,7 @@ GameObject:
   - component: {fileID: 1296225269}
   - component: {fileID: 1296225268}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: MENU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3209,7 +3209,7 @@ GameObject:
   - component: {fileID: 1980389814}
   - component: {fileID: 1980389813}
   m_Layer: 0
-  m_Name: LoadingManager (2)
+  m_Name: LoadingDes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 83595572}
   - component: {fileID: 83595571}
   m_Layer: 0
-  m_Name: LoadingManager (1)
+  m_Name: LoadingYodo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1069,7 +1069,7 @@ GameObject:
   - component: {fileID: 471008449}
   - component: {fileID: 471008448}
   m_Layer: 0
-  m_Name: LoadingManager
+  m_Name: LoadingLlama
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2065,7 +2065,7 @@ GameObject:
   - component: {fileID: 1040691193}
   - component: {fileID: 1040691192}
   m_Layer: 0
-  m_Name: LoadingManager (2)
+  m_Name: LoadingDestilacion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
