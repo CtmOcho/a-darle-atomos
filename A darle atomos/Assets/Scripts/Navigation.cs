@@ -24,10 +24,6 @@ namespace Navigation1
             return PlayerPrefs.GetString("LastScene", ""); // Retorna una cadena vacía si no hay valor guardado
         }
 
-        public void SendToDatabase()
-        {
-            cam.GetComponent<Login>().OnPutStudentProgress(1);
-        }
 
         public void BackFromLab()
         {
