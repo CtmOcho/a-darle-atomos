@@ -1518,7 +1518,7 @@ GameObject:
   - component: {fileID: 1948931302}
   - component: {fileID: 1948931305}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Volver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1613,7 +1613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.33333334, g: 0.5764706, b: 0.5529412, a: 1}
+  m_Color: {r: 0.78039217, g: 0.2, b: 0.33333334, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -1591,7 +1591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3529412, g: 0.5372549, b: 0.5176471, a: 1}
+  m_Color: {r: 0.78039217, g: 0.2, b: 0.33333334, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2627,7 +2627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3529412, g: 0.5372549, b: 0.5176471, a: 1}
+  m_Color: {r: 0.78039217, g: 0.2, b: 0.33333334, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2702,7 +2702,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1955568235}
         m_TargetAssemblyTypeName: Navigation1.Navigation, Assembly-CSharp
-        m_MethodName: SendToDatabase
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2711,7 +2711,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!1 &333752090
 GameObject:
   m_ObjectHideFlags: 0
@@ -6057,12 +6057,7 @@ MonoBehaviour:
   navigation: {fileID: 0}
   usernameInputField: {fileID: 0}
   passwordInputField: {fileID: 0}
-  cursoInputField: {fileID: 0}
-  studentsInputField: {fileID: 0}
-  nivelInputField: {fileID: 0}
-  letraInputField: {fileID: 0}
   Flag: 
-  progressBar: {fileID: 0}
 --- !u!114 &963194232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7557,7 +7552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3529412, g: 0.5372549, b: 0.5176471, a: 1}
+  m_Color: {r: 0.78039217, g: 0.2, b: 0.33333334, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11640,6 +11635,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   temperature: 20
+  maxTemperature: 114
+  minTemperature: 20
   contents:
   - {fileID: 615747777}
   - {fileID: 287695546}

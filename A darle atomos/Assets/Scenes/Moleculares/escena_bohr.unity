@@ -958,7 +958,7 @@ GameObject:
   - component: {fileID: 1230783491}
   - component: {fileID: 1230783490}
   m_Layer: 5
-  m_Name: Laboratorio
+  m_Name: VOLVER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1053,7 +1053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3529412, g: 0.53333336, b: 0.5176471, a: 1}
+  m_Color: {r: 0.78039217, g: 0.2, b: 0.33333334, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1813,7 +1813,7 @@ GameObject:
   - component: {fileID: 2038366499}
   - component: {fileID: 2038366498}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvaContenido
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1915,7 +1915,7 @@ GameObject:
   - component: {fileID: 2103956379}
   - component: {fileID: 2103956378}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvaContenidoTexto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
