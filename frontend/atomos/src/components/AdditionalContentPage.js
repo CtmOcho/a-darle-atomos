@@ -213,7 +213,7 @@ const AdditionalContentPage = () => {
       const progressIndex = quizIndex * 5 - 3; // Calcula el índice para el 3er elemento del subgrupo
 
       try {
-        await fetch(`${config.backendUrl}/updateStudent/${user.username}/prog/${progressIndex}`, {
+        await fetch(`${config.backendUrl}/updateStudent/${user.username}/prog/${progressIndex+1}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',

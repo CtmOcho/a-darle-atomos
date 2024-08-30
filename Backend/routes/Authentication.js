@@ -507,8 +507,8 @@ app.get('/getStudent/:user/prog/:progressvalue', async (req, res) => {
     const search = req.params.user;
     const progressIndex = req.params.progressvalue - 1;
     //console.log("DENTRO DEL GET LOL");
-    console.log(search);
-    console.log(progressIndex);
+    //console.log(search);
+    //console.log(progressIndex);
 
     try {
         const user = await Account.findOne({ username: search });

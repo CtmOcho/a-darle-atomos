@@ -74,7 +74,7 @@ public class Electron : MonoBehaviour
 
         // Set initial position of flashImage to match the electron's position
         rectTransform.position = Camera.main.WorldToScreenPoint(transform.position);
-        Debug.Log("Flash position: " + rectTransform.position);
+        //Debug.Log("Flash position: " + rectTransform.position);
 
         float elapsedTime = 0f;
 
@@ -85,11 +85,11 @@ public class Electron : MonoBehaviour
 
             // Expand the image
             rectTransform.localScale = Vector3.Lerp(Vector3.zero, new Vector3(maxScale, maxScale, maxScale), progress);
-            Debug.Log("Flash scale: " + rectTransform.localScale);
+            //Debug.Log("Flash scale: " + rectTransform.localScale);
 
             // Fade out the image
             flashImage.color = new Color(originalColor.r, originalColor.g, originalColor.b, 1 - progress);
-            Debug.Log("Flash alpha: " + flashImage.color.a);
+            //Debug.Log("Flash alpha: " + flashImage.color.a);
 
             yield return null;
         }
