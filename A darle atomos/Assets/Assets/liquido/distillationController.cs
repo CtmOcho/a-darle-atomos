@@ -7,7 +7,7 @@ public class distillationController : MonoBehaviour
     public float maxVolume = 100;
     public float volumeIncrease = 1;
 
-    float volume = 0;
+    public float volume = 0;
     void Start()
     {
 

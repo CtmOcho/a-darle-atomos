@@ -9,7 +9,7 @@ public class ThermometerController : MonoBehaviour
     public float temperature;
     public GameObject glass;
     private Glass glassScript;
-
+    public bool isDestilationLab = false;
 
     void Start()
     {
@@ -21,7 +21,11 @@ public class ThermometerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        temperature = glassScript.temperature;
+        if(isDestilationLab){
+            temperature = glassScript.temperature*1.05f;
+        }else{
+            temperature = glassScript.temperature;
+        }
         thermometerLCD.text = temperature.ToString();
     }
 }

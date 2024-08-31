@@ -12,7 +12,7 @@ public class BubblesAnimation : MonoBehaviour
     private void Start()
     {
         animationDuration = animationClip.length;
-        print(transform.position);
+        //print(transform.position);
         StartCoroutine(AnimationCoroutine());
     }
 

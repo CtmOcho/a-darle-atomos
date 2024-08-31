@@ -1,0 +1,34 @@
+UNITY Y REACT -> EN NODE SE LE RESTA 1 PARA ACCEDER AL ÍNDICE QUE PARTE DESDE 0 PARA EL PROGRESO
+1  a 5  :  'Color a la Llama' 
+6  a 10 :  'Sublimación del Yodo Sólido' 
+11 a 15 :  'Experimento de Destilación' 
+16 a 20 :  'Ley de Gases' 
+21 a 25 :  'Experimento de Rutherford' 
+26 a 30 :  'Sodio Metálico y Agua' 
+31 a 35 :  'Camaleón Químico' 
+36 a 40 :  'Lluvia Dorada' 
+41 a 45 :  'Identificación Ácido-base' 
+46 a 50 :  'Pasta de Dientes para Elefantes' 
+51 a 55 :  'Solución conductora'
+
+cada experiencia tiene 5:   
+numero_experiencia =>  {'Color a la Llama'                      1
+                        'Sublimación del Yodo Sólido'           2
+                        'Experimento de Destilación'            3
+                        'Ley de Gases'                          4
+                        'Experimento de Rutherford'             5  
+                        'Sodio Metálico y Agua'         =>      6    
+                        'Camaleón Químico'                      7
+                        'Lluvia Dorada'                         8   
+                        'Identificación Ácido-base'             9
+                        'Pasta de Dientes para Elefantes'       10
+                        'Solución conductora'}                  11
+
+
+numero_experiencia.desglose => {Laboratorio,Molecular,ContenidoAdicional,Prequiz,Postquiz} => [0,1,2,3,4]    
+Para hacer algo tipo "macro" para llamar al PUT updateProgress(url/usr/detail) detail viene dado por:
+Laboratorio             =>  numero_experiencia * 5 - 4   
+Molecular               =>  numero_experiencia * 5 - 3
+ContenidoAdicional      =>  numero_experiencia * 5 - 2
+Prequiz                 =>  numero_experiencia * 5 - 1
+Postquiz                =>  numero_experiencia * 5 - 0

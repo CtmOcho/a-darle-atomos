@@ -89,12 +89,12 @@ public class flame : MonoBehaviour
             activateGlassCollision(other.gameObject.GetComponent<MeshCollider>());
         }
     }
-
+/*
     void OnTriggerExit()
     {
         vfx.SetBool("Tripod Collision", false);
     }
-
+*/
     void activateGlassCollision(MeshCollider glassCollider)
     {
         // TODO: implement dynamic particle collisions

@@ -1520,7 +1520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 531f4b5c57dfad94f8040eed76b66d77, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.7
+      value: 0.0001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 531f4b5c57dfad94f8040eed76b66d77, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1604,7 +1604,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7508ceae8ec8824baba3752926fd460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boilingTime: 160
+  liquido: {fileID: 1755751917}
+  LabCompleted: 0
 --- !u!1 &207751099
 GameObject:
   m_ObjectHideFlags: 0
@@ -4046,11 +4047,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 945b464bdcd0d5c47aefeaec3d188d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temperature: 70
+  temperature: 75
   maxTemperature: 80
   minTemperature: 20
   contents: []
-  isHot: 1
+  isHot: 0
   flame: {fileID: 0}
 --- !u!4 &486534354 stripped
 Transform:
@@ -4729,7 +4730,7 @@ Transform:
   m_GameObject: {fileID: 677427400}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9775, y: 0.9752, z: -0.2062}
+  m_LocalPosition: {x: -0.9775, y: 0.9752, z: -0.343}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6316,12 +6317,7 @@ MonoBehaviour:
   navigation: {fileID: 0}
   usernameInputField: {fileID: 0}
   passwordInputField: {fileID: 0}
-  cursoInputField: {fileID: 0}
-  studentsInputField: {fileID: 0}
-  nivelInputField: {fileID: 0}
-  letraInputField: {fileID: 0}
   Flag: 
-  progressBar: {fileID: 0}
 --- !u!114 &963194232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7893,6 +7889,51 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
+--- !u!1 &1231952612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1231952614}
+  - component: {fileID: 1231952613}
+  m_Layer: 0
+  m_Name: labDestilacionProgressController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1231952613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231952612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c393d6d4e2537489072c40b5a0cc95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boilingObject: {fileID: 207736174}
+--- !u!4 &1231952614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231952612}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1237549749
 GameObject:
   m_ObjectHideFlags: 0
@@ -8096,7 +8137,7 @@ Transform:
   m_GameObject: {fileID: 1237549749}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9798, y: 0.969, z: 0.0649}
+  m_LocalPosition: {x: -0.9798, y: 0.969, z: 0.274}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9016,7 +9057,7 @@ PrefabInstance:
       objectReference: {fileID: 486534345}
     - target: {fileID: 3328273888260990145, guid: 322f8f61c133299488a565d3a7ea206f, type: 3}
       propertyPath: temperature
-      value: 80
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6168319443772844897, guid: 322f8f61c133299488a565d3a7ea206f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9692,17 +9733,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mechero Bunsen (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8565494291056651940, guid: dee69a2c247c8594d9d11fdf8d743650, type: 3}
+      propertyPath: isOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565494291056651940, guid: dee69a2c247c8594d9d11fdf8d743650, type: 3}
+      propertyPath: knobIsPressed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8763165284568290739, guid: dee69a2c247c8594d9d11fdf8d743650, type: 3}
       propertyPath: m_Asset
       value: 
       objectReference: {fileID: 8926484042661614526, guid: 37289e841213ac743ba6e179e1ccde4a, type: 3}
     - target: {fileID: 8763165284568290739, guid: dee69a2c247c8594d9d11fdf8d743650, type: 3}
+      propertyPath: m_PropertySheet.m_Bool.m_Array.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8763165284568290739, guid: dee69a2c247c8594d9d11fdf8d743650, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8763165284568290739, guid: dee69a2c247c8594d9d11fdf8d743650, type: 3}
+      propertyPath: m_PropertySheet.m_Bool.m_Array.Array.data[0].m_Name
+      value: Tripod Collision
+      objectReference: {fileID: 0}
+    - target: {fileID: 8763165284568290739, guid: dee69a2c247c8594d9d11fdf8d743650, type: 3}
+      propertyPath: m_PropertySheet.m_Bool.m_Array.Array.data[0].m_Value
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8763165284568290739, guid: dee69a2c247c8594d9d11fdf8d743650, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Name
       value: Glass_position
+      objectReference: {fileID: 0}
+    - target: {fileID: 8763165284568290739, guid: dee69a2c247c8594d9d11fdf8d743650, type: 3}
+      propertyPath: m_PropertySheet.m_Bool.m_Array.Array.data[0].m_Overridden
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8763165284568290739, guid: dee69a2c247c8594d9d11fdf8d743650, type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Value.y
@@ -10270,13 +10335,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755751917}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96b1509cddf04784ea4cc707802f9573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVolume: 0.7
-  volumeIncrease: 0.00001
+  maxVolume: 0.45
+  volumeIncrease: 0.00015
+  volume: 0
 --- !u!1001 &1771515421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12183,3 +12249,4 @@ SceneRoots:
   - {fileID: 1187128419}
   - {fileID: 1669993446}
   - {fileID: 438715104087577485}
+  - {fileID: 1231952614}

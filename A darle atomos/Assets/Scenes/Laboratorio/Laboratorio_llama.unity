@@ -2298,7 +2298,7 @@ MonoBehaviour:
   flameStrength: 0.1
   targetColor: 5
   tripodCollision: 0
-  knobIsPressed: 0
+  knobIsPressed: 1
   isOn: 0
 --- !u!65 &252103665
 BoxCollider:

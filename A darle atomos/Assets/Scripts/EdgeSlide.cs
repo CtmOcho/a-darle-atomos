@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class EdgeSlide : MonoBehaviour
 {
     public float slideSpeed = 0.01f;  // Velocidad de deslizamiento en el eje Y
-    private List<List<int>> vertexSetsByZ;  // Lista de listas de índices de vértices por valor de Z
+    private List<List<int>> vertexSetsByZ;  // Lista de listas de ï¿½ndices de vï¿½rtices por valor de Z
 
     private Mesh mesh;
     private Vector3[] vertices;
@@ -18,23 +18,23 @@ public class EdgeSlide : MonoBehaviour
         mesh = GetComponent<MeshFilter>().mesh;
         vertices = mesh.vertices;
 
-        // Llamar al método para organizar los vértices por su valor en Z
+        // Llamar al mï¿½todo para organizar los vï¿½rtices por su valor en Z
         OrganizeVerticesByZ();
     }
 
     void OrganizeVerticesByZ()
     {
-        // Diccionario para agrupar vértices por su valor en Z
+        // Diccionario para agrupar vï¿½rtices por su valor en Z
         Dictionary<float, List<int>> zGroups = new Dictionary<float, List<int>>();
         float tolerance = 1e-9f;  // Tolerancia para agrupar valores de Z similares
 
-        // Agrupar vértices por su valor en Z
+        // Agrupar vï¿½rtices por su valor en Z
         for (int i = 0; i < vertices.Length; i++)
         {
             float zValue = vertices[i].z;
             bool foundGroup = false;
 
-            // Comprobar si el vértice encaja en un grupo existente
+            // Comprobar si el vï¿½rtice encaja en un grupo existente
             foreach (var key in zGroups.Keys)
             {
                 if (Mathf.Abs(zValue - key) < tolerance)
@@ -59,22 +59,23 @@ public class EdgeSlide : MonoBehaviour
         }
 
         vertexSetsByZ.Sort((a, b) => vertices[b[0]].z.CompareTo(vertices[a[0]].z));
-
-        // Debugging: Mostrar cuántos grupos se han creado y sus tamaños
+/*
+        // Debugging: Mostrar cuï¿½ntos grupos se han creado y sus tamaï¿½os
         for (int i = 0; i < vertexSetsByZ.Count; i++)
         {
             Debug.Log($"Group {i} - Z Value: {vertices[vertexSetsByZ[i][0]].z.ToString("F8")}, Count: {vertexSetsByZ[i].Count}");
         }
+        */
     }
 
     void Update()
     {
-        // Modificar los vértices comenzando desde el grupo con el valor de Z más alto
+        // Modificar los vï¿½rtices comenzando desde el grupo con el valor de Z mï¿½s alto
         for (int groupIndex = 0; groupIndex < vertexSetsByZ.Count - 1; groupIndex++)
         {
             List<int> vertexIndices = vertexSetsByZ[groupIndex];
 
-            // Verificar si debemos empezar a mover este grupo de vértices
+            // Verificar si debemos empezar a mover este grupo de vï¿½rtices
             if (vertexIndices.Count > 0 && vertices[vertexIndices[0]].z >= vertices[vertexSetsByZ[groupIndex == 0 ? 0 : groupIndex - 1][0]].z)
             {
                 for (int i = 0; i < vertexIndices.Count; i++)
@@ -85,7 +86,7 @@ public class EdgeSlide : MonoBehaviour
             }
         }
 
-        // Actualizar el mesh con los nuevos vértices
+        // Actualizar el mesh con los nuevos vï¿½rtices
         mesh.vertices = vertices;
         mesh.RecalculateBounds();
         mesh.RecalculateNormals();
