@@ -113,4 +113,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu Home/Experiencias_alumnos.unity
     guid: 98f188b1b50b9a94799931230052b3e0
+  - enabled: 1
+    path: Assets/Scenes/Laboratorio/Laboratorio_Olla.unity
+    guid: 27b33d475fb0e8147b7aeb056d64fc3c
   m_configObjects: {}

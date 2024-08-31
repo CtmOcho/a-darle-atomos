@@ -277,14 +277,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 175462260}
+      - m_Target: {fileID: 1074232369}
         m_TargetAssemblyTypeName: LoadingScene, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 14
           m_FloatArgument: 0
           m_StringArgument: SubPanel1
           m_BoolArgument: 0
@@ -5786,6 +5786,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1072306853}
   m_CullTransparentMesh: 1
+--- !u!1 &1074232368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1074232370}
+  - component: {fileID: 1074232369}
+  m_Layer: 0
+  m_Name: LoadingGAS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1074232369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074232368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87cd37d502927e84c8ac2863adc6c7fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadingScreen: {fileID: 1953940354}
+  LoadingBarFill: {fileID: 1402228227}
+  coursePanels:
+  - {fileID: 985730942}
+  - {fileID: 165156587}
+  - {fileID: 1553010553}
+  - {fileID: 1357255427}
+  navbar: {fileID: 1805455281}
+  basePanel: {fileID: 1873625312}
+  canvasGroup: {fileID: 0}
+  delayAfterLoad: 1
+  fillSpeed: 0.5
+  fadeOutDuration: 1
+--- !u!4 &1074232370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074232368}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1077005675
 GameObject:
   m_ObjectHideFlags: 0
@@ -12410,5 +12467,6 @@ SceneRoots:
   - {fileID: 175462261}
   - {fileID: 2062010252}
   - {fileID: 887989064}
+  - {fileID: 1074232370}
   - {fileID: 1082557181}
   - {fileID: 282651271}
