@@ -12,7 +12,7 @@ const accountSchema = new Schema({
 });
 
 const cursosSchema = new Schema({
-    teacher: String,
+    teacher: {type: Array, default: []},
     students: {type: Array, default: []},
     course: String,
 

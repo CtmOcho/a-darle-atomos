@@ -204,18 +204,28 @@ app.delete('/student/:user', async (req, res) => {
         console.log('Usuario existe');
         try {
             if (userToDelete.type == "P"){
-                await Cursos.deleteMany({teacher: userToDelete.username})
+                await Cursos.updateMany({ teacher: userToDelete.username},
+                    { $pull: { teacher: userToDelete.username} },
+                    { new: true, runValidators: true }
+                );
+                const emptyArrays = await Cursos.deleteMany({ teacher: { $size: 0 } });
 
-                for (let i = 0; i < userToDelete.curso.length; i++) {
-                    const curso = userToDelete.curso[i];
-                    // Realiza la actualizaci贸n que necesites, por ejemplo, agregar o eliminar
-                    await Account.updateMany(
-                        { curso: curso},
-                        { $pull: { curso: curso }},
-                        { new: true, runValidators: true }
-                    );
+                if (emptyArrays.deletedCount  > 0) {
+                    console.log('Se encontraron arrays vacíos.', emptyArrays);
+                    for (let i = 0; i < userToDelete.curso.length; i++) {
+                        const curso = userToDelete.curso[i];
+                        // Realiza la actualizaci贸n que necesites, por ejemplo, agregar o eliminar
+                        await Account.updateMany(
+                            { curso: curso},
+                            { $pull: { curso: curso }},
+                            { new: true, runValidators: true }
+                        );
+                    }
+                    await Quiz.deleteOne({username: user});
+                    await Account.deleteOne({ username: user });
+                } else {
+                    console.log('No se encontraron arrays vacíos.');
                 }
-                await Quiz.deleteOne({username: user});
                 await Account.deleteOne({ username: user });
             }else{
                 await Cursos.findOneAndUpdate(
