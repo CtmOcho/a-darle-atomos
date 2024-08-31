@@ -12,7 +12,7 @@ public class BoilingBehaviour : MonoBehaviour
     private AudioSource audioSource;
     private VisualEffect[] visualEffects;
     private ThermometerController termoController;
-    
+
     public GameObject liquido;
     public bool LabCompleted = false;
     private bool ethanolBoiled = false;
@@ -27,7 +27,7 @@ public class BoilingBehaviour : MonoBehaviour
         audioSource = GetComponentInChildren<AudioSource>();
         visualEffects = GetComponentsInChildren<VisualEffect>();
         termoController = GetComponentInChildren<ThermometerController>();
-        
+
         if (liquido != null)
         {
             distillationCtrl = liquido.GetComponent<distillationController>();
@@ -86,37 +86,37 @@ public class BoilingBehaviour : MonoBehaviour
         LabCompleted = true;
 
     }
-/*
-    private IEnumerator BoilingWater()
-    {
-        // Activar efectos de ebullición
-        edgeSlide.enabled = true;
-        audioSource.enabled = true;
-        fluidDrip.enabled = true;
-        bubblesAnimation.enabled = true;
-        visualEffects[0].enabled = true;
-        visualEffects[1].enabled = true;
-        distillationCtrl.enabled = true;
-
-        // Esperar a que el volumen alcance el máximo
-        if (distillationCtrl != null)
+    /*
+        private IEnumerator BoilingWater()
         {
-            while (distillationCtrl.volume < distillationCtrl.maxVolume)
+            // Activar efectos de ebullición
+            edgeSlide.enabled = true;
+            audioSource.enabled = true;
+            fluidDrip.enabled = true;
+            bubblesAnimation.enabled = true;
+            visualEffects[0].enabled = true;
+            visualEffects[1].enabled = true;
+            distillationCtrl.enabled = true;
+
+            // Esperar a que el volumen alcance el máximo
+            if (distillationCtrl != null)
             {
-                yield return null;
+                while (distillationCtrl.volume < distillationCtrl.maxVolume)
+                {
+                    yield return null;
+                }
             }
+
+            // Desactivar efectos de ebullición y finalizar el experimento
+            edgeSlide.enabled = false;
+            audioSource.enabled = false;
+            Destroy(fluidDrip.gameObject);
+            Destroy(bubblesAnimation.gameObject);
+            visualEffects[0].enabled = false;
+            visualEffects[1].enabled = false;
+            distillationCtrl.enabled = false;
+
+            LabCompleted = true;
         }
-
-        // Desactivar efectos de ebullición y finalizar el experimento
-        edgeSlide.enabled = false;
-        audioSource.enabled = false;
-        Destroy(fluidDrip.gameObject);
-        Destroy(bubblesAnimation.gameObject);
-        visualEffects[0].enabled = false;
-        visualEffects[1].enabled = false;
-        distillationCtrl.enabled = false;
-
-        LabCompleted = true;
-    }
-    */
+        */
 }
