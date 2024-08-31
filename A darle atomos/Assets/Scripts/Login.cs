@@ -108,7 +108,7 @@ private IEnumerator TryLogin()
 
                 navigation = gameObject.AddComponent<Navigation>();
 
-                navigation.LoadScene("Experiencia_profesores");
+                navigation.LoadScene("Experiencias_profesores");
 
             }
 

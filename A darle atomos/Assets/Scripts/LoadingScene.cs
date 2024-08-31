@@ -7,7 +7,9 @@ public class LoadingScene : MonoBehaviour
 {
     public GameObject LoadingScreen;
     public Image LoadingBarFill;
-    public GameObject ScrollView; // Referencia al ScrollView
+    public GameObject[] coursePanels; // Referencia a los paneles de cursos
+    public GameObject navbar; // Referencia a la barra de navegación
+    public GameObject basePanel; // Referencia al panel base del Canvas
     public CanvasGroup canvasGroup; // Referencia al CanvasGroup para el fade out
     public float delayAfterLoad = 1f; // Tiempo de espera adicional después de que la barra se llena
     public float fillSpeed = 0.5f; // Velocidad de llenado
@@ -15,8 +17,13 @@ public class LoadingScene : MonoBehaviour
 
     public void LoadScene(int sceneId)
     {
-        // Ocultar el ScrollView antes de cargar la escena
-        ScrollView.SetActive(false);
+        // Ocultar los paneles de cursos, la barra de navegación y el panel base antes de cargar la escena
+        foreach (var panel in coursePanels)
+        {
+            panel.SetActive(false);
+        }
+        navbar.SetActive(false);
+        basePanel.SetActive(false);
 
         // Iniciar la pantalla de carga
         StartCoroutine(LoadSceneAsync(sceneId));

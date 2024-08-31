@@ -911,12 +911,7 @@ MonoBehaviour:
   navigation: {fileID: 0}
   usernameInputField: {fileID: 1230855880}
   passwordInputField: {fileID: 189670538}
-  cursoInputField: {fileID: 0}
-  studentsInputField: {fileID: 0}
-  nivelInputField: {fileID: 0}
-  letraInputField: {fileID: 0}
   Flag: P
-  progressBar: {fileID: 0}
 --- !u!114 &716616847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2056,7 +2051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.31764707, g: 0.5176471, b: 0.5019608, a: 1}
+  m_Color: {r: 0.78039217, g: 0.2, b: 0.33333334, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

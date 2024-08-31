@@ -22,7 +22,7 @@ public class NavbarController : MonoBehaviour
     public Vector2 centeredPosition = Vector2.zero; // Posición en el centro de la pantalla
 
     // Tamaño y posición originales del RawImage
-    private Vector2 originalRawImageSize =  new Vector2(1920, 824);
+    private Vector2 originalRawImageSize;
     private Vector2 originalRawImagePosition;
 
     // Diccionario para almacenar los subpaneles y sus posiciones originales
@@ -38,6 +38,7 @@ public class NavbarController : MonoBehaviour
         if (rawImage != null)
         {
             RectTransform rawImageRectTransform = rawImage.GetComponent<RectTransform>();
+            originalRawImageSize = rawImageRectTransform.sizeDelta;
             originalRawImagePosition = rawImageRectTransform.anchoredPosition;
         }
 
@@ -107,7 +108,7 @@ public class NavbarController : MonoBehaviour
         panelToActivate.SetActive(true);
     }
 
-    // Método para alternar el agrandamiento y centrado de un subpanel, y cambiar su distribución
+    // Método para alternar el agrandamiento y centrado de un subpanel, y dividir el texto en los componentes requeridos
     public void ToggleSubPanel(string panelName)
     {
         if (currentlyEnlargedPanel == panelName)
@@ -137,17 +138,37 @@ public class NavbarController : MonoBehaviour
                 {
                     RectTransform imageRect = imageTransform.GetComponent<RectTransform>();
                     imageRect.sizeDelta = new Vector2(400, 400); // Tamaño ajustado
-                    imageRect.anchoredPosition = new Vector2(-400, 50); // Ajustar la posición más abajo
+                    imageRect.anchoredPosition = new Vector2(-468, 15); // Ajustar la posición más abajo
                 }
 
-                // Mostrar el texto en el área derecha
-                Transform textTransform = panelRect.Find("Text");
-                if (textTransform != null)
+                // Mostrar y ajustar los componentes de texto
+                Transform descripcionTitleTransform = panelRect.Find("Descripcion");
+                Transform descripcionTextTransform = panelRect.Find("Text");
+                Transform objetivosTitleTransform = panelRect.Find("Objetivos");
+                Transform textObjetivosTransform = panelRect.Find("TextObjetivo");
+
+                if (descripcionTitleTransform != null && descripcionTextTransform != null)
                 {
-                    RectTransform textRect = textTransform.GetComponent<RectTransform>();
-                    textRect.anchoredPosition = new Vector2(300, 100); // Ajustar la posición al área derecha
-                    textRect.sizeDelta = new Vector2(400, 300); // Tamaño ajustado para el área derecha
-                    textTransform.gameObject.SetActive(true); // Mostrar el texto
+                    RectTransform descripcionTitleRect = descripcionTitleTransform.GetComponent<RectTransform>();
+                    RectTransform descripcionTextRect = descripcionTextTransform.GetComponent<RectTransform>();
+
+                    descripcionTitleRect.anchoredPosition = new Vector2(285, 190); // Posición para el título de la descripción
+                    descripcionTextRect.anchoredPosition = new Vector2(342, 135); // Posición para el texto de la descripción
+
+                    descripcionTitleTransform.gameObject.SetActive(true); // Mostrar el título de la descripción
+                    descripcionTextTransform.gameObject.SetActive(true); // Mostrar el texto de la descripción
+                }
+
+                if (objetivosTitleTransform != null && textObjetivosTransform != null)
+                {
+                    RectTransform objetivosTitleRect = objetivosTitleTransform.GetComponent<RectTransform>();
+                    RectTransform textObjetivosRect = textObjetivosTransform.GetComponent<RectTransform>();
+
+                    objetivosTitleRect.anchoredPosition = new Vector2(285, 15); // Posición para el título de los objetivos
+                    textObjetivosRect.anchoredPosition = new Vector2(342, -48); // Posición para el texto de los objetivos
+
+                    objetivosTitleTransform.gameObject.SetActive(true); // Mostrar el título de los objetivos
+                    textObjetivosTransform.gameObject.SetActive(true); // Mostrar el texto de los objetivos
                 }
 
                 // Mostrar el nuevo botón en el área azul
@@ -201,15 +222,31 @@ public class NavbarController : MonoBehaviour
             if (imageTransform != null)
             {
                 RectTransform imageRect = imageTransform.GetComponent<RectTransform>();
-                imageRect.sizeDelta = new Vector2(430, 346); // Tamaño original de la imagen
-                imageRect.anchoredPosition = Vector2.zero; // Volver la imagen a su posición original
+                imageRect.sizeDelta = new Vector2(400, 400); // Tamaño original de la imagen
+                imageRect.anchoredPosition = new Vector2(0,30); // Volver la imagen a su posición original
             }
 
-            // Ocultar el texto
-            Transform textTransform = panelRect.Find("Text");
-            if (textTransform != null)
+            // Ocultar los textos y títulos al restablecer el subpanel
+            Transform descripcionTitleTransform = panelRect.Find("Descripcion");
+            Transform descripcionTextTransform = panelRect.Find("Text");
+            Transform objetivosTitleTransform = panelRect.Find("Objetivos");
+            Transform textObjetivosTransform = panelRect.Find("TextObjetivo");
+
+            if (descripcionTitleTransform != null)
             {
-                textTransform.gameObject.SetActive(false); // Ocultar el texto
+                descripcionTitleTransform.gameObject.SetActive(false); // Ocultar el título de la descripción
+            }
+            if (descripcionTextTransform != null)
+            {
+                descripcionTextTransform.gameObject.SetActive(false); // Ocultar el texto de la descripción
+            }
+            if (objetivosTitleTransform != null)
+            {
+                objetivosTitleTransform.gameObject.SetActive(false); // Ocultar el título de los objetivos
+            }
+            if (textObjetivosTransform != null)
+            {
+                textObjetivosTransform.gameObject.SetActive(false); // Ocultar el texto de los objetivos
             }
 
             // Ocultar el nuevo botón
@@ -251,15 +288,31 @@ public class NavbarController : MonoBehaviour
             if (imageTransform != null)
             {
                 RectTransform imageRect = imageTransform.GetComponent<RectTransform>();
-                imageRect.sizeDelta = new Vector2(430, 346); // Tamaño original
+                imageRect.sizeDelta = new Vector2(400, 400); // Tamaño original
                 imageRect.anchoredPosition = Vector2.zero; // Volver la imagen a su posición original
             }
 
-            // Ocultar el texto y los botones en cada subpanel
-            Transform textTransform = subPanel.Find("Text");
-            if (textTransform != null)
+            // Ocultar los textos y títulos en todos los subpaneles
+            Transform descripcionTitleTransform = subPanel.Find("Descripcion");
+            Transform descripcionTextTransform = subPanel.Find("Text");
+            Transform objetivosTitleTransform = subPanel.Find("Objetivos");
+            Transform textObjetivosTransform = subPanel.Find("TextObjetivo");
+
+            if (descripcionTitleTransform != null)
             {
-                textTransform.gameObject.SetActive(false); // Ocultar el texto
+                descripcionTitleTransform.gameObject.SetActive(false); // Ocultar el título de la descripción
+            }
+            if (descripcionTextTransform != null)
+            {
+                descripcionTextTransform.gameObject.SetActive(false); // Ocultar el texto de la descripción
+            }
+            if (objetivosTitleTransform != null)
+            {
+                objetivosTitleTransform.gameObject.SetActive(false); // Ocultar el título de los objetivos
+            }
+            if (textObjetivosTransform != null)
+            {
+                textObjetivosTransform.gameObject.SetActive(false); // Ocultar el texto de los objetivos
             }
 
             Transform newButtonTransform = subPanel.Find("NewButton");

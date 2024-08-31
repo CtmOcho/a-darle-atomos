@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Laboratorio/Laboratorio_llama.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Menu Home/Experiencias_alumnos.unity
+    path: Assets/Scenes/Menu Home/Experiencias_alumnos1.unity
     guid: f7530c4bb0782344a823862455585c8c
   - enabled: 0
     path: Assets/Scenes/Menu Home/Perfil_estudiante.unity
@@ -63,7 +63,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu Home/Home2.unity
     guid: b875c80fde32d2f438ccc4db1114bbbc
   - enabled: 1
-    path: Assets/Scenes/Menu Home/Experiencia_profesores.unity
+    path: Assets/Scenes/Menu Home/Experiencia_profesores1.unity
     guid: 4aa25c2c13bf04341aa79b76412d0066
   - enabled: 0
     path: Assets/Scenes/Menu Home/Perfil_profesor.unity
@@ -107,4 +107,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Laboratorio/Laboratorio_Yodo.unity
     guid: e36e239da1430754a9576b99d1b1e4f1
+  - enabled: 1
+    path: Assets/Scenes/Menu Home/Experiencias_profesores.unity
+    guid: ff85d5b2ebc3d1545a50270636bbb034
+  - enabled: 1
+    path: Assets/Scenes/Menu Home/Experiencias_alumnos.unity
+    guid: 98f188b1b50b9a94799931230052b3e0
   m_configObjects: {}
