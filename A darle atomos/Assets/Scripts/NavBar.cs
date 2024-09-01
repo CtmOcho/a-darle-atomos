@@ -137,7 +137,7 @@ public class NavbarController : MonoBehaviour
                 if (imageTransform != null)
                 {
                     RectTransform imageRect = imageTransform.GetComponent<RectTransform>();
-                    imageRect.sizeDelta = new Vector2(400, 400); // Tamaño ajustado
+                    imageRect.sizeDelta = new Vector2(525, 400); // Tamaño ajustado
                     imageRect.anchoredPosition = new Vector2(-468, 15); // Ajustar la posición más abajo
                 }
 
@@ -222,7 +222,7 @@ public class NavbarController : MonoBehaviour
             if (imageTransform != null)
             {
                 RectTransform imageRect = imageTransform.GetComponent<RectTransform>();
-                imageRect.sizeDelta = new Vector2(400, 400); // Tamaño original de la imagen
+                imageRect.sizeDelta = new Vector2(525, 400); // Tamaño original de la imagen
                 imageRect.anchoredPosition = new Vector2(0,30); // Volver la imagen a su posición original
             }
 
@@ -288,7 +288,7 @@ public class NavbarController : MonoBehaviour
             if (imageTransform != null)
             {
                 RectTransform imageRect = imageTransform.GetComponent<RectTransform>();
-                imageRect.sizeDelta = new Vector2(400, 400); // Tamaño original
+                imageRect.sizeDelta = new Vector2(525, 400); // Tamaño original
                 imageRect.anchoredPosition = Vector2.zero; // Volver la imagen a su posición original
             }
 
