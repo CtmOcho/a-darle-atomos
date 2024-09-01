@@ -878,7 +878,7 @@ GameObject:
   - component: {fileID: 78372542}
   - component: {fileID: 78372541}
   m_Layer: 5
-  m_Name: SubPanel1
+  m_Name: SubPanel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -891,7 +891,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78372539}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -905,11 +905,11 @@ RectTransform:
   - {fileID: 300963012}
   - {fileID: 1890891523}
   - {fileID: 681729770}
-  m_Father: {fileID: 985730943}
+  m_Father: {fileID: 165156588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -400, y: 75}
+  m_AnchoredPosition: {x: 400, y: 75}
   m_SizeDelta: {x: 550, y: 730}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &78372541
@@ -1661,7 +1661,7 @@ RectTransform:
   m_Children:
   - {fileID: 1301602495}
   - {fileID: 1065568199}
-  - {fileID: 1436715365}
+  - {fileID: 78372540}
   m_Father: {fileID: 725179781}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5372,8 +5372,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1704507893}
-  - {fileID: 78372540}
   - {fileID: 1330120798}
+  - {fileID: 1436715365}
   m_Father: {fileID: 725179781}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -7979,7 +7979,7 @@ GameObject:
   - component: {fileID: 1436715367}
   - component: {fileID: 1436715366}
   m_Layer: 5
-  m_Name: SubPanel2
+  m_Name: SubPanel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8006,11 +8006,11 @@ RectTransform:
   - {fileID: 156565953}
   - {fileID: 2099549275}
   - {fileID: 1383766422}
-  m_Father: {fileID: 165156588}
+  m_Father: {fileID: 985730943}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 400.0001, y: 74.999985}
+  m_AnchoredPosition: {x: -400, y: 74.999985}
   m_SizeDelta: {x: 550, y: 730}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1436715366
@@ -10296,7 +10296,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SubPanel2
+          m_StringArgument: SubPanel1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1890891525
@@ -11298,16 +11298,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1082557180}
+      - m_Target: {fileID: 282651270}
         m_TargetAssemblyTypeName: NavbarController, Assembly-CSharp
-        m_MethodName: EnlargeSubPanel
+        m_MethodName: ToggleSubPanel
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SubPanel1
+          m_StringArgument: SubPanel2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1962953921

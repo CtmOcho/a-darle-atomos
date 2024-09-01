@@ -967,12 +967,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 83805386}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 068222792ebd8704d8525fecce2118c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 15b302a05430f5a479f8f645539633e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bubblePrefab: {fileID: 1700734058755288817, guid: caccde93877a89d4dba17ec3a2fbdc2d, type: 3}
   animationClip: {fileID: 7400000, guid: 862625ae9b3c40941841ef3815a68400, type: 2}
-  interval: 1
+  interval: 0.5
 --- !u!1 &92581363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,7 +1601,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 207736174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7508ceae8ec8824baba3752926fd460, type: 3}
+  m_Script: {fileID: 11500000, guid: d0eec7415551cff4dbda432b8c38b795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   liquido: {fileID: 1755751917}
@@ -2854,18 +2854,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1955568235}
-        m_TargetAssemblyTypeName: Navigation1.Navigation, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
 --- !u!1 &333752090
 GameObject:
   m_ObjectHideFlags: 0
@@ -11609,7 +11597,7 @@ Transform:
   m_GameObject: {fileID: 2132651094}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.753, y: 1.0719726, z: 0.458}
+  m_LocalPosition: {x: -0.753, y: 1.0719726, z: 0.162}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
