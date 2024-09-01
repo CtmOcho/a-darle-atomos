@@ -40,6 +40,9 @@ Para compilar y ejecutar el reconocimiento de manos:
 2. Ejecuta el servidor backend localmente:
     ```bash
     npm run production
+3. En caso de querer ejecutar modo desarrollo sin build:
+   ```bash
+   npm run dev
 ### 2.2 Configuración de Ngrok
 1. Si no tienes `ngrok.exe` descárgalo [aquí](https://dashboard.ngrok.com/get-started/setup/windows).
 2. Ejecuta `ngrok.exe`.
@@ -82,6 +85,9 @@ Para compilar y ejecutar el reconocimiento de manos:
 2. Sirve el proyecto:
     ```bash
     serve -s build 3000
+3. En caso de querer ejecutar modo desarrollo sin build:
+   ```bash
+   npm start dev
 - Ahora podrás acceder al frontend desde la URL generada por Ngrok para `localhost:3000/ `
 
 # 4 Unity
