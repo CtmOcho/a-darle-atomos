@@ -3,110 +3,121 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 import './DashboardPage.css';
 import profileImage from '../media/perfil.png';
-//import config from '../config/config';
+import Modal from './Modal'; // Importa un componente Modal que crearemos
+import image1 from '../media/dest-1.png';
+import image2 from '../media/sublimacion-1.png';
+import image3 from '../media/Heisenberg.png';
+import image4 from '../media/ley-gas1.png';
+import image5 from '../media/ruther1.png';
+import image6 from '../media/yodo-en-agua.png';
+import image7 from '../media/cam1.png';
+import image8 from '../media/abas1.png';
+import image9 from '../media/dor1.png';
+import image10 from '../media/cond1.png';
+import image11 from '../media/pasta1.png';
+
+
+const experiments = {
+  '7mo': [
+    { title: 'Experimento de Destilación', image: image1},
+    { title: 'Sublimación del Yodo Sólido', image: image2},
+  ],
+  '8vo': [
+    { title: 'Color a la Llama', image: image3},
+    { title: 'Ley de Gases', image: image4},
+    { title: 'Experimento de Rutherford', image: image5},
+  ],
+  '1ro': [
+    { title: 'Sodio Metálico y Agua', image: image6},
+    { title: 'Camaleón Químico', image: image7},
+    { title: 'Identificación Ácido-base', image: image8},
+  ],
+  '2do': [
+    { title: 'Lluvia Dorada', image: image9},
+    { title: 'Solución Conductora', image: image10 },
+    { title: 'Pasta de Dientes para Elefantes', image: image11 },
+  ],
+};
 
 const DashboardPage = () => {
   const navigate = useNavigate();
   const { user, setUser } = useContext(UserContext);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState('7mo');
+  const [activeModal, setActiveModal] = useState(null);
 
   useEffect(() => {
-    // Mostrar popup y redirigir a home si no hay datos en la sesión
     if (!user || !user.username) {
-      setShowPopup(true);
       navigate('/');
     }
   }, [user, navigate]);
 
-  const carouselItems = [
-    'Color a la Llama', 'Sublimación del Yodo Sólido', 'Experimento de Destilación', 'Ley de Gases', 'Experimento de Rutherford',
-    'Sodio Metálico y Agua', 'Camaleón Químico', 'Lluvia Dorada', 'Identificación Ácido-base', 'Pasta de Dientes para Elefantes',
-    'Solución conductora'
-  ];
-
-  const handleLogout = () => {
-    // Reiniciar datos de la sesión
-    setUser(null);
-    localStorage.removeItem('user'); // Si guardaste los datos de sesión en localStorage
-    navigate('/');
+  const handleCourseSelect = (course) => {
+    setSelectedCourse(course);
+    setActiveModal(null); // Cierra cualquier modal activo
   };
 
-  const handleProfile = () => {
-    navigate('/profile');
+  const handleModalOpen = (experiment) => {
+    setActiveModal(experiment);
   };
 
-  const handleCourseEdit = () => {
-    navigate('/edit-courses');
+  const handleModalClose = () => {
+    setActiveModal(null);
   };
 
-const handleCheckProgress = () => {
-  navigate('/check-progress');
-};
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? carouselItems.length - 1 : prevIndex - 1));
+  const handleItemClick = (experimentTitle) => {
+    navigate(`/experiment/${experimentTitle}`);
   };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === carouselItems.length - 1 ? 0 : prevIndex + 1));
-  };
-
-  const handleItemClick = () => {
-    navigate(`/experiment/${carouselItems[currentIndex]}`);
-  };
-
-  const handleClosePopup = () => {
-    setShowPopup(false);
-  };
-
   return (
     <div className="dashboard-container">
-      <nav className="navbar col-12 justify-content-end">
-        <div className="top-buttons col-2">
+      <nav className="navbar col-12">
+        <button className={`btn-back ${selectedCourse === '/' ? 'active' : ''}`} onClick={() => navigate('/')}>Salir</button>
+        {Object.keys(experiments).map((course) => (
+          <button
+            key={course}
+            className={`btn courseButtons fs-1 ${selectedCourse === course ? 'active' : ''}`}
+            onClick={() => handleCourseSelect(course)}
+          >
+            {course === '7mo' && '7mo\nBásico'}
+            {course === '8vo' && '8vo\nBásico'}
+            {course === '1ro' && '1ro\nMedio'}
+            {course === '2do' && '2do\nMedio'}
+          </button>
+        ))}
+        <div className="top-buttons">
           <div className="dropdown col-12">
-            <img
-              src={profileImage}
-              alt="Perfil"
-              className="btn-profile img-fluid"
-            />
+            <img src={profileImage} alt="Perfil" className="btn-profile img-fluid" />
+            <div className='align-content-center mx-4 display-6'>{user.username}</div>
             <div className="dropdown-content">
-              <button onClick={handleProfile}>Mi Perfil</button>
-              <button onClick={handleLogout}>Cerrar Sesión</button>
-              {user && user.type === 'P' && (
-                <>
-                <button onClick={handleCourseEdit}>Editar Cursos</button>
-                <button onClick={handleCheckProgress}>Ver Progresos</button>
-                </>
-              )}
+              <button onClick={() => navigate('/profile')}>Mi Perfil</button>
+              <button onClick={() => {
+                setUser(null);
+                navigate('/');
+              }}>Cerrar Sesión</button>
             </div>
           </div>
         </div>
       </nav>
   
-      <div className="row col-12 justify-content-center align-items-center" style={{ flex: 1 }}>
-        <div className="carousel-container">
-          <button className="carousel-btn left-btn justify-content-start" onClick={handlePrev}>◀</button>
-          <div className="carousel">
-            <button className="carousel-item" onClick={handleItemClick}>
-              {carouselItems[currentIndex]}
-            </button>
+      <div className="experiments-container col-12">
+        {experiments[selectedCourse].map((experiment, index) => (
+          <div
+            key={index}
+            className="experiment-card"
+            onClick={() => handleModalOpen(experiment)}
+            onMouseEnter={(e) => e.currentTarget.classList.add('hovered')}
+            onMouseLeave={(e) => e.currentTarget.classList.remove('hovered')}
+          >
+            <h2>{experiment.title}</h2>
+            <img src={experiment.image} alt={experiment.title} />
           </div>
-          <button className="carousel-btn right-btn justify-content-end" onClick={handleNext}>▶</button>
-        </div>
+        ))}
       </div>
   
-      {showPopup && (
-        <div className="popup">
-          <div className="popup-content">
-            <p>No se puede volver al dashboard de sesión finalizada</p>
-            <button onClick={handleClosePopup}>Cerrar</button>
-          </div>
-        </div>
+      {activeModal && (
+        <Modal experiment={activeModal} onClose={handleModalClose} onNavigate={handleItemClick} />
       )}
     </div>
   );
-  
   
 };
 

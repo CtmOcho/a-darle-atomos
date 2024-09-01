@@ -82,9 +82,9 @@ const RegisterPage = () => {
 <nav className="navbar col-12">
     <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
 </nav>
-    <div className="register-container col-lg-12 col-xs-12 col-md-10 col-sm-10 col-xl-12 col-xxl-12 justify-content-center">
-      <h2 className='display-2'>Registro</h2>
-      <form className="form-register" onSubmit={handleRegister}>
+    <div className="register-container col-lg-12 col-xs-12 col-md-10 col-sm-10 col-xl-12 col-xxl-12 ">
+      <h2 className='display-2 justify-content-center'>Registro</h2>
+      <form className="form-register justify-content-start" onSubmit={handleRegister}>
         <div className="form-group">
           <label>Nombre de usuario:</label>
           <input

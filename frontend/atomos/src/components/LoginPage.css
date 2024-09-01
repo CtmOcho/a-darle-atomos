@@ -8,7 +8,7 @@
   border-radius: 1rem;
   width: 100%;
   max-width: 600px; /* Ajusta este valor según sea necesario */
-  text-align: center;
+  text-align: start;
 }
 
 .login-container h2 {
