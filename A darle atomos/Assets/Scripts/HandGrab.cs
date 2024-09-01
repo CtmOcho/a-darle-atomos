@@ -79,11 +79,20 @@ public class HandController : MonoBehaviour
         {
             if(lGrabbingObject && lCurrentObject != null)
             {
-                lCurrentObject.parent = null;
-                lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = true;
-                lGrabbingObject = false;
-                lCurrentObject = null;
+                if(lCurrentObject.gameObject.layer != 0)
+                {
+                    lCurrentObject.parent = null;
+                    lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                    lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = true;
+                    lGrabbingObject = false;
+                    lCurrentObject = null;
+                }
+                else
+                {
+                    lCurrentObject = null;
+                    lGrabbingObject = false;
+                }
+
             }
         }
 
@@ -104,11 +113,19 @@ public class HandController : MonoBehaviour
         {
             if (rGrabbingObject && rCurrentObject != null)
             {
-                rCurrentObject.parent = null;
-                rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = true;
-                rGrabbingObject = false;
-                rCurrentObject = null;
+                if (rCurrentObject.gameObject.layer != 0)
+                {
+                    rCurrentObject.parent = null;
+                    rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                    rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = true;
+                    rGrabbingObject = false;
+                    rCurrentObject = null;
+                }
+                else
+                {
+                    rCurrentObject = null;
+                    rGrabbingObject = false ;
+                }
             }
         }
 

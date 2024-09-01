@@ -7,7 +7,7 @@ using System.Collections;
 public class HandDataToIK : MonoBehaviour
 {
     public float tolerance = 0.4f;
-    float currTolerance;
+    //float currTolerance;
     public float smoothTime = 0.3f;
     private Vector3 velocityL = Vector3.zero;
     private Vector3 velocityR = Vector3.zero;
@@ -112,7 +112,7 @@ public class HandDataToIK : MonoBehaviour
         data = new float[127];
         setVectorsZero(ref prevVecArray);
         setVectorsZero(ref vecArray);
-        currTolerance = 100;
+        //currTolerance = 100;
     }
 
     private void Update()
@@ -179,7 +179,7 @@ public class HandDataToIK : MonoBehaviour
                 {
                     //if (lWristDistanceMagnitude < tolerance && rWristDistanceMagnitude < tolerance)
                     //{
-                        Debug.Log((vecArray[0 + offset0] - prevVecArray[0 + offset0]).magnitude.ToString("F8"));
+                        //Debug.Log((vecArray[0 + offset0] - prevVecArray[0 + offset0]).magnitude.ToString("F8"));
                         setHandTargetPosAndRot(leftHand, thumbTargetL, indexTargetL, middleTargetL, ringTargetL, pinkieTargetL, handsPivot, prevVecArray, offset0);
                         setHandTargetPosAndRot(rightHand, thumbTargetR, indexTargetR, middleTargetR, ringTargetR, pinkieTargetR, handsPivot, prevVecArray, offset1);
                         setFingersHintPos(leftHand, thumbHintAimL, indexHintAimL, middleHintAimL, ringHintAimL, pinkieHintAimL);

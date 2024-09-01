@@ -10,6 +10,7 @@ TagManager:
   - Fire
   - IodineCrystal
   - Liquid
+  - VidrioReloj
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Post processing FX
   - Grabbable
   - Finger colider
-  - 
+  - Tripod
   - 
   - 
   - 
