@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7932331841950982451}
   - component: {fileID: 6619658399887996081}
   - component: {fileID: 5151627645851854953}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: WatchGlassTrigger
-  m_TagString: Glass
+  m_TagString: GlassTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,9 +89,9 @@ GameObject:
   - component: {fileID: 9162102827949337338}
   - component: {fileID: 1730188951884468280}
   - component: {fileID: 186094187837229951}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: SampleTrigger
-  m_TagString: Glass
+  m_TagString: GlassTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,8 +105,8 @@ Transform:
   m_GameObject: {fileID: 6448496653217351017}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0103}
-  m_LocalScale: {x: 0.08, y: 0.004, z: 0.08}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0079}
+  m_LocalScale: {x: 0.08, y: 0.0035, z: 0.08}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3933579773651841148}
@@ -172,15 +172,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2696514140859411115, guid: 49c6c1a0667173947851bf1cc486116d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.9054
+      value: -0.95
       objectReference: {fileID: 0}
     - target: {fileID: 2696514140859411115, guid: 49c6c1a0667173947851bf1cc486116d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.938
+      value: 0.915
       objectReference: {fileID: 0}
     - target: {fileID: 2696514140859411115, guid: 49c6c1a0667173947851bf1cc486116d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.1903
+      value: 0.2027
       objectReference: {fileID: 0}
     - target: {fileID: 2696514140859411115, guid: 49c6c1a0667173947851bf1cc486116d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -236,7 +236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6695365768480973837, guid: 49c6c1a0667173947851bf1cc486116d, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6695365768480973837, guid: 49c6c1a0667173947851bf1cc486116d, type: 3}
       propertyPath: m_TagString
@@ -308,6 +308,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3323693906567000081, guid: 49c6c1a0667173947851bf1cc486116d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2815950883847941771}
+    - targetCorrespondingSourceObject: {fileID: 3323693906567000081, guid: 49c6c1a0667173947851bf1cc486116d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 473856730153610948}
   m_SourcePrefab: {fileID: 100100000, guid: 49c6c1a0667173947851bf1cc486116d, type: 3}
 --- !u!4 &3933579773651841148 stripped
 Transform:
@@ -364,3 +367,18 @@ MonoBehaviour:
   contents: []
   isHot: 0
   flame: {fileID: 0}
+--- !u!114 &473856730153610948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4457773468961581766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba7be21b8e3ce847b9d178a8510255c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerM:
+    serializedVersion: 2
+    m_Bits: 512

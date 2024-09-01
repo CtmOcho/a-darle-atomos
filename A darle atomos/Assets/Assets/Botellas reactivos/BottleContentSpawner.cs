@@ -23,7 +23,7 @@ public class BottleContentSpawner : MonoBehaviour
         UnityEngine.Random.InitState(DateTime.Now.Millisecond);
         counter = 0;
         subCounter = 0;
-        tolerance = 40;
+        tolerance = 50;
         radius = 0.01f;
     }
 

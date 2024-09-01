@@ -176,7 +176,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 24e3b1bffcf321241ab9fd38934d969e, type: 2}
+  - {fileID: 2100000, guid: 2ad93fc8bcf71e74ab550de1391bf92b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -810,7 +810,7 @@ GameObject:
   - component: {fileID: 4339489475829845138}
   - component: {fileID: 6020732156364806436}
   m_Layer: 0
-  m_Name: Hands
+  m_Name: Manos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3610,7 +3610,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 24e3b1bffcf321241ab9fd38934d969e, type: 2}
+  - {fileID: 2100000, guid: 2ad93fc8bcf71e74ab550de1391bf92b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
