@@ -18,27 +18,12 @@ public class PressureSlider : MonoBehaviour
         UpdatePressureText();
     }
 
-    public void OnPressureChanged()
+     public void OnPressureChanged()
     {
-        float P = pressureSlider.value;
-        float V = volumeSlider.value;
-
-        // Calcula la temperatura usando la ley de los gases ideales
-        float T = (P * V) / (n * R);
-
-        // Actualiza el valor del slider de temperatura
-        temperatureSlider.value = T;
-
-        // Comprueba si la temperatura ha alcanzado el máximo
-        if (T >= 400)
-        {
-            // Calcula el nuevo valor del volumen usando la ley de los gases ideales
-            float newVolume = (n * R * 400) / P;
-            volumeSlider.value = newVolume;
-        }
-
         // Actualiza el valor del texto de la presión
         UpdatePressureText();
+        // Actualiza los valores de volumen y temperatura
+        UpdateVolumeAndTemperature();
     }
 
     void UpdatePressureText()
@@ -46,5 +31,25 @@ public class PressureSlider : MonoBehaviour
         float P = pressureSlider.value;
         // Muestra el valor del slider de presión en el texto
         pressureValueText.text = P.ToString("F2") + " Pa";  // F2 muestra dos decimales
+    }
+
+    void UpdateVolumeAndTemperature()
+    {
+        float P = pressureSlider.value;
+        float V = volumeSlider.value;
+
+        // Calcula la temperatura usando la ley de los gases ideales
+        float T = (P * V) / (n * R);
+
+        // Si la temperatura calculada excede la máxima permitida, ajusta el volumen
+        if (T >= 400)
+        {
+            T = 400;
+            V = (n * R * T) / P;
+            volumeSlider.value = V;
+        }
+
+        // Actualiza el valor del slider de temperatura
+        temperatureSlider.value = T;
     }
 }

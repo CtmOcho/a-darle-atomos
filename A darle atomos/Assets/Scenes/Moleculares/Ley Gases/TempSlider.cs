@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro; 
 
 public class TemperatureSlider : MonoBehaviour
 {
     public Slider temperatureSlider;
-    public Text temperatureValueText;  // Componente de texto para mostrar el valor de la temperatura
+    public TMP_Text temperatureValueText;  // Componente de texto para mostrar el valor de la temperatura
     public Slider pressureSlider;
     public Slider volumeSlider;
 
