@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;  // Asegúrate de agregar esta línea
+using TMPro;
 
 public class PressureSlider : MonoBehaviour
 {
     public Slider pressureSlider;
-    public TMP_Text pressureValueText;  // Usa TMP_Text en lugar de Text
+    public TMP_Text pressureValueText;
     public Slider temperatureSlider;
     public Slider volumeSlider;
 
@@ -14,14 +14,22 @@ public class PressureSlider : MonoBehaviour
 
     void Start()
     {
+        // Verifica que los componentes estén asignados
+        if (pressureSlider == null || pressureValueText == null || temperatureSlider == null || volumeSlider == null)
+        {
+            Debug.LogError("Uno o más componentes no están asignados en el Inspector.");
+            return;
+        }
+
         // Inicializa el valor del texto
         UpdatePressureText();
     }
 
-     public void OnPressureChanged()
+    public void OnPressureChanged()
     {
         // Actualiza el valor del texto de la presión
         UpdatePressureText();
+
         // Actualiza los valores de volumen y temperatura
         UpdateVolumeAndTemperature();
     }
@@ -30,7 +38,7 @@ public class PressureSlider : MonoBehaviour
     {
         float P = pressureSlider.value;
         // Muestra el valor del slider de presión en el texto
-        pressureValueText.text = P.ToString("F2") + " Pa";  // F2 muestra dos decimales
+        pressureValueText.text = P.ToString("F2") + " Pa";
     }
 
     void UpdateVolumeAndTemperature()
@@ -38,18 +46,27 @@ public class PressureSlider : MonoBehaviour
         float P = pressureSlider.value;
         float V = volumeSlider.value;
 
-        // Calcula la temperatura usando la ley de los gases ideales
-        float T = (P * V) / (n * R);
-
-        // Si la temperatura calculada excede la máxima permitida, ajusta el volumen
-        if (T >= 400)
+        // Asegúrate de que el volumen no sea cero para evitar divisiones por cero
+        if (V > 0)
         {
-            T = 400;
-            V = (n * R * T) / P;
-            volumeSlider.value = V;
-        }
+            // Calcula la temperatura usando la ley de los gases ideales
+            float T = (P * V) / (n * R);
 
-        // Actualiza el valor del slider de temperatura
-        temperatureSlider.value = T;
+            // Si la temperatura calculada excede la máxima permitida, ajusta el volumen
+            if (T >= 400)
+            {
+                T = 400;
+                V = (n * R * T) / P;
+                volumeSlider.value = V;
+            }
+
+            // Actualiza el valor del slider de temperatura
+            temperatureSlider.value = T;
+        }
+        else
+        {
+            Debug.LogWarning("El volumen no puede ser cero. Ajusta el volumen para continuar.");
+            temperatureSlider.value = 0;  // Asigna un valor por defecto si V es 0 o menor
+        }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;  // Asegúrate de agregar esta línea si usas TextMeshPro
+using TMPro;
 
 public class VolumeSlider : MonoBehaviour
 {
@@ -14,28 +14,49 @@ public class VolumeSlider : MonoBehaviour
 
     void Start()
     {
-        // Inicializa el valor del texto
+        // Asegúrate de que todos los objetos estén asignados
+        if (volumeSlider == null || volumeValueText == null || pressureSlider == null || temperatureSlider == null)
+        {
+            return;
+        }
+
+        // Inicializa el valor del texto y la presión
         UpdateVolumeText();
+        UpdatePressure();
     }
 
     public void OnVolumeChanged()
     {
-        float V = volumeSlider.value;
-        float T = temperatureSlider.value;
-
-        // Calcula la presión usando la ley de los gases ideales
-        float P = (n * R * T) / V;
-
-        // Actualiza el valor del slider de presión
-        pressureSlider.value = P;
-
-        // Actualiza el valor del texto de volumen
+        // Actualiza el texto de volumen
         UpdateVolumeText();
+
+        // Actualiza el valor de presión basado en el nuevo volumen
+        UpdatePressure();
     }
 
     void UpdateVolumeText()
     {
         // Muestra el valor del slider de volumen en el texto
         volumeValueText.text = volumeSlider.value.ToString("F2") + " m³";
+    }
+
+    void UpdatePressure()
+    {
+        float V = volumeSlider.value;
+        float T = temperatureSlider.value;
+
+        // Asegúrate de que V no sea cero para evitar una división por cero
+        if (V > 0)
+        {
+            // Calcula la presión usando la ley de los gases ideales
+            float P = (n * R * T) / V;
+
+            // Actualiza el valor del slider de presión
+            pressureSlider.value = P;
+        }
+        else
+        {
+            pressureSlider.value = 0;  // Asigna un valor por defecto si V es 0 o menor
+        }
     }
 }

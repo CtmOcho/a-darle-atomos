@@ -57,7 +57,7 @@ const DeleteProfilePage = () => {
           />
         </div>
         {error && <p className="error">{error}</p>}
-        <button type="submit" className="btn-delete">Borrar Perfil</button>
+        <button type="submit" className="btn">Borrar Perfil</button>
       </form>
     </div>
   );

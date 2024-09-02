@@ -19,7 +19,7 @@
   width: 100%;
   max-width: 500px;
   padding: 2rem;
-  background-color: #ddd;
+  background-color: #dcdbd7;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
@@ -28,6 +28,7 @@
 .form-register .form-group {
   width: 100%;
   margin-bottom: 1rem;
+  align-content: center;
 
 }
 
@@ -54,14 +55,16 @@
 }
 
 .form-register .form-group input[type="checkbox"] {
-  margin: 1rem;
   width: 2rem;
   height: 2rem;
+  margin-left: 0;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
-.form-register button.btn {
-  background-color: #5A8884;
-  color: white;
+.form-register .btn {
+
   border: none;
   border-radius: 0.5rem;
   padding: 1rem 2rem;
@@ -70,8 +73,4 @@
   width: 100%;
   max-width: 500px;
   text-align: center;
-}
-
-.form-register button.btn:hover {
-  background-color: #49756e;
 }

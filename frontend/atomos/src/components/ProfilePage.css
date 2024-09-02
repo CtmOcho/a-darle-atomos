@@ -61,9 +61,8 @@
   height: 50%;
 }
 
-.profile-page-container  .btn-edit,.profile-page-container .btn-delete , .profile-page-container .btn-progress {
-  background-color: #5A8884;
-  color: white;
+.profile-page-container  .btn,.profile-page-container .btn, .profile-page-container .btn {
+
   border: none;
   border-radius: 0.5rem;
 
@@ -73,9 +72,6 @@
   height: 100%;
 }
 
-.profile-page-container .btn-edit:hover,.profile-page-container .btn-delete:hover, .profile-page-container .btn-progress:hover  {
-  background-color: #49756e;
-}
 
 .profile-page-container .profile-item.progress-container {
   display: flex;

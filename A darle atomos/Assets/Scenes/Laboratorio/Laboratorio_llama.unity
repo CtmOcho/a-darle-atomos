@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3529412, g: 0.5372549, b: 0.5176471, a: 1}
+  m_Color: {r: 0.45490196, g: 0.63529414, b: 0.62352943, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3247,7 +3247,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Continuar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 158934ace9c2da540a635b48b6486904, type: 2}
   m_sharedMaterial: {fileID: 3382691729065641351, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3275,9 +3275,9 @@ MonoBehaviour:
   m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 24
+  m_fontSizeMax: 40
   m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -3311,7 +3311,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &306089268
@@ -5335,7 +5335,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: volver
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 158934ace9c2da540a635b48b6486904, type: 2}
   m_sharedMaterial: {fileID: 3382691729065641351, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5363,9 +5363,9 @@ MonoBehaviour:
   m_fontSize: 40
   m_fontSizeBase: 40
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 48
+  m_fontSizeMax: 40
   m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -5399,7 +5399,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &603456734 stripped
@@ -5872,7 +5872,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 20e61a2c2e167c8418d84134a5aa65ee, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: b6d86c5da65fd654a916fdfd92e1351e, type: 2}
+      objectReference: {fileID: 2100000, guid: 13845fae6f8956d4b959f5d8ce04a34a, type: 2}
     - target: {fileID: 919132149155446097, guid: 20e61a2c2e167c8418d84134a5aa65ee, type: 3}
       propertyPath: m_Name
       value: Periodic_table
@@ -7316,7 +7316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3529412, g: 0.5372549, b: 0.5176471, a: 1}
+  m_Color: {r: 0.45490196, g: 0.63529414, b: 0.62352943, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7506,7 +7506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.78039217, g: 0.2, b: 0.33333334, a: 1}
+  m_Color: {r: 0.5764706, g: 0.39607844, b: 0.4392157, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8377,7 +8377,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: volver
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 158934ace9c2da540a635b48b6486904, type: 2}
   m_sharedMaterial: {fileID: 3382691729065641351, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8405,9 +8405,9 @@ MonoBehaviour:
   m_fontSize: 40
   m_fontSizeBase: 40
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 48
+  m_fontSizeMax: 40
   m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -8441,7 +8441,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1337900004 stripped
@@ -8552,7 +8552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.78039217, g: 0.2, b: 0.33333334, a: 1}
+  m_Color: {r: 0.5764706, g: 0.39607844, b: 0.4392157, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10492,7 +10492,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Continuar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 158934ace9c2da540a635b48b6486904, type: 2}
   m_sharedMaterial: {fileID: 3382691729065641351, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -10520,9 +10520,9 @@ MonoBehaviour:
   m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 24
+  m_fontSizeMax: 40
   m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -10556,7 +10556,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1001 &1771515421
@@ -12197,7 +12197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3529412, g: 0.5372549, b: 0.5176471, a: 1}
+  m_Color: {r: 0.45490196, g: 0.63529414, b: 0.62352943, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12338,7 +12338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.78039217, g: 0.2, b: 0.33333334, a: 1}
+  m_Color: {r: 0.5764706, g: 0.39607844, b: 0.4392157, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12711,7 +12711,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: continuar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 158934ace9c2da540a635b48b6486904, type: 2}
   m_sharedMaterial: {fileID: 3382691729065641351, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -12739,9 +12739,9 @@ MonoBehaviour:
   m_fontSize: 30
   m_fontSizeBase: 30
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 24
+  m_fontSizeMax: 40
   m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -12775,7 +12775,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7319767616743308557
@@ -12845,7 +12845,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Salir
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 158934ace9c2da540a635b48b6486904, type: 2}
   m_sharedMaterial: {fileID: 3382691729065641351, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -12873,9 +12873,9 @@ MonoBehaviour:
   m_fontSize: 30
   m_fontSizeBase: 30
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 24
+  m_fontSizeMax: 40
   m_fontStyle: 17
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -12909,7 +12909,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7319767617442475749

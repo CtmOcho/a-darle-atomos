@@ -292,8 +292,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
-  m_sharedMaterial: {fileID: 3382691729065641351, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 158934ace9c2da540a635b48b6486904, type: 2}
+  m_sharedMaterial: {fileID: 6704263990008928342, guid: 158934ace9c2da540a635b48b6486904, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -317,8 +317,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1318,8 +1318,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Cerrar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
-  m_sharedMaterial: {fileID: 3382691729065641351, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 158934ace9c2da540a635b48b6486904, type: 2}
+  m_sharedMaterial: {fileID: 6704263990008928342, guid: 158934ace9c2da540a635b48b6486904, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1343,8 +1343,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1454,8 +1454,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
-  m_sharedMaterial: {fileID: 3382691729065641351, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 158934ace9c2da540a635b48b6486904, type: 2}
+  m_sharedMaterial: {fileID: 6704263990008928342, guid: 158934ace9c2da540a635b48b6486904, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1479,8 +1479,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1566,7 +1566,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 7.9148, y: -39}
-  m_SizeDelta: {x: 962.8, y: 172.4675}
+  m_SizeDelta: {x: 609.8, y: 172.4675}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1686343261
 MonoBehaviour:
@@ -1691,7 +1691,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1367218361}
   m_Father: {fileID: 1145180935}
@@ -1699,7 +1699,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000030518, y: -438}
-  m_SizeDelta: {x: 481.4, y: 86.2337}
+  m_SizeDelta: {x: 378.7, y: 86.2337}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1734048279
 MonoBehaviour:
@@ -1758,7 +1758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.78039217, g: 0.2, b: 0.33333334, a: 1}
+  m_Color: {r: 0.5764706, g: 0.39607844, b: 0.4392157, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1812,7 +1812,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 765488235}
   m_Father: {fileID: 1145180935}
@@ -1820,7 +1820,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 7.9148, y: -248}
-  m_SizeDelta: {x: 962.8, y: 172.4675}
+  m_SizeDelta: {x: 609.8, y: 172.4675}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2033098977
 MonoBehaviour:

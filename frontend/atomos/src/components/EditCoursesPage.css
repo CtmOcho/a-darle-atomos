@@ -35,9 +35,8 @@
   margin-top: 2rem; /* Mueve los botones más abajo */
 }
 
-.edit-courses-page-container .btn-create-course, .btn-modify-course, .btn-delete-course {
-  background-color: #5A8884;
-  color: white;
+.edit-courses-page-container .btn, .btn, .btn {
+
   border: none;
   border-radius: 0.5rem;
   padding: 2rem 4rem; /* Agranda los botones */
@@ -45,8 +44,4 @@
   font-size: 2rem; /* Agranda la fuente de los botones */
   width: 100%; /* Asegura que los botones ocupen todo el ancho disponible */
   max-width: 400px; /* Define un ancho máximo para los botones */
-}
-
-.edit-courses-page-container .btn-create-course:hover, .btn-modify-course:hover, .btn-delete-course:hover {
-  background-color: #49756e;
 }

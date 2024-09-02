@@ -17,9 +17,9 @@ const EditCoursesPage = () => {
       <div className="edit-courses-page-container col-lg-6 col-xs-12 col-md-10 col-sm-10 col-xl-6 col-xxl-6 justify-content-center">
         <h1 className='display-2'>Editar Cursos</h1>
         <div className="course-buttons p-3">
-          <button className="btn-create-course" onClick={() => navigate('/create-course')}>Crear Curso</button>
-          <button className="btn-modify-course" onClick={() => navigate('/modify-course')}>Modificar Curso</button>
-          <button className="btn-delete-course" onClick={() => navigate('/delete-course')}>Eliminar Curso</button>
+          <button className="btn" onClick={() => navigate('/create-course')}>Crear Curso</button>
+          <button className="btn" onClick={() => navigate('/modify-course')}>Modificar Curso</button>
+          <button className="btn" onClick={() => navigate('/delete-course')}>Eliminar Curso</button>
         </div>
       </div>
     </div>

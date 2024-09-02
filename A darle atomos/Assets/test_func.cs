@@ -348,6 +348,20 @@ void CreatePeriodicTable()
             if (panelImage != null)
             {
                 SetPanelColor(panelImage, element.Type);
+
+                // Cambiar el color del Trapezoid al mismo color que el panel
+                Transform trapezoid = elementGO.transform.Find("Trapezoid");
+                if (trapezoid != null)
+                {
+                    MeshRenderer trapezoidRenderer = trapezoid.GetComponent<MeshRenderer>();
+                    if (trapezoidRenderer != null)
+                    {
+                        // Crear un nuevo material basado en el material original
+                        Material newMaterial = new Material(trapezoidRenderer.material);
+                        newMaterial.color = panelImage.color; // Cambiar el color del material
+                        trapezoidRenderer.material = newMaterial; // Asignar el nuevo material al MeshRenderer
+                    }
+                }
             }
 
             // Configurar el texto de información en el panel
@@ -363,21 +377,23 @@ void CreatePeriodicTable()
     }
 }
 
+
 // Método para establecer el color del panel basado en el tipo de elemento
 private void SetPanelColor(Image panelImage, string elementType)
 {
+    //ACTUALICE LOS COLORES A LA TABLA DEL ASSET PARA CONSISTENCIA :)
     Dictionary<string, Color> elementTypeColors = new Dictionary<string, Color>
     {
-        { "Metal Alcalino", Color.red }, // Rojo para Metales Alcalinos
-        { "Metal Alcalinotérreo", new Color(1.0f, 0.64f, 0.0f) }, // Naranja (RGB: 255, 165, 0)
-        { "Lantánido", new Color(0.8f, 0.4f, 0.1f) }, // Marrón claro personalizado
-        { "Actínido", new Color(0.5f, 0.0f, 0.5f) }, // Púrpura oscuro personalizado
-        { "Metal de Transición", Color.yellow }, // Amarillo para Metales de Transición
-        { "Metal", Color.gray }, // Gris para otros Metales
-        { "Metaloide", Color.green }, // Verde para Metaloides
-        { "No Metal", Color.blue }, // Azul para No Metales
-        { "Halógeno", Color.magenta }, // Magenta para Halógenos
-        { "Gas Noble", Color.cyan } // Cian para Gases Nobles
+        { "Metal Alcalino", new Color(0.000f, 0.125f, 0.239f) }, // Azul para Metales Alcalinos ok
+        { "Metal Alcalinotérreo", new Color(0.976f, 0.671f, 0.000f) }, // Amraillo  ok
+        { "Lantánido", new Color(0.757f, 0.796f, 0.471f) }, // verde claro personalizado ok
+        { "Actínido", new Color(0.349f, 0.584f, 0.435f) }, // Verde oscuro personalizado ok
+        { "Metal de Transición", new Color(0.000f, 0.459f, 0.776f) }, // celeste para Metales de Transición ok
+        { "Metal", new Color(0.380f, 0.059f, 0.400f) }, // Morado para otros Metales ok
+        { "Metaloide", new Color(0.875f, 0.000f, 0.208f) }, // fuxia para Metaloides ok
+        { "No Metal", new Color(0.925f, 0.412f, 0.071f) }, // Naranja para No Metales ok
+        { "Halógeno", new Color(0.576f, 0.655f, 0.059f) }, // verde para Halógenos ok
+        { "Gas Noble", new Color(0.000f, 0.349f, 0.153f) } // Verde para Gases Nobles ok
     };
 
     if (elementTypeColors.TryGetValue(elementType, out Color color))
@@ -588,54 +604,104 @@ private void SetPanelColor(Image panelImage, string elementType)
         trigger.triggers.Add(entryLeftClick);
     }
 
-    void OnHoverEnter(GameObject elementGO)
+   void OnHoverEnter(GameObject elementGO)
+{
+    Image image = elementGO.GetComponentInChildren<Image>();
+    if (image != null)
     {
-        Image image = elementGO.GetComponent<Image>();
-        if (image != null)
+        Color color = image.color;
+        color.a = 0.3f; // Reducir opacidad
+        image.color = color;
+    }
+
+    Outline outline = elementGO.GetComponent<Outline>();
+    if (outline == null)
+    {
+        outline = elementGO.AddComponent<Outline>();
+        outline.effectColor = Color.yellow;
+        outline.effectDistance = new Vector2(5, 5);
+    }
+
+    // Aplicar escala animada
+    elementGO.transform.localScale = Vector3.one * 1.1f; // Aumentar ligeramente el tamaño
+}
+
+void OnHoverExit(GameObject elementGO)
+{
+    Image image = elementGO.GetComponentInChildren<Image>();
+    if (image != null)
+    {
+        Color color = image.color;
+        color.a = 1f; // Restaurar opacidad
+        image.color = color;
+    }
+
+    Outline outline = elementGO.GetComponent<Outline>();
+    if (outline != null)
+    {
+        Destroy(outline); // Quitar el borde al salir del hover
+    }
+
+    // Restaurar escala
+    elementGO.transform.localScale = Vector3.one;
+}
+
+void OnLeftClick(GameObject elementGO, int atomicNumber)
+{
+    // Restaurar el último elemento seleccionado si existe
+    if (lastSelectedElement != null && lastSelectedElement != elementGO)
+    {
+        RectTransform rtLast = lastSelectedElement.GetComponent<RectTransform>();
+        rtLast.localScale = Vector3.one;
+        rtLast.localPosition -= Vector3.forward * 10f;
+
+        Image lastImage = lastSelectedElement.GetComponentInChildren<Image>();
+        if (lastImage != null)
         {
-            Color color = image.color;
-            color.a = 0.7f; // Reducir opacidad
-            image.color = color;
+            Color lastColor = lastImage.color;
+            lastColor.a = 1f; // Restaurar opacidad
+            lastImage.color = lastColor;
+        }
+
+        Outline lastOutline = lastSelectedElement.GetComponent<Outline>();
+        if (lastOutline != null)
+        {
+            Destroy(lastOutline); // Quitar el borde
         }
     }
 
-    void OnHoverExit(GameObject elementGO)
+    // Aplicar los efectos al elemento actual
+    RectTransform rt = elementGO.GetComponent<RectTransform>();
+    rt.localScale = Vector3.one * 1.2f;
+    rt.localPosition += Vector3.forward * 10f;
+
+    Image image = elementGO.GetComponentInChildren<Image>();
+    if (image != null)
     {
-        Image image = elementGO.GetComponent<Image>();
-        if (image != null)
-        {
-            Color color = image.color;
-            color.a = 1f; // Restaurar opacidad
-            image.color = color;
-        }
+        Color color = image.color;
+        color.a = 0.3f; // Reducir opacidad
+        image.color = color;
     }
 
-    void OnLeftClick(GameObject elementGO, int atomicNumber)
+    Outline outline = elementGO.GetComponent<Outline>();
+    if (outline == null)
     {
-        // Restaurar el elemento anterior si existe
-        if (lastSelectedElement != null)
-        {
-            RectTransform rtLast = lastSelectedElement.GetComponent<RectTransform>();
-            rtLast.localScale = Vector3.one; // Restaurar la escala
-            rtLast.localPosition -= Vector3.forward * 10f; // Restaurar la posición en Z
-        }
-
-        // Escalar y mover el elemento recién seleccionado
-        RectTransform rt = elementGO.GetComponent<RectTransform>();
-        rt.localScale = Vector3.one * 1.2f; // Escalar
-        rt.localPosition += Vector3.forward * 10f; // Mover en el eje Z
-
-        // Actualizar el último elemento seleccionado
-        lastSelectedElement = elementGO;
-
-        // Actualizar la visualización de la estructura atómica
-        orbitElectrons = atomicNumber;
-        ClearPreviousVisuals();
-        CreateCore();
-        CreateElectronOrbits();
-        CreateOrbitingElectrons();
-        DisplayElementProperties();
+        outline = elementGO.AddComponent<Outline>();
+        outline.effectColor = Color.yellow;
+        outline.effectDistance = new Vector2(5, 5);
     }
+
+    // Actualizar el último elemento seleccionado
+    lastSelectedElement = elementGO;
+
+    // Actualizar la visualización de la estructura atómica
+    orbitElectrons = atomicNumber;
+    ClearPreviousVisuals();
+    CreateCore();
+    CreateElectronOrbits();
+    CreateOrbitingElectrons();
+    DisplayElementProperties();
+}
 
     void ClearPreviousVisuals()
     {

@@ -69,7 +69,7 @@ const EditProfilePage = () => {
           />
         </div>
         {error && <p className="error">{error}</p>}
-        <button type="submit" className="btn-update">Actualizar Perfil</button>
+        <button type="submit" className="btn">Actualizar Perfil</button>
       </form>
     </div>
   );

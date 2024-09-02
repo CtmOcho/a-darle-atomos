@@ -74,7 +74,7 @@ const DashboardPage = () => {
         {Object.keys(experiments).map((course) => (
           <button
             key={course}
-            className={`btn courseButtons fs-1 ${selectedCourse === course ? 'active' : ''}`}
+            className={`courseButtons fs-1 ${selectedCourse === course ? 'active' : ''}`}
             onClick={() => handleCourseSelect(course)}
           >
             {course === '7mo' && '7mo\nBásico'}

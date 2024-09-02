@@ -42,19 +42,10 @@
   }
   
   .delete-course-container .btn {
-    background-color: #5A8884;
-
-    color: white;
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
     font-size: 2rem;
-  }
-  
-  .delete-course-container .btn:hover {
-    background-color: #49756e;
-    color: white;
-  
   }
   
   .delete-course-container .error-message {

@@ -27,9 +27,8 @@
   margin-top: 2rem; /* Mueve los botones más abajo */
 }
 
-.experiment-page-container .btn-pre-quiz,.experiment-page-container .btn-post-quiz,.experiment-page-container .btn-additional-content {
-  background-color: #5A8884;
-  color: white;
+.experiment-page-container .btn,.experiment-page-container .btn,.experiment-page-container .btn{
+
   border: none;
   border-radius: 0.5rem;
 
@@ -37,11 +36,8 @@
   font-size: 1.5rem; /* Agranda la fuente de los botones */
 }
 
-.experiment-page-container .btn-post-quiz:disabled {
+.experiment-page-container .btn:disabled {
   background-color: #ddd;
   cursor: not-allowed;
 }
 
-.experiment-page-container .btn-pre-quiz:hover,.experiment-page-container .btn-post-quiz:hover:not(:disabled),.experiment-page-container .btn-additional-content:hover {
-  background-color: #49756e;
-}

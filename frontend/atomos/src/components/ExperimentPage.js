@@ -175,9 +175,9 @@ return (
 )}
 
       <div className="quiz-buttons row col-12">
-        <button className="btn-additional-content col-3 p-2 m-1.5" onClick={handleAdditionalContentClick}>Contenido Adicional</button>
-        <button className="btn-pre-quiz col-3 p-2 m-1.5" onClick={handlePreQuizClick}>Pre Cuestionario</button>
-        <button className="btn-post-quiz col-3 p-2 m-1.5 " onClick={handlePostQuizClick} disabled={!preQuizCompleted}>Post Cuestionario</button>
+        <button className="btn col-3 p-2 m-1.5" onClick={handleAdditionalContentClick}>Contenido Adicional</button>
+        <button className="btn col-3 p-2 m-1.5" onClick={handlePreQuizClick}>Pre Cuestionario</button>
+        <button className="btn col-3 p-2 m-1.5 " onClick={handlePostQuizClick} disabled={!preQuizCompleted}>Post Cuestionario</button>
       </div>
     </div>
   </div>

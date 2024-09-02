@@ -43,9 +43,8 @@
     border-radius: 0.25rem;
   }
   
-  .delete-profile-container  .btn-delete {
-    background-color: #5A8884;
-    color: white;
+  .delete-profile-container  .btn {
+
     border: none;
     border-radius: 0.5rem;
     padding: 1rem 2rem;
@@ -54,10 +53,7 @@
     margin-top: 1rem;
   }
   
-  .delete-profile-container .btn-delete:hover {
-    background-color: #49756e;
-  }
-  
+
   .delete-profile-container .error {
     color: red;
     font-size: 1.2rem;

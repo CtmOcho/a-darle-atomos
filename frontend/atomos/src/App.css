@@ -16,14 +16,13 @@
 h1, h2, h3, .title, .display-1, .display-2, .display-3, .display-4, .display-5, .display-6, button , .btn-back, .btn{
   font-family: 'BobbyJones' !important;
   color: #764652 ;
-
 }
 body{
   font-family: 'RobotoRegular' !important;
   color: #ffffff;
 }
 form label{
-  color:#332A05;
+  color:#3D242A;
 }
 
 .page-container{
@@ -60,7 +59,8 @@ body {
 }
 
 .btn-back {
-  background-color: #C73355;
+  background-color: #936570;
+
   color: white;
   border: none;
   border-radius: 0.5rem;
@@ -70,15 +70,27 @@ body {
   margin-left: 0.5rem;
 }
 
-.btn:hover{
-  background-color: #49756e;
-
-}
-
 .btn-back:hover{
-  background: linear-gradient(45deg, #C73355, #A12A44);
   color:white;  
+  background-color: #D29EAA;
+
 }
-button{
+
+
+nav {
+  background-color: #5a8885cc; /* 0.8 es la opacidad: 1 es opaco y 0 es completamente transparente */
+  margin-top: 0;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btn{
+background-color: #74A29F !important;
+color: white !important;
+}
+
+.btn:hover{
+background-color: #5A8885 !important;
+color:white !important;
 
 }

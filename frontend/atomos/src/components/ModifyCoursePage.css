@@ -45,8 +45,7 @@
   }
   
   .modify-course-container .btn {
-    background-color: #5A8884;
-    color: white;
+
     border: none;
     border-radius: 0.5rem;
 
@@ -54,11 +53,7 @@
     font-size: 1.5rem;
 
   }
-  
-  .modify-course-container .btn:hover {
-    background-color: #49756e;
-    color: white;
-  }
+
   
   .modify-course-container .error-message {
     color: red;

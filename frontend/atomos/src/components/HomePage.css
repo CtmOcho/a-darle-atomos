@@ -26,10 +26,8 @@
   
 }
 
-.home-container button.btn {
-  font-family: 'BobbyJones', sans-serif;
-  background: #5A8884;
-  color: white;
+.home-container .btn {
+
   padding: 1rem;
   margin: 1rem;
   border: none;
@@ -40,6 +38,3 @@
   max-width: 20rem; /* Máximo ancho de los botones */
 }
 
-.home-container button.btn:hover {
-  background: #49756e;
-}

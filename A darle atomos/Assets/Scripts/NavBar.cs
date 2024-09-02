@@ -199,11 +199,11 @@ public class NavbarController : MonoBehaviour
                 }
 
                 currentlyEnlargedPanel = panelName;
-                Debug.Log(panelName + " agrandado, con imagen, texto y botones ajustados.");
+                //Debug.Log(panelName + " agrandado, con imagen, texto y botones ajustados.");
             }
             else
             {
-                Debug.LogWarning("El subpanel con el nombre " + panelName + " no fue encontrado.");
+                //Debug.LogWarning("El subpanel con el nombre " + panelName + " no fue encontrado.");
             }
         }
     }
@@ -271,7 +271,7 @@ public class NavbarController : MonoBehaviour
             }
 
             currentlyEnlargedPanel = null;
-            Debug.Log(panelName + " reducido al tamaño, posición, y distribución originales.");
+            //Debug.Log(panelName + " reducido al tamaño, posición, y distribución originales.");
         }
     }
 
@@ -347,7 +347,7 @@ public class NavbarController : MonoBehaviour
             RectTransform rawImageRectTransform = rawImage.GetComponent<RectTransform>();
             rawImageRectTransform.sizeDelta = originalRawImageSize;
             rawImageRectTransform.anchoredPosition = originalRawImagePosition;
-            Debug.Log("RawImage restablecido a tamaño y posición originales.");
+            //Debug.Log("RawImage restablecido a tamaño y posición originales.");
         }
     }
 }

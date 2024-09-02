@@ -51,17 +51,11 @@
   }
   
   .teacher-progress-course-container .btn {
-    background-color: #5A8884;
-    color: white;
+
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
     font-size: 2rem; /* Agranda la fuente de los botones */
   
-  }
-  
-  .teacher-progress-course-container .btn:hover {
-    background-color: #49756e;
-    color:white;  
   }
   

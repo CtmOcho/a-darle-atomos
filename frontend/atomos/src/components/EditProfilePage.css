@@ -45,19 +45,14 @@
     border-radius: 0.25rem;
   }
   
-  .edit-profile-container .btn-update {
-    background-color: #5A8884;
-    color: white;
+  .edit-profile-container .btn {
+
     border: none;
     border-radius: 0.5rem;
     padding: 1rem 2rem;
     font-size: 1.5rem;
     cursor: pointer;
     margin-top: 1rem;
-  }
-  
-  .edit-profile-container .btn-update:hover {
-    background-color: #49756e;
   }
   
   .edit-profile-container .error {

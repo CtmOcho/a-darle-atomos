@@ -53,8 +53,7 @@
 }
 
 .login-container button.btn {
-  background-color: #5A8884;
-  color: white;
+
   border: none;
   border-radius: 0.5rem;
   padding: 1rem 2rem;
@@ -65,9 +64,6 @@
   text-align: center;
 }
 
-.login-container button.btn:hover {
-  background-color: #49756e;
-}
 
 .login-container .error {
   color: red;

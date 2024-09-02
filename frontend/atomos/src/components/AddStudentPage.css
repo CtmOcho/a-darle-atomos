@@ -53,8 +53,7 @@
 }
 
 .add-student-container .btn {
-  background-color: #5A8884;
-  color: white;
+
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -62,7 +61,3 @@
 
 }
 
-.add-student-container .btn:hover {
-  background-color: #49756e;
-  color:white;  
-}

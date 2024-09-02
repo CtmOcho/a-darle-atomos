@@ -45,8 +45,7 @@
   }
   
   .teacher-progress-container .btn {
-    background-color: #5A8884;
-    color: white;
+
     border: none;
     border-radius: 0.5rem;
 
@@ -54,12 +53,7 @@
     font-size: 1.5rem;
 
   }
-  
-  .teacher-progress-container .btn:hover {
-    background-color: #49756e;
-    color: white;
-  }
-  
+
   .teacher-progress-container .error-message {
     color: red;
     margin-bottom: 1rem;

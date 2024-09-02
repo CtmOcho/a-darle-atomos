@@ -28,8 +28,8 @@ const HomePage = () => {
           <div className="col-12">
             <h1 className="title display-1">A darle átomos</h1>
             <div className="buttons-container justify-content-center align-items-center text-center">
-              <button className="btn btn-block" onClick={() => handleNavigation('/register')}>Registrarse</button>
-              <button className="btn btn-block" onClick={() => handleNavigation('/login')}>Iniciar Sesión</button>
+              <button className="btn" onClick={() => handleNavigation('/register')}>Registrarse</button>
+              <button className="btn" onClick={() => handleNavigation('/login')}>Iniciar Sesión</button>
             </div>
           </div>
         </div>
