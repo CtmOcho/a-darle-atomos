@@ -14,8 +14,8 @@ public class ParticleBehaviour : MonoBehaviour
     public float maximumTemperature = 100f;
     public float minimumPressure = 760f;
     public float maximumPressure = 3000f;
-    public float currentTemperature;
-    private float value = 0;
+    private float currentTemperature;
+    public float value = 0;
     public TextMeshPro temperatureText;
     public TextMeshPro pressureText;
 
@@ -37,13 +37,13 @@ public class ParticleBehaviour : MonoBehaviour
 
     void Update()
     {
+        currentTemperature = Mathf.Lerp(minimumTemperature, maximumTemperature, value);
         temperatureText.text = currentTemperature.ToString("F1");
         pressureText.text = Mathf.Lerp(minimumPressure, maximumPressure, value).ToString("F1");
     }
 
     void FixedUpdate()
     {
-        value = Mathf.InverseLerp(minimumTemperature, maximumTemperature, currentTemperature);
         for (int i = 0; i < rb.Length; i++)
         {
             rb[i].velocity = rb[i].velocity.normalized * Mathf.Lerp(minimumSpeed, maximumSpeed, value);
