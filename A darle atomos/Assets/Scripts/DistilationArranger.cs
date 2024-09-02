@@ -51,13 +51,13 @@ public class DistilationArranger : MonoBehaviour
                     // Seleccionar el prefab y aplicar el espaciado personalizado
                     if (useEthanol)
                     {
-                        position = origin + new Vector3(x * 5, y * 3, z) * spacing;
+                        position = origin + new Vector3(x * 5, y * 3, z*1.5f) * spacing;
                         GameObject moleculePair = Instantiate(ethanolPrefab, position, Quaternion.identity);
                         molecules[index] = moleculePair;
                     }
                     else
                     {
-                        position = origin + new Vector3(x * 3, y * 2, z) * spacing;
+                        position = origin + new Vector3(x * 4, y * 2, z*1.5f) * spacing;
                         GameObject moleculePair = Instantiate(waterPrefab, position, Quaternion.identity);
                         molecules[index] = moleculePair;
                     }

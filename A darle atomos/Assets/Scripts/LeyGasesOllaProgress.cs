@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class LeyGasesOllaProgress : MonoBehaviour
 {
-    public GameObject olla;
-    public bool labCompleted = false;
+    private bool labCompleted = false;
     private Login  login_script; // Referencia al otro script que contiene OnPutStudentProgress
     private NewBehaviourScript controllerButtons; 
 
