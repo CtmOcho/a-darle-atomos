@@ -10,6 +10,9 @@ public class NewBehaviourScript : MonoBehaviour
     private float timer = 0.0f;
     private bool isTouching = false;
     public bool positive;
+    public bool buttonPressedPlus = false;
+    public bool buttonPressedMinus = false;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -46,10 +49,12 @@ public class NewBehaviourScript : MonoBehaviour
                 if (positive)
                 {
                     particleBehaviour.value += 0.05f;
+                    buttonPressedPlus = true;
                 }
                 else
                 {
                     particleBehaviour.value -= 0.05f;
+                    buttonPressedMinus = true;
                 }
                 yield return new WaitForSeconds(1);
             }
