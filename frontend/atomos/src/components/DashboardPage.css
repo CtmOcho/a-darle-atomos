@@ -114,29 +114,26 @@ nav .courseButtons.active, nav .courseButtons.active:hover {
 }
 
 .experiment-card {
-  flex: 1 1 calc(20% - 1rem); /* En tamaños grandes, ocupan 25% del contenedor, con un margen */
+  flex: 1 1 calc(25% - 1rem); /* En tamaños grandes, ocupan 25% del contenedor */
   box-sizing: border-box;
   margin-bottom: 1rem;
   padding: 1rem;
-  background-color: #DCDBD7cc; /* Fondo con transparencia basado en #764652 */
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para un efecto elevado */
-  transition: transform 0.3s ease, background-color 0.3s ease; /* Añadido transition para el hover */
+  background-color: #DCDBD7cc;
+  border-radius: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  text-align: center; /* Asegura que el contenido esté centrado */
 }
 
-.experiment-card:hover {
-  transform: scale(1.05);
-  background-color: #DCDBD7; /* Elimina la transparencia en hover para un efecto de resaltado */
+.experiment-card img {
+  width: 80%;
+  height: auto; /* Mantiene la proporción de la imagen */
+  display: block;
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+  border-radius: 3rem; /* Opcional: Añade un borde redondeado a la imagen */
+  transition: transform 0.3s ease; /* Transición suave al hacer hover */
 }
 
-@media (max-width: 1199px) {
-  .experiment-card {
-    flex: 1 1 calc(30% - 1rem); /* En tamaños medianos, ocupan 50% del contenedor */
-  }
-}
-
-@media (max-width: 767px) {
-  .experiment-card {
-    flex: 1 1 calc(30% - 1rem); /* En tamaños pequeños, ocupan 50% del contenedor */
-  }
+.experiment-card:hover img {
+  transform: scale(1.05); /* Agranda la imagen en un 10% al hacer hover */
 }

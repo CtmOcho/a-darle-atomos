@@ -3,11 +3,12 @@ import { useNavigate, useParams } from 'react-router-dom';
 import './QuizPage.css';
 import config from "../config/config";
 import { UserContext } from '../context/UserContext';
+import Question from './Question';
 
 const QuizPage = () => {
   const { experimentName, quizType } = useParams();
   const navigate = useNavigate();
-  const { user } = useContext(UserContext); // Asumiendo que tienes un contexto de usuario para obtener el nombre de usuario actual
+  const { user } = useContext(UserContext);
 
   // Definir las preguntas para cada experimento y cada tipo de cuestionario
   const quizData = {
@@ -145,8 +146,7 @@ const QuizPage = () => {
     },
   };
   
-
-  const shuffleOptions = (question) => {
+const shuffleOptions = (question) => {
     const options = [...question.options];
     const correctAnswer = options[question.answer];
     for (let i = options.length - 1; i > 0; i--) {
@@ -158,8 +158,8 @@ const QuizPage = () => {
   };
 
   const [shuffledQuizData, setShuffledQuizData] = useState([]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
-  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
   const [showResult, setShowResult] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [incorrectCount, setIncorrectCount] = useState(0);
@@ -167,19 +167,21 @@ const QuizPage = () => {
   useEffect(() => {
     const initialShuffledQuizData = quizData[experimentName][quizType].map(shuffleOptions);
     setShuffledQuizData(initialShuffledQuizData);
-    setAnswers(Array(initialShuffledQuizData.length).fill(null)); // Inicializa el estado de respuestas con valores nulos
+    setAnswers(Array(initialShuffledQuizData.length).fill(null));
   }, [experimentName, quizType]);
 
-  useEffect(() => {
-    // Verifica si todas las preguntas han sido respondidas
-    const allAnswered = answers.every(answer => answer !== null);
-    setIsSubmitDisabled(!allAnswered);
-  }, [answers]);
-
-  const handleOptionChange = (questionIndex, optionIndex) => {
+  const handleOptionChange = (selectedOption) => {
     const newAnswers = [...answers];
-    newAnswers[questionIndex] = optionIndex;
+    newAnswers[currentQuestionIndex] = selectedOption;
     setAnswers(newAnswers);
+  };
+
+  const handleNextQuestion = () => {
+    if (currentQuestionIndex < shuffledQuizData.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      handleSubmit();
+    }
   };
 
   const handleSubmit = async () => {
@@ -188,13 +190,13 @@ const QuizPage = () => {
     const detail = [];
 
     answers.forEach((answer, index) => {
-        if (answer === shuffledQuizData[index].answer) {
-            correct++;
-            detail.push(1);
-        } else {
-            incorrect++;
-            detail.push(0);
-        }
+      if (answer === shuffledQuizData[index].answer) {
+        correct++;
+        detail.push(1);
+      } else {
+        incorrect++;
+        detail.push(0);
+      }
     });
 
     setCorrectCount(correct);
@@ -206,58 +208,49 @@ const QuizPage = () => {
     const values = detail.join('');
 
     try {
-        // Llamada al backend para actualizar el quiz
-        await fetch(`${config.backendUrl}/updateQuiz/${user.username}/quiz${quizIndex}/${type}/${values}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
+      await fetch(`${config.backendUrl}/updateQuiz/${user.username}/quiz${quizIndex}/${type}/${values}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-        // Determinar el índice correcto para `progressdata`
-        const progressIndex = quizIndex * 5 - (type === 'pre' ? 1 : 0);
+      const progressIndex = quizIndex * 5 - (type === 'pre' ? 1 : 0);
 
-        // Llamada al backend para actualizar el progreso del usuario
-        await fetch(`${config.backendUrl}/updateStudent/${user.username}/prog/${progressIndex}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
+      await fetch(`${config.backendUrl}/updateStudent/${user.username}/prog/${progressIndex}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
     } catch (err) {
-        console.error('Error al actualizar el quiz o progreso:', err);
+      console.error('Error al actualizar el quiz o progreso:', err);
     }
-};
+  };
 
   return (
     <div className="quiz-page-container page-container col-12">
-                          <nav className="navbar col-12">
-      <button className="btn-back" onClick={() => navigate('/dashboard')}>Volver</button>
-    </nav>
+      <nav className="navbar col-12">
+        <button className="btn-back" onClick={() => navigate(`/experiment/${experimentName}`)}>Volver</button>
+      </nav>
       <div className="quiz col-8">
-        <h1 className='display-2'>{quizType === 'pre' ? 'Pre Cuestionario' : 'Post Cuestionario'}:<br/> {experimentName}</h1>
-        {shuffledQuizData.map((q, qi) => (
-          <div key={qi} className="question-container col-12 display-7">
-            <p className='fs-1'>{q.question}</p>
-            <div className="options-container col-12 justify-content-center align-items-start fs-4">
-              {q.options.map((option, oi) => (
-                <label key={oi} className="quiz-label col-2 fs-5 p-2 m-1 ">
-                  <input
-                    type="radio"
-                    name={`question-${qi}`}
-                    value={oi}
-                    checked={answers[qi] === oi}
-                    onChange={() => handleOptionChange(qi, oi)}
-                  />
-                  {option}
-                </label>
-              ))}
-            </div>
-          </div>
-        ))}
-        <button className="btn-submit quiz-submit col-3" onClick={handleSubmit} disabled={isSubmitDisabled}>
-          Enviar
-        </button>
+        <h1 className='display-2'>{quizType === 'pre' ? 'Pre Cuestionario' : 'Post Cuestionario'}:<br /> {experimentName}</h1>
+      </div>  
+      
+      <div className='quiz col-8'>
+        {shuffledQuizData.length > 0 && !showResult && (
+          <Question
+            question={shuffledQuizData[currentQuestionIndex]}
+            questionIndex={currentQuestionIndex}
+            selectedOption={answers[currentQuestionIndex]}
+            onSelectOption={handleOptionChange}
+          />
+        )}
+        {!showResult && (
+          <button className="btn-submit quiz-submit col-3" onClick={handleNextQuestion} disabled={answers[currentQuestionIndex] === null}>
+            {currentQuestionIndex < shuffledQuizData.length - 1 ? 'Siguiente' : 'Enviar'}
+          </button>
+        )}
       </div>
       {showResult && (
         <div className="result-popup">

@@ -237,7 +237,7 @@ const AdditionalContentPage = () => {
         {content.map((item, index) => (
           <div key={index} className="content-item col-3.5">
             <img className='img-fluid' src={item.imgSrc} alt={`Contenido ${index + 1}`} />
-            <p className='col-12 text-align-center'>{item.description}</p>
+            <p className='col-12 text-start fs-5'>{item.description}</p>
           </div>
         ))}
       </div>

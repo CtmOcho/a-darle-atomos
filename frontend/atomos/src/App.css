@@ -21,7 +21,7 @@ body{
   font-family: 'RobotoRegular' !important;
   color: #ffffff;
 }
-form label{
+form label, p{
   color:#3D242A;
 }
 

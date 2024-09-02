@@ -7,7 +7,6 @@
     background-color: #ddd;
     padding: 0.5rem;
     border-radius: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
   
   .quiz h1 {
@@ -18,8 +17,6 @@
   
   .quiz .question-container {
     margin-bottom: 2rem;
-    text-align: center;
-
   }
   
   .quiz .options-container {
@@ -30,10 +27,11 @@
   }
   
   .quiz .quiz-label {
-    background-color: #5A8884;
-    color:white;
-    padding: 0.5rem 1rem;
+    width: 100%;
+    color: #3D242A;
+    padding: 0.5rem 0.5rem;
     border-radius: 0.5rem;
+    margin: 1rem;
     cursor: pointer;
   }
   
@@ -42,8 +40,8 @@
   }
   
   .quiz .quiz-label input[type="radio"]:checked + label {
-    background-color: #5A8884;
-    color: white;
+    background-color: #5A8884cc;
+    color: #3D242A;
   }
   
   .quiz .quiz-submit {
@@ -95,7 +93,9 @@
   
 
   .quiz .quiz-submit:disabled {
-    background-color: rgb(53, 53, 53);
+    background-color: #5a888544;
+    transition: transform 0.6s ease, background-color 0.6s ease;
     cursor: not-allowed; 
     color:white;
+    
   }

@@ -15,10 +15,11 @@ const Modal = ({ experiment, onClose, onNavigate }) => {
           alt={experiment.title} 
           className="img-fluid"
         />
-        <p>Aquí va el contenido detallado del experimento.</p>
-        <div className="modal-buttons">
-          <button className="btn-sec " onClick={onClose}>Cancelar</button>
-          <button className="btn-prim " onClick={handleNavigate}>Ir a experimento</button>
+        <div className="modal-buttons col-12">
+          <button className="btn-back col-5 " onClick={onClose}>Cancelar</button>
+          <div className="col-2" >
+          </div>
+          <button className="btn fs-5 col-5 btn-modal-confirm" onClick={handleNavigate}>Ir a experimento</button>
         </div>
       </div>
     </div>

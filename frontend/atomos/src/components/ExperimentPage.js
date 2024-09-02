@@ -154,7 +154,7 @@ const handleAdditionalContentClick = () => {
 return (
   <div className="page-container col-12 ">
             <nav className="navbar col-12">
-    <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
+    <button className="btn-back" onClick={() => navigate('/dashboard')}>Volver</button>
   </nav>
     <div className="experiment-page-container col-lg-8 col-xs-12 col-md-10 col-sm-10 col-xl-8 col-xxl-6 justify-content-center">
       <div className='row col-12'>
@@ -166,7 +166,7 @@ return (
     {labInstructions[experimentName].map((instruction, index) => {
       const isHeading = instruction === 'Objetivos de aprendizaje:' || instruction === 'Procedimiento en el laboratorio virtual:';
       return (
-        <p key={index} className={isHeading ? 'display-6' : 'lead'}>
+        <p key={index} className={isHeading ? 'display-6 text-center' : 'fs-4 text-justify'}>
           {instruction}
         </p>
       );

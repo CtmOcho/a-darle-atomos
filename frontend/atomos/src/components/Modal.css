@@ -6,7 +6,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente detrás del modal */
+    background: #DCDBD7aa; /* Fondo semi-transparente detrás del modal */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,7 +14,7 @@
   }
   
   .modal-overlay .modal-content {
-    background: white  ;
+    background: #DCDBD7  ;
     padding: 1.5rem;
     border-radius: 0.5rem;
     width: 100%;
@@ -39,42 +39,5 @@
     justify-content: flex-end;
     margin-top: 1rem;
     
-  }
-  
-  .modal-buttons .btn-sec {
-    background-color: #C73355;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 1rem 2rem;
-    cursor: pointer;
-    font-size: 1.5rem;
-    text-align: center;
-  }
-  .modal-buttons .btn-prim {
-    background-color: #5A8884;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 1rem 2rem;
-    cursor: pointer;
-    font-size: 1.5rem;
-    text-align: center;
-  }
-  .modal-buttons .btn-sec:hover {
-    background: linear-gradient(45deg, #C73355, #A12A44);
-    color:white;  
-  }
-  
-
-  .modal-buttons .btn-prim:hover {
-    background-color: #49756e;
-  }
-  
-  /* Estilos responsivos */
-  @media (min-width: 768px) {
-    .modal-content {
-      padding: 2rem; /* Aumenta el padding en pantallas más grandes */
-    }
   }
   

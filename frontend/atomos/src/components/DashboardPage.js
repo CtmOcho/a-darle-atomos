@@ -102,12 +102,12 @@ const DashboardPage = () => {
         {experiments[selectedCourse].map((experiment, index) => (
           <div
             key={index}
-            className="experiment-card"
+            className="experiment-card col-5 mx-3"
             onClick={() => handleModalOpen(experiment)}
             onMouseEnter={(e) => e.currentTarget.classList.add('hovered')}
             onMouseLeave={(e) => e.currentTarget.classList.remove('hovered')}
           >
-            <h2>{experiment.title}</h2>
+            <div className='display-5 mb-2'>{experiment.title}</div>
             <img src={experiment.image} alt={experiment.title} />
           </div>
         ))}
