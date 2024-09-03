@@ -14,11 +14,21 @@ public class Glass : MonoBehaviour
     public List<GameObject> contents;
     public bool isHot;
     public flame flame;
+    public bool distilationLab =false;
+    public bool yodoLab = false;
 
     // Start is called before the first frame update
     void Start()
-    {
-        tempStep = 0.01f;
+    {   
+        if(distilationLab){
+            tempStep = 0.085f;
+        }
+        else if(yodoLab){
+            tempStep = 0.15f;
+        }
+        else{
+            tempStep = 0.01f;
+        }
     }
 
     // Update is called once per frame

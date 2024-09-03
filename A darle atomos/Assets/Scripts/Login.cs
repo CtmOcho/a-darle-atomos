@@ -22,7 +22,7 @@ public class LoginResponse
 }
 
 
-private string baseBackendUrl = "http://localhost:13756"; // Puedes cambiar esta URL cuando cambie la URL de Ngrok
+private string baseBackendUrl => ConfigManager.Instance.BaseBackendUrl;
 
 public Navigation1.Navigation navigation;
 // Usar la URL base para definir los endpoints
