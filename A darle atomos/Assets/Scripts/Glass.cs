@@ -21,10 +21,10 @@ public class Glass : MonoBehaviour
     void Start()
     {   
         if(distilationLab){
-            tempStep = 0.085f;
+            tempStep = 0.055f;
         }
         else if(yodoLab){
-            tempStep = 0.15f;
+            tempStep = 0.085f;
         }
         else{
             tempStep = 0.01f;
@@ -102,7 +102,7 @@ public class Glass : MonoBehaviour
         {
             return;
         }
-
+        tempStep = 0.01f;
         temperature -= tempStep / 10;
         for (int i = contents.Count - 1; i >= 0; i--)
         {

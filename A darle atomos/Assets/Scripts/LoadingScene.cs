@@ -10,12 +10,12 @@ public class LoadingScene : MonoBehaviour
     public GameObject[] coursePanels; // Referencia a los paneles de cursos
     public GameObject navbar; // Referencia a la barra de navegación
     public GameObject basePanel; // Referencia al panel base del Canvas
-    public CanvasGroup canvasGroup; // Referencia al CanvasGroup para el fade out
+
     public float delayAfterLoad = 1f; // Tiempo de espera adicional después de que la barra se llena
     public float fillSpeed = 0.5f; // Velocidad de llenado
-    public float fadeOutDuration = 1f; // Duración del fade out
 
-    public void LoadScene(int sceneId)
+
+    public void LoadScene(string sceneName)
     {
         // Ocultar los paneles de cursos, la barra de navegación y el panel base antes de cargar la escena
         foreach (var panel in coursePanels)
@@ -26,12 +26,12 @@ public class LoadingScene : MonoBehaviour
         basePanel.SetActive(false);
 
         // Iniciar la pantalla de carga
-        StartCoroutine(LoadSceneAsync(sceneId));
+        StartCoroutine(LoadSceneAsync(sceneName));
     }
 
-    IEnumerator LoadSceneAsync(int sceneId)
+    IEnumerator LoadSceneAsync(string sceneName)
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
         LoadingScreen.SetActive(true);
         operation.allowSceneActivation = false; // Evitar que la escena se active inmediatamente
 
@@ -46,8 +46,7 @@ public class LoadingScene : MonoBehaviour
                 // Esperar un poco antes de activar la escena
                 yield return new WaitForSeconds(delayAfterLoad);
 
-                // Iniciar el fade out
-                yield return StartCoroutine(FadeOut());
+                // Iniciar el fade ou
 
                 // Activar la escena
                 operation.allowSceneActivation = true;
@@ -57,17 +56,5 @@ public class LoadingScene : MonoBehaviour
         }
     }
 
-    IEnumerator FadeOut()
-    {
-        Debug.Log("Iniciando Fade Out"); // Para verificar si se llama al Fade Out
-        float elapsedTime = 0f;
-        while (elapsedTime < fadeOutDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeOutDuration);
-            yield return null;
-        }
 
-        canvasGroup.alpha = 0f; // Asegurarse de que el canvas esté completamente oculto al final del fade out
-    }
 }

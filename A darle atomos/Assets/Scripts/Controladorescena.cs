@@ -7,6 +7,7 @@ public class ControladorEscena : MonoBehaviour
     public CanvasGroup canvasGroup;  // Declara la variable canvasGroup como pública para asignarla en el inspector
     public CanvasGroup camara;  // Declara la variable canvasGroup como pública para asignarla en el inspector
     public float fadeDuration = 2f;  // Declara la variable fadeDuration y dale un valor por defecto
+    public CanvasGroup canvasGroupDistilation;  // Declara la variable canvasGroup como pública para asignarla en el inspector
 
 
 
@@ -16,6 +17,8 @@ public class ControladorEscena : MonoBehaviour
         ResetScene();
         StartCoroutine(FadeInCanvas());
         StartCoroutine(FadeInCam());
+        StartCoroutine(FadeInCum());
+
     }
 
     IEnumerator FadeInCanvas()
@@ -47,6 +50,21 @@ public class ControladorEscena : MonoBehaviour
         camara.alpha = 1f; // Asegura que el fade in termine completamente visible
     }
 
+
+    IEnumerator FadeInCum()
+    {
+        float elapsedTime = 0f;
+        canvasGroupDistilation.alpha = 0f; // Comienza con la imagen completamente transparente
+        
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            canvasGroupDistilation.alpha = Mathf.Lerp(0f, 1f, elapsedTime / fadeDuration); // Interpola el valor de alpha de 0 a 1
+            yield return null;
+        }
+
+        canvasGroupDistilation.alpha = 1f; // Asegura que el fade in termine completamente visible
+    }
 
     public void ResetScene()
     {

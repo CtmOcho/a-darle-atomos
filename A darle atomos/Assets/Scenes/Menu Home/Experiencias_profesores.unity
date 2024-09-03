@@ -280,13 +280,13 @@ MonoBehaviour:
       - m_Target: {fileID: 882133025}
         m_TargetAssemblyTypeName: LoadingScene, Assembly-CSharp
         m_MethodName: LoadScene
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 14
+          m_IntArgument: 12
           m_FloatArgument: 0
-          m_StringArgument: SubPanel1
+          m_StringArgument: Laboratorio_Olla
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &14140483
@@ -1360,6 +1360,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95626199}
   m_CullTransparentMesh: 1
+--- !u!1 &144772298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 144772300}
+  - component: {fileID: 144772299}
+  m_Layer: 0
+  m_Name: userNameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &144772299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144772298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c7d61ad096f9f342abbd35b7360278f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  username: {fileID: 260708319}
+--- !u!4 &144772300
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144772298}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &153197176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1879,10 +1924,8 @@ MonoBehaviour:
   - {fileID: 1357255427}
   navbar: {fileID: 1805455281}
   basePanel: {fileID: 1873625312}
-  canvasGroup: {fileID: 0}
   delayAfterLoad: 1
   fillSpeed: 0.5
-  fadeOutDuration: 1
 --- !u!4 &175462261
 Transform:
   m_ObjectHideFlags: 0
@@ -2004,8 +2047,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1692, y: -70}
-  m_SizeDelta: {x: 180.4325, y: 139.5919}
+  m_AnchoredPosition: {x: 1670.0549, y: -70}
+  m_SizeDelta: {x: 498.3023, y: 139.5919}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &260708319
 MonoBehaviour:
@@ -2054,10 +2097,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 58.95
-  m_fontSizeBase: 50
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
@@ -3824,13 +3867,13 @@ MonoBehaviour:
       - m_Target: {fileID: 175462260}
         m_TargetAssemblyTypeName: LoadingScene, Assembly-CSharp
         m_MethodName: LoadScene
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: SubPanel1
+          m_StringArgument: Laboratorio_llama
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &681729772
@@ -4727,10 +4770,8 @@ MonoBehaviour:
   - {fileID: 1357255427}
   navbar: {fileID: 1805455281}
   basePanel: {fileID: 1873625312}
-  canvasGroup: {fileID: 0}
   delayAfterLoad: 1
   fillSpeed: 0.5
-  fadeOutDuration: 1
 --- !u!4 &882133026
 Transform:
   m_ObjectHideFlags: 0
@@ -4784,10 +4825,8 @@ MonoBehaviour:
   - {fileID: 1357255427}
   navbar: {fileID: 1805455281}
   basePanel: {fileID: 1873625312}
-  canvasGroup: {fileID: 0}
   delayAfterLoad: 1
   fillSpeed: 0.5
-  fadeOutDuration: 1
 --- !u!4 &887989064
 Transform:
   m_ObjectHideFlags: 0
@@ -6250,13 +6289,13 @@ MonoBehaviour:
       - m_Target: {fileID: 2062010253}
         m_TargetAssemblyTypeName: LoadingScene, Assembly-CSharp
         m_MethodName: LoadScene
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 11
+          m_IntArgument: 9
           m_FloatArgument: 0
-          m_StringArgument: SubPanel1
+          m_StringArgument: Laboratorio_Yodo
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1117770214
@@ -7508,13 +7547,13 @@ MonoBehaviour:
       - m_Target: {fileID: 887989063}
         m_TargetAssemblyTypeName: LoadingScene, Assembly-CSharp
         m_MethodName: LoadScene
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 8
+          m_IntArgument: 6
           m_FloatArgument: 0
-          m_StringArgument: SubPanel1
+          m_StringArgument: Laboratorio_Destilacion
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1383766424
@@ -8395,7 +8434,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1490269065}
   - component: {fileID: 1490269064}
-  - component: {fileID: 1490269063}
   - component: {fileID: 1490269066}
   m_Layer: 0
   m_Name: Main Camera
@@ -8404,14 +8442,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1490269063
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1490269062}
-  m_Enabled: 1
 --- !u!20 &1490269064
 Camera:
   m_ObjectHideFlags: 0
@@ -12009,10 +12039,8 @@ MonoBehaviour:
   - {fileID: 1357255427}
   navbar: {fileID: 1805455281}
   basePanel: {fileID: 1873625312}
-  canvasGroup: {fileID: 0}
   delayAfterLoad: 1
   fillSpeed: 0.5
-  fadeOutDuration: 1
 --- !u!1 &2070475262
 GameObject:
   m_ObjectHideFlags: 0
@@ -12515,3 +12543,4 @@ SceneRoots:
   - {fileID: 882133026}
   - {fileID: 1082557181}
   - {fileID: 282651271}
+  - {fileID: 144772300}

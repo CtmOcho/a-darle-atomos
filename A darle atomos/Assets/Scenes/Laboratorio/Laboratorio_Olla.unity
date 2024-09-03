@@ -825,7 +825,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 20, y: 174}
-  m_SizeDelta: {x: 1117.6993, y: 89}
+  m_SizeDelta: {x: 1300, y: 89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &83111096
 MonoBehaviour:
@@ -847,9 +847,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1- Colocar el yodo dentro del frasco
-
-'
+  m_text: "1- Observa las mol\xE9culas en movimiento"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
   m_sharedMaterial: {fileID: 3382691729065641351, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
@@ -1769,6 +1767,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3451118302482216456, guid: 9883e7a6a810d414381a9d1076800ca3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 9883e7a6a810d414381a9d1076800ca3, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
@@ -1779,6 +1781,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9883e7a6a810d414381a9d1076800ca3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1227730614}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9883e7a6a810d414381a9d1076800ca3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1227730615}
   m_SourcePrefab: {fileID: 100100000, guid: 9883e7a6a810d414381a9d1076800ca3, type: 3}
 --- !u!1 &241733716 stripped
 GameObject:
@@ -2931,6 +2936,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323697748}
   m_CullTransparentMesh: 1
+--- !u!1 &332679020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 332679022}
+  - component: {fileID: 332679021}
+  m_Layer: 0
+  m_Name: Controllerescena
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &332679021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332679020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623c6c15013fd3b4ea1ced8e05525f46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Subexperience: {fileID: 1309021363}
+  canvasGroup: {fileID: 1124951046}
+  camara: {fileID: 872887280}
+  fadeDuration: 3
+  canvasGroupDistilation: {fileID: 0}
+--- !u!4 &332679022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332679020}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &333752090
 GameObject:
   m_ObjectHideFlags: 0
@@ -4654,7 +4708,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -4737,10 +4791,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 0.6865522}
+  m_Center: {x: 0, y: 0, z: -0.156724}
 --- !u!23 &677427407
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5713,6 +5767,11 @@ PrefabInstance:
       addedObject: {fileID: 1370139450}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78c8444c28168f142ac4bb25740c0868, type: 3}
+--- !u!225 &872887280 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 294756715219304625, guid: 78c8444c28168f142ac4bb25740c0868, type: 3}
+  m_PrefabInstance: {fileID: 872887279}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &886621732
 GameObject:
   m_ObjectHideFlags: 0
@@ -8136,7 +8195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!225 &1124951046
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -8721,6 +8780,27 @@ MonoBehaviour:
   Manos: {fileID: 183136018}
   safePosition: {x: -0.573, y: -0.011, z: 1.17}
   holdTime: 2
+--- !u!65 &1227730615
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227730613}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.14433196, y: 0.2032, z: 0.03991419}
+  m_Center: {x: -0.067533925, y: 0.1016, z: 0.019957095}
 --- !u!1 &1237549749
 GameObject:
   m_ObjectHideFlags: 0
@@ -8778,7 +8858,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -8861,10 +8941,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.3865364, y: 0.3368014, z: 1.7092931}
+  m_Center: {x: 0.19326806, y: -0.2129367, z: -0.2207452}
 --- !u!23 &1237549756
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8924,7 +9004,7 @@ Transform:
   m_GameObject: {fileID: 1237549749}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9798, y: 0.9482, z: -0.184}
+  m_LocalPosition: {x: -0.9798, y: 0.9473, z: -0.1844}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11632,7 +11712,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 20, y: 56}
-  m_SizeDelta: {x: 1117.6993, y: 89}
+  m_SizeDelta: {x: 1300, y: 89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1850418454
 MonoBehaviour:
@@ -11654,9 +11734,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '2- Tapar el frasco
-
-'
+  m_text: "2- Cambia la temperatura con los botones \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
   m_sharedMaterial: {fileID: 3382691729065641351, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
@@ -12052,7 +12130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1955568235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12803,9 +12881,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '3- Prender el mechero
-
-'
+  m_text: "3- OBSERVA como cambia la presi\xF3n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
   m_sharedMaterial: {fileID: 3382691729065641351, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
@@ -13153,3 +13229,4 @@ SceneRoots:
   - {fileID: 236218187}
   - {fileID: 1124277094}
   - {fileID: 872887279}
+  - {fileID: 332679022}

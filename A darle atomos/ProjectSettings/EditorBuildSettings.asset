@@ -5,12 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Home1.unity
-    guid: 97b1bc662b4f9ba4b905d0f726fc3358
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Registro_alumno.unity
-    guid: 6367437cd81eb1c4fb68790744f44baf
   - enabled: 1
     path: Assets/Scenes/Menu Home/Login_alumno.unity
     guid: 8923bfbf08d6c3c45b8601640f704415
@@ -18,83 +12,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Laboratorio/Laboratorio_llama.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Menu Home/Experiencias_alumnos1.unity
-    guid: f7530c4bb0782344a823862455585c8c
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Perfil_estudiante.unity
-    guid: 56cfc871d5b3e1345a93d37e623a99fa
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Editar_alumno.unity
-    guid: 6080e7ec2a2b9a447bf6fbc2cb11cc13
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Cursos.unity
-    guid: 2bdf0d9d96a5dc145a4e7870b494fe0a
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Borrar_curso.unity
-    guid: fc8a19dc696fbcf45b3445a9d293483d
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Crear_cursos.unity
-    guid: ef0bacd805d09484bbb94c7f23b32562
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Asignar_curso.unity
-    guid: 12db39cc9fb6dba419c9592cd3f37147
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Agregar_estudiante.unity
-    guid: 5984d4d2eb223d049a53c7b30a4f94ee
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Editar_curso2.unity
-    guid: dc36429551ea90d41ab5be551e01713c
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Editor_cursos.unity
-    guid: 2a8552b8ac9d3c643b3be73d486b797b
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Eliminar_estudiante.unity
-    guid: f0af90c69c9e7754a94b018bec85a449
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Editar_curso.unity
-    guid: f3b8d1b279733f64f869baca4ba15083
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Post_login_profesor.unity
-    guid: ea90aefa6b95699498c6bee61284386c
-  - enabled: 1
     path: Assets/Scenes/Menu Home/Inicio.unity
     guid: 9605531277216154f8897040c7c5539e
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Home2.unity
-    guid: b875c80fde32d2f438ccc4db1114bbbc
-  - enabled: 1
-    path: Assets/Scenes/Menu Home/Experiencia_profesores1.unity
-    guid: 4aa25c2c13bf04341aa79b76412d0066
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Perfil_profesor.unity
-    guid: 928d9fdf289beec468caf3000c14e908
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Registro_profesor.unity
-    guid: 9d02aca55d9ae6548a933595e0f3a41e
   - enabled: 1
     path: Assets/Scenes/Menu Home/Login_profesor.unity
     guid: 8da1c8ca2b7263f47bc540b4ac7596db
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Editar_profe.unity
-    guid: 77c7f1149b1cbd24b89ec8e62643c554
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Borrar_estudiante.unity
-    guid: 5416928329c95724dbfde52b623ecfa3
   - enabled: 1
     path: Assets/Scenes/Actividad Template.unity
     guid: 3b4f7b536a2f1cf4699e56a4bd286fd9
   - enabled: 1
     path: Assets/Scenes/Moleculares/escena_bohr.unity
     guid: 2d9a1b20de4b17945ad8a56b00b4c748
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Mis_cursos.unity
-    guid: dd5f9fb2480f0214f8af17c0130fc086
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Mis_cursos2.unity
-    guid: 7e61cec509a77a148ad43f76668d17d5
-  - enabled: 0
-    path: Assets/Scenes/Menu Home/Borrar_profesor.unity
-    guid: 926b62931536d674588b428b17d66468
   - enabled: 1
     path: Assets/Scenes/Laboratorio/Laboratorio_Destilacion.unity
     guid: 15a3e6c305a44164b8fbaa0a858a7142
@@ -116,4 +44,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Laboratorio/Laboratorio_Olla.unity
     guid: 27b33d475fb0e8147b7aeb056d64fc3c
+  - enabled: 1
+    path: Assets/Scenes/Moleculares/destilacion.unity
+    guid: e03c943d4d0a0f145944e94564bad4cd
+  - enabled: 1
+    path: Assets/Scenes/Moleculares/ley_gases.unity
+    guid: 5b66de86173d63c41bb2b2803b78dee0
   m_configObjects: {}

@@ -81,7 +81,7 @@ public class BoilingBehaviour : MonoBehaviour
 
         // Configurar para la siguiente fase
         ethanolBoiled = true;
-        glass.maxTemperature = 100f;
+        glass.maxTemperature = 99.4f;
         distillationCtrl.maxVolume = 0.7f;
         LabCompleted = true;
 
