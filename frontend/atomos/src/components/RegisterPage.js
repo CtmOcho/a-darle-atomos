@@ -28,14 +28,15 @@ const RegisterPage = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
+          'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
         },
         body: "",
       });
-
+  
       if (!response.ok) {
         throw new Error('Creación inválida');
       }
-
+  
       if (response.status === 201) {
         console.log(`Usuario creado exitosamente, código: ${response.status}`);
         navigate('/login');
@@ -47,7 +48,7 @@ const RegisterPage = () => {
       console.error(err);
     }
   };
-
+  
   const tryCreateTeacher = async () => {
     const authenticationEndpointTeacher = `${config.backendUrl}/teacher`;
     const upperCaseUsername = username.toUpperCase();
@@ -57,14 +58,15 @@ const RegisterPage = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
+          'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
         },
         body: "",
       });
-
+  
       if (!response.ok) {
         throw new Error('Creación inválida');
       }
-
+  
       if (response.status === 201) {
         console.log('Profesor fue creado exitosamente');
         navigate('/login');
@@ -76,6 +78,7 @@ const RegisterPage = () => {
       console.error(err);
     }
   };
+  
 
   return (
     <div className="page-container">

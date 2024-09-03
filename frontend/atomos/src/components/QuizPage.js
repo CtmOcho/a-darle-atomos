@@ -212,6 +212,7 @@ const shuffleOptions = (question) => {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
         },
       });
 
@@ -221,12 +222,14 @@ const shuffleOptions = (question) => {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
         },
       });
     } catch (err) {
       console.error('Error al actualizar el quiz o progreso:', err);
     }
   };
+
 
   return (
     <div className="quiz-page-container page-container col-12">

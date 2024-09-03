@@ -211,22 +211,23 @@ const AdditionalContentPage = () => {
     const updateProgress = async () => {
       const quizIndex = Object.keys(additionalContent).indexOf(experimentName) + 1;
       const progressIndex = quizIndex * 5 - 3; // Calcula el índice para el 3er elemento del subgrupo
-
+  
       try {
         await fetch(`${config.backendUrl}/updateStudent/${user.username}/prog/${progressIndex+1}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
+            'ngrok-skip-browser-warning': 'true'  // Añadir este encabezado
           },
         });
       } catch (err) {
         console.error('Error al actualizar el progreso:', err);
       }
     };
-
+  
     updateProgress();
   }, [experimentName, user.username]); // Dependencias
-
+  
   return (
     <div className="additional-content-page-container col-12">
                     <nav className="navbar col-12">

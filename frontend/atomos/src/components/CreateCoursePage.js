@@ -19,6 +19,7 @@ const CreateCoursePage = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
         },
       });
 

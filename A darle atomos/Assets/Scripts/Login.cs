@@ -53,13 +53,27 @@ public void OnPutStudentProgress(int progressDetail)
 
 private IEnumerator TryLogin()
 {
-
     string flag = Flag;
     string username = usernameInputField.text.ToUpper();
     string password = passwordInputField.text;
-    string url = $"{authenticationEndpointLog}/{username}/{password}";
 
-    UnityWebRequest request = UnityWebRequest.Get(url);
+    // Crear el objeto JSON con las credenciales
+    LoginRequest loginRequest = new LoginRequest
+    {
+        user = username,
+        pass = password
+    };
+
+    string jsonData = JsonUtility.ToJson(loginRequest);
+    string url = $"{authenticationEndpointLog}";
+
+    UnityWebRequest request = new UnityWebRequest(url, "POST");
+    byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
+    request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+    request.downloadHandler = new DownloadHandlerBuffer();
+    request.SetRequestHeader("Content-Type", "application/json");
+    request.SetRequestHeader("ngrok-skip-browser-warning", "true");  // Añadir el encabezado aquí
+
     var handler = request.SendWebRequest();
 
     float startTime = 0.0f;
@@ -76,7 +90,6 @@ private IEnumerator TryLogin()
     long responseCode = request.responseCode;
     if (request.result == UnityWebRequest.Result.Success)
     {
-        //Debug.Log(responseCode);
         if (responseCode == 200)
         {
             string responseText = request.downloadHandler.text;
@@ -85,85 +98,73 @@ private IEnumerator TryLogin()
             SessionData.username = loginResponse.username;
             SessionData.progreso = loginResponse.progreso;
             SessionData.curso = new List<string>(loginResponse.curso);
-            //Debug.Log(SessionData.curso);// Convertir array a lista
             SessionData.type = loginResponse.type;
+
             if (loginResponse.type == "E")
             {   
                 Debug.Log($"Alumno {username} ingresó al sistema");
-
-
-                //Debug.Log($"{username}:{password}");
-
                 navigation = gameObject.AddComponent<Navigation>();
-
                 navigation.LoadScene("Experiencias_alumnos");
-
             }
             else
             {
-
-                //Debug.Log($"{username}:{password}");
-
-                Debug.Log("Profesor {username} ingresó al sistema");
-
+                Debug.Log($"Profesor {username} ingresó al sistema");
                 navigation = gameObject.AddComponent<Navigation>();
-
                 navigation.LoadScene("Experiencias_profesores");
-
             }
-
-
         }
-
-
-
+        else
+        {
+            Debug.Log($"Error: {responseCode} Al iniciar sesión");
+        }
     }
     else
     {
         Debug.Log($"Error: {responseCode} Al iniciar sesión");
     }
 
-    //Debug.Log($"{username}:{password}");
-
     yield return null;
 }
+
+// Clase para estructurar el JSON de la solicitud de login
+[System.Serializable]
+public class LoginRequest
+{
+    public string user;
+    public string pass;
+}
+
 
 private IEnumerator TryPutStudentProgress(int progressDetail)
 {
     string username = SessionData.username;
-    //Debug.Log(username);
-    //Debug.Log(progressDetail);
+
     // Paso 1: Obtener el valor del progreso en el índice específico
     string getUrl = $"{authenticationEndpointGetStudent}/{username}/prog/{progressDetail}";
-    //Debug.Log(getUrl);
     UnityWebRequest request = UnityWebRequest.Get(getUrl);
+    request.SetRequestHeader("ngrok-skip-browser-warning", "true");  // Añadir el encabezado aquí
 
     yield return request.SendWebRequest();
 
     if (request.result == UnityWebRequest.Result.Success)
     {
         string jsonResponse = request.downloadHandler.text;
-        //Debug.Log("Respuesta JSON recibida: " + jsonResponse);
 
         ProgressResponse response = JsonUtility.FromJson<ProgressResponse>(jsonResponse);
         int progressVal = response.progressValue;
-        //Debug.Log("Valor del progreso obtenido: " + progressVal);
 
         // Paso 2: Si el progreso en el índice es 0, actualizarlo a 1
         if (progressVal == 0)
         {
             string updateUrl = $"{authenticationEndpointUpdateStudent}/{username}/prog/{progressDetail}";
             byte[] body = System.Text.Encoding.UTF8.GetBytes("{}");
-            //Debug.Log("PUT URL para actualizar progreso: " + updateUrl);
 
             UnityWebRequest updateRequest = UnityWebRequest.Put(updateUrl, body);
             updateRequest.SetRequestHeader("Content-Type", "application/json");
-
-            //Debug.Log("Antes de enviar solicitud PUT...");
+            updateRequest.SetRequestHeader("ngrok-skip-browser-warning", "true");  // Añadir el encabezado aquí
 
             yield return updateRequest.SendWebRequest();
 
-            //Debug.Log("Después de enviar solicitud PUT...");
             if (updateRequest.result == UnityWebRequest.Result.Success)
             {
                 Debug.Log($"Progreso en el índice {progressDetail} actualizado a 1");
@@ -185,6 +186,8 @@ private IEnumerator TryPutStudentProgress(int progressDetail)
         Debug.LogError("Error al obtener el progreso: " + request.error);
     }
 }
+
+
 
 public class ProgressResponse
 {

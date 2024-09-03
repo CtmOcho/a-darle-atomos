@@ -12,7 +12,11 @@ const ProfilePage = () => {
   useEffect(() => {
     const getProgress = async () => {
       try {
-        const response = await fetch(`${config.backendUrl}/student/${user.username}/prog`);
+        const response = await fetch(`${config.backendUrl}/student/${user.username}/prog`, {
+          headers: {
+            'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
+          },
+        });
         if (response.ok) {
           const progressSum = await response.text(); // Cambiado de response.json() a response.text()
           setProgress(Number(progressSum)); // Convertir el texto recibido a número
@@ -23,9 +27,10 @@ const ProfilePage = () => {
         console.error('Error al conectarse con el servidor', error);
       }
     };
-
+  
     getProgress();
   }, [user.username]);
+  
 
   return (
     <div className="profile-page-container">

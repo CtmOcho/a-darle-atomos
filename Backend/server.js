@@ -3,9 +3,11 @@ const cors = require('cors');
 const keys = require('./config/keys.js');
 
 const app = express();
-app.use(cors({    origin: '*', // Reemplaza con tu URL de Ngrok
-methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-credentials: true})); 
+
+app.use(cors()); // Habilita CORS para todas las rutas
+
+app.options('*', cors()); // Maneja las solicitudes OPTIONS para todas las rutas
+
 //Setting Database
 const mongoose = require('mongoose');
 mongoose.connect( keys.mongoURI, {useNewUrlParser: true, useUnifiedTopology: true});

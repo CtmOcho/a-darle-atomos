@@ -16,7 +16,11 @@ useEffect(() => {
   const fetchCourses = async () => {
     const url = `${config.backendUrl}/curso/${user.username}`;
     try {
-      const response = await fetch(url);
+      const response = await fetch(url, {
+        headers: {
+          'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
+        },
+      });
       if (response.ok) {
         const data = await response.json();
         setCourses(data);
@@ -37,6 +41,9 @@ const handleDeleteCourse = async (e) => {
   try {
     const response = await fetch(url, {
       method: 'DELETE',
+      headers: {
+        'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
+      },
     });
 
     if (response.ok) {
@@ -52,6 +59,7 @@ const handleDeleteCourse = async (e) => {
     setError('Error al eliminar el curso');
   }
 };
+
 
 return (
   <div className="page-container">

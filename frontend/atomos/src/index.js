@@ -4,16 +4,33 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import config from './config/config';
 
+// Función para leer el archivo de texto y actualizar el config
+async function fetchConfigAndRenderApp() {
+  try {
+    const response = await fetch(`${process.env.PUBLIC_URL}/config.txt`);
+    const text = await response.text();
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+    // Actualiza el valor de backendUrl en config
+    config.backendUrl = text.trim();
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+    // Renderiza la aplicación después de actualizar el config
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+  } catch (error) {
+    console.error('Error leyendo el archivo de configuración:', error);
+  }
+}
+
+// Llama a la función para leer el archivo y renderizar la app
+fetchConfigAndRenderApp();
+
+// Si quieres medir el rendimiento en tu aplicación, pasa una función
+// para registrar los resultados (por ejemplo: reportWebVitals(console.log))
+// o envíalos a un endpoint de análisis. Aprende más: https://bit.ly/CRA-vitals
 reportWebVitals();

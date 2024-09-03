@@ -9,33 +9,38 @@ const Quiz = mongoose.model('adarleatomosTests');
 
 module.exports = app => {
 
-
-app.get('/login/:user/:pass', async(req,res) =>{
-    const user = req.params.user;
-    const pass = req.params.pass;
+    app.post('/login', async(req, res) => {
+        const { user, pass } = req.body; // Obtener usuario y contraseña del cuerpo de la solicitud
     
-    if (user == null || pass == null){
-        res.status('409').send('Credenciales invalidas');
-        return;
-    }
-
-    var userAccount = await Account.findOne({username: user});
-    
-    if (userAccount == null){
-        res.status('404').send('Credenciales invalidas');;//Credenciales invalidas
-        return;
-    }else{
-        if (pass == userAccount.password){
-            res.status(200).send(userAccount);
-            userAccount.lastAuth = Date.now();
-            await userAccount.save();
-            return;
-        }else{
-            res.status('404').send('Credenciales invalidas');;//Credenciales invalidas
+        if (user == null || pass == null){
+            res.status(409).send('Credenciales inválidas');
             return;
         }
-    }
-});
+    
+        try {
+            var userAccount = await Account.findOne({username: user});
+            
+            if (userAccount == null){
+                res.status(404).send('Credenciales inválidas');
+                return;
+            } else {
+                if (pass === userAccount.password) {
+                    res.status(200).send(userAccount);
+                    userAccount.lastAuth = Date.now();
+                    await userAccount.save();
+                    return;
+                } else {
+                    res.status(404).send('Credenciales inválidas');
+                    return;
+                }
+            }
+        } catch (err) {
+            console.error('Error en el proceso de login:', err);
+            res.status(500).send('Error interno del servidor');
+        }
+    });
+
+    
 
 app.post('/teacher/:user/:pass', async(req, res) => {
     const user = req.params.user;

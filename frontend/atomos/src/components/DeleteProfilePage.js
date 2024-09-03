@@ -23,6 +23,7 @@ const DeleteProfilePage = () => {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
         },
       });
 
@@ -39,6 +40,7 @@ const DeleteProfilePage = () => {
       console.error(err);
     }
   };
+
 
   return (
     <div className="delete-profile-container col-12">

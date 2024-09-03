@@ -123,7 +123,11 @@ useEffect(() => {
   // Llamar al backend para verificar el progreso del estudiante
   const checkPreQuizCompletion = async () => {
     try {
-      const response = await fetch(`${config.backendUrl}/getStudent/${user.username}/prog/${progressIndex + 1}`); // progressIndex + 1 porque los índices de la API parecen ser 1-based
+      const response = await fetch(`${config.backendUrl}/getStudent/${user.username}/prog/${progressIndex + 1}`, {
+        headers: {
+          'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
+        },
+      });
       const data = await response.json();
       if (data.progressValue === 1) {
         setPreQuizCompleted(true);
@@ -132,6 +136,7 @@ useEffect(() => {
       console.error('Error al verificar el progreso:', err);
     }
   };
+
 
   checkPreQuizCompletion();
 }, [experimentName, user.username, progressIndex]);

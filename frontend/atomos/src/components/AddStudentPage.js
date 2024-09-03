@@ -9,12 +9,15 @@ const AddStudentPage = () => {
   const [students, setStudents] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState('');
   const [error, setError] = useState(null);
-
   useEffect(() => {
     const fetchStudents = async () => {
       const url = `${config.backendUrl}/students/not-in-course/${courseName}`;
       try {
-        const response = await fetch(url);
+        const response = await fetch(url, {
+          headers: {
+            'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
+          },
+        });
         if (response.ok) {
           const data = await response.json();
           setStudents(data);
@@ -25,10 +28,10 @@ const AddStudentPage = () => {
         setError('Error al conectar con el servidor');
       }
     };
-
+  
     fetchStudents();
   }, [courseName]);
-
+  
   const handleAddStudent = async (e) => {
     e.preventDefault();
     const url = `${config.backendUrl}/updateCurso/${courseName}/insertStudents`;
@@ -37,10 +40,11 @@ const AddStudentPage = () => {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
         },
         body: JSON.stringify({ students: [selectedStudent] }),
       });
-
+  
       if (response.ok) {
         console.log('Estudiante agregado con éxito');
         navigate('/modify-course');
@@ -54,7 +58,7 @@ const AddStudentPage = () => {
       setError('Error al agregar el estudiante');
     }
   };
-
+  
   return (
     <div className="page-container">
           <nav className="navbar col-12">

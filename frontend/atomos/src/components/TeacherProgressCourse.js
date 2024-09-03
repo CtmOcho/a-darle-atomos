@@ -12,22 +12,27 @@ const TeacherProgressCourse = () => {
 
   useEffect(() => {
     const fetchStudents = async () => {
-        const url = `${config.backendUrl}/students/in-course/${courseName}`;
-        try {
-          const response = await fetch(url);
-          if (response.ok) {
-            const data = await response.json();
-            setStudents(data);
-          } else {
-            setError('Error al obtener los estudiantes');
-          }
-        } catch (error) {
-          setError('Error al conectar con el servidor');
+      const url = `${config.backendUrl}/students/in-course/${courseName}`;
+      try {
+        const response = await fetch(url, {
+          headers: {
+            'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
+          },
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setStudents(data);
+        } else {
+          setError('Error al obtener los estudiantes');
         }
-      };
+      } catch (error) {
+        setError('Error al conectar con el servidor');
+      }
+    };
   
-      fetchStudents();
-    }, [courseName]);
+    fetchStudents();
+  }, [courseName]);
+  
 
     const handleSelecStudent = () => {
         navigate(`/progress-detail/${selectedStudent}`);

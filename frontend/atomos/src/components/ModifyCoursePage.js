@@ -18,7 +18,11 @@ const ModifyCoursePage = () => {
     const fetchCourses = async () => {
       const url = `${config.backendUrl}/curso/${user.username}`;
       try {
-        const response = await fetch(url);
+        const response = await fetch(url, {
+          headers: {
+            'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
+          },
+        });
         if (response.ok) {
           const data = await response.json();
           setCourses(data);
@@ -29,10 +33,10 @@ const ModifyCoursePage = () => {
         setError('Error al conectar con el servidor');
       }
     };
-
+  
     fetchCourses();
   }, [user.username]);
-
+  
   const handleAddStudent = () => {
     navigate(`/add-student/${selectedCourse}`);
   };

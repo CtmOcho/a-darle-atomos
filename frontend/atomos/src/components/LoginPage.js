@@ -4,7 +4,6 @@ import { UserContext } from '../context/UserContext';
 import './LoginPage.css';
 
 import config from '../config/config';
-//${config.backendUrl} -> reemplazar ht tp://localhost:13756/ por esto!!!
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
@@ -17,14 +16,18 @@ const LoginPage = () => {
     e.preventDefault();
     const authenticationEndpointLog = `${config.backendUrl}/login`;
     const upperCaseUsername = username.toUpperCase();
-    const url = `${authenticationEndpointLog}/${upperCaseUsername}/${password}`;
 
     try {
-      const response = await fetch(url, {
-        method: 'GET',
+      const response = await fetch(authenticationEndpointLog, {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
         },
+        body: JSON.stringify({
+          user: upperCaseUsername,
+          pass: password,
+        }),
       });
 
       if (!response.ok) {
@@ -36,11 +39,10 @@ const LoginPage = () => {
 
       // Aquí puedes manejar la respuesta del login y navegar a la página adecuada
       if (data.type === 'E') {
-        console.log(`${upperCaseUsername}:${password}`);
+        console.log(`Alumno ${upperCaseUsername} al sistema`);
         navigate('/dashboard'); // Redirigir a la página de dashboard para alumnos
       } else {
-        console.log(`${upperCaseUsername}:${password}`);
-        console.log('Profesor ingresó al sistema');
+        console.log(`Profesor ${upperCaseUsername} al sistema`);
         navigate('/dashboard'); // Redirigir a la página post login para profesores
       }
     } catch (err) {
@@ -86,7 +88,6 @@ const LoginPage = () => {
       </div>
     </div>
   );
-  
 };
 
 export default LoginPage;

@@ -25,6 +25,7 @@ const EditProfilePage = () => {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
+          'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
         },
         body: JSON.stringify(updateData),
       });
@@ -44,6 +45,7 @@ const EditProfilePage = () => {
       console.error(err);
     }
   };
+
 
   return (
     <div className="edit-profile-container col-12">

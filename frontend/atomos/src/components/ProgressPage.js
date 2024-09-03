@@ -23,7 +23,11 @@ const ProgressPage = () => {
     const fetchProgressDetails = async () => {
       try {
         // Realiza la solicitud GET al nuevo endpoint
-        const response = await fetch(`${config.backendUrl}/getProgressData/${username}`);
+        const response = await fetch(`${config.backendUrl}/getProgressData/${username}`, {
+          headers: {
+            'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
+          },
+        });
         
         if (response.ok) {
           const data = await response.json();
@@ -45,7 +49,7 @@ const ProgressPage = () => {
   
     fetchProgressDetails();
   }, [username]);
-
+  
   const renderProgressRow = (experimentIndex) => {
     const startIndex = experimentIndex * 5;
     return (

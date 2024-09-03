@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../media/logo.png'; // Asegúrate de que la ruta sea correcta
 import './HomePage.css';
-import config from '../config/config';
+//import config from '../config/config';
 import { CSSTransition } from 'react-transition-group';
 
 const HomePage = () => {
