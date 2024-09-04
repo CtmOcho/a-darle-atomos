@@ -578,26 +578,27 @@ def select_frames(prefix):
         if img_c0 is None or img_c1 is None:
             print(f"Error reading images {frame_c0} or {frame_c1}")
             continue
+
         # Redimensionar las imágenes al mismo tamaño
         height, width = img_c0.shape[:2]
         img_c1 = cv.resize(img_c1, (width, height))
-        combined_img = cv.hconcat([img_c0, img_c1])
-        cv.imshow('Frames', combined_img)
+
+        # Mostrar cada imagen en una ventana separada
+        cv.imshow('Frame C0', img_c0)
+        cv.imshow('Frame C1', img_c1)
         
         key = cv.waitKey(0)
 
-        if key == 32:  # SPACE key
-            #print((frame_c0, frame_c1))
+        if key == 32:  # Tecla SPACE
             selected_frames.append((frame_c0, frame_c1))
             break
-        elif key == 27:  # ESC key
+        elif key == 27:  # Tecla ESC
             cv.destroyAllWindows()
             sys.exit()
-        elif key == ord('s'):  # 's' key
+        elif key == ord('s'):  # Tecla 's'
             continue
-        
+
     cv.destroyAllWindows()
-    #print(selected_frames[0][0], selected_frames[0][1])
     return selected_frames[0][0], selected_frames[0][1]
     
 if __name__ == '__main__':
