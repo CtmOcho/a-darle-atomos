@@ -9,8 +9,7 @@ public class PlusVolumeButton : MonoBehaviour
     private float timer = 0.0f;
     private bool isTouching = false;
     public bool positive;
-    public bool buttonPressedPlus = false;
-    public bool buttonPressedMinus = false;
+
 
 
     // Start is called before the first frame update
@@ -49,13 +48,11 @@ public class PlusVolumeButton : MonoBehaviour
                 {
                     particleBehaviour.AddParticle();
                     particleBehaviour.pressureOffset -= 10;
-                    buttonPressedPlus = true;
                 }
                 else
                 {
                     particleBehaviour.RemoveParticle();
                     particleBehaviour.pressureOffset += 10;
-                    buttonPressedMinus = true;
                 }
                 yield return new WaitForSeconds(1);
             }
