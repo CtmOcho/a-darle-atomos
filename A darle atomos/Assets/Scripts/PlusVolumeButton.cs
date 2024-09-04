@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class NewBehaviourScript : MonoBehaviour
+public class PlusVolumeButton : MonoBehaviour
 {
     public ParticleBehaviour particleBehaviour;
     public float holdTime = 2.0f; // Tiempo en segundos para activar el menú
@@ -48,12 +47,14 @@ public class NewBehaviourScript : MonoBehaviour
             {
                 if (positive)
                 {
-                    particleBehaviour.value += 0.05f;
+                    particleBehaviour.AddParticle();
+                    particleBehaviour.pressureOffset -= 10;
                     buttonPressedPlus = true;
                 }
                 else
                 {
-                    particleBehaviour.value -= 0.05f;
+                    particleBehaviour.RemoveParticle();
+                    particleBehaviour.pressureOffset += 10;
                     buttonPressedMinus = true;
                 }
                 yield return new WaitForSeconds(1);
@@ -62,6 +63,4 @@ public class NewBehaviourScript : MonoBehaviour
             yield return new WaitForUpdate();
         }
     }
-
-
 }
