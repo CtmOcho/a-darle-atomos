@@ -8,7 +8,6 @@ namespace Navigation1
 {
     public class Navigation : MonoBehaviour
     {
-        public GameObject cam;
 
         public void LoadScene(string sceneName)
         {
@@ -27,13 +26,21 @@ namespace Navigation1
 
         public void BackFromLab()
         {
+            // Verificar si el tiempo está pausado y reanudarlo si es necesario
+            if (Time.timeScale == 0f)
+            {
+                Time.timeScale = 1f; // Reanudar el tiempo
+                Debug.Log("Tiempo reanudado.");
+            }
+
+            // Verificar si es alumno o profesor y cargar la escena correspondiente
             if (SessionData.type == "E")
             {
                 SceneManager.LoadScene("Experiencias_alumnos");
             }
             else
             {
-                SceneManager.LoadScene("Experiencias_profesores");
+                SceneManager.LoadScene("Experiencia_profesores");
             }
         }
 

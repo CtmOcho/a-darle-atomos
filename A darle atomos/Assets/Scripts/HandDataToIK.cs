@@ -1,6 +1,5 @@
 using UnityEngine;
 using System;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 using UnityEngine.Rendering;
 using System.Collections;
 

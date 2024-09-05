@@ -14,9 +14,12 @@ public class LoadingScene : MonoBehaviour
     public float delayAfterLoad = 1f; // Tiempo de espera adicional después de que la barra se llena
     public float fillSpeed = 0.5f; // Velocidad de llenado
 
-
+    // Método para iniciar la carga de una escena
     public void LoadScene(string sceneName)
     {
+        // Reiniciar la barra de progreso al 0 cada vez que se carga una nueva escena
+        LoadingBarFill.fillAmount = 0f;
+
         // Ocultar los paneles de cursos, la barra de navegación y el panel base antes de cargar la escena
         foreach (var panel in coursePanels)
         {
@@ -29,6 +32,7 @@ public class LoadingScene : MonoBehaviour
         StartCoroutine(LoadSceneAsync(sceneName));
     }
 
+    // Corrutina que maneja la carga asíncrona de la escena
     IEnumerator LoadSceneAsync(string sceneName)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
@@ -46,15 +50,14 @@ public class LoadingScene : MonoBehaviour
                 // Esperar un poco antes de activar la escena
                 yield return new WaitForSeconds(delayAfterLoad);
 
-                // Iniciar el fade ou
-
                 // Activar la escena
                 operation.allowSceneActivation = true;
             }
 
             yield return null;
         }
+
+        // Reiniciar la barra de progreso y ocultar la pantalla de carga cuando se complete
+        LoadingScreen.SetActive(false);
     }
-
-
 }

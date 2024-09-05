@@ -443,7 +443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!225 &38386192
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -591,6 +591,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6572988980905044951, guid: 240de60616c95b74ca2a20ddb0d3f824, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0099
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572988980905044951, guid: 240de60616c95b74ca2a20ddb0d3f824, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -0.0099
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572988980905044951, guid: 240de60616c95b74ca2a20ddb0d3f824, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0099
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572988980905044951, guid: 240de60616c95b74ca2a20ddb0d3f824, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.453
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572988980905044951, guid: 240de60616c95b74ca2a20ddb0d3f824, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.051
+      objectReference: {fileID: 0}
+    - target: {fileID: 6572988980905044951, guid: 240de60616c95b74ca2a20ddb0d3f824, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6743343065880071190, guid: 240de60616c95b74ca2a20ddb0d3f824, type: 3}
       propertyPath: leftHand
       value: 
@@ -720,7 +744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980cb3f0314792f4c90af34097f5cd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
 --- !u!114 &77919036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1787,7 +1810,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232945441}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3324,7 +3347,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306089268}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4820,6 +4843,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 38386192}
   camara: {fileID: 0}
   fadeDuration: 2
+  canvasGroupDistilation: {fileID: 0}
 --- !u!4 &518798198
 Transform:
   m_ObjectHideFlags: 0
@@ -6393,7 +6417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980cb3f0314792f4c90af34097f5cd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
 --- !u!1 &985324749
 GameObject:
   m_ObjectHideFlags: 0
@@ -9067,7 +9090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980cb3f0314792f4c90af34097f5cd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
 --- !u!114 &1468046281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11746,7 +11768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980cb3f0314792f4c90af34097f5cd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 963194225}
 --- !u!224 &1179475442312940221
 RectTransform:
   m_ObjectHideFlags: 0

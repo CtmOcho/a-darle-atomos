@@ -4,7 +4,7 @@ using System.Linq;
 using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Internal;
+//using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class ParticleBehaviour : MonoBehaviour

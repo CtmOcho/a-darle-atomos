@@ -466,7 +466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3023763316995588332, guid: 240de60616c95b74ca2a20ddb0d3f824, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.004
+      value: -0.035
       objectReference: {fileID: 0}
     - target: {fileID: 3023763316995588332, guid: 240de60616c95b74ca2a20ddb0d3f824, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2659,18 +2659,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1955568235}
-        m_TargetAssemblyTypeName: Navigation1.Navigation, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
 --- !u!1 &333752090
 GameObject:
   m_ObjectHideFlags: 0
@@ -4533,7 +4521,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677427400}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5723,7 +5711,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980cb3f0314792f4c90af34097f5cd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
 --- !u!114 &956411131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6866,6 +6853,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 1124951046}
   camara: {fileID: 1000796454}
   fadeDuration: 3
+  canvasGroupDistilation: {fileID: 0}
 --- !u!4 &1066306855
 Transform:
   m_ObjectHideFlags: 0
@@ -7736,7 +7724,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237549749}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -7991,7 +7979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980cb3f0314792f4c90af34097f5cd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
 --- !u!114 &1309021365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10497,7 +10484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980cb3f0314792f4c90af34097f5cd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
 --- !u!114 &1955568236
 MonoBehaviour:
   m_ObjectHideFlags: 0

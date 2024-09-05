@@ -26,7 +26,6 @@ public class PauseMenuTrigger : MonoBehaviour
         {
             // Aquí no se reinicia el estado, se espera que esto se haga en el método ResumeGame
             isTouching = false;
-            StopAllCoroutines(); // Asegura que no haya corrutinas activas
         }
     }
 
@@ -34,7 +33,8 @@ public class PauseMenuTrigger : MonoBehaviour
     {
         while (isTouching)
         {
-            timer += Time.deltaTime;
+            // Usamos Time.unscaledDeltaTime para asegurarnos de que la corrutina funcione incluso cuando Time.timeScale es 0
+            timer += Time.unscaledDeltaTime;
 
             if (timer >= holdTime)
             {
