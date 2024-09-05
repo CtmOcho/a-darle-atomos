@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 import './DashboardPage.css';
 import profileImage from '../media/perfil.png';
-import Modal from './Modal'; // Importa un componente Modal que crearemos
+import Modal from './Modal'; 
 import image1 from '../media/dest-1.png';
 import image2 from '../media/sublimacion-1.png';
 import image3 from '../media/Heisenberg.png';
@@ -67,6 +67,7 @@ const DashboardPage = () => {
   const handleItemClick = (experimentTitle) => {
     navigate(`/experiment/${experimentTitle}`);
   };
+
   return (
     <div className="dashboard-container">
       <nav className="navbar col-12">
@@ -89,6 +90,12 @@ const DashboardPage = () => {
             <div className='align-content-center mx-4 display-6'>{user.username}</div>
             <div className="dropdown-content">
               <button onClick={() => navigate('/profile')}>Mi Perfil</button>
+              {user.type === 'P' && (
+                <>
+                  <button onClick={() => navigate('/edit-courses')}>Gestor de Cursos</button>
+                  <button onClick={() => navigate('/check-progress')}>Ver Progresos</button>
+                </>
+              )}
               <button onClick={() => {
                 setUser(null);
                 navigate('/');
@@ -118,7 +125,6 @@ const DashboardPage = () => {
       )}
     </div>
   );
-  
 };
 
 export default DashboardPage;
