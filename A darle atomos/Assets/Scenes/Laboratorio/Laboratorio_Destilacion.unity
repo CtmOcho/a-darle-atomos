@@ -662,15 +662,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6572988980905044951, guid: 240de60616c95b74ca2a20ddb0d3f824, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.453
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6572988980905044951, guid: 240de60616c95b74ca2a20ddb0d3f824, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.051
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6572988980905044951, guid: 240de60616c95b74ca2a20ddb0d3f824, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: -1.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1026,7 +1026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1955568234}
   Manos: {fileID: 183136018}
-  safePosition: {x: -0.573, y: -0.011, z: 1.17}
+  safePosition: {x: -0.5883875, y: 0.216, z: 1.259}
   holdTime: 2
 --- !u!1 &102719357
 GameObject:
