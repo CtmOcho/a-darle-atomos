@@ -10,26 +10,13 @@ public class Glass : MonoBehaviour
     public float temperature;
     public float maxTemperature = 114f;
     public float minTemperature = 20f;
-    private float tempStep;
+    public float tempStep;
     public List<GameObject> contents;
     public bool isHot;
     public flame flame;
     public bool distilationLab =false;
     public bool yodoLab = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {   
-        if(distilationLab){
-            tempStep = 0.055f;
-        }
-        else if(yodoLab){
-            tempStep = 0.085f;
-        }
-        else{
-            tempStep = 0.01f;
-        }
-    }
 
     // Update is called once per frame
     void Update()
