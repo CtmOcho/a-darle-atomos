@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b4f68282334fd6e4f8c2243f381dc548
+guid: 74597d234ab73ef489889bcd3cd8bcc9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,12 +8,32 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Glass
-    second: {fileID: 2100000, guid: 5e215c9b2d957af4a831a443d5d31a23, type: 2}
+    second: {fileID: 2100000, guid: c2c5b7339c971884a996610ec0027b48, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.005
-    second: {fileID: 2100000, guid: 657829fed5143bc44a84c091548ed528, type: 2}
+      name: Lab furniture black
+    second: {fileID: 2100000, guid: 41bfb51516b92854d8cf5aec4f50f18e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lab furniture blue
+    second: {fileID: 2100000, guid: 8d8d86dfb7a53df4ca430e823245a7ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lab furniture white
+    second: {fileID: 2100000, guid: 2848e14053d792949a76e3c84ca64660, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scale aluminum
+    second: {fileID: 2100000, guid: 13845fae6f8956d4b959f5d8ce04a34a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plastic
+    second: {fileID: 2100000, guid: 78156fb6c9ca1d749a0d4adfe1bb3968, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -111,7 +131,7 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  importBlendShapeDeformPercent: 1
+  importBlendShapeDeformPercent: 0
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
