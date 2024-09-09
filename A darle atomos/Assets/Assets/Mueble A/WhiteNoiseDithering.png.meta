@@ -19,7 +19,7 @@ TextureImporter:
     convertToNormalMap: 1
     externalNormalMap: 0
     heightScale: 0.25
-    normalMapFilter: 0
+    normalMapFilter: 1
     flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
