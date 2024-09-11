@@ -109,10 +109,22 @@ body, html {
   background-color: #AED18D;
 }
 
-.section h1, .section h2, .section h3 {
+.section h1 {
   margin: 10px 0;
   color: #764652;
-  font-size: 3rem;
+  font-size: 4rem;
+}
+
+.section h2 {
+  margin: 10px 0;
+  color: #764652;
+  font-size: 2rem;
+}
+
+.section h3 {
+  margin: 10px 0;
+  color: #764652;
+  font-size: 1rem;
 }
 
 .section p {
