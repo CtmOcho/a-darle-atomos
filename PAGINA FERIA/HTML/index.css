@@ -5,17 +5,15 @@ body, html {
   scroll-behavior: smooth;
 }
 
-.App {
-  scroll-snap-type: y mandatory;
-}
 
 
 /* Estilos de la Navbar */
 .navbar {
   display: flex;
+  color: #000000;
   justify-content: space-between;
   align-items: center;
-  background-color: #DCDBD7;
+  background-color: #74A29F;
   padding: 0 50px;
   height: 80px;
   position: fixed;
@@ -50,27 +48,20 @@ body, html {
 }
 
 .navbar-links a {
-  color: #936570;
+  color: #000000;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.5rem;
   padding: 10px 15px;
+  
 }
 
 .navbar-links a:hover {
-  color: #764652;
+  color: #dddddd;
 }
 
 /* Sección 1: Texto a la izquierda, imagen a la derecha */
-.section-1 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 50px;
-  background-color: #74A29F;
-  color: white;
-  height: 100vh;
-}
+
 
 .image-content {
   flex: 1;
@@ -97,16 +88,37 @@ body, html {
   padding-top: 80px; /* Ajustado para coincidir con la altura de la navbar */
 }
 
+/* Sección 1: Fondo con gradiente */
+.section-1 {
+  background: linear-gradient(to bottom, #D29EAA, #E7D691); /* Degradado de la sección 1 a la sección 2 */
+  color: white;
+}
+
+/* Sección 2: Fondo con gradiente */
 .section-2 {
-  background-color: #74A29F;
+  background: linear-gradient(to bottom, #E7D691, #AED18D); /* Degradado de la sección 2 a la sección 3 */
 }
 
+/* Sección 3: Fondo con gradiente */
 .section-3 {
-  background-color: #D29EAA;
+  background: linear-gradient(to bottom, #AED18D, #DCDBD7); /* Degradado de la sección 3 a la sección 4 */
 }
 
+/* Sección 4: Color sólido al final */
 .section-4 {
-  background-color: #AED18D;
+  background-color: #DCDBD7; /* Última sección sin degradado hacia abajo */
+}
+
+/* Estilos comunes para los textos */
+.section h1 {
+  margin: 10px 0;
+  color: #764652;
+  font-size: 4rem;
+}
+
+.section p {
+  max-width: 600px;
+  color: white;
 }
 
 .section h1 {
@@ -174,12 +186,6 @@ footer {
     padding: 8px 10px;
   }
 
-  /* Sección 1 responsiva: Alinea en columnas en pantallas pequeñas */
-  .section-1 {
-    flex-direction: column;
-    padding: 20px;
-    text-align: center;
-  }
 
   .content {
     max-width: 100%;
