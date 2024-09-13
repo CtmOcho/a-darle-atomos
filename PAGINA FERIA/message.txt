@@ -1,0 +1,300 @@
+import * as React from "react";
+import ResponsiveAppBar from "../ResponsiveAppBar";
+import { useEffect, useState } from "react";
+import {
+  Grid,
+  Typography,
+  Box,
+  Container,
+  Link,
+  Button,
+  Stack,
+  Card,
+  Paper,
+  Divider,
+} from "@mui/material";
+import Footer from "../Footer";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import { useNavigate } from "react-router-dom";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import ReactGA from "react-ga4";
+
+export default function Home() {
+  const [user, setUser] = useState(null);
+  const [loged, setLoged] = useState(false);
+  const navigate = useNavigate();
+
+  let isSmallScreen = useMediaQuery("(max-width:640px)");
+
+  useEffect(() => {
+    const link = window.location.hash.split("#")[1];
+    const title = "Home";
+    ReactGA.send({ hitType: "pageview", page: link, title });
+  }, []);
+
+  return (
+    <>
+      <ResponsiveAppBar />
+      <div
+        style={{
+          backgroundColor: "#FAECDD",
+        }}
+      >
+        <Container maxWidth={"xl"}>
+          <Grid container justifyContent="center" alignItems="center">
+            <Grid item xs={12}>
+              <Grid
+                container
+                justifyContent="center"
+                alignItems="center"
+                spacing={5}
+              >
+                <Grid
+                  container
+                  item
+                  md={6}
+                  justifyContent="center" // Center horizontally within the container
+                  alignItems="center" // Center vertically within the container
+                  marginTop="2%"
+                  marginBottom="5%"
+                >
+                  <Grid
+                    container
+                    item
+                    md={12}
+                    height={isSmallScreen ? "5vh" : "30vh"}
+                    justifyContent="center"
+                    alignItems="center" // Center vertically within this nested container
+                    textAlign="center"
+                  >
+                    <Grid item md={12}>
+                      <Typography
+                        variant="h1"
+                        align="center"
+                        sx={{ fontWeight: "bold" }}
+                        color={"secondary"}
+                        fontSize={isSmallScreen ? "3rem" : "140"}
+                      >
+                        Carpinch.io
+                      </Typography>
+                      <Typography
+                        variant={isSmallScreen ? "h6" : "h4"}
+                        align="left"
+                        color={"secondary"}
+                      >
+                        Juego de ciberseguridad cooperativo
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                {isSmallScreen ? <Grid item md={1} /> : null}
+                <Grid item md={5}>
+                  <img
+                    src="./capyTransparente.png"
+                    alt="Carpinch.io"
+                    width={isSmallScreen ? "360" : "640"}
+                    height={isSmallScreen ? "303" : "360"}
+                  />
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Container>
+      </div>
+      <Container maxWidth={"xl"}>
+        <Grid container justifyContent="center" alignItems="center">
+          <Grid item xs={12}>
+            <Grid
+              container
+              justifyContent="center"
+              alignItems="center"
+              spacing={5}
+            >
+              <Grid
+                item
+                md={5}
+                alignContent={"center"}
+                marginTop={"2%"}
+                marginBottom={"5%"}
+              >
+                <Grid item md={12}>
+                  <Typography
+                    variant="h2"
+                    align="justify"
+                    marginBottom={5}
+                    textAlign={"center"}
+                  >
+                    ¿Qué es Carpinch.io?
+                  </Typography>
+                  <Typography variant="body1" align="justify">
+                    <Box component="span" fontWeight="fontWeightBold">
+                      Carpinch.io es el nuevo juego cooperativo para
+                      dispositivos móviles y computadores, que te permitirá
+                      aprender sobre ciberseguridad de una manera divertida y
+                      competitiva.
+                    </Box>
+                    <br />
+                    <br />
+                    <Box component="span" fontWeight="fontWeightBold">
+                      El juego consiste en responder preguntas sobre
+                      ciberseguridad junto a tus compañeros de equipo
+                    </Box>
+                    , mientras consigues bonificaciones para tu equipo y
+                    penalizas a los demás equipos para ganar la partida.
+                    <br />
+                    <br />
+                    <Box component="span" fontWeight="fontWeightBold">
+                      ¿Que esperas para probarlo? ¡Es gratis! <br />
+                      <br />
+                      Ahora Disponible para Android y Windows.
+                    </Box>
+                  </Typography>
+                </Grid>
+                <Grid
+                  item
+                  md={12}
+                  alignContent={"center"}
+                  justifyContent={"center"}
+                  textAlign={"center"}
+                  marginTop={4}
+                >
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    sx={{ alignContent: "center", justifyContent: "center" }}
+                    onClick={(e) =>
+                      window.open(
+                        "https://drive.google.com/drive/folders/1goFeIhFX0PmZI1_OFO_iQX10S47FPj8c?usp=sharing"
+                      )
+                    }
+                  >
+                    Descargar gratis
+                  </Button>
+                </Grid>
+                <Grid
+                  item
+                  md={12}
+                  alignContent={"center"}
+                  justifyContent={"center"}
+                  textAlign={"center"}
+                  marginTop={4}
+                >
+                  <Typography variant="text" align="center">
+                    <Box component="span" fontWeight="fontWeightMedium">
+                      Conoce nuestras redes sociales
+                    </Box>
+                  </Typography>
+                </Grid>
+                <Grid
+                  item
+                  md={12}
+                  alignContent={"center"}
+                  justifyContent={"center"}
+                  textAlign={"center"}
+                  marginTop={1}
+                  sx={{ display: "flex", justifyContent: "center" }}
+                >
+                  <Stack direction="row" alignItems="center" spacing={4}>
+                    <Button href="https://www.instagram.com/carpinch.io/">
+                      <InstagramIcon
+                        fontSize="large"
+                        sx={{ color: "#E1306C" }}
+                      />
+                    </Button>
+                    <Button href="https://www.facebook.com/profile.php?id=61550065261276&mibextid=ZbWKwL">
+                      <FacebookIcon
+                        fontSize="large"
+                        sx={{ color: "#3B5998" }}
+                      />
+                    </Button>
+                  </Stack>
+                </Grid>
+              </Grid>
+              <Grid item md={1} />
+              <Grid item md={5}>
+                <iframe
+                  width={isSmallScreen ? "360" : "640"}
+                  height={isSmallScreen ? "303" : "360"}
+                  src="https://www.youtube-nocookie.com/embed/7KGxKR8vXzg"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Container>
+      <div
+        style={{
+          backgroundColor: "#FAECDD",
+        }}
+      >
+        <Container maxWidth={"xl"}>
+          <Grid container justifyContent="center" alignItems="center">
+            <Grid item md={12}>
+              <Typography
+                variant="h2"
+                align="center"
+                marginTop={"2%"}
+                sx={{ fontWeight: "bold" }}
+              >
+                Noticias
+              </Typography>
+            </Grid>
+            <Grid item md={12}>
+              <Divider
+                sx={{ mx: "auto", width: isSmallScreen ? "20em" : "40em" }}
+              />
+            </Grid>
+            <Grid item md={12}>
+              <Typography
+                variant="body1"
+                align="center"
+                marginTop={"2%"}
+                sx={{ fontWeight: "bold" }}
+              >
+                Ultimas noticias sobre capytech
+              </Typography>
+            </Grid>
+            <Grid
+              container
+              alignContent={"center"}
+              justifyContent="center"
+              alignItems="center"
+              marginTop={"2%"}
+              marginBottom={"5%"}
+              spacing={2}
+            >
+              <Grid item>
+                <iframe
+                  src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61550065261276%26mibextid%3DZbWKwL&tabs=timeline&width=360&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                  width="360"
+                  height="500"
+                  frameborder="0"
+                  allowfullscreen="true"
+                ></iframe>
+              </Grid>
+              {!isSmallScreen ? <Grid item md={1} /> : null}
+              <Grid item>
+                <iframe
+                  width="360"
+                  height="500"
+                  src="https://www.instagram.com/carpinch.io/embed/"
+                  frameborder="0"
+                ></iframe>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Container>
+      </div>
+      <Grid container justifyContent="center" alignItems="center">
+        <Grid item xs={12}>
+          <Footer />
+        </Grid>
+      </Grid>
+    </>
+  );
+}

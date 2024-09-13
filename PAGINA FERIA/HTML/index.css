@@ -2,10 +2,13 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
-
+body > *:not(.footer) {
+  flex: 1;
+}
 
 /* Estilos de la Navbar */
 .navbar {
@@ -13,12 +16,12 @@ body, html {
   color: #000000;
   justify-content: space-between;
   align-items: center;
-  background-color: #74A29F;
-  padding: 0 50px;
+  background-color: #74A29FBB !important;
   height: 80px;
   position: fixed;
   top: 0;
-  width: 100%;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px #00000080;
   z-index: 1000;
 }
 
@@ -69,16 +72,10 @@ body, html {
   justify-content: right;
 }
 
-.image-content img {
-  max-width: 400px;
-  height: auto;
-  margin-left: 900px;
-  margin-top: -100px; /* Espacio entre el texto y la imagen */
-}
 
 /* Estilos de las Secciones */
 .section {
-  height: 100vh;
+  height: fit-content;
   scroll-snap-align: start;
   display: flex;
   align-items: center;
@@ -86,6 +83,8 @@ body, html {
   flex-direction: column;
   text-align: center;
   padding-top: 80px; /* Ajustado para coincidir con la altura de la navbar */
+  margin-bottom: auto;
+  padding-bottom: 1rem;
 }
 
 /* Sección 1: Fondo con gradiente */
@@ -110,39 +109,27 @@ body, html {
 }
 
 /* Estilos comunes para los textos */
-.section h1 {
-  margin: 10px 0;
-  color: #764652;
-  font-size: 4rem;
-}
 
 .section p {
-  max-width: 600px;
-  color: white;
+  color: black;
+  font-size: x-large;
 }
 
 .section h1 {
-  margin: 10px 0;
   color: #764652;
-  font-size: 4rem;
+
 }
 
 .section h2 {
-  margin: 10px 0;
   color: #764652;
-  font-size: 2rem;
+
 }
 
 .section h3 {
-  margin: 10px 0;
   color: #764652;
-  font-size: 1rem;
+
 }
 
-.section p {
-  max-width: 600px;
-  color: white;
-}
 
 button {
   padding: 10px 20px;
@@ -156,44 +143,53 @@ button:hover {
   background-color: #ffcc00;
 }
 
-/* Footer */
-footer {
+/* .Footer */
+.footer {
   background-color: #74A29F;
   color: black;
   padding: 20px;
+  margin-top: auto;
 }
 
 
-/* Responsivo para pantallas pequeñas */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 0 20px;
-    height: 60px;
-  }
+.perfil-img {
+  scale: 0.8;
+  border-radius: 100%;
+  border: 0px solid;
+  border-color: #1f2f89;
+  transition: all .2s ease-in-out;
+}
+.perfil-img:hover {
+  scale: 0.9;
+}
 
-  .navbar-logo img {
-    height: 100%;
-    max-height: 60px;
-  }
+.logo-fsw {
+    width: 100%; /* Ajusta el tamaño según sea necesario */
+    max-width: 150px; /* Controla el tamaño máximo de la imagen */
+    vertical-align: middle;
+}
 
-  .navbar-links {
-    gap: 15px;
-    margin-right: 40px;
-  }
+.footer .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .navbar-links a {
-    font-size: 16px;
-    padding: 8px 10px;
-  }
+.footer .col-lg-4:first-child {
+  display: flex;
+  align-items: flex-end; /* Alinea la imagen hacia la parte inferior */
+}
 
+.footer .col-lg-4 a {
+  display: flex;
+  justify-content: center; /* Alinea horizontalmente el contenido del enlace */
+  width: 100%;
+}
+.footer .footer-icons{
+  margin-top: 1rem;
+}
 
-  .content {
-    max-width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .image-content img {
-    max-width: 300px;
-    margin-left: 0;
-  }
+.section-integrantes .linkedin-icon-profile{
+  max-width: 30px;
+  height: auto;
 }
