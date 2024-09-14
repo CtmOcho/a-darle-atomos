@@ -6,23 +6,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A Darle Átomos</title>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <!-- Iconos de Material UI (MUI) -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <div class="App d-flex flex-column">
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top mb-2">
+      <div class="container col-12">
         <a class="navbar-logo" href="index.html">
           <img class="img-fluid" src="assets/logo_BW.png" alt="Logo">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <img class="img-fluid navbar-toggler-icon" src="assets/menu-toggle-icon.svg">
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto navbar-links">
+          <ul class="navbar-nav ml-auto navbar-links">
             <li class="nav-item">
               <a class="nav-link" href="index.html">Inicio</a>
             </li>
@@ -39,18 +40,19 @@
         </div>
       </div>
     </nav>
-
+    
     <main>
         <!-- Sección 1 -->
         <section class="section section-1">
           <div class="container-fluid animate__animated animate__fadeIn">
-          <div class= "row">
-              <div class="content col-8">
+          <div class= "row py-5 mt-5">
+              <div class="content col-lg-4 mt-5 ">
                 <h1 class="display-2">A Darle Átomos</h1>
-                <p class="fs-1">Buscamos promover el aprendizaje de la química en jóvenes de Chile a través de la experimentación y la tecnología</p>
+                <p class="fs-1">Un Laboratorio Virtual de Química con el uso de dos cámaras, integramos la captura y seguimiento de la posición de tus manos para interactuar en el mundo virtual! 
+                                Buscamos promover el aprendizaje de la química en jóvenes de Chile a través de la experimentación y la tecnología</p>
               </div>
-              <div class="image-content col-4">
-                <img src="assets/imagen.png" alt="Imagen de ejemplo">
+              <div class="image-content col-lg-8 mt-5">
+                <img class="img-fluid content-imgs" src="assets/Imagen_experimento_sublimacion_yodo.png" alt="Imagen de ejemplo">
               </div>
             </div>
           </div>  
@@ -58,20 +60,54 @@
 
         <!-- Sección 2 -->
         <section class="section section-2">
-            <h1 class="display-2">Laboratorio Virtual</h1>
-            <p class="fs-1">Crea compuestos, utiliza implementos de medida, simula reacciones y más</p>
+          <div class="container-fluid py-5 my-5">
+            <div class="row col-12">
+              <div class="col-8">
+                <img class="img-fluid content-imgs" src="assets/Imagen_experimento_destilacion.png" alt="Imagen de ejemplo">
+              </div>
+              <div class="col-4">
+                <h1 class="display-2">Laboratorio Virtual</h1>
+                <p class="fs-1">Crea compuestos, utiliza implementos de medida, simula reacciones y más</p>
+              </div>    
+            </div>
+          </div>
         </section>
 
         <!-- Sección 3 -->
         <section class="section section-3">
-            <h1 class="display-2">Evaluaciones</h1>
-            <p class="fs-1">Prueba tus conocimientos en actividades y cuestionarios</p>
+          <div class="container-fluid py-5 my-5">
+            <div class="row col-12">
+
+              <div class="col-4">
+                <h1 class="display-2">Evaluaciones</h1>
+                <p class="fs-1">Prueba tus conocimientos en actividades y cuestionarios</p>
+              </div>
+              <div class="col-8">
+                
+                <img class="img-fluid content-imgs" src="assets/pre-q.png" alt="Imagen de ejemplo">
+              </div>
+              
+            </div>
+          </div>
         </section>
 
         <!-- Sección 4 -->
         <section class="section section-4">
-            <h1 class="display-2">Panel de progreso profesores</h1>
-            <p class="fs-1">Controla el progreso de tus estudiantes desde la comodidad del navegador</p>
+          <div class="container-fluid my-5 py-5">
+            <div class="row col-12">
+              <div class="col-8">
+                <img  class="img-fluid content-imgs" src="assets/progress.png" alt="Imagen de ejemplo">
+              </div>
+              <div class="col-4">
+
+                <h1 class="display-2">Panel de progreso profesores</h1>
+                <p class="fs-1">Controla el progreso de tus estudiantes desde la comodidad del navegador</p>
+              </div>
+            
+            
+            </div>
+          </div>
+            
         </section>
     </main>
     <!-- Footer -->
@@ -81,7 +117,7 @@
               <div class="col-lg-4 ">
                   <div class="row">
                       <a class= "justify-content-center" href="https://www.feriadesoftware.cl">
-                        <img class="img logo-fsw" src="assets/logoFESW_blanco.svg" >
+                        <img class="img logo-fsw icono-hover" src="assets/logoFESW_blanco.svg" >
                       </a>
                   </div>
               </div>
@@ -91,24 +127,24 @@
                       <div class="row col-12">
                         <div class="col-3 ">
                           <a href="https://www.facebook.com/people/A-Darle-%C3%81tomos/61564009658829/">
-                            <img class="img-fluid footer-icons" src="assets/facebook-svgrepo-com.svg">
+                            <img class="img-fluid icono-hover" src="assets/facebook-svgrepo-com.svg">
                           </a>
                         </div>
                         <div class="col-3 ">
                           <a href="https://www.instagram.com/adarleatomos/">
-                            <img class="img-fluid footer-icons" src="assets/instagram-svgrepo-com.svg">
+                            <img class="img-fluid icono-hover" src="assets/instagram-svgrepo-com.svg">
                           
                           </a>
                         </div>
                         <div class="col-3 ">
                           <a href="https://www.linkedin.com/company/a-darle-átomos/?viewAsMember=true">
-                            <img class="img-fluid footer-icons" src="assets/linkedin-svgrepo-com.svg">
+                            <img class="img-fluid icono-hover" src="assets/linkedin-svgrepo-com.svg">
   
                           </a>
                         </div>  
                         <div class="col-3 ">
                           <a href="https://www.youtube.com/@A_Darle_%C3%81tomos">
-                            <img class="img-fluid footer-icons" src="assets/youtube-svgrepo-com.svg">
+                            <img class="img-fluid icono-hover" src="assets/youtube-svgrepo-com.svg">
                           </a>
                         </div>
                       </div>
@@ -125,7 +161,7 @@
           <hr align ="center">
           <div class="container">
               <div class="text-center mt-6 row">
-                  <div class="col">
+                  <div class="col-12">
                     © 2024 <strong>
                       A Darle Átomos
                     </strong>  - Todos los derechos reservados
@@ -133,12 +169,40 @@
               </div>
           </div>
       </div>
-  
-  
     </div>
-
   <!-- Scripts -->
+  <style>
+    /* Estilo para el efecto hover en el icono */
+    .icono-hover {
+      transition: transform 0.3s ease; /* Hace que el cambio sea suave */
+    }
+
+    .icono-hover:hover {
+      transform: scale(1.2); /* Aumenta el tamaño del icono en 20% al hacer hover */
+    }
+  </style>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script>
+    // Esperar a que el documento esté cargado
+    document.addEventListener("DOMContentLoaded", function () {
+      // Obtener la URL actual y extraer solo la última parte del path
+      var currentPage = window.location.pathname.split('/').pop();
+      // Obtener todos los elementos .nav-link dentro de la barra de navegación
+      var navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+  
+      // Iterar sobre cada .nav-link
+      navLinks.forEach(function(link) {
+
+        // Comparar el href del enlace con la última parte del path de la URL actual
+        if (link.getAttribute('href') === currentPage) {
+          link.parentElement.classList.add('isCurrentPage'); // Agregar la clase 'isCurrentPage' al padre del <a>
+          link.classList.add('isCurrentPage'); // Agregar la clase 'isCurrentPage' al padre del <a>
+
+        }
+      });
+    });
+  </script>
+  
 </body>
 </html>

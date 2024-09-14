@@ -4,22 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quíenes Somos</title>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <!-- Iconos de Material UI (MUI) -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container-fluid">
+    <div class="container col-12">
       <a class="navbar-logo" href="index.html">
         <img class="img-fluid" src="assets/logo_BW.png" alt="Logo">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <img class="img-fluid navbar-toggler-icon" src="assets/menu-toggle-icon.svg">
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto navbar-links">
+        <ul class="navbar-nav ml-auto navbar-links">
           <li class="nav-item">
             <a class="nav-link" href="index.html">Inicio</a>
           </li>
@@ -36,15 +37,18 @@
       </div>
     </div>
   </nav>
+  
   <main>
 
   <section id="section-1" class="section section-1">
     <div class="row pt-5 my-5 d-flex flex-column flex-md-row justify-content-center w-100 gap-5">
       <div class="col-12 col-md-6">
-        <h1 class="display-2">UltimateSpiderMonke</h1>
+        <h1 class="display-2 justify-content-center">Ultimate</h1>
+          <h1 class="display-2 justify-content-center">Spider</h1>
+            <h1 class="display-2 justify-content-center">Monke</h1>
         <p class="fs-1">Somos una pre-empresa formada por seis estudiantes de la Universidad Técnica Federico Santa María, unidos por el objetivo de mejorar la enseñanza de las ciencias a través de la tecnología. Con diversas habilidades en ingeniería y educación.</p>
       </div>
-      <div class="col-12 col-md-4 text-center mt-10 ml-5">
+      <div class="col-12 col-md-4 text-center  ">
         
           <img class="img-fluid" src="assets/Logo-Empresa.svg">
 
@@ -52,22 +56,22 @@
   </section>
 
   <section id="section-2" class="section section-2">
-    <div class="row d-flex justify-content-center gap-2">
+    <div class="row py-5 d-flex mb-5 justify-content-center gap-2">
       <div class="col-12 col-md-5 col-lg-5">
         <h1 class="display-1 text-center">Visión</h1>
         <p class="text-justify">Ser una referencia en el ámbito de la educación científica virtual, reconocida por su capacidad para transformar el aprendizaje de ciencias en educación básica a través de la innovación tecnológica. Aspiramos a que "A darle átomos" no solo fomente el interés y la curiosidad de los estudiantes hacia las ciencias, sino que también reduzca barreras de seguridad, costo y acceso, creando un entorno seguro y estimulante donde los estudiantes puedan experimentar y aprender sin limitaciones.</p>
       </div>
       <div class="col-12 col-md-5 col-lg-5">
         <h1 class="display-1 text-center">Misión</h1>
-        <p class="text-justify">Como una pre-empresa formada por seis estudiantes de la Universidad Técnica Federico Santa María, nuestro objetivo con "A darle átomos" es desarrollar una plataforma educativa accesible y avanzada que permita a los estudiantes de educación básica realizar experimentos de química de forma segura e interactiva, utilizando tecnología de cámaras estereoscópicas y simulaciones realistas. Buscamos mejorar la enseñanza de las ciencias mediante la creación de experiencias prácticas y accesibles que fomenten el aprendizaje activo, sin los riesgos y costos de los laboratorios físicos tradicionales, contribuyendo así al desarrollo de la educación científica en Chile.</p>
+        <p class="text-justify">Como pre-empresa nuestro objetivo con "A darle átomos" es desarrollar una plataforma educativa accesible y avanzada que permita a los estudiantes de educación básica realizar experimentos de química de forma segura e interactiva, utilizando tecnología de cámaras estereoscópicas y simulaciones realistas. Buscamos mejorar la enseñanza de las ciencias mediante la creación de experiencias prácticas y accesibles que fomenten el aprendizaje activo, sin los riesgos y costos de los laboratorios físicos tradicionales, contribuyendo así al desarrollo de la educación científica en Chile.</p>
       </div>
     </div>
   </section>
 
-  <section id="section-3" class="section section-3 col-12 section-integrantes">
-    <div class="row col-12 col-md-4">
-      <h1> Conoce a el equipo!</h1>
-    </div>´
+  <section id="section-3" class="section section-3-quienessomos col-12 section-integrantes">
+    <div class="row col-12 justify-content-center col-md-4">
+      <h1 class="display-2 justify-content-center text-center "> Conoce a el equipo!</h1>
+    </div>
     <div class="row d-flex justify-content-center text-center mt-5">
       <!-- Perfil 1 -->
       <div class="row col-12 col-md-4">
@@ -75,15 +79,15 @@
           <img class="img-fluid col-12 perfil-img" src="assets/ocho.JPG" alt="Descripción de la imagen">
         </div>
         <div class="row col-12 justify-content-center text-center">
-          <div class="col-12">Octavio Villablanca</div>
-          <div class="col-12">
+          <div class="col-12 integrantes-names">Octavio Villablanca</div>
+          <div class="col-12 integrantes-names">
             <strong class="fw-bold">
             Scrum Master
           </strong>
         </div>
           <div class="col-12">
             <a class=" link-light link-offset-2" href="https://www.linkedin.com/in/octavio-villablanca-ba8628257/">
-              <img class="img-fluid linkedin-icon-profile" src="assets/linkedin-svgrepo-com.svg" >
+              <img class="img-fluid linkedin-icon-profile icono-hover" src="assets/linkedin-svgrepo-com.svg" >
               
             </a>
           </div>
@@ -97,15 +101,15 @@
           <img class="img-fluid col-12 perfil-img" src="assets/toro.JPG" alt="Descripción de la imagen">
         </div>
         <div class="row col-12 justify-content-center text-center">
-          <div class="col-12">Nicolás Toro</div>
-          <div class="col-12">
+          <div class="col-12 integrantes-names">Nicolás Toro</div>
+          <div class="col-12 integrantes-names">
             <strong class="fw-bold">
             Product Owner
           </strong>
         </div>
           <div class="col-12">
             <a class=" link-light link-offset-2" href="https://www.linkedin.com/in/nicolas-toro-79085b249/">
-              <img class="img-fluid linkedin-icon-profile" src="assets/linkedin-svgrepo-com.svg" >
+              <img class="img-fluid linkedin-icon-profile icono-hover" src="assets/linkedin-svgrepo-com.svg" >
             </a>
           </div>
 
@@ -118,15 +122,15 @@
           <img class="img-fluid col-12 perfil-img" src="assets/leorio.JPG" alt="Descripción de la imagen">
         </div>
         <div class="row col-12 justify-content-center text-center">
-          <div class="col-12">Leandro Espinoza</div>
-          <div class="col-12">
+          <div class="col-12 integrantes-names">Leandro Espinoza</div>
+          <div class="col-12 integrantes-names">
             <strong class="fw-bold">
             Unity Developer
           </strong>
         </div>
           <div class="col-12">
             <a class=" link-light link-offset-2" href="https://www.linkedin.com/in/leandro-espinoza-rangel-b578212bb/">
-              <img class="img-fluid linkedin-icon-profile" src="assets/linkedin-svgrepo-com.svg" >
+              <img class="img-fluid linkedin-icon-profile icono-hover" src="assets/linkedin-svgrepo-com.svg" >
             </a>
           </div>
 
@@ -141,15 +145,15 @@
           <img class="img-fluid col-12 perfil-img" src="assets/fabian.JPG" alt="Descripción de la imagen">
         </div>
         <div class="row col-12 justify-content-center text-center">
-          <div class="col-12">Fabián Lorca</div>
-          <div class="col-12">
+          <div class="col-12 integrantes-names">Fabián Lorca</div>
+          <div class="col-12 integrantes-names">
             <strong class="fw-bold">
             Unity Developer
           </strong>
         </div>
           <div class="col-12">
             <a class=" link-light link-offset-2" href="https://www.linkedin.com/in/fabian-a-l-t/">
-              <img class="img-fluid linkedin-icon-profile" src="assets/linkedin-svgrepo-com.svg" >
+              <img class="img-fluid linkedin-icon-profile icono-hover" src="assets/linkedin-svgrepo-com.svg" >
             </a>
           </div>
 
@@ -162,15 +166,15 @@
           <img class="img-fluid col-12 perfil-img" src="assets/sarubbi.JPG" alt="Descripción de la imagen">
         </div>
         <div class="row col-12 justify-content-center text-center">
-          <div class="col-12">Martín Sarubbi</div>
-          <div class="col-12">
+          <div class="col-12 integrantes-names">Martín Sarubbi</div>
+          <div class="col-12 integrantes-names">
             <strong class="fw-bold">
             Full Stack Developer
           </strong>
         </div>
           <div class="col-12">
             <a class=" link-light link-offset-2" href="https://www.linkedin.com/in/martín-sarubbi-546242257/">
-              <img class="img-fluid linkedin-icon-profile" src="assets/linkedin-svgrepo-com.svg" >
+              <img class="img-fluid linkedin-icon-profile icono-hover" src="assets/linkedin-svgrepo-com.svg" >
             </a>
           </div>
 
@@ -183,15 +187,15 @@
           <img class="img-fluid col-12 perfil-img" src="assets/benja.JPG" alt="Descripción de la imagen">
         </div>
         <div class="row col-12 justify-content-center text-center">
-          <div class="col-12">Benjamín Soto</div>
-          <div class="col-12">
+          <div class="col-12 integrantes-names">Benjamín Soto</div>
+          <div class="col-12 integrantes-names">
             <strong class="fw-bold">
             Marketing 
           </strong>
         </div>
           <div class="col-12">
             <a class=" link-light link-offset-2" href="https://www.linkedin.com/in/benjamin-soto-alfán/">
-              <img class="img-fluid linkedin-icon-profile" src="assets/linkedin-svgrepo-com.svg" >
+              <img class="img-fluid linkedin-icon-profile icono-hover" src="assets/linkedin-svgrepo-com.svg" >
             </a>
           </div>
 
@@ -203,66 +207,100 @@
   </section>
 </main>
 
-  <div class="footer col-12">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-lg-4 ">
-                <div class="row">
-                    <a class= "justify-content-center" href="https://www.feriadesoftware.cl">
-                      <img class="img logo-fsw" src="assets/logoFESW_blanco.svg" >
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-2">
-                <div class="row justify-content-center">
-                    <span >Síguenos en nuestras redes sociales</span>
-                    <div class="row col-12">
-                      <div class="col-3 ">
-                        <a href="https://www.facebook.com/people/A-Darle-%C3%81tomos/61564009658829/">
-                          <img class="img-fluid footer-icons" src="assets/facebook-svgrepo-com.svg">
-                        </a>
-                      </div>
-                      <div class="col-3 ">
-                        <a href="https://www.instagram.com/adarleatomos/">
-                          <img class="img-fluid footer-icons" src="assets/instagram-svgrepo-com.svg">
-                        
-                        </a>
-                      </div>
-                      <div class="col-3 ">
-                        <a href="https://www.linkedin.com/company/a-darle-átomos/?viewAsMember=true">
-                          <img class="img-fluid footer-icons" src="assets/linkedin-svgrepo-com.svg">
-
-                        </a>
-                      </div>  
-                      <div class="col-3 ">
-                        <a href="https://www.youtube.com/@A_Darle_%C3%81tomos">
-                          <img class="img-fluid footer-icons" src="assets/youtube-svgrepo-com.svg">
-                        </a>
-                      </div>
+<div class="footer col-12">
+  <div class="container">
+      <div class="row text-center">
+          <div class="col-lg-4 ">
+              <div class="row">
+                  <a class= "justify-content-center" href="https://www.feriadesoftware.cl">
+                    <img class="img logo-fsw icono-hover" src="assets/logoFESW_blanco.svg" >
+                  </a>
+              </div>
+          </div>
+          <div class="col-lg-4 mt-2">
+              <div class="row justify-content-center">
+                  <span >Síguenos en nuestras redes sociales</span>
+                  <div class="row col-12">
+                    <div class="col-3 ">
+                      <a href="https://www.facebook.com/people/A-Darle-%C3%81tomos/61564009658829/">
+                        <img class="img-fluid icono-hover" src="assets/facebook-svgrepo-com.svg">
+                      </a>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-2">
-                <div class="row">
-                    <a href="quienes-somos.html">
-                      <img class="img-fluid" src="assets/Logo-Empresa.svg">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <hr align ="center">
-        <div class="container">
-            <div class="text-center mt-6 row">
-                <div class="col">
-                  © 2024 <strong>
-                    A Darle Átomos
-                  </strong>  - Todos los derechos reservados
-                </div>
-            </div>
-        </div>
-    </div>
+                    <div class="col-3 ">
+                      <a href="https://www.instagram.com/adarleatomos/">
+                        <img class="img-fluid icono-hover" src="assets/instagram-svgrepo-com.svg">
+                      
+                      </a>
+                    </div>
+                    <div class="col-3 ">
+                      <a href="https://www.linkedin.com/company/a-darle-átomos/?viewAsMember=true">
+                        <img class="img-fluid icono-hover" src="assets/linkedin-svgrepo-com.svg">
 
-
+                      </a>
+                    </div>  
+                    <div class="col-3 ">
+                      <a href="https://www.youtube.com/@A_Darle_%C3%81tomos">
+                        <img class="img-fluid icono-hover" src="assets/youtube-svgrepo-com.svg">
+                      </a>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-4 mt-2">
+              <div class="row">
+                  <a href="quienes-somos.html">
+                    <img class="img-fluid" src="assets/Logo-Empresa.svg">
+                  </a>
+              </div>
+          </div>
+      </div>
+      <hr align ="center">
+      <div class="container">
+          <div class="text-center mt-6 row">
+              <div class="col-12">
+                © 2024 <strong>
+                  A Darle Átomos
+                </strong>  - Todos los derechos reservados
+              </div>
+          </div>
+      </div>
   </div>
+
+
+</div>
+    <!-- Scripts -->
+    <style>
+      /* Estilo para el efecto hover en el icono */
+      .icono-hover {
+        transition: transform 0.3s ease; /* Hace que el cambio sea suave */
+      }
+
+      .icono-hover:hover {
+        transform: scale(1.2); /* Aumenta el tamaño del icono en 20% al hacer hover */
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+      // Esperar a que el documento esté cargado
+      document.addEventListener("DOMContentLoaded", function () {
+        // Obtener la URL actual y extraer solo la última parte del path
+        var currentPage = window.location.pathname.split('/').pop();
+        // Obtener todos los elementos .nav-link dentro de la barra de navegación
+        var navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    
+        // Iterar sobre cada .nav-link
+        navLinks.forEach(function(link) {
+  
+          // Comparar el href del enlace con la última parte del path de la URL actual
+          if (link.getAttribute('href') === currentPage) {
+            link.parentElement.classList.add('isCurrentPage'); // Agregar la clase 'isCurrentPage' al padre del <a>
+            link.classList.add('isCurrentPage'); // Agregar la clase 'isCurrentPage' al padre del <a>
+  
+          }
+        });
+      });
+    </script>
+    
 </body>
 </html>

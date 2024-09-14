@@ -1,0 +1,262 @@
+@font-face {
+  font-family: 'bobbyJones';
+  src: url('assets/BobbyJones.otf') format('opentype');
+}
+
+
+/* General */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-family: 'roboto' !important;  
+}  
+h1, h2{
+  font-family: 'bobbyJones' !important;
+  letter-spacing: 0.2rem;
+}
+
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover, button:active {
+  
+  background-color: #C2D6B4dd;
+  border: none; /* Eliminar el borde del botón toggle */
+
+}
+
+
+/* Navbar */
+.navbar {
+  justify-content: space-between;
+  align-items: center;
+  background-color: #74A29FDD !important;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px #00000080;
+  z-index: 1000;
+  letter-spacing: 0.01rem !important;
+}
+
+/* Logo adjustments */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.navbar-logo img {
+  max-height: 50px; /* Reduce el tamaño del logo en pantallas pequeñas */
+}
+
+@media (max-width: 768px) {
+  .navbar-logo img {
+    max-height: 50px; /* Ajusta aún más el tamaño del logo en pantallas pequeñas */
+  }
+}
+
+.navbar .navbar-collapse {
+  transition: all 0.2s ease; /* Aplica la transición a los cambios */
+  text-align: center; /* Centrar el texto en pantallas pequeñas */
+  align-content: center;
+  height: 100%;
+  letter-spacing: 0.01rem;
+}
+
+/* Cuando la navbar está desplegada, aplica fondo y sombra */
+.navbar-collapse.show {
+  margin-top: 1.45rem;
+  transition: all 0.2s ease; /* Aplica la transición a los cambios */
+  background-color: #74A29FEE;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px #00000080;
+  align-items: center;
+
+  
+}
+
+/* Navbar links */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin-left: auto;
+  height: 50px;
+}
+
+.navbar-links a {
+  color: #dcdbd7;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-family: 'bobbyJones' !important;
+}
+
+.navbar-links a:hover {
+  color: #ffffff;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: column; /* Cambia la dirección de los enlaces a vertical */
+  gap: 1rem; /* Espacio entre los enlaces */
+  width: 100%; /* Asegura que ocupen el ancho completo del contenedor */
+  height: 100%;
+}
+
+.nav-item {
+  width: 100%; /* Los items ocupan todo el ancho del contenedor */
+}
+
+.nav-link {
+   /* Ajustar el padding para mejor separación */
+  font-size: 1.5rem; /* Ajustar el tamaño de fuente para móviles */
+  text-align: center;
+}
+/* Secciones */
+.section {
+  height: fit-content;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: auto;
+}
+
+/* Background gradients for sections */
+.section-1 {
+  background: linear-gradient(to bottom, #D29EAA, #D29EAA, #D29EAA,#D29EAA, #E7D691);
+}
+
+.section-2 {
+  background: linear-gradient(to bottom, #E7D691,#E7D691,#E7D691,#E7D691, #AED18D);
+}
+
+.section-3 {
+  background: linear-gradient(to bottom, #AED18D,#AED18D,#AED18D,#AED18D, #DCDBD7);
+}
+
+.section-4 {
+  background: linear-gradient(to bottom, #DCDBD7,#DCDBD7,#DCDBD7,#DCDBD7, #b8b6b1);
+
+}
+.section-3-quienessomos{
+  background: linear-gradient(to bottom, #AED18D,#AED18D,#AED18D,#AED18D, #87a36e);
+}
+
+.section-2-contacto{
+  background: linear-gradient(to bottom, #E7D691,#E7D691,#E7D691,#E7D691, #c4b57c);
+
+}
+
+/* Text styles */
+.section p {
+  color: black;
+  font-size: 1.7rem;
+}
+
+.section h1 {
+  color: #764652;
+  font-size: 2.5rem;
+}
+
+.section h2 {
+  color: #764652;
+  font-size: 2rem;
+}
+
+.section h3 {
+  color: #764652;
+  font-size: 1.5rem;
+}
+
+
+/* Footer */
+.footer {
+  background-color: #74A29F;
+  color: black;
+  padding: 20px;
+  margin-top: auto;
+  font-size: 1.5rem;
+
+}
+
+.footer-icons {
+  max-width: 30px;
+}
+
+.logo-fsw {
+  width: 100%;
+  max-width: 150px;
+  vertical-align: middle;
+}
+
+/* Footer layout adjustments */
+.footer .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer .col-lg-4:first-child {
+  display: flex;
+  align-items: flex-end; /* Align image to bottom */
+}
+
+.footer .col-lg-4 a {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  width: 100%;
+}
+
+.footer .footer-icons {
+  margin-top: 1rem;
+}
+
+/* Perfil imagen and LinkedIn icon styles */
+.perfil-img {
+  scale: 0.8;
+  border-radius: 100%;
+  transition: all .2s ease-in-out;
+}
+
+.perfil-img:hover {
+  scale: 0.9;
+}
+
+.section-integrantes .linkedin-icon-profile {
+  max-width: 2rem;
+  height: auto;
+}
+
+.integrantes-names{
+  font-size: 1.7rem;
+}
+.content-imgs{
+  border-radius: 1%;
+}
+.rrss-icons{
+  width: 100%;
+  height: auto;
+}
+
+.isCurrentPage {
+  color: #ffffff !important;
+  background: linear-gradient(to bottom, #C2D6B4,#C2D6B4,#74A29F);
+  
+  border-radius: 5%;
+  /* Otros estilos personalizados */
+}
