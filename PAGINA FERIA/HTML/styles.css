@@ -263,3 +263,31 @@ button:hover, button:active {
   border-radius: 5%;
   /* Otros estilos personalizados */
 }
+
+.social-media-buttons-embed{
+  border-radius: 20%;
+  background-color: transparent ;
+  width: 80%;
+  height: auto;
+  transition: opacity 1.5s ease; /* Transición de 0.5 segundos para el botón */
+  opacity: 1;
+} 
+.social-media-buttons-embed:hover, .social-media-buttons-embed:active, .social-media-buttons-embed::after{
+  background-color:  #D29EAAAA;
+  border:none;
+}
+
+.fade-content {
+  transition: opacity 1.5s ease; /* Transición de 0.8 segundos para el iframe */
+  opacity: 0; /* El iframe está inicialmente invisible */
+}
+
+/* Cuando el iframe está visible (después de insertarlo) */
+.fade-in {
+  opacity: 1;
+}
+/* Efecto fade-out */
+.fade-out {
+  opacity: 0;
+  display: none;
+}
