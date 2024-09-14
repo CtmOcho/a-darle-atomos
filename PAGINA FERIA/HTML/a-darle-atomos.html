@@ -4,7 +4,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width">
   <title>A Darle Átomos</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -44,7 +44,7 @@
     <main>
         <!-- Sección 1 -->
         <section class="section section-1">
-          <div class="container-fluid animate__animated animate__fadeIn">
+          <div class="row container-fluid col-12">
           <div class= "row py-5 mt-5">
               <div class="content col-lg-4 mt-5 ">
                 <h1 class="display-2">A Darle Átomos</h1>
@@ -60,12 +60,12 @@
 
         <!-- Sección 2 -->
         <section class="section section-2">
-          <div class="container-fluid py-5 my-5">
-            <div class="row col-12">
-              <div class="col-8">
+          <div class="row container-fluid col-12 py-5 my-5">
+            <div class="row ">
+              <div class="image-content col-md-8 col-lg-8 col-12 ">
                 <img class="img-fluid content-imgs" src="assets/Imagen_experimento_destilacion.png" alt="Imagen de ejemplo">
               </div>
-              <div class="col-4">
+              <div class="col-md-4 col-lg-4 col-12">
                 <h1 class="display-2">Laboratorio Virtual</h1>
                 <p class="fs-1">Crea compuestos, utiliza implementos de medida, simula reacciones y más</p>
               </div>    
@@ -75,14 +75,14 @@
 
         <!-- Sección 3 -->
         <section class="section section-3">
-          <div class="container-fluid py-5 my-5">
-            <div class="row col-12">
+          <div class="row container-fluid col-12 py-5 my-5">
+            <div class="row ">
 
-              <div class="col-4">
+              <div class="col-md-4 col-lg-4 col-12">
                 <h1 class="display-2">Evaluaciones</h1>
                 <p class="fs-1">Prueba tus conocimientos en actividades y cuestionarios</p>
               </div>
-              <div class="col-8">
+              <div class="image-content col-md-8 col-lg-8 col-sm-12">
                 
                 <img class="img-fluid content-imgs" src="assets/pre-q.png" alt="Imagen de ejemplo">
               </div>
@@ -93,12 +93,12 @@
 
         <!-- Sección 4 -->
         <section class="section section-4">
-          <div class="container-fluid my-5 py-5">
-            <div class="row col-12">
-              <div class="col-8">
+          <div class="row container-fluid col-12 my-5 py-5">
+            <div class="row">
+              <div class="content col-md-8 col-lg-8 col-sm-12">
                 <img  class="img-fluid content-imgs" src="assets/progress.png" alt="Imagen de ejemplo">
               </div>
-              <div class="col-4">
+              <div class="col-md-4 col-lg-4 col-12">
 
                 <h1 class="display-2">Panel de progreso profesores</h1>
                 <p class="fs-1">Controla el progreso de tus estudiantes desde la comodidad del navegador</p>
@@ -115,7 +115,7 @@
       <div class="container">
           <div class="row text-center">
               <div class="col-lg-4 ">
-                  <div class="row">
+                  <div class="row col-12 justify-content-center">
                       <a class= "justify-content-center" href="https://www.feriadesoftware.cl">
                         <img class="img logo-fsw icono-hover" src="assets/logoFESW_blanco.svg" >
                       </a>
@@ -124,27 +124,30 @@
               <div class="col-lg-4 mt-2">
                   <div class="row justify-content-center">
                       <span >Síguenos en nuestras redes sociales</span>
+                      <div class="row col-12 py-1 my-1">
+  
+                      </div>
                       <div class="row col-12">
                         <div class="col-3 ">
                           <a href="https://www.facebook.com/people/A-Darle-%C3%81tomos/61564009658829/">
-                            <img class="img-fluid icono-hover" src="assets/facebook-svgrepo-com.svg">
+                            <img loading="lazy" class="img-fluid icono-hover" src="assets/facebook-svgrepo-com.svg">
                           </a>
                         </div>
                         <div class="col-3 ">
                           <a href="https://www.instagram.com/adarleatomos/">
-                            <img class="img-fluid icono-hover" src="assets/instagram-svgrepo-com.svg">
+                            <img loading="lazy" class="img-fluid icono-hover" src="assets/instagram-svgrepo-com.svg">
                           
                           </a>
                         </div>
                         <div class="col-3 ">
                           <a href="https://www.linkedin.com/company/a-darle-átomos/?viewAsMember=true">
-                            <img class="img-fluid icono-hover" src="assets/linkedin-svgrepo-com.svg">
+                            <img loading="lazy" class="img-fluid icono-hover" src="assets/linkedin-svgrepo-com.svg">
   
                           </a>
                         </div>  
                         <div class="col-3 ">
                           <a href="https://www.youtube.com/@A_Darle_%C3%81tomos">
-                            <img class="img-fluid icono-hover" src="assets/youtube-svgrepo-com.svg">
+                            <img loading="lazy" class="img-fluid icono-hover" src="assets/youtube-svgrepo-com.svg">
                           </a>
                         </div>
                       </div>
@@ -153,7 +156,7 @@
               <div class="col-lg-4 mt-2">
                   <div class="row">
                       <a href="quienes-somos.html">
-                        <img class="img-fluid" src="assets/Logo-Empresa.svg">
+                        <img loading="lazy" class="img-fluid" src="assets/Logo-Empresa.svg">
                       </a>
                   </div>
               </div>
@@ -170,6 +173,7 @@
           </div>
       </div>
     </div>
+  
   <!-- Scripts -->
   <style>
     /* Estilo para el efecto hover en el icono */

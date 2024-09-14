@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width">
   <title>Inicio</title>
   <style>
     body {
@@ -17,7 +17,9 @@
   <link rel="stylesheet" href="styles.css">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
   <!-- Iconos de Material UI (MUI) -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></noscript>
+
 </head>
 
 <body onload= "document.body.classList.add('fade-in')">
@@ -51,16 +53,16 @@
   
   <main>
     <section id="section-1" class="section section-1">
-      <div class="row py-5 mt-5 d-flex flex-column flex-md-row justify-content-center w-100 gap-5">
-        <div class="col-12 col-md-5 mt-2 text-justify">
-          <h1 class=" ds-1 mb-1 text-center">¿Que es A darle Átomos?</h1>
-          <p class="text-justify">A darle átomos es un Laboratorio de química virtual en realidad aumentada con
+      <div class="row col-12 py-5 mt-5 d-flex flex-column flex-md-row justify-content-center w-100 gap-5">
+        <div class="col-12 col-md-5 mt-2 text-justify mx-1">
+          <h1 class=" ds-1 mb-1 text-center justify-content-center">¿Que es A darle Átomos?</h1>
+          <p class="text-justify justify-content-center">A darle átomos es un Laboratorio de química virtual en realidad aumentada con
             reconocimiento de manos para estudiantes de séptimo, octavo, primero medio, segundo medio y profesores de
             química, tanto de escuelas públicas cómo privadas en Chile.</p>
         </div>
         <div class="col-12 col-md-5  align-content-center">
           <div class="embed-responsive embed-responsive-16by9 col-12">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/WjEC2EU2Hdw?si=4WQ-oSzNH_saS6Iu" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe loading="lazy" class="embed-responsive-item" src="https://www.youtube.com/embed/WjEC2EU2Hdw?si=4WQ-oSzNH_saS6Iu" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -68,11 +70,11 @@
     <section id="section-2" class="section section-2">
       <div class="row py-5 mt-5 d-flex flex-column flex-md-row justify-content-center w-100 gap-5">
         <div class="col-12 col-md-5 align-content-center">
-          <img class="img-fluid content-imgs" src="assets/laboratorio_virtual.webp" alt="Imagen de laboratorio">
+          <img loading="lazy" class="img-fluid content-imgs" src="assets/laboratorio_virtual.webp" alt="Imagen de laboratorio">
         </div>
-        <div class="col-12 col-md-5  text-justify">
+        <div class="col-12 col-md-5  text-justify mx-1">
           <h1 class=" ds-1 mb-1 text-center">Problemática Actual</h1>
-          <p class="text-justify">La experimentación en educación básica implica riesgos para los estudiantes, como
+          <p class="text-justify  justify-content-center">La experimentación en educación básica implica riesgos para los estudiantes, como
             intoxicaciones o quemaduras por el mal manejo de químicos y aparatos. Fenómenos complejos, como
             interacciones atómicas, son difíciles de visualizar, y los altos costos de laboratorios físicos limitan su
             acceso y exploración de casos más interesantes.</p>
@@ -81,15 +83,15 @@
     </section>
     <section id="section-3" class="section section-3">
       <div class="row py-5 mt-5 d-flex flex-column flex-md-row justify-content-center w-100 gap-5">
-        <div class="col-12 col-md-5  text-justify">
+        <div class="col-12 col-md-5  text-justify mx-1">
           <h1 class="mt-5 ds-1 mb-1 text-center">Como lo solucionamos</h1>
-          <p class="text-justify">Nuestra solución, A darle átomos, es un laboratorio virtual que utiliza cámaras
+          <p class="text-justify justify-content-center">Nuestra solución, A darle átomos, es un laboratorio virtual que utiliza cámaras
             estereoscópicas para simular las manos de los estudiantes, permitiéndoles realizar experimentos de química
             de manera interactiva y segura. Esto les permite aprender sobre procesos y reacciones sin riesgo de
             exposición a sustancias peligrosas, complementado con contenido de apoyo y evaluaciones.</p>
         </div>
         <div class="col-12 col-md-5 mt-5 align-content-center">
-          <img class="img-fluid content-imgs" src="assets/Imagen_experimento_color_a_la_llama.png">
+          <img loading="lazy" class="img-fluid content-imgs" src="assets/Imagen_experimento_color_a_la_llama.png">
         </div>
       </div>
     </section>
@@ -104,7 +106,7 @@
 
         <div class="col-12 col-md-5 col-lg-5 justify-content-start align-items-center text-center"> 
           <div class="embed-responsive embed-responsive-4by3 col-12">
-            <iframe class="embed-responsive-item" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fweb.facebook.com%2Fprofile.php%3Fid%3D61564009658829&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            <iframe loading="lazy" class="embed-responsive-item" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fweb.facebook.com%2Fprofile.php%3Fid%3D61564009658829&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
           </div>
         </div>
         <div class="col-md-1 col-lg-1 col-12 py-1 my-1"></div>
@@ -171,24 +173,24 @@
                     <div class="row col-12">
                       <div class="col-3 ">
                         <a href="https://www.facebook.com/people/A-Darle-%C3%81tomos/61564009658829/">
-                          <img class="img-fluid icono-hover" src="assets/facebook-svgrepo-com.svg">
+                          <img loading="lazy" class="img-fluid icono-hover" src="assets/facebook-svgrepo-com.svg">
                         </a>
                       </div>
                       <div class="col-3 ">
                         <a href="https://www.instagram.com/adarleatomos/">
-                          <img class="img-fluid icono-hover" src="assets/instagram-svgrepo-com.svg">
+                          <img loading="lazy" class="img-fluid icono-hover" src="assets/instagram-svgrepo-com.svg">
                         
                         </a>
                       </div>
                       <div class="col-3 ">
                         <a href="https://www.linkedin.com/company/a-darle-átomos/?viewAsMember=true">
-                          <img class="img-fluid icono-hover" src="assets/linkedin-svgrepo-com.svg">
+                          <img loading="lazy" class="img-fluid icono-hover" src="assets/linkedin-svgrepo-com.svg">
 
                         </a>
                       </div>  
                       <div class="col-3 ">
                         <a href="https://www.youtube.com/@A_Darle_%C3%81tomos">
-                          <img class="img-fluid icono-hover" src="assets/youtube-svgrepo-com.svg">
+                          <img loading="lazy" class="img-fluid icono-hover" src="assets/youtube-svgrepo-com.svg">
                         </a>
                       </div>
                     </div>
@@ -197,7 +199,7 @@
             <div class="col-lg-4 mt-2">
                 <div class="row">
                     <a href="quienes-somos.html">
-                      <img class="img-fluid" src="assets/Logo-Empresa.svg">
+                      <img loading="lazy" class="img-fluid" src="assets/Logo-Empresa.svg">
                     </a>
                 </div>
             </div>
@@ -226,9 +228,9 @@
       transform: scale(1.2); /* Aumenta el tamaño del icono en 20% al hacer hover */
     }
   </style>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script>
+  <script async  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script async  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script async >
     // Esperar a que el documento esté cargado
     document.addEventListener("DOMContentLoaded", function () {
       // Obtener la URL actual y extraer solo la última parte del path
