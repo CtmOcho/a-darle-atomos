@@ -35,7 +35,7 @@ Para compilar y ejecutar el reconocimiento de manos:
    python handpose3d.py cam_0 cam_1
 - Donde cam_0 y cam_1 corresponden a las cámaras calibradas previamente.
 ## 2 Backend
-### 2.1 Ejecución del Servidor
+### 2.1 Ejecución del Servidor 
 1. Navega a la carpeta `Backend/`.
 2. Ejecuta el servidor backend localmente:
     ```bash
@@ -43,6 +43,7 @@ Para compilar y ejecutar el reconocimiento de manos:
 3. En caso de querer ejecutar modo desarrollo sin build:
    ```bash
    npm run dev
+4. El valor por defecto de la dirección del servidor backend es `localhost:13756` 
 ### 2.2 Configuración de Ngrok
 1. Si no tienes `ngrok.exe` descárgalo [aquí](https://dashboard.ngrok.com/get-started/setup/windows).
 2. Ejecuta `ngrok.exe`.
@@ -71,9 +72,19 @@ Para compilar y ejecutar el reconocimiento de manos:
     ngrok start node-backend react-app
 2. Copia la URL generada para el Backend (`localhost:13756`) para actualizarla en el Frontend ## y en Unity.
 ## 3 Frontend
+### 3.0 Ejecución Local (localhost)
+0. SOLO REALIZAR ESTOS PASOS SI SE NECESITA EJECUTAR DE MANERA LOCAL
+1. Navega a la carpeta `frontend/atomos`.
+2. Actualiza el valor de `BackendUrl` en el archivo `src/config/config.js` por el valor del servidor ejecutandose localmente en el backend (valor por defecto: `localhost:13756`).
+3. En caso de querer ejecutar modo desarrollo sin build:
+   ```bash
+   npm start dev
+4. Una vez iniciado la dirección por defecto del frontend para la web app es `localhost:3000`
+
 ### 3.1 Configuración
 1. Navega a la carpeta `frontend/atomos`.
 2. Actualiza el valor de `BackendUrl` en el archivo `src/config/config.js` con la URL copiada desde` la termina`l `Ngrok para` `el Backend.`
+
 ### 3.2 Compilación
 1. Buildea el proyecto con el siguiente comando:
     ```bash 
@@ -91,12 +102,17 @@ Para compilar y ejecutar el reconocimiento de manos:
 - Ahora podrás acceder al frontend desde la URL generada por Ngrok para `localhost:3000/ `
 
 # 4 Unity
-## 4.1 Configuración
-1. Navega a la carpeta `A darle átomos/`.
-2. Actualiza el valor de la variable `baseBackendUrl` en el archivo `Assets/Scripts/Login.cs` con la URL generada por Ngrok para el backend (``localhost:13756``).
-## 4.2 Ejecución
+## 4.0 Configuración ejecución backend local (localhost)
+0. SOLO REALIZAR ESTOS PASOS SI SE NECESITA EJECUTAR DE MANERA LOCAL
+1. Navega a la carpeta `A darle átomos/Assets/StreamingAssets`.
+2. Actualiza el valor de la variable `baseBackendUrl` en el archivo `config.json` con la dirección por defecto local del backend (``localhost:13756``).
+## 4.1 Ejecución local (modo juego)
 1. Ejecuta el proyecto en modo juego desde la escena Inicio.
 - Esta es una alternativa temporal a la compilación de una versión del proyecto en Unity. 🥱
+## 4.3 Ejecución Build (proyecto compilado)
+1. Compila el proyecto (_build and run_) y en la carpeta de la build navega a la carpeta `StreamingAssets`
+2. Actualiza el valor de la variable `baseBackendUrl` en el archivo `config.json` con la URL generada por Ngrok para el backend (``localhost:13756``). 
+3. Para que tome efecto el valor actualizado solo debes reiniciar el ejecutable.
 
 # Futuro
 En el futuro, se planea que `wsserver.py`, `calib.py` y `handpose3d.py` sean ejecutables con rutas relativas, permitiendo su uso como aplicativos sin necesidad de compilación en Python.
