@@ -1,30 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 import logo from '../media/logo.png'; // Asegúrate de que la ruta sea correcta
 import './HomePage.css';
-//import config from '../config/config';
-import { CSSTransition } from 'react-transition-group';
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const [inProp, setInProp] = React.useState(true);
+  const [inProp, setInProp] = useState(false); // Controla la transición del contenido
+
+  // Simula la carga de la página sin pantalla de carga
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setInProp(true); // Comienza la transición del contenido principal
+    }, 100);
+
+    return () => clearTimeout(timer); // Limpia el timeout si el componente se desmonta
+  }, []);
 
   const handleNavigation = (path) => {
+    // Iniciar fade-out del contenido
     setInProp(false);
+
+    // Espera a que el fade-out termine antes de navegar
     setTimeout(() => {
       navigate(path);
-    }, 300); // La duración debe coincidir con la animación en CSS
+    }, 500); // La duración del timeout coincide con la duración del fade-out (500ms)
   };
 
   return (
-    <CSSTransition in={inProp} timeout={300} classNames="fade" unmountOnExit>
-      <div className="home-container">
-        <nav className="navbar col-12">
-          <div>
-            <img src={logo} alt="Logo" className="logo" />
-          </div>
-        </nav>
-        <div className="row align-items-center text-center col-lg-10 col-xs-12 col-md-10 col-sm-10 col-xl-10 col-xxl-10 justify-content-center">
+    <div className="home-container col-12">
+      {/* Navbar siempre visible, sin animación */}
+      <nav className="navbar col-12 ">
+        <div>
+          <img src={logo} alt="Logo" className="logo img-fluid" />
+        </div>
+      </nav>
+
+      {/* Contenido principal con fade-in y fade-out de 0.5s */}
+      <CSSTransition
+        in={inProp}
+        timeout={500}
+        classNames="fade"
+        unmountOnExit
+      >
+        <div className="row align-items-center text-center col-lg-12 col-xs-12 col-md-12 col-sm-12 col-xl-12 col-xxl-12 justify-content-center">
           <div className="col-12">
             <h1 className="title display-1">A darle átomos</h1>
             <div className="buttons-container justify-content-center align-items-center text-center">
@@ -33,8 +52,8 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </div>
-    </CSSTransition>
+      </CSSTransition>
+    </div>
   );
 };
 

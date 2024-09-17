@@ -37,4 +37,36 @@
   width: 100%; /* Ancho completo del botón */
   max-width: 20rem; /* Máximo ancho de los botones */
 }
+/* Fade-in para la navbar y el título */
+/* Fade-in rápido para la navbar (0.1s) */
+.fade-fast-enter {
+  opacity: 0;
+}
+.fade-fast-enter-active {
+  opacity: 1;
+  transition: opacity 100ms ease-in-out;
+}
+.fade-fast-exit {
+  opacity: 1;
+}
+.fade-fast-exit-active {
+  opacity: 0;
+  transition: opacity 100ms ease-in-out;
+}
+
+/* Fade-in normal para el resto del contenido (0.5s) */
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
 

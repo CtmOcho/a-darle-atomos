@@ -1,0 +1,53 @@
+.loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    background-color: #DCDBD7AA;
+  }
+  
+  .loading-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .loading-logo {
+    max-width: 150px; /* Ajusta el tamaño máximo de la imagen */
+    height: auto;
+    animation: spin 3s linear infinite;
+  }
+  
+  .loading-text {
+    font-size: 2rem; /* Ajusta el tamaño del texto */
+    margin-top: 1rem;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .fade-enter {
+    opacity: 0;
+  }
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+  .fade-exit {
+    opacity: 1;
+  }
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+  
