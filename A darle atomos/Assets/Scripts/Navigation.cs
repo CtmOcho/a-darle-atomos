@@ -40,7 +40,7 @@ namespace Navigation1
             }
             else
             {
-                SceneManager.LoadScene("Experiencia_profesores");
+                SceneManager.LoadScene("Experiencias_profesores");
             }
         }
 

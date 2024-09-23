@@ -18,7 +18,7 @@ public class NavbarController : MonoBehaviour
 
     // Tamaños y posiciones de los subpaneles
     public Vector2 defaultSize = new Vector2(300, 400); // Tamaño por defecto de los subpaneles
-    public Vector2 enlargedSize = new Vector2(1200, 800); // Tamaño agrandado de los subpaneles
+    public Vector2 enlargedSize = new Vector2(1200, 1000); // Tamaño agrandado de los subpaneles
     public Vector2 centeredPosition = Vector2.zero; // Posición en el centro de la pantalla
 
     // Tamaño y posición originales del RawImage
