@@ -384,16 +384,16 @@ private void SetPanelColor(Image panelImage, string elementType)
     //ACTUALICE LOS COLORES A LA TABLA DEL ASSET PARA CONSISTENCIA :)
     Dictionary<string, Color> elementTypeColors = new Dictionary<string, Color>
     {
-        { "Metal Alcalino", new Color(0.000f, 0.125f, 0.239f) }, // Azul para Metales Alcalinos ok
-        { "Metal Alcalinotérreo", new Color(0.976f, 0.671f, 0.000f) }, // Amraillo  ok
-        { "Lantánido", new Color(0.757f, 0.796f, 0.471f) }, // verde claro personalizado ok
-        { "Actínido", new Color(0.349f, 0.584f, 0.435f) }, // Verde oscuro personalizado ok
-        { "Metal de Transición", new Color(0.000f, 0.459f, 0.776f) }, // celeste para Metales de Transición ok
-        { "Metal", new Color(0.380f, 0.059f, 0.400f) }, // Morado para otros Metales ok
-        { "Metaloide", new Color(0.875f, 0.000f, 0.208f) }, // fuxia para Metaloides ok
-        { "No Metal", new Color(0.925f, 0.412f, 0.071f) }, // Naranja para No Metales ok
-        { "Halógeno", new Color(0.576f, 0.655f, 0.059f) }, // verde para Halógenos ok
-        { "Gas Noble", new Color(0.000f, 0.349f, 0.153f) } // Verde para Gases Nobles ok
+        { "Metal Alcalino", new Color(0.000f, 0.000f, 0.502f) }, 
+        { "Metal Alcalinotérreo", new Color(0.800f, 0.400f, 0.000f) },
+        { "Lantánido", new Color(0.439f, 0.678f, 0.278f) }, 
+        { "Actínido", new Color(0.133f, 0.545f, 0.133f) }, 
+        { "Metal de Transición", new Color(0.000f, 0.459f, 0.776f) }, 
+        { "Metal", new Color(0.502f, 0.000f, 0.502f) }, 
+        { "Metaloide", new Color(0.545f, 0.000f, 0.000f) }, 
+        { "No Metal", new Color(0.545f, 0.271f, 0.075f) }, 
+        { "Halógeno", new Color(0.576f, 0.655f, 0.059f) }, 
+        { "Gas Noble", new Color(0.000f, 0.392f, 0.000f) } 
     };
 
     if (elementTypeColors.TryGetValue(elementType, out Color color))
