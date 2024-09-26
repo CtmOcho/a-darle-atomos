@@ -386,7 +386,7 @@ private void SetPanelColor(Image panelImage, string elementType)
     {
         { "Metal Alcalino", new Color(0.000f, 0.000f, 0.502f) }, 
         { "Metal Alcalinotérreo", new Color(0.800f, 0.400f, 0.000f) },
-        { "Lantánido", new Color(0.439f, 0.678f, 0.278f) }, 
+        { "Lantánido", new Color(0.800f, 0.200f, 0.200f) }, 
         { "Actínido", new Color(0.133f, 0.545f, 0.133f) }, 
         { "Metal de Transición", new Color(0.000f, 0.459f, 0.776f) }, 
         { "Metal", new Color(0.502f, 0.000f, 0.502f) }, 
