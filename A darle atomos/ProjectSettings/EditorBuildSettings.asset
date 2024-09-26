@@ -50,4 +50,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Moleculares/ley_gases.unity
     guid: 5b66de86173d63c41bb2b2803b78dee0
+  - enabled: 1
+    path: Assets/Scenes/Laboratorio/Laboratorio_Rutherford.unity
+    guid: 203eb56c82068fd45901169717bb95ab
+  - enabled: 1
+    path: Assets/Scenes/Laboratorio/Laboratorio_Sodio.unity
+    guid: f8dace895dff1994cac5e2db96b8e0cb
+  - enabled: 1
+    path: Assets/Scenes/Laboratorio/Laboratorio_Lluvia.unity
+    guid: de1411909ff720d4ea201c2fec594821
+  - enabled: 1
+    path: Assets/Scenes/Laboratorio/Laboratorio_Acido-Base.unity
+    guid: c6dbb193db3fb07449a67f4d237c2f81
+  - enabled: 1
+    path: Assets/Scenes/Laboratorio/Laboratorio_Camaleon.unity
+    guid: 52856e499e89b7746bae9e22a92df766
   m_configObjects: {}

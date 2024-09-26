@@ -7,14 +7,15 @@ public class SubexpMenuTrigger : MonoBehaviour
 {
     public GameObject Subexperience;
     public GameObject Manos; // Referencia al objeto "manos"
-    public Vector3 safePosition = new Vector3(-1, 1, 0); // Nueva posición para las manos al reanudar el juego
     public float holdTime = 2.0f; // Tiempo en segundos para activar el menú
     private float timer = 0.0f;
     private bool isTouching = false;
+    private bool menuActive = false; // Nueva variable para controlar si el menú está activo
+    private bool canActivateMenu = true; // Control para evitar reactivar el menú inmediatamente
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 8) // Verifica si el objeto está en la capa 8
+        if (other.gameObject.layer == 8 && canActivateMenu && !menuActive) // Verifica si las manos están en la capa 8 y si se puede activar el menú
         {
             isTouching = true;
             StartCoroutine(HoldToActivateMenu());
@@ -27,6 +28,14 @@ public class SubexpMenuTrigger : MonoBehaviour
         {
             isTouching = false;
             StopAllCoroutines(); // Asegura que no haya corrutinas activas
+
+            // Restablecer la posibilidad de activar el menú cuando las manos salen del trigger
+            if (menuActive)
+            {
+                menuActive = false; // Permitir que el trigger se pueda volver a activar
+                canActivateMenu = true; // Ahora que las manos salieron, se puede volver a activar el menú
+                Debug.Log("Manos salieron del trigger, menú puede reactivarse.");
+            }
         }
     }
 
@@ -52,7 +61,10 @@ public class SubexpMenuTrigger : MonoBehaviour
         {
             Subexperience.SetActive(true);
             Time.timeScale = 0f; // Pausar el juego
-            Debug.Log("Subexperience menu activated and game paused.");
+            ToggleHands(false); // Desactivar las manos cuando el menú está activo
+            menuActive = true; // El menú ahora está activo
+            canActivateMenu = false; // Evitar que el menú se vuelva a activar inmediatamente
+            Debug.Log("Subexperience menu activated, hands deactivated and game paused.");
         }
         else
         {
@@ -66,13 +78,11 @@ public class SubexpMenuTrigger : MonoBehaviour
         {
             Subexperience.SetActive(false);
             Time.timeScale = 1f; // Reanudar el juego
-            Debug.Log("Game resumed.");
+            ToggleHands(true); // Reactivar las manos al reanudar el juego
+            Debug.Log("Game resumed and hands reactivated.");
 
             // Reiniciar el estado del script para permitir nuevas activaciones del menú de pausa
             ResetState();
-
-            // Reposicionar las manos a una posición segura
-            RepositionHands();
         }
         else
         {
@@ -114,12 +124,12 @@ public class SubexpMenuTrigger : MonoBehaviour
         Debug.Log("State reset.");
     }
 
-    private void RepositionHands()
+    private void ToggleHands(bool isActive)
     {
         if (Manos != null)
         {
-            Manos.transform.position = safePosition;
-            Debug.Log("Hands repositioned to " + safePosition);
+            Manos.SetActive(isActive);
+            Debug.Log("Hands set to " + (isActive ? "active" : "inactive"));
         }
         else
         {

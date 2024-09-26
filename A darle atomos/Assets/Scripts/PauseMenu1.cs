@@ -6,14 +6,14 @@ public class PauseMenuTrigger : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject Manos; // Referencia al objeto "manos"
-    public Vector3 safePosition = new Vector3(-1, 1, 0); // Nueva posición para las manos al reanudar el juego
     public float holdTime = 2.0f; // Tiempo en segundos para activar el menú
     private float timer = 0.0f;
     private bool isTouching = false;
+    private bool canActivateMenu = true; // Nueva variable para controlar si se puede activar el menú
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 8) // Verifica si el objeto está en la capa 8
+        if (other.gameObject.layer == 8 && canActivateMenu) // Verifica si el objeto está en la capa 8 y si se puede activar el menú
         {
             isTouching = true;
             StartCoroutine(HoldToActivateMenu());
@@ -24,8 +24,11 @@ public class PauseMenuTrigger : MonoBehaviour
     {
         if (other.gameObject.layer == 8) // Verifica si el objeto está en la capa 8
         {
-            // Aquí no se reinicia el estado, se espera que esto se haga en el método ResumeGame
             isTouching = false;
+            StopAllCoroutines(); // Asegura que no haya corrutinas activas
+
+            // Permitir activar el menú solo después de que las manos hayan salido del trigger
+            canActivateMenu = true;
         }
     }
 
@@ -52,7 +55,12 @@ public class PauseMenuTrigger : MonoBehaviour
         {
             pauseMenu.SetActive(true);
             Time.timeScale = 0f; // Pausar el juego
-            Debug.Log("Pause menu activated and game paused.");
+            canActivateMenu = false; // Evitar que el menú se reactive inmediatamente
+
+            // Desactivar las manos cuando el menú está activo
+            ToggleHands(false);
+
+            Debug.Log("Pause menu activated, hands deactivated, and game paused.");
         }
         else
         {
@@ -66,13 +74,14 @@ public class PauseMenuTrigger : MonoBehaviour
         {
             pauseMenu.SetActive(false);
             Time.timeScale = 1f; // Reanudar el juego
-            Debug.Log("Game resumed.");
+
+            // Reactivar las manos al reanudar el juego
+            ToggleHands(true);
+
+            Debug.Log("Game resumed and hands reactivated.");
 
             // Reiniciar el estado del script para permitir nuevas activaciones del menú de pausa
             ResetState();
-
-            // Reposicionar las manos a una posición segura
-            RepositionHands();
         }
         else
         {
@@ -89,12 +98,12 @@ public class PauseMenuTrigger : MonoBehaviour
         Debug.Log("State reset.");
     }
 
-    private void RepositionHands()
+    private void ToggleHands(bool isActive)
     {
         if (Manos != null)
         {
-            Manos.transform.position = safePosition;
-            Debug.Log("Hands repositioned to " + safePosition);
+            Manos.SetActive(isActive);
+            Debug.Log("Hands set to " + (isActive ? "active" : "inactive"));
         }
         else
         {

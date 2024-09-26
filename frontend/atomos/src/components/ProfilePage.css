@@ -7,7 +7,6 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 0.5rem;
   
   background-color: rgba(245, 245, 245, 0); /* Fondo transparente */
 }
@@ -21,6 +20,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
   background-color: rgba(245, 245, 245, 0.8);
   padding: 0.5rem;
   border-radius: 1rem;
@@ -54,22 +54,16 @@
 }
 
 .profile-page-container  .profile-buttons {
+  position: relative;
   display: flex;
-  justify-content: center; /* Centramos los botones */
-  gap: 2rem; /* Espacio entre los botones */
-  width: 100%;
-  height: 50%;
 }
 
 .profile-page-container  .btn,.profile-page-container .btn, .profile-page-container .btn {
-
   border: none;
   border-radius: 0.5rem;
-
   cursor: pointer;
   font-size: 2.5rem;
-  width: 12rem;
-  height: 100%;
+  margin: 0.5rem;
 }
 
 
