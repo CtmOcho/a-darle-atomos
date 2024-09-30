@@ -1,10 +1,8 @@
 .home-container .logo {
-  width: 6rem; /* Tamaño proporcional en rem */
   height: auto;
 }
 
 .home-container .title {
-  font-size: 7rem;
   margin-bottom: 1rem;
 }
 
@@ -21,7 +19,6 @@
   flex-direction: column;
   align-items: center;
   width: 100%; /* Hacemos que tome todo el ancho disponible */
-  max-width: 100%;
   padding: 1rem;
   
 }
@@ -33,9 +30,7 @@
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-size: 2.5rem;
-  width: 100%; /* Ancho completo del botón */
-  max-width: 20rem; /* Máximo ancho de los botones */
+  font-size: 1.8rem;
 }
 /* Fade-in para la navbar y el título */
 /* Fade-in rápido para la navbar (0.1s) */

@@ -30,10 +30,18 @@ const HomePage = () => {
   return (
     <div className="home-container col-12">
       {/* Navbar siempre visible, sin animación */}
-      <nav className="navbar col-12 ">
+      <nav className="row navbar col-12 ">
+      <CSSTransition
+        in={inProp}
+        timeout={500}
+        classNames="fade"
+        unmountOnExit
+      >
         <div>
           <img src={logo} alt="Logo" className="logo img-fluid" />
         </div>
+      </CSSTransition>
+
       </nav>
 
       {/* Contenido principal con fade-in y fade-out de 0.5s */}
@@ -43,12 +51,12 @@ const HomePage = () => {
         classNames="fade"
         unmountOnExit
       >
-        <div className="row align-items-center text-center col-lg-12 col-xs-12 col-md-12 col-sm-12 col-xl-12 col-xxl-12 justify-content-center">
+        <div className="row align-items-center text-center col-12 justify-content-center">
           <div className="col-12">
             <h1 className="title display-1">A darle átomos</h1>
             <div className="buttons-container justify-content-center align-items-center text-center">
-              <button className="btn" onClick={() => handleNavigation('/register')}>Registrarse</button>
-              <button className="btn" onClick={() => handleNavigation('/login')}>Iniciar Sesión</button>
+              <button className="btn col-12 col-lg-6 col-xl-6 col-xxl-6" onClick={() => handleNavigation('/register')}>Registrarse</button>
+              <button className="btn col-12 col-lg-6 col-xl-6 col-xxl-6" onClick={() => handleNavigation('/login')}>Iniciar Sesión</button>
             </div>
           </div>
         </div>
