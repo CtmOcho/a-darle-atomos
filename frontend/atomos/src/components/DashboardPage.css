@@ -136,13 +136,6 @@ img.btn-profile:active {
   border: 2px solid #99bbbc;
 }
 
-.experiment-card img {
-  width: 40%;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .experiments-container {
   display: flex;
@@ -150,28 +143,25 @@ img.btn-profile:active {
   justify-content: space-between;
   text-align: center;
 }
-
 .experiment-card {
-  flex: 1 1 calc(25% - 1rem);
   box-sizing: border-box;
   margin-bottom: 1rem;
-  padding: 1rem;
   background-color: #DCDBD7cc;
   border-radius: 2rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, background-color 0.3s ease;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Oculta cualquier desbordamiento para mantener el tamaño */
 }
-
 .experiment-card img {
-  width: 80%;
-  height: auto;
-  display: block;
   margin: 0 auto;
   border-radius: 3rem;
   transition: transform 0.3s ease;
+  object-fit:cover;/* Escala la imagen, manteniendo la proporción, sin deformarla */
 }
 
-.experiment-card:hover img {
+.experiment-card:hover{
   transform: scale(1.05);
 }

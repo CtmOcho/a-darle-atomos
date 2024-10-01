@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3061430817450173509}
   - component: {fileID: 5114938803725693264}
   - component: {fileID: 8600037553339687375}
+  - component: {fileID: 2150140519378757094}
   m_Layer: 0
   m_Name: Drop
   m_TagString: Untagged
@@ -95,6 +96,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c8601f1583fb1d4fa45fa18d19fd33c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2150140519378757094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2720148867374294540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81987a3801a82a548b87d93ff8e0e898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liquidPH: 0
+  hasPhenolphtalein: 0
+  isChameleonExp: 0
 --- !u!1 &5050420845159050935
 GameObject:
   m_ObjectHideFlags: 0
