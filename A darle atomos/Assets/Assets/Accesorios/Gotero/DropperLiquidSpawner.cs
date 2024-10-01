@@ -30,10 +30,6 @@ public class DropperLiquidSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Depuramos la orientación del objeto
-        //Debug.Log(Vector3.Dot(transform.up, Vector3.down));
-
-        // Verificamos las condiciones para generar un drop
         if (Mathf.Abs(Vector3.Dot(transform.up, Vector3.down)) < 0.3f && counter < objectQuantity && subCounter > 50 && dropperLiquid.transform.localScale.z > 0.002f)
         {
             // Reducimos la escala del líquido
