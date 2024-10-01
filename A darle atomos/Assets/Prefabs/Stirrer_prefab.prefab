@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.17364816, w: 0.9848078}
   m_LocalPosition: {x: -0.06415, y: 0.03628, z: -0.0093}
-  m_LocalScale: {x: -0.012, y: -0.012, z: -0.02}
+  m_LocalScale: {x: 0.012, y: 0.012, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5640604810433868734}
@@ -434,7 +434,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liquid: {fileID: 1262466037874664528}
+  regularSurface: {fileID: 0}
+  stirSurface: {fileID: 0}
   stirBar: {fileID: 1462780617323879763}
+  bubbles: {fileID: 0}
   liquidHeight: 1
   isActive: 0
 --- !u!4 &3409487709986285921 stripped

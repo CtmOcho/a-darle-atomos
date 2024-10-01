@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6f13d0753d5da204aab31125efcfa565
+guid: 92dff59630cc7544d855cfbdbbf3048b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,48 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Stirrer label
-    second: {fileID: 2100000, guid: 59bee7de61eda2d49b4633b3a16f01bc, type: 2}
+      name: Glass
+    second: {fileID: 2100000, guid: 5e215c9b2d957af4a831a443d5d31a23, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: alpha_generator_base
-    second: {fileID: 2100000, guid: a5fe080e3af02d84caf43f9fad2eb51e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: alpha_generator_black
-    second: {fileID: 2100000, guid: 69ba014d31866ed47b4f8efecc24302a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: alpha_generator_gold
-    second: {fileID: 2100000, guid: e124878211abd304b9bd3813ae72391e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: alpha_generator_screw
-    second: {fileID: 2100000, guid: c5f5994d45f8c7f49b9d752bdcde3d50, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: black
-    second: {fileID: 2100000, guid: 1447995f8d4dff142b7a444312c6a8d0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: burner brass
-    second: {fileID: 2100000, guid: e3e41ff6dcff9a0429f1c2e7378fa205, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: chrome
-    second: {fileID: 2100000, guid: f643d30cd4097df4b8b275798bd52aac, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: particle_counter_label
-    second: {fileID: 2100000, guid: 56ba04570c12db548b0ab91f1ed6deb1, type: 2}
+      name: Liquid
+    second: {fileID: 2100000, guid: 2cdb8eb2aa97f4c4591069d24a02c499, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -82,14 +47,14 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1
     importVisibility: 1
-    importBlendShapes: 0
-    importCameras: 0
-    importLights: 0
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
@@ -123,7 +88,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 0
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
@@ -142,7 +107,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1

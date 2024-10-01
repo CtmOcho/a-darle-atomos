@@ -12,6 +12,8 @@ TagManager:
   - Liquid
   - VidrioReloj
   - GlassTrigger
+  - alphaParticle
+  - goldFoil
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - Grabbable
   - Finger colider
   - Tripod
-  - 
+  - Alpha Particles
   - 
   - 
   - 
