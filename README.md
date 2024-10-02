@@ -108,7 +108,7 @@ Para compilar y ejecutar el reconocimiento de manos:
 2. Actualiza el valor de la variable `baseBackendUrl` en el archivo `config.json` con la dirección por defecto local del backend (``localhost:13756``).
 ## 4.1 Ejecución local (modo juego)
 1. Ejecuta el proyecto en modo juego desde la escena Inicio.
-- Esta es una alternativa temporal a la compilación de una versión del proyecto en Unity. 🥱
+- Esta es una alternativa temporal a la compilación de una versión del proyecto en Unity. 🥱🐒
 ## 4.3 Ejecución Build (proyecto compilado)
 1. Compila el proyecto (_build and run_) y en la carpeta de la build navega a la carpeta `StreamingAssets`
 2. Actualiza el valor de la variable `baseBackendUrl` en el archivo `config.json` con la URL generada por Ngrok para el backend (``localhost:13756``). 
