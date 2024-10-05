@@ -8,14 +8,18 @@ public class DropperLiquidSpawner : MonoBehaviour
     public GameObject dropperLiquid;
     public float objectQuantity;
     public bool isFull;
-    public float liquidInitScale = 1;
+    public float liquidInitScale;
     public float liquidPH;
     public bool hasPhenolphtalein;
     public bool isPHExp; // Nueva variable para determinar si es un experimento camaleón
     public float dropAmmount; // Nueva variable pública para el valor del drop
+    public bool isInValidZone;
+    public float fillDuration = 1.0f;
+
+    public float actualDropperVolume;
 
     int counter;
-    int subCounter;
+    //int subCounter;
     float decreaseAmount;
     // Start is called before the first frame update
     void Start()
@@ -24,17 +28,18 @@ public class DropperLiquidSpawner : MonoBehaviour
         decreaseAmount = 1/objectQuantity;
         SetLiquidScale(liquidInitScale);
         counter = 0;
-        subCounter = 0;
+        isInValidZone = false;
+        //subCounter = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Mathf.Abs(Vector3.Dot(transform.up, Vector3.down)) < 0.3f && counter < objectQuantity && subCounter > 50 && dropperLiquid.transform.localScale.z > 0.002f)
+        if (Mathf.Abs(Vector3.Dot(transform.up, Vector3.down)) < 0.3f && dropperLiquid.transform.localScale.z > 0.002f && isFull && isInValidZone)
         {
             // Reducimos la escala del líquido
             SetLiquidScale(dropperLiquid.transform.localScale.z - decreaseAmount);
-
+            actualDropperVolume = dropperLiquid.transform.localScale.z * 20;
             // Creamos la posición donde instanciar el drop
             Vector3 pos = new Vector3(transform.position.x, transform.position.y - 0.01f, transform.position.z);
             
@@ -54,19 +59,19 @@ public class DropperLiquidSpawner : MonoBehaviour
 
             }
             // Destruimos el drop después de 2 segundos
-            Destroy(drop, 2);
+            Destroy(drop, 1);
 
             // Aumentamos el contador
             counter++;
-            subCounter = 0;
+            //subCounter = 0;
         }
-        else if (dropperLiquid.transform.localScale.z <= 0.002f)
+        else if (counter >= objectQuantity)
         {
             SetDropperFalse();
         }
 
         // Incrementamos el subcontador
-        subCounter++;
+        //subCounter++;
     }
 
     public void SetLiquidScale(float scale)
@@ -79,19 +84,46 @@ public class DropperLiquidSpawner : MonoBehaviour
         liquidPH = ph;
     }
 
-    public void SetDropperFull()
+   public void SetDropperFull()
     {
         if (dropperLiquid.transform.localScale.z < 1)
         {
+            // Llamamos a la corrutina para aumentar el tamaño de manera fluida
+            StartCoroutine(FillLiquidGradually());
             isFull = true;
+        counter = 0;
+
         }
     }
 
-    public void SetChameleonExp(bool value){
+    // Corrutina para rellenar gradualmente el dropperLiquid
+    private IEnumerator FillLiquidGradually()
+    {
+        
+        float currentScale = dropperLiquid.transform.localScale.z;
+        float targetScale = 1.0f;
+        
+        float elapsedTime = 0;
+
+        while (elapsedTime < fillDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float newScale = Mathf.Lerp(currentScale, targetScale, elapsedTime / fillDuration);
+            SetLiquidScale(newScale);
+            actualDropperVolume = dropperLiquid.transform.localScale.z;
+            yield return null; // Esperar al siguiente frame
+        }
+
+        // Asegurarse de que la escala final sea exactamente 1
+        SetLiquidScale(1.0f);
+    }
+
+    public void SetPHExp(bool value){
         isPHExp = value;
     }
     public void SetDropperFalse()
     {
         isFull = false;
+
     }
 }

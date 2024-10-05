@@ -11,6 +11,9 @@
         },
         {
             "m_Id": "9cb466b3639943fe8f744028e923c97d"
+        },
+        {
+            "m_Id": "9d2f687bf33d485cbccca861520fbe68"
         }
     ],
     "m_Keywords": [],
@@ -62,6 +65,9 @@
         },
         {
             "m_Id": "2e3a7074c73b429eb02a1a9cedcfbd87"
+        },
+        {
+            "m_Id": "4e8668a3ffa04666b3d2058118b21c03"
         }
     ],
     "m_GroupDatas": [],
@@ -91,6 +97,20 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "95f6b1cca31a4c2bbc042be1da98b815"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "4e8668a3ffa04666b3d2058118b21c03"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "df68255472d14175b2470c56960c3569"
                 },
                 "m_SlotId": 0
             }
@@ -294,6 +314,31 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
+    "m_ObjectId": "2e88c4487b5c427a8789586e7093187e",
+    "m_Id": 0,
+    "m_DisplayName": "Luz",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.NormalMaterialSlot",
     "m_ObjectId": "315e6b7c8e2a4e1a9e860e672a76d0ad",
     "m_Id": 0,
@@ -437,6 +482,42 @@
     "m_PreviewMode": 2,
     "m_CustomColors": {
         "m_SerializableColors": []
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "4e8668a3ffa04666b3d2058118b21c03",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -466.8424987792969,
+            "y": 290.95001220703127,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "2e88c4487b5c427a8789586e7093187e"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "9d2f687bf33d485cbccca861520fbe68"
     }
 }
 
@@ -637,6 +718,36 @@
 }
 
 {
+    "m_SGVersion": 3,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.ColorShaderProperty",
+    "m_ObjectId": "9d2f687bf33d485cbccca861520fbe68",
+    "m_Guid": {
+        "m_GuidSerialized": "79eafa86-d8f7-4fbe-9646-b2ec927958f6"
+    },
+    "m_Name": "Luz",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Luz",
+    "m_DefaultReferenceName": "_Luz",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+    },
+    "isMainColor": false,
+    "m_ColorMode": 0
+}
+
+{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "a01c1d99aa894161bfb8b15ac0c913ef",
@@ -705,6 +816,9 @@
         },
         {
             "m_Id": "9cb466b3639943fe8f744028e923c97d"
+        },
+        {
+            "m_Id": "9d2f687bf33d485cbccca861520fbe68"
         }
     ]
 }
