@@ -65,4 +65,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Laboratorio/Laboratorio_Camaleon.unity
     guid: 52856e499e89b7746bae9e22a92df766
+  - enabled: 1
+    path: Assets/Scenes/Moleculares/escena_creador_comp.unity
+    guid: 13b7bd6ed6a7de64bb0c6c37a4932382
+  - enabled: 1
+    path: Assets/Scenes/Moleculares/escena_acidobase.unity
+    guid: 9563eafebea331f4689a9f7826558d06
+  - enabled: 1
+    path: Assets/Scenes/Moleculares/escena_camaleon_mol.unity
+    guid: 644195e0e578cd044876035f252e7c1d
+  - enabled: 1
+    path: Assets/Scenes/Moleculares/escena_exotermica_mol.unity
+    guid: 2e57d0f84291f554bb25408ca4b0d1f3
+  - enabled: 1
+    path: Assets/Scenes/Moleculares/escena_lluviadorada.unity
+    guid: ab28716892d618b4881f5f506bc559dd
+  - enabled: 1
+    path: Assets/Scenes/Moleculares/escena_pastaElefante.unity
+    guid: 6403ff8e495db2841a6c4c04a010fac1
+  - enabled: 1
+    path: Assets/Scenes/Moleculares/escena_Rutherford.unity
+    guid: 4536714e32735f946ae8e6e68eaab4bb
   m_configObjects: {}

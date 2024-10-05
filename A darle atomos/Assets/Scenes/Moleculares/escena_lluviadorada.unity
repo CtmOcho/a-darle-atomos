@@ -595,14 +595,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1886456232}
         m_TargetAssemblyTypeName: Navigation1.Navigation, Assembly-CSharp
-        m_MethodName: GoToPreviousScene
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Laboratorio_llama
+          m_StringArgument: Laboratorio_Lluvia
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &1230783491
