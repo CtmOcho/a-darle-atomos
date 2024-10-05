@@ -6,10 +6,9 @@ using UnityEngine.UIElements;
 public class Stirrer_controller : MonoBehaviour
 {
     public GameObject liquid;
-    public GameObject regularSurface;
-    public GameObject stirSurface;
     public GameObject stirBar;
     public GameObject bubbles;
+    public Material swirl;
 
     public float liquidHeight = 0.4f;
     public bool isActive = false;
@@ -50,7 +49,6 @@ public class Stirrer_controller : MonoBehaviour
                 StopAllCoroutines();
                 StartCoroutine(stopBar());
                 StartCoroutine(stirLiquidStop());
-                StartCoroutine(stirLiquidStopSurface());
                 stirFlag = false;
             }
         }
@@ -77,9 +75,8 @@ public class Stirrer_controller : MonoBehaviour
     }
     IEnumerator stirLiquidStart()
     {
-        stirSurface.SetActive(true);
+        swirl.SetFloat("_bool", 1);
         bubbles.SetActive(true);
-        regularSurface.SetActive(false);
         while (true)
         {
             stirCounter += 0.0001f;
@@ -90,6 +87,7 @@ public class Stirrer_controller : MonoBehaviour
     }
     IEnumerator stirLiquidStop()
     {
+        swirl.SetFloat("_bool", 0);
         bubbles.SetActive(false);
         while (true)
         {
@@ -98,11 +96,5 @@ public class Stirrer_controller : MonoBehaviour
             liquid.transform.GetChild(0).transform.localScale = new Vector3(1f, 1f, zScale);
             yield return new WaitForSeconds(0.03f);
         }
-    }
-    IEnumerator stirLiquidStopSurface()
-    {
-        yield return new WaitForSeconds(6);
-        stirSurface.SetActive(false);
-        regularSurface.SetActive(true);
     }
 }

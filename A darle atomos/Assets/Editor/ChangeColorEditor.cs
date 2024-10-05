@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(flame))] // Replace 'Flame' with the name of your MonoBehaviour script
-public class FlameEditor : Editor
+[CustomEditor(typeof(ChangeColor))] // Replace 'Flame' with the name of your MonoBehaviour script
+public class ChangeColorEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
 
-        flame flameScript = (flame)target;
+        ChangeColor colorScript = (ChangeColor)target;
 
         // Add a button to the Inspector
         if (GUILayout.Button("Call Coroutine"))
         {
-            flameScript.StartCoroutine(flameScript.ChangeFlameColor(flameScript.targetColor)); // Call your coroutine here
+            colorScript.ColorChange(); // Call your coroutine here
         }
     }
 }
