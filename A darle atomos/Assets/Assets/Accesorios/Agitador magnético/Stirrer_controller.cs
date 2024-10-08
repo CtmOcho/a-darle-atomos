@@ -8,7 +8,7 @@ public class Stirrer_controller : MonoBehaviour
     public GameObject liquid;
     public GameObject stirBar;
     public GameObject bubbles;
-    public Material swirl;
+    public Renderer objectRenderer;
 
     public float liquidHeight = 0.4f;
     public bool isActive = false;
@@ -16,6 +16,7 @@ public class Stirrer_controller : MonoBehaviour
 
     float stirCounter = 0;
     float barCounter = 0;
+    public ChangeColor changeColor;
 
     void Start()
     {
@@ -36,6 +37,7 @@ public class Stirrer_controller : MonoBehaviour
                 StopAllCoroutines();
                 StartCoroutine(rotateBar());
                 StartCoroutine(stirLiquidStart());
+                changeColor.ColorChange();
                 stirFlag = true;
             }
 
@@ -75,7 +77,7 @@ public class Stirrer_controller : MonoBehaviour
     }
     IEnumerator stirLiquidStart()
     {
-        swirl.SetFloat("_bool", 1);
+        objectRenderer.material.SetFloat("_bool", 1);
         bubbles.SetActive(true);
         while (true)
         {
@@ -87,7 +89,7 @@ public class Stirrer_controller : MonoBehaviour
     }
     IEnumerator stirLiquidStop()
     {
-        swirl.SetFloat("_bool", 0);
+        objectRenderer.material.SetFloat("_bool", 0);
         bubbles.SetActive(false);
         while (true)
         {
