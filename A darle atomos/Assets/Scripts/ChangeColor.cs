@@ -11,11 +11,14 @@ public class ChangeColor : MonoBehaviour
     public Color targetColor;
     public float transitionSpeed = .01f; // Speed of color change
     public float changeTime = 1f;
-
+    public bool boolfenoftaleina;
     public void ColorChange()
     {
         targetColor = PhToColor((int)liquidProperties.actualPHvalue);
-        StartCoroutine(ChangeColorCorroutine(objectRenderer, objectRendererTop, targetColor, transitionSpeed));
+        if (targetColor != objectRenderer.material.color && boolfenoftaleina)
+        {
+            StartCoroutine(ChangeColorCorroutine(objectRenderer, objectRendererTop, targetColor, transitionSpeed));
+        }
     }
 
     IEnumerator ChangeColorCorroutine(Renderer objectRenderer, Renderer objectRendererTop, Color targetColor, float transitionSpeed)
@@ -34,6 +37,7 @@ public class ChangeColor : MonoBehaviour
         }
     }
 
+    // TODO: 8chito pongale los colores correctos
     Color PhToColor(int ph)
     {
         switch (ph)
@@ -41,33 +45,33 @@ public class ChangeColor : MonoBehaviour
             case 0:
                 return Color.red;
             case 1:
-                return new Color(255 / 255, 90 / 255, 0);
+                return new Color(1, 90 / 255, 0);
             case 2:
-                return new Color(255 / 255, 180 / 255, 0);
+                return new Color(1, 180 / 255, 0);
             case 3:
-                return new Color(255 / 255, 255 / 255, 0);
+                return new Color(1, 1, 0);
             case 4:
-                return new Color(180 / 255, 230 / 255, 0);
+                return new Color(180 / 255, 0.9f, 0);
             case 5:
-                return new Color(90 / 255, 230 / 255, 0);
+                return new Color(90 / 255, 0.9f, 0);
             case 6:
-                return new Color(0, 230 / 255, 0);
+                return new Color(0, 0.9f, 7);
             case 7:
-                return new Color(0, 230 / 255, 80 / 255);
+                return new Color(0, 0.9f, 80 / 255);
             case 8:
-                return new Color(0, 230 / 255, 160 / 255);
+                return new Color(0, 0.9f, 160 / 255);
             case 9:
-                return new Color(0, 230 / 255, 255 / 255);
+                return new Color(0, 0.9f, 1);
             case 10:
-                return new Color(0, 130 / 255, 255 / 255);
+                return new Color(0, 130 / 255, 1);
             case 11:
-                return new Color(0, 80 / 255, 255 / 255);
+                return new Color(0, 80 / 255, 1);
             case 12:
-                return new Color(50 / 255, 50 / 255, 255 / 255);
+                return new Color(0.2f, 0.2f, 1);
             case 13:
-                return new Color(100 / 255, 90 / 255, 255 / 255);
+                return new Color(0.4f, 90 / 255, 1);
             case 14:
-                return new Color(100 / 255, 50 / 255, 255 / 255);
+                return new Color(0.4f, 0.2f, 1);
             default:
                 return Color.white;
         }
