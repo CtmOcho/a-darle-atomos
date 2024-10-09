@@ -122,6 +122,45 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &86898621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2245680913358618944, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+  m_PrefabInstance: {fileID: 1961649104}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &86898622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86898621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e0498c695651340851ad55dabce3f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liquidProperties: {fileID: 86898624}
+  objectRenderer: {fileID: 86898626}
+  objectRendererTop: {fileID: 2011753936}
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  transitionSpeed: 0.1
+  changeTime: 1
+--- !u!114 &86898624 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7155170115241991860, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+  m_PrefabInstance: {fileID: 1961649104}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86898621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad7d03544ec78514f95b7cc6f9f8fe23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!23 &86898626 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 300261869266018453, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+  m_PrefabInstance: {fileID: 1961649104}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &203928000
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1294,6 +1333,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4119255774875427087, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+      propertyPath: changeColor
+      value: 
+      objectReference: {fileID: 86898622}
+    - target: {fileID: 4119255774875427087, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+      propertyPath: objectRenderer
+      value: 
+      objectReference: {fileID: 86898626}
     - target: {fileID: 4677015670001178286, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.8522
@@ -1345,7 +1392,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6299177037177096743, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2245680913358618944, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 86898622}
   m_SourcePrefab: {fileID: 100100000, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+--- !u!23 &2011753936 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 9176545571542672095, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+  m_PrefabInstance: {fileID: 1961649104}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2032638774
 PrefabInstance:
   m_ObjectHideFlags: 0

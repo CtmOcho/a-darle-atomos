@@ -17,6 +17,7 @@ public class Stirrer_controller : MonoBehaviour
     float stirCounter = 0;
     float barCounter = 0;
     public ChangeColor changeColor;
+    public bool hasBoolean;
 
     void Start()
     {
@@ -37,7 +38,10 @@ public class Stirrer_controller : MonoBehaviour
                 StopAllCoroutines();
                 StartCoroutine(rotateBar());
                 StartCoroutine(stirLiquidStart());
-                changeColor.ColorChange();
+                if (hasBoolean)
+                {
+                    changeColor.ColorChange();
+                }
                 stirFlag = true;
             }
 

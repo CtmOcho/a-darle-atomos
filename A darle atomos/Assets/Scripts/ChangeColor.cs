@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ChangeColor : MonoBehaviour
 {
-    public LiquidProperties liquidProperties;
+    public DropCollisionController liquidProperties;
     public Renderer objectRenderer;
     public Renderer objectRendererTop;
     public Color targetColor;
@@ -14,7 +14,7 @@ public class ChangeColor : MonoBehaviour
 
     public void ColorChange()
     {
-        targetColor = PhToColor((int)liquidProperties.ph);
+        targetColor = PhToColor((int)liquidProperties.actualPHvalue);
         StartCoroutine(ChangeColorCorroutine(objectRenderer, objectRendererTop, targetColor, transitionSpeed));
     }
 
