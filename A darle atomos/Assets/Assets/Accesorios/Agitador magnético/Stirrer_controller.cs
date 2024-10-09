@@ -16,8 +16,9 @@ public class Stirrer_controller : MonoBehaviour
 
     float stirCounter = 0;
     float barCounter = 0;
-    public ChangeColor changeColor;
 
+    
+    
     void Start()
     {
         liquid.transform.localScale = new Vector3(1f, liquidHeight, 1f);
@@ -26,7 +27,8 @@ public class Stirrer_controller : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+
         if (isActive)
         {
 
@@ -39,7 +41,7 @@ public class Stirrer_controller : MonoBehaviour
                 StartCoroutine(stirLiquidStart());
                 stirFlag = true;
             }
-            changeColor.ColorChange();
+            
         }
         else
         {

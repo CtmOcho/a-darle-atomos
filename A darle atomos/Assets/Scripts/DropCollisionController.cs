@@ -6,9 +6,10 @@ public class DropCollisionController : MonoBehaviour
 {
     public float actualLiquidVolume; // Volumen actual de la solución en mililitros (ml)
     public float actualPHvalue; // pH actual de la solución
-
+    public bool hasPhenolphtalein;
     private float totalMolesHPlus; // Moles totales de H+ en la solución
-
+    public bool isPHExp;
+    private ChangeColor changeColorScript;
     void Start()
     {
         // Calculamos el volumen inicial de la solución
@@ -17,6 +18,15 @@ public class DropCollisionController : MonoBehaviour
         // Calculamos los moles iniciales de H+ en la solución
         float initialHPlusConcentration = Mathf.Pow(10, -actualPHvalue); // Concentración inicial de H+ en mol/L
         totalMolesHPlus = initialHPlusConcentration * (actualLiquidVolume / 1000f); // Convertimos ml a L
+        changeColorScript  = GetComponent<ChangeColor>();
+    }
+
+    void Update(){
+        if(isPHExp){
+            if(hasPhenolphtalein){    
+                changeColorScript.ColorChange();
+             }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,9 +44,11 @@ public class DropCollisionController : MonoBehaviour
             // Actualizamos el volumen total de la solución
             actualLiquidVolume += addedVolume;
 
-            if(dropInfo.isPHExp){
-
-
+            if(isPHExp){
+                if(dropInfo.hasPhenolphtalein){
+                    hasPhenolphtalein = true;
+                    changeColorScript.boolfenoftaleina = true;
+                }
             // Calculamos los moles de H+ en la gota
             float dropHPlusConcentration = Mathf.Pow(10, -dropInfo.liquidPH); // Concentración de H+ de la gota en mol/L
             float dropMolesHPlus = dropHPlusConcentration * (addedVolume / 1000f); // Convertimos ml a L
@@ -52,9 +64,8 @@ public class DropCollisionController : MonoBehaviour
 
             // Aseguramos que el pH esté entre 0 y 14
             actualPHvalue = Mathf.Clamp(actualPHvalue, 0f, 14f);
-
             // Mostramos el nuevo valor de pH en la consola
-            Debug.Log("Nuevo valor de pH: " + actualPHvalue);
+            //Debug.Log("Nuevo valor de pH: " + actualPHvalue);
             }
 
         }

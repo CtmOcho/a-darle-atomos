@@ -12,11 +12,15 @@ public class ChangeColor : MonoBehaviour
     public float transitionSpeed = .01f; // Speed of color change
     public float changeTime = 1f;
     public bool boolfenoftaleina;
+
     public void ColorChange()
-    {
-        targetColor = PhToColor((int)liquidProperties.actualPHvalue);
+    {   
+        targetColor = PhToColor(liquidProperties.actualPHvalue);
+        //Debug.Log(liquidProperties.actualPHvalue);
         if (targetColor != objectRenderer.material.color && boolfenoftaleina)
         {
+
+            Debug.Log("aaaa");
             StartCoroutine(ChangeColorCorroutine(objectRenderer, objectRendererTop, targetColor, transitionSpeed));
         }
     }
@@ -37,43 +41,45 @@ public class ChangeColor : MonoBehaviour
         }
     }
 
-    // TODO: 8chito pongale los colores correctos
-    Color PhToColor(int ph)
+    // Función que devuelve el color dependiendo del intervalo del pH
+    Color PhToColor(float ph)
     {
-        switch (ph)
+        // Definimos los valores de color correspondientes a los valores de pH
+        Color[] phColors = new Color[]
         {
-            case 0:
-                return Color.red;
-            case 1:
-                return new Color(1, 90 / 255, 0);
-            case 2:
-                return new Color(1, 180 / 255, 0);
-            case 3:
-                return new Color(1, 1, 0);
-            case 4:
-                return new Color(180 / 255, 0.9f, 0);
-            case 5:
-                return new Color(90 / 255, 0.9f, 0);
-            case 6:
-                return new Color(0, 0.9f, 7);
-            case 7:
-                return new Color(0, 0.9f, 80 / 255);
-            case 8:
-                return new Color(0, 0.9f, 160 / 255);
-            case 9:
-                return new Color(0, 0.9f, 1);
-            case 10:
-                return new Color(0, 130 / 255, 1);
-            case 11:
-                return new Color(0, 80 / 255, 1);
-            case 12:
-                return new Color(0.2f, 0.2f, 1);
-            case 13:
-                return new Color(0.4f, 90 / 255, 1);
-            case 14:
-                return new Color(0.4f, 0.2f, 1);
-            default:
-                return Color.white;
+            new Color(238/255f,28/255f,37/255f),  // pH 0
+            new Color(242/255f, 103 / 255f, 36/255f),  // pH 1
+            new Color(249/255f, 197 / 255f, 17/255f),  // pH 2
+            new Color(245/255f, 237/255f, 28/255f),  // pH 3
+            new Color(181/255f, 211/255f, 51/255f),  // pH 4
+            new Color(132/255f, 195 / 255f, 65/255f),  // pH 5
+            new Color(77/255f, 183/255f, 73/255f),  // pH 6
+            new Color(51/255f, 169/255f, 75 / 255f),  // pH 7
+            new Color(34/255f, 180/255f, 107/255f),  // pH 8
+            new Color(11/255f, 184/255f, 182/255f),  // pH 9
+            new Color(70/255f, 144 / 255f, 205/255f),  // pH 10
+            new Color(56/255f, 83 / 255f, 164/255f),  // pH 11
+            new Color(90/255f, 81/255f, 162/255f),  // pH 12
+            new Color(99/255f, 69 / 255f, 157/255f),  // pH 13
+            new Color(70/255f, 44/255f, 131/255f)   // pH 14
+        };
+
+        // Calculamos los índices para la interpolación entre los valores más cercanos
+        int lowerIndex = Mathf.FloorToInt(ph);  // Valor entero menor o igual
+        int upperIndex = Mathf.CeilToInt(ph);   // Valor entero mayor o igual
+
+        // Asegurarnos de que los índices están dentro de los límites del array
+        lowerIndex = Mathf.Clamp(lowerIndex, 0, phColors.Length - 1);
+        upperIndex = Mathf.Clamp(upperIndex, 0, phColors.Length - 1);
+
+        // Si el pH es un valor entero, devolvemos el color correspondiente directamente
+        if (lowerIndex == upperIndex)
+        {
+            return phColors[lowerIndex];
         }
+
+        // Interpolamos entre los dos colores correspondientes a los valores de pH cercanos
+        float t = ph - lowerIndex;  // Valor decimal entre 0 y 1 que indica qué tan cerca está del siguiente valor
+        return Color.Lerp(phColors[lowerIndex], phColors[upperIndex], t);
     }
 }

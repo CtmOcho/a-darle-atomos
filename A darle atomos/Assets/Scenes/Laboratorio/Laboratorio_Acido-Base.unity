@@ -143,8 +143,9 @@ MonoBehaviour:
   objectRenderer: {fileID: 86898626}
   objectRendererTop: {fileID: 2011753936}
   targetColor: {r: 0, g: 0, b: 0, a: 0}
-  transitionSpeed: 0.1
+  transitionSpeed: 0.01
   changeTime: 1
+  boolfenoftaleina: 0
 --- !u!114 &86898624 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7155170115241991860, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
@@ -1333,6 +1334,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1468615795279780858, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4119255774875427087, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
       propertyPath: changeColor
       value: 
@@ -1341,6 +1346,10 @@ PrefabInstance:
       propertyPath: objectRenderer
       value: 
       objectReference: {fileID: 86898626}
+    - target: {fileID: 4119255774875427087, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+      propertyPath: dropCollisionControllerScript
+      value: 
+      objectReference: {fileID: 86898624}
     - target: {fileID: 4677015670001178286, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.8522
@@ -1380,6 +1389,26 @@ PrefabInstance:
     - target: {fileID: 4677015670001178286, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.149
+      objectReference: {fileID: 0}
+    - target: {fileID: 5744010348124219505, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5744010348124219505, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+      propertyPath: m_Center.y
+      value: 0.035
+      objectReference: {fileID: 0}
+    - target: {fileID: 5744010348124219505, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155170115241991860, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+      propertyPath: isPHExp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155170115241991860, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+      propertyPath: hasPhenolphtalein
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8353616211051867630, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
       propertyPath: m_Name
