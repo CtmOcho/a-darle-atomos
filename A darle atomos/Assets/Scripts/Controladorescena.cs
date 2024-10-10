@@ -14,6 +14,7 @@ public class ControladorEscena : MonoBehaviour
 
     void Start()
     {
+        
         ResetScene();
         StartCoroutine(FadeInCanvas());
         StartCoroutine(FadeInCam());
@@ -72,6 +73,7 @@ public class ControladorEscena : MonoBehaviour
         if (Subexperience != null && Subexperience.activeSelf)
         {
             Subexperience.SetActive(false);
+            
         }
 
     }

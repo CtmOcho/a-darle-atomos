@@ -1886,7 +1886,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Subexperience: {fileID: 1468046279}
   Manos: {fileID: 2065528355}
-  safePosition: {x: -1, y: 1, z: 0}
   holdTime: 2
 --- !u!1 &234486832
 GameObject:
@@ -3127,7 +3126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Subexperience: {fileID: 77919034}
   Manos: {fileID: 2065528355}
-  safePosition: {x: -1, y: 1, z: 0}
   holdTime: 2
 --- !u!64 &306089270
 MeshCollider:
@@ -7232,7 +7230,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 459506305422677520}
   Manos: {fileID: 2065528355}
-  safePosition: {x: -0.5883875, y: 0.216, z: 1.259}
   holdTime: 2
 --- !u!65 &1381585013
 BoxCollider:
@@ -8325,7 +8322,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Subexperience: {fileID: 0}
   Manos: {fileID: 0}
-  safePosition: {x: -1, y: 1, z: 0}
   holdTime: 2
 --- !u!1 &1652890080 stripped
 GameObject:
@@ -10307,7 +10303,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 634234054684317997}
         m_TargetAssemblyTypeName: Navigation1.Navigation, Assembly-CSharp
         m_MethodName: BackFromLab
         m_Mode: 1

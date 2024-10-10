@@ -54,11 +54,10 @@ public class PauseMenuTrigger : MonoBehaviour
         if (pauseMenu != null)
         {
             pauseMenu.SetActive(true);
-            Time.timeScale = 0f; // Pausar el juego
+
             canActivateMenu = false; // Evitar que el menú se reactive inmediatamente
 
-            // Desactivar las manos cuando el menú está activo
-            ToggleHands(false);
+
 
             Debug.Log("Pause menu activated, hands deactivated, and game paused.");
         }
@@ -73,10 +72,8 @@ public class PauseMenuTrigger : MonoBehaviour
         if (pauseMenu != null)
         {
             pauseMenu.SetActive(false);
-            Time.timeScale = 1f; // Reanudar el juego
 
-            // Reactivar las manos al reanudar el juego
-            ToggleHands(true);
+
 
             Debug.Log("Game resumed and hands reactivated.");
 
@@ -98,16 +95,4 @@ public class PauseMenuTrigger : MonoBehaviour
         Debug.Log("State reset.");
     }
 
-    private void ToggleHands(bool isActive)
-    {
-        if (Manos != null)
-        {
-            Manos.SetActive(isActive);
-            Debug.Log("Hands set to " + (isActive ? "active" : "inactive"));
-        }
-        else
-        {
-            Debug.LogWarning("No se ha asignado el objeto 'manos'.");
-        }
-    }
 }

@@ -60,8 +60,8 @@ public class SubexpMenuTrigger : MonoBehaviour
         if (Subexperience != null)
         {
             Subexperience.SetActive(true);
-            Time.timeScale = 0f; // Pausar el juego
-            ToggleHands(false); // Desactivar las manos cuando el menú está activo
+             // Reanudar el juego
+           
             menuActive = true; // El menú ahora está activo
             canActivateMenu = false; // Evitar que el menú se vuelva a activar inmediatamente
             Debug.Log("Subexperience menu activated, hands deactivated and game paused.");
@@ -77,8 +77,8 @@ public class SubexpMenuTrigger : MonoBehaviour
         if (Subexperience != null)
         {
             Subexperience.SetActive(false);
-            Time.timeScale = 1f; // Reanudar el juego
-            ToggleHands(true); // Reactivar las manos al reanudar el juego
+             // Reanudar el juego
+            
             Debug.Log("Game resumed and hands reactivated.");
 
             // Reiniciar el estado del script para permitir nuevas activaciones del menú de pausa
@@ -97,7 +97,7 @@ public class SubexpMenuTrigger : MonoBehaviour
         PlayerPrefs.Save();
 
         // Reanudar el tiempo antes de cambiar de escena      
-        Time.timeScale = 1f;
+        
         Debug.Log("Loading scene: " + sceneName);
 
         // Cargar la nueva escena de manera asíncrona
@@ -118,22 +118,11 @@ public class SubexpMenuTrigger : MonoBehaviour
     private void ResetState()
     {
         // Reinicia todas las variables relevantes
+         // Reanudar el juego
         timer = 0.0f;
         isTouching = false;
         StopAllCoroutines(); // Asegura que no haya corrutinas activas
         Debug.Log("State reset.");
     }
 
-    private void ToggleHands(bool isActive)
-    {
-        if (Manos != null)
-        {
-            Manos.SetActive(isActive);
-            Debug.Log("Hands set to " + (isActive ? "active" : "inactive"));
-        }
-        else
-        {
-            Debug.LogWarning("No se ha asignado el objeto 'manos'.");
-        }
-    }
 }

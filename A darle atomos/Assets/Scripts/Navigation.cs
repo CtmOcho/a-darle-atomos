@@ -14,6 +14,7 @@ namespace Navigation1
             // Guardar el nombre de la escena actual en PlayerPrefs antes de cambiar
             PlayerPrefs.SetString("LastScene", SceneManager.GetActiveScene().name);
             PlayerPrefs.Save();
+             // Reanudar el juego
             SceneManager.LoadScene(sceneName);
         }
 
@@ -26,12 +27,7 @@ namespace Navigation1
 
         public void BackFromLab()
         {
-            // Verificar si el tiempo está pausado y reanudarlo si es necesario
-            if (Time.timeScale == 0f)
-            {
-                Time.timeScale = 1f; // Reanudar el tiempo
-                Debug.Log("Tiempo reanudado.");
-            }
+
 
             // Verificar si es alumno o profesor y cargar la escena correspondiente
             if (SessionData.type == "E")
@@ -49,9 +45,11 @@ namespace Navigation1
             // Obtener el nombre de la última escena desde PlayerPrefs
             string lastScene = PlayerPrefs.GetString("LastScene", "");
 
+             // Reanudar el juego
+
             if (!string.IsNullOrEmpty(lastScene))
             {
-                // Cargar la escena anterior si existe
+                 // Reanudar el juego
                 SceneManager.LoadScene(lastScene);
             }
             else

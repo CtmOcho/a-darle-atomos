@@ -8,7 +8,7 @@ public class SalvarObjetosCaidos : MonoBehaviour
     private Quaternion initialRotation; // Para almacenar la rotación inicial del objeto
     private Vector3 initialScale; // Para almacenar la escala inicial del objeto
 
-    public float minYValue = -10f; // Valor mínimo de la posición en Y, después de lo cual se reiniciará
+    public float minYValue = -20f; // Valor mínimo de la posición en Y, después de lo cual se reiniciará
 
     // Start se llama antes del primer frame
     void Start()
