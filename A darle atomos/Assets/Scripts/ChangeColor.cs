@@ -14,13 +14,11 @@ public class ChangeColor : MonoBehaviour
     public bool boolfenoftaleina;
 
     public void ColorChange()
-    {   
+    {
         targetColor = PhToColor(liquidProperties.actualPHvalue);
         //Debug.Log(liquidProperties.actualPHvalue);
         if (targetColor != objectRenderer.material.color && boolfenoftaleina)
         {
-
-            Debug.Log("aaaa");
             StartCoroutine(ChangeColorCorroutine(objectRenderer, objectRendererTop, targetColor, transitionSpeed));
         }
     }
