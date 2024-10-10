@@ -11,13 +11,13 @@ public class ChangeColor : MonoBehaviour
     public Color targetColor;
     public float transitionSpeed = .01f; // Speed of color change
     public float changeTime = 1f;
-    public bool boolfenoftaleina;
+    public bool boolPHDetector;
 
     public void ColorChange()
     {
         targetColor = PhToColor(liquidProperties.actualPHvalue);
         //Debug.Log(liquidProperties.actualPHvalue);
-        if (targetColor != objectRenderer.material.color && boolfenoftaleina)
+        if (targetColor != objectRenderer.material.color && boolPHDetector)
         {
             StartCoroutine(ChangeColorCorroutine(objectRenderer, objectRendererTop, targetColor, transitionSpeed));
         }

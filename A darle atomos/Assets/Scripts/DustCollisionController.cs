@@ -4,82 +4,89 @@ using UnityEngine;
 public class DustCollisionController : MonoBehaviour
 {
     public Stirrer_controller controller;
-    private float actualPHvalue; // pH actual de la soluciÛn
+    private float actualPHvalue; // pH actual de la soluci√≥n
     private float dustPHvalue; // pH actual del polvo
-    private float actualLiquidVolume; // Moles totales de H+ en la soluciÛn
-    private float totalMolesHPlus; // Moles totales de H+ en la soluciÛn
-    private float totalMolesOHPlus; // Moles totales de OH+ en la soluciÛn
+    private float actualLiquidVolume; // Volumen actual de la soluci√≥n en ml
+    private float totalMolesHPlus; // Moles totales de H+ en la soluci√≥n
+    private float totalMolesOHPlus; // Moles totales de OH- en la soluci√≥n
     private float newScale = 0.001f;
+    private SolutionPHCalculator phCalculator; // Referencia al controlador SolutionPHCalculator
+    private bool alreadyUpdated = true; // Nueva variable para controlar la actualizaci√≥n √∫nica
 
-    private int counter;
+    // Volumen del polvo en ml (puedes ajustarlo seg√∫n el polvo)
+    public float dustVolume = 10f; // Este valor ser√° din√°mico, en ml
+
     void Start()
     {
-        actualPHvalue = GetComponent<DropCollisionController>().actualPHvalue;
-        // Calculamos el volumen inicial de la soluciÛn
-        actualLiquidVolume = transform.localScale.z * 300f; // Asumiendo que el factor de escala a volumen es 300 ml
 
-        // Calculamos los moles iniciales de H+ en la soluciÛn
-        float initialHPlusConcentration = Mathf.Pow(10, -actualPHvalue); // ConcentraciÛn inicial de H+ en mol/L
-        float initialOHPlusConcentration = Mathf.Pow(10, -(14 - dustPHvalue)); // ConcentraciÛn inicial de OH+ en mol/L
-        totalMolesOHPlus = initialOHPlusConcentration * (actualLiquidVolume / 1000f); // Convertimos ml a L
-        totalMolesHPlus = initialHPlusConcentration * (actualLiquidVolume / 1000f); // Convertimos ml a L
+        // Obtenemos la referencia al SolutionPHCalculator en el mismo GameObject
+        phCalculator = GetComponent<SolutionPHCalculator>();
+
+
     }
+
     private void Update()
     {
-        if (controller.isActive && counter > 0)
+        // Solo actualizamos si el stirrer est√° activo, el contador es mayor que 0 y no se ha actualizado ya
+        if (controller.isActive && !alreadyUpdated)
         {
+            // Si el polvo es √°cido, agregamos H+
             if (dustPHvalue < 7.0f)
             {
-                // Calculamos los moles de H+ en la gota
-                float dropHPlusConcentration = Mathf.Pow(10, -dustPHvalue); // ConcentraciÛn de H+ de la gota en mol/L
-                float dropMolesHPlus = dropHPlusConcentration * (0.04f / 1000f); // Convertimos ml a L
-
-                totalMolesHPlus += dropMolesHPlus;
-
-                // Calculamos la nueva concentraciÛn de H+ en la soluciÛn
-                float newHPlusConcentration = totalMolesHPlus / (actualLiquidVolume / 1000f); // Volumen total en L
-
-                // Calculamos el nuevo pH
-                actualPHvalue = -Mathf.Log10(newHPlusConcentration);
+                // Usamos el SolutionPHCalculator para calcular el nuevo pH
+                actualPHvalue = phCalculator.CalculateNewPH(GetComponent<DropCollisionController>().actualPHvalue, GetComponent<DropCollisionController>().actualLiquidVolume, dustPHvalue, dustVolume);
             }
             else
             {
-
-                // Calculamos los moles de OH+ en la gota
-                float dropOHPlusConcentration = Mathf.Pow(10, -(14 - dustPHvalue)); // ConcentraciÛn de OH+ de la gota en mol/L
-                float dropMolesOHPlus = dropOHPlusConcentration * (0.04f / 1000f); // Convertimos ml a L
-
-                totalMolesOHPlus += dropMolesOHPlus;
-
-                // Calculamos la nueva concentraciÛn de OH+ en la soluciÛn
-                float newOHPlusConcentration = totalMolesOHPlus / (actualLiquidVolume / 1000f); // Volumen total en L
-
-                // Calculamos el nuevo pH
-                actualPHvalue = 14 - -Mathf.Log10(newOHPlusConcentration);
+                // Si el polvo es b√°sico, agregamos OH-
+                actualPHvalue = phCalculator.CalculateNewPH(GetComponent<DropCollisionController>().actualPHvalue, GetComponent<DropCollisionController>().actualLiquidVolume, dustPHvalue, dustVolume);
             }
-            // Aseguramos que el pH estÈ entre 0 y 14
+
+            // Aseguramos que el pH est√© entre 0 y 14
             actualPHvalue = Mathf.Clamp(actualPHvalue, 0f, 14f);
-            GetComponent<DropCollisionController>().actualPHvalue = actualPHvalue;
-            counter--;
-            Debug.Log(actualPHvalue);
+
+            // Actualizamos el valor de actualPHvalue y el volumen en DropCollisionController
+            DropCollisionController dropController = GetComponent<DropCollisionController>();
+            dropController.actualPHvalue = actualPHvalue;
+
+            // ***Actualizamos el volumen en DropCollisionController***
+            dropController.actualLiquidVolume += dustVolume; // Sumamos el volumen del polvo al volumen total de la soluci√≥n
+            Vector3 volumeScale = transform.localScale;
+
+            volumeScale.z += (dustVolume / 300f); // Actualizamos la escala basada en el volumen agregado
+            dropController.transform.localScale = volumeScale;
+            // Mostramos el nuevo pH y volumen
+            Debug.Log("Nuevo pH: " + actualPHvalue);
+            Debug.Log("Nuevo volumen total: " + dropController.actualLiquidVolume);
+
+            // Marcamos como actualizado para que no se vuelva a ejecutar esta l√≥gica en este ciclo
+            alreadyUpdated = true;
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Spoon") && other.gameObject.transform.GetChild(0).gameObject.activeSelf)
         {
+            // Obtenemos el pH del polvo (dust) desde SpoonDustProperties
             dustPHvalue = other.gameObject.GetComponent<SpoonDustProperties>().ph;
+
+            // Reiniciamos el estado de actualizaci√≥n para una nueva interacci√≥n
+            alreadyUpdated = false;
         }
     }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Spoon") && other.gameObject.transform.GetChild(0).gameObject.activeSelf)
         {
-            other.gameObject.transform.GetChild(0).transform.localScale = other.gameObject.transform.GetChild(0).transform.localScale - (new Vector3(1.0f,1.4f,1.0f) * newScale);
-            if(other.gameObject.transform.GetChild(0).transform.localScale.magnitude <= 0.001f) other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            else
+            // Reducimos el tama√±o del polvo hasta que desaparezca
+            other.gameObject.transform.GetChild(0).transform.localScale -= new Vector3(1.0f, 1.4f, 1.0f) * newScale;
+
+            if (other.gameObject.transform.GetChild(0).transform.localScale.magnitude <= 0.001f)
             {
-                counter++;
+                other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                alreadyUpdated = true;
             }
         }
     }

@@ -10,7 +10,7 @@ public class DropperLiquidSpawner : MonoBehaviour
     public bool isFull;
     public float liquidInitScale;
     public float liquidPH;
-    public bool hasPhenolphtalein;
+    public bool hasPHDetector;
     public bool isPHExp; // Nueva variable para determinar si es un experimento camaleón
     public float dropAmmount; // Nueva variable pública para el valor del drop
     public bool isInValidZone;
@@ -52,7 +52,7 @@ public class DropperLiquidSpawner : MonoBehaviour
                 if (dropInfo != null)
                 {
                  dropInfo.liquidPH = liquidPH;
-                 dropInfo.hasPhenolphtalein = hasPhenolphtalein;
+                 dropInfo.hasPHDetector = hasPHDetector;
                  dropInfo.isPHExp = isPHExp;
                  dropInfo.dropAmmount = dropAmmount; // Asignamos el valor de dropAmmount
                 }

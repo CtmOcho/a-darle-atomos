@@ -9,7 +9,7 @@ public class LiquidsGoteroController : MonoBehaviour
     public float decreaseAmount; // Valor para disminuir la escala en el eje Z
     public bool isPHExp; // Nueva variable pública para detectar si es un experimento camaleón
     public float liquidPH; // Nueva variable pública para el pH del líquido
-    public bool isPhenolphtalein; // Nueva variable pública para verificar si hay fenolftaleína
+    public bool isPHDetector; // Nueva variable pública para verificar si hay fenolftaleína
     public float actualLiquidVolume;
     private BoxCollider boxCollider; // El BoxCollider que debe ser isTrigger
     public float decreaseDuration = 1.0f; // Tiempo que tardará en disminuir la escala
@@ -59,7 +59,7 @@ public class LiquidsGoteroController : MonoBehaviour
                 }
 
                 // Actualizamos el valor de hasPhenolphtalein
-                dropper.hasPhenolphtalein = isPhenolphtalein;
+                dropper.hasPHDetector = isPHDetector;
             }
         }
     }
