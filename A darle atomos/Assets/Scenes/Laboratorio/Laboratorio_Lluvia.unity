@@ -167,7 +167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2365181308647901443, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9309
+      value: 1.083
       objectReference: {fileID: 0}
     - target: {fileID: 2365181308647901443, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -285,6 +285,11 @@ PrefabInstance:
       addedObject: {fileID: 3072052579137136108}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aba11567407bbf54cb64cc61c111cffa, type: 3}
+--- !u!1 &66812855 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c606f6f1bc2e2e4ca4e679fc84b6b6b, type: 3}
+  m_PrefabInstance: {fileID: 150902485}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &150902485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -360,7 +365,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c606f6f1bc2e2e4ca4e679fc84b6b6b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 556627754}
   m_SourcePrefab: {fileID: 100100000, guid: 0c606f6f1bc2e2e4ca4e679fc84b6b6b, type: 3}
 --- !u!1 &160914642 stripped
 GameObject:
@@ -820,6 +828,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0c606f6f1bc2e2e4ca4e679fc84b6b6b, type: 3}
   m_PrefabInstance: {fileID: 150902485}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &556627754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66812855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368d3af14d8b7d741927bb8f322dd8a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementData: potasioalgo
+  glassScript: {fileID: 1513572941}
+  disolvedDust: 0
+  temperatureTreshold: 60
+  decreaseAmount: 0.05
+  threshold: 0.01
 --- !u!1 &805199061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,7 +1026,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 87b2c59adc4e0834b90a4c5098ccfebf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 556627751}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 87b2c59adc4e0834b90a4c5098ccfebf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1658762196}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 87b2c59adc4e0834b90a4c5098ccfebf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1658762195}
   m_SourcePrefab: {fileID: 100100000, guid: 87b2c59adc4e0834b90a4c5098ccfebf, type: 3}
 --- !u!4 &1204797275 stripped
 Transform:
@@ -1088,6 +1120,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 531f4b5c57dfad94f8040eed76b66d77, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1513572937}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 531f4b5c57dfad94f8040eed76b66d77, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1513572941}
   m_SourcePrefab: {fileID: 100100000, guid: 531f4b5c57dfad94f8040eed76b66d77, type: 3}
 --- !u!1001 &1476412558
 PrefabInstance:
@@ -1203,7 +1238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 160914642}
-  decreaseAmount: 0
+  decreaseAmount: 1
   isPHExp: 0
   liquidPH: 0
   isPHDetector: 0
@@ -1213,6 +1248,7 @@ MonoBehaviour:
   isRainExp: 1
   temp: 0
   elementData: 
+  initialScaleZ: 1
 --- !u!114 &1513572937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1229,6 +1265,36 @@ MonoBehaviour:
   actualPHvalue: 0
   hasPHDetector: 0
   isPHExp: 0
+  isRainExp: 1
+  rainExpDustController: 0
+  temp: 0
+  elementData: 
+  dustRemoverScript: {fileID: 556627754}
+  liquidControllerScript: {fileID: 0}
+  glassScript: {fileID: 0}
+  initialMaxVolume: 200
+--- !u!114 &1513572941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513572929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 945b464bdcd0d5c47aefeaec3d188d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temperature: 0
+  maxTemperature: 99
+  minTemperature: 20
+  tempStep: 0.15
+  contents: []
+  isHot: 0
+  flame: {fileID: 0}
+  distilationLab: 0
+  yodoLab: 0
+  rainLab: 1
 --- !u!1001 &1522760114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1422,6 +1488,44 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
+--- !u!1 &1658762192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87b2c59adc4e0834b90a4c5098ccfebf, type: 3}
+  m_PrefabInstance: {fileID: 935780918}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1658762195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658762192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63f78fa3421104d41ba72e123cc48228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1658762196
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658762192}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.073042445, y: 0.06331163, z: 0.28627056}
+  m_Center: {x: -0.0018185861, y: 0.0027261302, z: 0.14313567}
 --- !u!1001 &1690559579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1891,7 +1995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 160914642}
-  decreaseAmount: 0.35
+  decreaseAmount: 0.595
   isPHExp: 0
   liquidPH: 0
   isPHDetector: 0
@@ -1901,6 +2005,7 @@ MonoBehaviour:
   isRainExp: 1
   temp: 70
   elementData: agua
+  initialScaleZ: 1
 --- !u!65 &1799960458
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2315,7 +2420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 531f4b5c57dfad94f8040eed76b66d77, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 531f4b5c57dfad94f8040eed76b66d77, type: 3}
       propertyPath: m_Name
