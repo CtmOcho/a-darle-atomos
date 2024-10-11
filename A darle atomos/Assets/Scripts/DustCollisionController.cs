@@ -53,7 +53,7 @@ public class DustCollisionController : MonoBehaviour
             dropController.actualLiquidVolume += dustVolume; // Sumamos el volumen del polvo al volumen total de la solución
             Vector3 volumeScale = transform.localScale;
 
-            volumeScale.z += (dustVolume / 300f); // Actualizamos la escala basada en el volumen agregado
+            volumeScale.y += (dustVolume / 300f); // Actualizamos la escala basada en el volumen agregado
             dropController.transform.localScale = volumeScale;
             // Mostramos el nuevo pH y volumen
             Debug.Log("Nuevo pH: " + actualPHvalue);

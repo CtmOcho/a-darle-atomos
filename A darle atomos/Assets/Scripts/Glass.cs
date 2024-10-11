@@ -16,7 +16,7 @@ public class Glass : MonoBehaviour
     public flame flame;
     public bool distilationLab =false;
     public bool yodoLab = false;
-
+    public bool rainLab = false;
 
     // Update is called once per frame
     void Update()

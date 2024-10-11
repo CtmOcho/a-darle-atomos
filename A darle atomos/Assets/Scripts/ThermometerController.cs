@@ -16,6 +16,7 @@ public class ThermometerController : MonoBehaviour
         thermometerLCD = GetComponentInChildren<TextMeshPro>();
         glassScript = glass.GetComponent<Glass>();
         temperature = 20;
+        
     }
 
     // Update is called once per frame

@@ -11,68 +11,134 @@ public class DropperLiquidSpawner : MonoBehaviour
     public float liquidInitScale;
     public float liquidPH;
     public bool hasPHDetector;
-    public bool isPHExp; // Nueva variable para determinar si es un experimento camaleón
+    public bool isPHExp; // Nueva variable para determinar si es un experimento ph
     public float dropAmmount; // Nueva variable pública para el valor del drop
     public bool isInValidZone;
     public float fillDuration = 1.0f;
+    public bool isRainExp; 
+    public float temp;
+    public string elementData;
 
-    public float actualDropperVolume;
 
     int counter;
-    //int subCounter;
+    int subCounter;
     float decreaseAmount;
     // Start is called before the first frame update
     void Start()
     {   
         isFull = false;
         decreaseAmount = 1/objectQuantity;
-        SetLiquidScale(liquidInitScale);
+        SetLiquidScale(0);
         counter = 0;
         isInValidZone = false;
-        //subCounter = 0;
+        if(isRainExp){
+        subCounter = 0;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Mathf.Abs(Vector3.Dot(transform.up, Vector3.down)) < 0.3f && dropperLiquid.transform.localScale.z > 0.002f && isFull && isInValidZone)
+        if(isRainExp){
+            if (Mathf.Abs(Vector3.Dot(transform.up, Vector3.down)) < 0.3f && counter < objectQuantity && subCounter > 30 && dropperLiquid.transform.localScale.z > 0.002f && isFull && isInValidZone)
         {
-            // Reducimos la escala del líquido
-            SetLiquidScale(dropperLiquid.transform.localScale.z - decreaseAmount);
-            actualDropperVolume = dropperLiquid.transform.localScale.z * 20;
-            // Creamos la posición donde instanciar el drop
-            Vector3 pos = new Vector3(transform.position.x, transform.position.y - 0.01f, transform.position.z);
-            
-            // Instanciamos el drop
-            GameObject drop = Instantiate(objectToSpawn, pos, Quaternion.identity);
-            
-            if(isPHExp){
-                // Pasamos la información relevante al drop
-                DropInformation dropInfo = drop.GetComponent<DropInformation>();
-                if (dropInfo != null)
-                {
-                 dropInfo.liquidPH = liquidPH;
-                 dropInfo.hasPHDetector = hasPHDetector;
-                 dropInfo.isPHExp = isPHExp;
-                 dropInfo.dropAmmount = dropAmmount; // Asignamos el valor de dropAmmount
+                // Reducimos la escala del líquido
+                SetLiquidScale(dropperLiquid.transform.localScale.z - decreaseAmount);
+                
+                // Creamos la posición donde instanciar el drop
+                Vector3 pos = new Vector3(transform.position.x, transform.position.y - 0.01f, transform.position.z);
+                
+                // Instanciamos el drop
+                GameObject drop = Instantiate(objectToSpawn, pos, Quaternion.identity);
+                
+                if(isPHExp){
+                    // Pasamos la información relevante al drop
+                    DropInformation dropInfo = drop.GetComponent<DropInformation>();
+                    if (dropInfo != null)
+                    {
+                    dropInfo.liquidPH = liquidPH;
+                    dropInfo.hasPHDetector = hasPHDetector;
+                    dropInfo.isPHExp = isPHExp;
+                    dropInfo.dropAmmount = dropAmmount; // Asignamos el valor de dropAmmount
+                    }
+
                 }
 
+                if(isRainExp){
+                    DropInformation dropInfo = drop.GetComponent<DropInformation>();
+                    if (dropInfo != null){
+                        dropInfo.dropAmmount = dropAmmount; // Asignamos el valor de dropAmmount
+                        dropInfo.isRainExp = isRainExp;
+                        dropInfo.temp = temp;
+                        dropInfo.elementData = elementData;
+                    }
+                }
+                // Destruimos el drop después de 2 segundos
+                Destroy(drop, 0.5f);
+
+                // Aumentamos el contador
+                counter++;
+                subCounter = 0;
             }
-            // Destruimos el drop después de 2 segundos
-            Destroy(drop, 1);
-
-            // Aumentamos el contador
-            counter++;
-            //subCounter = 0;
-        }
         else if (counter >= objectQuantity)
-        {
+            {
             SetDropperFalse();
+            }
+
+            // Incrementamos el subcontador
+        subCounter++;
+        }
+        if(isPHExp){
+            if (Mathf.Abs(Vector3.Dot(transform.up, Vector3.down)) < 0.3f && dropperLiquid.transform.localScale.z > 0.002f && isFull && isInValidZone)
+            {
+                // Reducimos la escala del líquido
+                SetLiquidScale(dropperLiquid.transform.localScale.z - decreaseAmount);
+                
+                // Creamos la posición donde instanciar el drop
+                Vector3 pos = new Vector3(transform.position.x, transform.position.y - 0.01f, transform.position.z);
+                
+                // Instanciamos el drop
+                GameObject drop = Instantiate(objectToSpawn, pos, Quaternion.identity);
+                
+                if(isPHExp){
+                    // Pasamos la información relevante al drop
+                    DropInformation dropInfo = drop.GetComponent<DropInformation>();
+                    if (dropInfo != null)
+                    {
+                    dropInfo.liquidPH = liquidPH;
+                    dropInfo.hasPHDetector = hasPHDetector;
+                    dropInfo.isPHExp = isPHExp;
+                    dropInfo.dropAmmount = dropAmmount; // Asignamos el valor de dropAmmount
+                    }
+
+                }
+
+                if(isRainExp){
+                    DropInformation dropInfo = drop.GetComponent<DropInformation>();
+                    if (dropInfo != null){
+                        dropInfo.dropAmmount = dropAmmount; // Asignamos el valor de dropAmmount
+                        dropInfo.isRainExp = isRainExp;
+                        dropInfo.temp = temp;
+                        dropInfo.elementData = elementData;
+                    }
+                }
+                // Destruimos el drop después de 2 segundos
+                Destroy(drop, 1);
+
+                // Aumentamos el contador
+                counter++;
+                //subCounter = 0;
+            }
+            else if (counter >= objectQuantity)
+            {
+                SetDropperFalse();
+            }
+
+            // Incrementamos el subcontador
+            //subCounter++;
+        }
         }
 
-        // Incrementamos el subcontador
-        //subCounter++;
-    }
 
     public void SetLiquidScale(float scale)
     {
@@ -110,7 +176,6 @@ public class DropperLiquidSpawner : MonoBehaviour
             elapsedTime += Time.deltaTime;
             float newScale = Mathf.Lerp(currentScale, targetScale, elapsedTime / fillDuration);
             SetLiquidScale(newScale);
-            actualDropperVolume = dropperLiquid.transform.localScale.z;
             yield return null; // Esperar al siguiente frame
         }
 

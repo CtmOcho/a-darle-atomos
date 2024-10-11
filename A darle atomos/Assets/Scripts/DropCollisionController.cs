@@ -11,19 +11,37 @@ public class DropCollisionController : MonoBehaviour
     public bool isPHExp;
     private ChangeColor changeColorScript;
     private SolutionPHCalculator phCalculator; // Referencia al controlador SolutionPHCalculator
+    public bool isRainExp;
+    public bool rainExpDustController = false;
+    public float temp;
+    public string elementData;
+    public DustRemovalControllerRainLab dustRemoverScript;
+
+
+    public LiquidsGoteroController liquidControllerScript;
+    public Glass glassScript;
+
+    public float initialMaxVolume = 300f;
 
     void Start()
     {
         // Calculamos el volumen inicial de la solución
-        actualLiquidVolume = transform.localScale.z * 300f; // Asumiendo que el factor de escala a volumen es 300 ml
 
-        // Calculamos los moles iniciales de H+ en la solución
-        float initialHPlusConcentration = Mathf.Pow(10, -actualPHvalue); // Concentración inicial de H+ en mol/L
-        totalMolesHPlus = initialHPlusConcentration * (actualLiquidVolume / 1000f); // Convertimos ml a L
+        if(isPHExp){
+            actualLiquidVolume = transform.localScale.y * initialMaxVolume; // Asumiendo que el factor de escala a volumen es 300 ml
+            // Calculamos los moles iniciales de H+ en la solución
+            float initialHPlusConcentration = Mathf.Pow(10, -actualPHvalue); // Concentración inicial de H+ en mol/L
+            totalMolesHPlus = initialHPlusConcentration * (actualLiquidVolume / 1000f); // Convertimos ml a L
+            
+            // Obtenemos la referencia del script ChangeColor y SolutionPHCalculator
+            changeColorScript = GetComponent<ChangeColor>();
+            phCalculator = GetComponent<SolutionPHCalculator>(); // Busca el controlador en el mismo GameObject
+        }
+        if(isRainExp){
+            liquidControllerScript = GetComponent<LiquidsGoteroController>();
+            glassScript = GetComponent<Glass>();
+        }
         
-        // Obtenemos la referencia del script ChangeColor y SolutionPHCalculator
-        changeColorScript = GetComponent<ChangeColor>();
-        phCalculator = GetComponent<SolutionPHCalculator>(); // Busca el controlador en el mismo GameObject
     }
 
     void Update()
@@ -35,7 +53,17 @@ public class DropCollisionController : MonoBehaviour
                 changeColorScript.ColorChange(); // Cambia el color según el pH actual, pero sin modificar el pH
             }
         }
+        if(isRainExp){
+            if(dustRemoverScript.disolvedDust && !rainExpDustController){
+               elementData =  dustRemoverScript.elementData;
+               liquidControllerScript.elementData = elementData;
+               liquidControllerScript.decreaseAmount = liquidControllerScript.initialScaleZ;
+               rainExpDustController = true;
+            }
+        }
     }
+
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -46,7 +74,17 @@ public class DropCollisionController : MonoBehaviour
             // Aumentamos la escala en el eje Z del objeto que tiene este script
             Vector3 newScale = transform.localScale;
             float addedVolume = dropInfo.dropAmmount; // Volumen de la gota en ml
-            newScale.z += (addedVolume / 300f); // Actualizamos la escala basada en el volumen agregado
+            if(isPHExp){
+            newScale.y += (addedVolume / initialMaxVolume); // Actualizamos la escala basada en el volumen agregado
+            }
+            if(isRainExp){
+                if(transform.localScale.z < 0){
+                    newScale.z += 0.01f;
+                    actualLiquidVolume = 0f;
+                }
+                newScale.z += (addedVolume / initialMaxVolume);
+                dustRemoverScript.ReduceScale();
+            }
             transform.localScale = newScale;
 
             // Actualizamos el volumen total de la solución usando el 
@@ -71,6 +109,18 @@ public class DropCollisionController : MonoBehaviour
                     // Mostramos el nuevo valor de pH en la consola
                     Debug.Log("Nuevo valor de pH: " + actualPHvalue);
                 }
+            }
+            if(isRainExp){
+                temp = dropInfo.temp;
+                elementData = dropInfo.elementData;
+                liquidControllerScript.temp = temp;
+                liquidControllerScript.elementData = elementData;
+                liquidControllerScript.initialVolume = actualLiquidVolume;
+                liquidControllerScript.actualLiquidVolume = actualLiquidVolume;
+                liquidControllerScript.isRainExp = isRainExp;
+                liquidControllerScript.initialScaleZ = liquidControllerScript.transform.localScale.z;
+                glassScript.temperature = temp;
+                rainExpDustController = false;
             }
         }
     }

@@ -8,4 +8,7 @@ public class DropInformation : MonoBehaviour
     public bool hasPHDetector; // Indica si tiene fenolftaleína
     public bool isPHExp; // Indica si es un experimento PH
     public float dropAmmount; // Cantidad de líquido representada por esta gota
+    public bool isRainExp;
+    public float temp;
+    public string elementData;
 }
