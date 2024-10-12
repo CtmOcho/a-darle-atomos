@@ -121,6 +121,6 @@ public class LiquidsGoteroController : MonoBehaviour
         // Aseguramos que la escala final sea exactamente la deseada
         transform.localScale = targetScale;
         actualLiquidVolume = transform.localScale.z * initialVolume / initialScaleZ; // Actualizamos el volumen de líquido
-        transform.localScale.z = -0.01f;
+        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -0.01f);
     }
 }
