@@ -142,13 +142,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenesToPlay:
-  - Destilacion
+  - Laboratorio_Destilacion
   - Laboratorio_llama
   - Laboratorio_Acido_Base
   - Laboratorio_Camaleon
   - Laboratorio_Olla
   - Laboratorio_Rutherford
-  - Laboratorio
-  - 
-  - 
+  - Laboratorio_Sodio
+  - Laboratorio_Yodo
+  - Laboratorio_Lluvia
   - 

@@ -894,7 +894,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1955568234}
   Manos: {fileID: 183136018}
-  safePosition: {x: -0.5883875, y: 0.216, z: 1.259}
   holdTime: 2
 --- !u!1 &102719357
 GameObject:
@@ -1394,6 +1393,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Env
       objectReference: {fileID: 0}
+    - target: {fileID: 8480454277487357436, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480454277487357436, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 77dfb509a3fe1fe489f0b196c2254e3b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2271,6 +2278,7 @@ MonoBehaviour:
   flame: {fileID: 0}
   distilationLab: 1
   yodoLab: 0
+  rainLab: 0
 --- !u!4 &486534354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1095215855553136600, guid: 322f8f61c133299488a565d3a7ea206f, type: 3}
@@ -2507,7 +2515,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Subexperience: {fileID: 1309021363}
   Manos: {fileID: 183136018}
-  safePosition: {x: -0.573, y: -0.011, z: 1.17}
   holdTime: 2
 --- !u!64 &677427402
 MeshCollider:
@@ -4819,7 +4826,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Subexperience: {fileID: 956411129}
   Manos: {fileID: 183136018}
-  safePosition: {x: -0.573, y: -0.011, z: 1.17}
   holdTime: 2
 --- !u!64 &1237549751
 MeshCollider:
@@ -5999,7 +6005,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Subexperience: {fileID: 0}
   Manos: {fileID: 0}
-  safePosition: {x: -1, y: 1, z: 0}
   holdTime: 2
 --- !u!1001 &1622906812
 PrefabInstance:
