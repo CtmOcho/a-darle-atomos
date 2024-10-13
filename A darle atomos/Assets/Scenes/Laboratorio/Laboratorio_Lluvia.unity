@@ -143,6 +143,8 @@ MonoBehaviour:
   temp: 0
   elementData: 
   dustRemoverScript: {fileID: 6729336519317521269}
+  isChameleonExp: 0
+  liquidColor: {r: 0, g: 0, b: 0, a: 0}
   isErlenmeyerliquid: 1
   weirdTransformBool: 1
   liquidControllerScript: {fileID: 0}
@@ -410,7 +412,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -611,7 +613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7236032991953181214, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7877530108389225136, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: Manos
@@ -1272,6 +1274,8 @@ MonoBehaviour:
   isRainExp: 1
   temp: 0
   elementData: 
+  isChameleonExp: 0
+  liquidColor: {r: 0, g: 0, b: 0, a: 0}
   initialScaleZ: 1
   scaleController: 0
 --- !u!114 &1513572937
@@ -1295,6 +1299,8 @@ MonoBehaviour:
   temp: 0
   elementData: 
   dustRemoverScript: {fileID: 556627754}
+  isChameleonExp: 0
+  liquidColor: {r: 0, g: 0, b: 0, a: 0}
   isErlenmeyerliquid: 0
   weirdTransformBool: 0
   liquidControllerScript: {fileID: 0}
@@ -2032,6 +2038,8 @@ MonoBehaviour:
   isRainExp: 1
   temp: 70
   elementData: agua
+  isChameleonExp: 0
+  liquidColor: {r: 0, g: 0, b: 0, a: 0}
   initialScaleZ: 1.7
   scaleController: 0
 --- !u!65 &1799960458

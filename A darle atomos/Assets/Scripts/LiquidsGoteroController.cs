@@ -18,6 +18,12 @@ public class LiquidsGoteroController : MonoBehaviour
     public float temp;
     public string elementData;
 
+    public bool isChameleonExp;
+    public Color liquidColor;
+    private Renderer sourceRenderer;
+
+
+
     public float initialScaleZ = 1f; // Corregimos para usar el valor Z del localScale inicial
     public float scaleController;
 
@@ -38,6 +44,7 @@ public class LiquidsGoteroController : MonoBehaviour
         // Calculamos el volumen inicial basándonos en la escala Z del objeto
         initialScaleZ = transform.localScale.z;
         scaleController = transform.localScale.z;
+
         if (isPHExp)
         {
             actualLiquidVolume = initialVolume / initialScaleZ; // Basamos el cálculo en el Z inicial
@@ -59,6 +66,16 @@ public class LiquidsGoteroController : MonoBehaviour
                 currentLiquidVolume = initialVolume;
             }
         }
+
+        if(isChameleonExp){
+            Renderer sourceRenderer = gameObject.GetComponent<Renderer>();
+            liquidColor = sourceRenderer.material.GetColor("_Color");
+                            actualLiquidVolume = initialVolume / initialScaleZ; // Usamos el Z inicial corregido
+                currentLiquidVolume = initialVolume;
+            
+        }
+
+
     }
 
     // Este método se llama mientras el objeto permanece dentro del trigger
@@ -68,7 +85,6 @@ public class LiquidsGoteroController : MonoBehaviour
         {
             DropperLiquidSpawner dropper = targetObject.GetComponent<DropperLiquidSpawner>();
             decreaseAmount = dropper.dropAmmount/actualLiquidVolume;
-             
             if (currentLiquidVolume > 0)
             {
                 if (!dropper.isFull)
@@ -92,6 +108,27 @@ public class LiquidsGoteroController : MonoBehaviour
                         dropper.isRainExp = isRainExp;
                     }
 
+                    if(isChameleonExp){
+                    // Obtenemos el Renderer del objeto hijo "Dropper Liquid"
+
+                    // Asignamos el color del material del hijo
+                    GameObject dropperLiquidObject = GameObject.FindWithTag("dropperLiquid");
+                    if (dropperLiquidObject != null)
+                        {
+                            // Obtenemos el Renderer del objeto que tiene el tag
+                            Renderer dropperLiquidRenderer = dropperLiquidObject.GetComponent<Renderer>();
+
+                            if (dropperLiquidRenderer != null)
+                            {
+                                // Asignamos el color del material
+                                dropperLiquidRenderer.material.SetColor("_Color", liquidColor);
+                            }
+                        }
+                        
+                        dropper.isChameleonExp = true;
+                        dropper.liquidColor = liquidColor;
+                        dropper.elementData = elementData;
+                    }
                     // Aquí reducimos directamente la escala sin corrutinas
                     DecreaseScale();
                 }

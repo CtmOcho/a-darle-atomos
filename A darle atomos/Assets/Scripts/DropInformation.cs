@@ -11,4 +11,7 @@ public class DropInformation : MonoBehaviour
     public bool isRainExp;
     public float temp;
     public string elementData;
+    public bool isChameleonExp;
+    public Color liquidColor;
+
 }

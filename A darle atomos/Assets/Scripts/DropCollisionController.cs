@@ -17,6 +17,14 @@ public class DropCollisionController : MonoBehaviour
     public string elementData;
     public DustRemovalControllerRainLab dustRemoverScript;
     
+    public bool isChameleonExp;
+    public Color liquidColor;
+    private Renderer thisRenderer;
+    private bool hasHidrox = false;
+    private bool hasPermang = false;
+   
+
+
     public bool isErlenmeyerliquid = false;
 
     public bool weirdTransformBool = false;
@@ -45,7 +53,11 @@ public class DropCollisionController : MonoBehaviour
             }
             glassScript = GetComponent<Glass>();
         }
-        
+        if(isChameleonExp){
+            thisRenderer = GetComponent<Renderer>(); 
+            changeColorScript = GetComponent<ChangeColor>();
+
+        }
     }
 
     void Update()
@@ -54,6 +66,7 @@ public class DropCollisionController : MonoBehaviour
         {
             if (hasPHDetector)
             {
+                changeColorScript = GetComponent<ChangeColor>();
                 changeColorScript.ColorChange(); // Cambia el color según el pH actual, pero sin modificar el pH
             }
         }
@@ -72,6 +85,17 @@ public class DropCollisionController : MonoBehaviour
                 weirdTransformBool = false;
             }
         }   
+        if(isChameleonExp){
+            if(weirdTransformBool){
+                Vector3 newScale = new Vector3(transform.localScale.x, 0f, transform.localScale.z );
+                transform.localScale = newScale;
+                weirdTransformBool = false;
+            }
+            if(hasHidrox && hasPermang){
+                
+                changeColorScript.ColorChange();
+            }
+        }
     }
 
     
@@ -105,6 +129,10 @@ public class DropCollisionController : MonoBehaviour
                     }
                     newScale.y += (addedVolume / initialMaxVolume);
                 }
+            }
+
+            if(isChameleonExp){
+                newScale.y += (addedVolume / initialMaxVolume); // Actualizamos la escala basada en el volumen agregado
             }
 
             transform.localScale = newScale;
@@ -163,7 +191,16 @@ public class DropCollisionController : MonoBehaviour
                 }
                 dustRemoverScript.ReduceScale();
             }
-
+            if(isChameleonExp){
+                elementData = dropInfo.elementData;
+                liquidColor = dropInfo.liquidColor;
+                if(elementData == "permanganatopotasio"){
+                    hasPermang = true;
+                }else{
+                    hasHidrox = true;
+                }
+                
+            }
         }
     }
 }

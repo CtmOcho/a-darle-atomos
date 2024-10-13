@@ -16,6 +16,7 @@ TagManager:
   - goldFoil
   - Spoon
   - Selectable
+  - dropperLiquid
   layers:
   - Default
   - TransparentFX
