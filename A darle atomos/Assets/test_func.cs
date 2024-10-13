@@ -614,10 +614,10 @@ private void SetPanelColor(Image panelImage, string elementType)
         image.color = color;
     }
 
-    Outline outline = elementGO.GetComponent<Outline>();
+    UnityEngine.UI.Outline outline = elementGO.GetComponent<UnityEngine.UI.Outline>();
     if (outline == null)
     {
-        outline = elementGO.AddComponent<Outline>();
+        outline = elementGO.AddComponent<UnityEngine.UI.Outline>();
         outline.effectColor = Color.yellow;
         outline.effectDistance = new Vector2(5, 5);
     }
@@ -636,7 +636,7 @@ void OnHoverExit(GameObject elementGO)
         image.color = color;
     }
 
-    Outline outline = elementGO.GetComponent<Outline>();
+    UnityEngine.UI.Outline outline = elementGO.GetComponent<UnityEngine.UI.Outline>();
     if (outline != null)
     {
         Destroy(outline); // Quitar el borde al salir del hover
@@ -663,7 +663,7 @@ void OnLeftClick(GameObject elementGO, int atomicNumber)
             lastImage.color = lastColor;
         }
 
-        Outline lastOutline = lastSelectedElement.GetComponent<Outline>();
+        UnityEngine.UI.Outline lastOutline = lastSelectedElement.GetComponent<UnityEngine.UI.Outline>();
         if (lastOutline != null)
         {
             Destroy(lastOutline); // Quitar el borde
@@ -683,10 +683,10 @@ void OnLeftClick(GameObject elementGO, int atomicNumber)
         image.color = color;
     }
 
-    Outline outline = elementGO.GetComponent<Outline>();
+    UnityEngine.UI.Outline outline = elementGO.GetComponent<UnityEngine.UI.Outline>();
     if (outline == null)
     {
-        outline = elementGO.AddComponent<Outline>();
+        outline = elementGO.AddComponent<UnityEngine.UI.Outline>();
         outline.effectColor = Color.yellow;
         outline.effectDistance = new Vector2(5, 5);
     }

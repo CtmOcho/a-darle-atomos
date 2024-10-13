@@ -15,6 +15,7 @@ TagManager:
   - alphaParticle
   - goldFoil
   - Spoon
+  - Selectable
   layers:
   - Default
   - TransparentFX
