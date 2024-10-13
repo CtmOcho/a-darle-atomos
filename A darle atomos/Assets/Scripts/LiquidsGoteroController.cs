@@ -11,19 +11,20 @@ public class LiquidsGoteroController : MonoBehaviour
     public float liquidPH; // Nueva variable pública para el pH del líquido
     public bool isPHDetector; // Nueva variable pública para verificar si hay fenolftaleína
     public float actualLiquidVolume;
+    public float currentLiquidVolume;
     private BoxCollider boxCollider; // El BoxCollider que debe ser isTrigger
-    public float decreaseDuration = 1.0f; // Tiempo que tardará en disminuir la escala
     public float initialVolume = 200f;
     public bool isRainExp;
     public float temp;
     public string elementData;
 
     public float initialScaleZ = 1f; // Corregimos para usar el valor Z del localScale inicial
-
-
+    public float scaleController;
 
     private Glass glassScript;
-    // Start se llama antes del primer frame
+
+    
+
     void Start()
     {
         // Verificamos que el BoxCollider esté presente y sea un trigger
@@ -33,13 +34,14 @@ public class LiquidsGoteroController : MonoBehaviour
         {
             Debug.LogError("El objeto no tiene un BoxCollider o no está configurado como Trigger.");
         }
-        
+
         // Calculamos el volumen inicial basándonos en la escala Z del objeto
         initialScaleZ = transform.localScale.z;
-
+        scaleController = transform.localScale.z;
         if (isPHExp)
         {
             actualLiquidVolume = initialVolume / initialScaleZ; // Basamos el cálculo en el Z inicial
+            currentLiquidVolume = initialVolume;
         }
 
         if (isRainExp)
@@ -49,34 +51,29 @@ public class LiquidsGoteroController : MonoBehaviour
             {
                 actualLiquidVolume = transform.localScale.z + 0.01f;
                 initialScaleZ = transform.localScale.z;
+                currentLiquidVolume = actualLiquidVolume;
             }
             else
             {
                 actualLiquidVolume = initialVolume / initialScaleZ; // Usamos el Z inicial corregido
+                currentLiquidVolume = initialVolume;
             }
         }
     }
 
-
-    // Este método se llama cuando algo entra en el trigger
-    void OnTriggerEnter(Collider other)
+    // Este método se llama mientras el objeto permanece dentro del trigger
+    void OnTriggerStay(Collider other)
     {
         if (other.gameObject == targetObject)
         {
             DropperLiquidSpawner dropper = targetObject.GetComponent<DropperLiquidSpawner>();
-
-            if (actualLiquidVolume > 0)
+            decreaseAmount = dropper.dropAmmount/actualLiquidVolume;
+             
+            if (currentLiquidVolume > 0)
             {
                 if (!dropper.isFull)
                 {
-                    dropper.isFull = true;
-                    dropper.SetDropperFull();
-
-                    // Iniciamos la corrutina para reducir la escala gradualmente
-                    StartCoroutine(DecreaseScaleOverTime());
-
-                    // Calculamos la cantidad de drop
-                    dropper.dropAmmount = decreaseAmount * (initialVolume/initialScaleZ) / dropper.objectQuantity;
+                    dropper.FillDropper();
 
                     if (isPHExp)
                     {
@@ -84,43 +81,41 @@ public class LiquidsGoteroController : MonoBehaviour
                         dropper.SetPHExp(isPHExp);
                         dropper.hasPHDetector = isPHDetector;
                     }
-                    
+
                     if (isRainExp)
                     {
+                        if(elementData == "ioduropotasio"){
+                            dropper.controllerPotasiumRainExp = false;
+                        }
                         dropper.temp = glassScript.temperature;
                         dropper.elementData = elementData;
                         dropper.isRainExp = isRainExp;
-                        
                     }
+
+                    // Aquí reducimos directamente la escala sin corrutinas
+                    DecreaseScale();
                 }
             }
         }
     }
 
-    // Corrutina para reducir la escala de manera gradual
-    private IEnumerator DecreaseScaleOverTime()
+    // Método para disminuir la escala directamente cada vez que se llama
+    public void DecreaseScale()
     {
-        Vector3 initialScale = transform.localScale; // Escala inicial
-        Vector3 targetScale = new Vector3(initialScale.x, initialScale.y, initialScale.z - decreaseAmount); // Nueva escala
+        // Actualizamos la escala del gotero en el eje Z
+        Vector3 currentScale = transform.localScale;
+        currentScale.z -= decreaseAmount;
 
-
-        float elapsedTime = 0;
-
-        // Reducimos la escala de manera gradual durante decreaseDuration segundos
-        while (elapsedTime < decreaseDuration)
+        // Aseguramos que la escala no sea negativa
+        if (currentScale.z < 0)
         {
-            elapsedTime += Time.deltaTime;
-            transform.localScale = Vector3.Lerp(initialScale, targetScale, elapsedTime / decreaseDuration);
-            
-            // Actualizamos el volumen de líquido
-            actualLiquidVolume = transform.localScale.z * initialVolume / initialScaleZ;
-            
-            yield return null; // Esperamos al siguiente frame
+            currentScale.z = 0;
         }
 
-        // Aseguramos que la escala final sea exactamente la deseada
-        transform.localScale = targetScale;
-        actualLiquidVolume = transform.localScale.z * initialVolume / initialScaleZ; // Actualizamos el volumen de líquido
-        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -0.01f);
+        // Aplicamos la nueva escala al objeto
+        transform.localScale = currentScale;
+
+        // Actualizamos el volumen de líquido
+        currentLiquidVolume -= decreaseAmount*actualLiquidVolume;
     }
 }

@@ -16,8 +16,10 @@ public class DropCollisionController : MonoBehaviour
     public float temp;
     public string elementData;
     public DustRemovalControllerRainLab dustRemoverScript;
+    
+    public bool isErlenmeyerliquid = false;
 
-
+    public bool weirdTransformBool = false;
     public LiquidsGoteroController liquidControllerScript;
     public Glass glassScript;
 
@@ -38,7 +40,9 @@ public class DropCollisionController : MonoBehaviour
             phCalculator = GetComponent<SolutionPHCalculator>(); // Busca el controlador en el mismo GameObject
         }
         if(isRainExp){
-            liquidControllerScript = GetComponent<LiquidsGoteroController>();
+            if(!isErlenmeyerliquid){
+                liquidControllerScript = GetComponent<LiquidsGoteroController>();
+            }
             glassScript = GetComponent<Glass>();
         }
         
@@ -55,12 +59,19 @@ public class DropCollisionController : MonoBehaviour
         }
         if(isRainExp){
             if(dustRemoverScript.disolvedDust && !rainExpDustController){
+               if(!isErlenmeyerliquid){
+                liquidControllerScript.elementData = elementData;
+                liquidControllerScript.decreaseAmount = liquidControllerScript.initialScaleZ;
+               }
                elementData =  dustRemoverScript.elementData;
-               liquidControllerScript.elementData = elementData;
-               liquidControllerScript.decreaseAmount = liquidControllerScript.initialScaleZ;
                rainExpDustController = true;
             }
-        }
+            if(weirdTransformBool){
+                Vector3 newScale = new Vector3(transform.localScale.x, -1f, transform.localScale.z );
+                transform.localScale = newScale;
+                weirdTransformBool = false;
+            }
+        }   
     }
 
     
@@ -74,54 +85,85 @@ public class DropCollisionController : MonoBehaviour
             // Aumentamos la escala en el eje Z del objeto que tiene este script
             Vector3 newScale = transform.localScale;
             float addedVolume = dropInfo.dropAmmount; // Volumen de la gota en ml
+            actualLiquidVolume += addedVolume;
+            
             if(isPHExp){
-            newScale.y += (addedVolume / initialMaxVolume); // Actualizamos la escala basada en el volumen agregado
+                newScale.y += (addedVolume / initialMaxVolume); // Actualizamos la escala basada en el volumen agregado
             }
+
             if(isRainExp){
-                if(transform.localScale.z < 0){
-                    newScale.z += 0.01f;
-                    actualLiquidVolume = 0f;
+                if(!isErlenmeyerliquid){
+                    if(transform.localScale.z < 0){
+                        newScale.z = 0;
+                        actualLiquidVolume = 0f;
+                    }
+                    newScale.z += (addedVolume / initialMaxVolume);
+                }else{
+                    if(transform.localScale.y < 0){
+                        newScale.y = 0;
+                        actualLiquidVolume = 0f;
+                    }
+                    newScale.y += (addedVolume / initialMaxVolume);
                 }
-                newScale.z += (addedVolume / initialMaxVolume);
-                dustRemoverScript.ReduceScale();
             }
+
             transform.localScale = newScale;
 
-            // Actualizamos el volumen total de la solución usando el 
-            actualLiquidVolume += addedVolume;
-
-            if (isPHExp)
-            {
+            // Actualizamos el volumen total de la solución 
+            if(isPHExp){
+                
                 if (dropInfo.hasPHDetector)
-                {
-                    // Si la gota que se está añadiendo es el detector de pH, no modificamos el pH
-                    hasPHDetector = true;
-                    changeColorScript.boolPHDetector = true;
-                }
-                else
-                {
-                    // Calculamos el nuevo pH utilizando el SolutionPHCalculator solo si no es el detector de pH
-                    actualPHvalue = phCalculator.CalculateNewPH(actualPHvalue, actualLiquidVolume, dropInfo.liquidPH, addedVolume);
+                    {
+                        // Si la gota que se está añadiendo es el detector de pH, no modificamos el pH
+                        hasPHDetector = true;
+                        changeColorScript.boolPHDetector = true;
+                    }
+                    else
+                    {
+                        // Calculamos el nuevo pH utilizando el SolutionPHCalculator solo si no es el detector de pH
+                        actualPHvalue = phCalculator.CalculateNewPH(actualPHvalue, actualLiquidVolume, dropInfo.liquidPH, addedVolume);
 
-                    // Aseguramos que el pH esté entre 0 y 14
-                    actualPHvalue = Mathf.Clamp(actualPHvalue, 0f, 14f);
+                        // Aseguramos que el pH esté entre 0 y 14
+                        actualPHvalue = Mathf.Clamp(actualPHvalue, 0f, 14f);
 
-                    // Mostramos el nuevo valor de pH en la consola
-                    Debug.Log("Nuevo valor de pH: " + actualPHvalue);
-                }
+                        // Mostramos el nuevo valor de pH en la consola
+                        Debug.Log("Nuevo valor de pH: " + actualPHvalue);
+                    }
             }
             if(isRainExp){
-                temp = dropInfo.temp;
-                elementData = dropInfo.elementData;
-                liquidControllerScript.temp = temp;
-                liquidControllerScript.elementData = elementData;
-                liquidControllerScript.initialVolume = actualLiquidVolume;
-                liquidControllerScript.actualLiquidVolume = actualLiquidVolume;
-                liquidControllerScript.isRainExp = isRainExp;
-                liquidControllerScript.initialScaleZ = liquidControllerScript.transform.localScale.z;
-                glassScript.temperature = temp;
-                rainExpDustController = false;
+                
+                if(dropInfo.elementData != "agua"){
+                    if(!isErlenmeyerliquid){
+                        liquidControllerScript.temp = temp;
+                        liquidControllerScript.elementData = elementData;
+                        liquidControllerScript.initialVolume = actualLiquidVolume;
+                        liquidControllerScript.actualLiquidVolume = actualLiquidVolume;
+                        liquidControllerScript.currentLiquidVolume = actualLiquidVolume;
+                        liquidControllerScript.isRainExp = isRainExp;
+                        liquidControllerScript.initialScaleZ = liquidControllerScript.transform.localScale.z;
+                    }
+                    temp = dropInfo.temp;
+                    elementData = dropInfo.elementData;
+                    glassScript.temperature = temp;
+                    rainExpDustController = false;
+                }else{
+                    if(!isErlenmeyerliquid){
+                        liquidControllerScript.temp = temp;
+                        liquidControllerScript.elementData = elementData;
+                        liquidControllerScript.initialVolume = actualLiquidVolume;
+                        liquidControllerScript.actualLiquidVolume = actualLiquidVolume;
+                        liquidControllerScript.currentLiquidVolume = actualLiquidVolume;
+                        liquidControllerScript.isRainExp = isRainExp;
+                        liquidControllerScript.initialScaleZ = liquidControllerScript.transform.localScale.z;
+                    }
+                    temp = dropInfo.temp;
+                    elementData = dustRemoverScript.elementData;
+                    glassScript.temperature = temp;
+                    rainExpDustController = false;
+                }
+                dustRemoverScript.ReduceScale();
             }
+
         }
     }
 }

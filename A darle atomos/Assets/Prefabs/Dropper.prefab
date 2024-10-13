@@ -95,6 +95,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a41a50a2a232dfd4086c33f0bca39895, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3856969375384356855}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a41a50a2a232dfd4086c33f0bca39895, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5380038738562647668}
   m_SourcePrefab: {fileID: 100100000, guid: a41a50a2a232dfd4086c33f0bca39895, type: 3}
 --- !u!1 &129492043418940385 stripped
 GameObject:
@@ -121,4 +124,31 @@ MonoBehaviour:
   objectToSpawn: {fileID: 2720148867374294540, guid: 0798fec1659d95942ad86a5075626e3f, type: 3}
   dropperLiquid: {fileID: 129492043418940385}
   objectQuantity: 100
+  isFull: 0
   liquidInitScale: 1
+  liquidPH: 0
+  hasPHDetector: 0
+  isPHExp: 0
+  dropAmmount: 0
+  isInValidZone: 0
+  isRainExp: 0
+  temp: 0
+  elementData: 
+  controllerPotasiumRainExp: 0
+  maxDropperVolume: 100
+  currentDropperVolume: 0
+  currentObjectsToSpawn: 0
+  subCounter: 0
+--- !u!114 &5380038738562647668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141576793478812601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcec10ebfc37a9a49b03ec0864e3c4bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minYValue: -20
