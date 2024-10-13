@@ -16,17 +16,20 @@ public class SodiumExplosion : MonoBehaviour
     void Start()
     {
         vfx = GetComponentInChildren<VisualEffect>();
+        vfx.Stop();
         audioSource = GetComponentInChildren<AudioSource>();
         rb = GetComponent<Rigidbody>();
         mesh = GetComponentInChildren<MeshRenderer>();
-        StartCoroutine(ExplosionCorroutine());
-        StartCoroutine(ReduceSize());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Liquid"))
+        {
+            StartCoroutine(ExplosionCorroutine());
+            StartCoroutine(ReduceSize());
+        }
     }
 
     IEnumerator ExplosionCorroutine()

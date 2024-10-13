@@ -297,6 +297,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2115217766383001991, guid: d1767e651238ad24484f036a00f6d3d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2094379668}
+    - targetCorrespondingSourceObject: {fileID: 2115217766383001991, guid: d1767e651238ad24484f036a00f6d3d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2094379670}
+    - targetCorrespondingSourceObject: {fileID: 2115217766383001991, guid: d1767e651238ad24484f036a00f6d3d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2094379669}
     - targetCorrespondingSourceObject: {fileID: 1262466037874664528, guid: d1767e651238ad24484f036a00f6d3d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1993123382}
@@ -304,6 +310,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1993123384}
   m_SourcePrefab: {fileID: 100100000, guid: d1767e651238ad24484f036a00f6d3d3, type: 3}
+--- !u!23 &178566858 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 758243404964169093, guid: d1767e651238ad24484f036a00f6d3d3, type: 3}
+  m_PrefabInstance: {fileID: 178566857}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &245765317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1871,6 +1882,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPbZone: 0
+--- !u!114 &2094379669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094379651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e0498c695651340851ad55dabce3f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liquidProperties: {fileID: 1993123382}
+  objectRenderer: {fileID: 178566858}
+  objectRendererTop: {fileID: 174854561}
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
+  transitionSpeed: 0.15
+  changeTime: 1
+  boolPHDetector: 0
+  isChameleonExp: 1
+  currentCompound: 
+  currentColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &2094379670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094379651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b76cd6ec4ba84d4380a7611d68c61a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colors:
+  - {r: 0.51507664, g: 0, b: 1, a: 0}
+  - {r: 0, g: 0.6745098, b: 1, a: 0}
+  - {r: 1, g: 0.77873486, b: 0, a: 0}
+  delay: 10
+  changeColorScript: {fileID: 2094379669}
 --- !u!1001 &2101444842
 PrefabInstance:
   m_ObjectHideFlags: 0
