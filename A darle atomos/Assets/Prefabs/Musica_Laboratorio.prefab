@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5917401144160477612}
   - component: {fileID: 7330356044712924199}
+  - component: {fileID: 409864394330378476}
   m_Layer: 0
   m_Name: Musica_Laboratorio
   m_TagString: Untagged
@@ -128,3 +129,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &409864394330378476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5341566728190155398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0ea2bbab7c70634aa67da8cf234e463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenesToPlay:
+  - Destilacion
+  - Laboratorio_llama
+  - Laboratorio_Acido_Base
+  - Laboratorio_Camaleon
+  - Laboratorio_Olla
+  - Laboratorio_Rutherford
+  - Laboratorio
+  - 
+  - 
+  - 
