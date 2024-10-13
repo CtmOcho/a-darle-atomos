@@ -143,8 +143,12 @@ MonoBehaviour:
   temp: 0
   elementData: 
   dustRemoverScript: {fileID: 6729336519317521269}
+  RainLabCompleted: 0
+  PHlabCompleted: 0
   isChameleonExp: 0
   liquidColor: {r: 0, g: 0, b: 0, a: 0}
+  hasHidrox: 0
+  hasPermang: 0
   isErlenmeyerliquid: 1
   weirdTransformBool: 1
   liquidControllerScript: {fileID: 0}
@@ -1060,6 +1064,58 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 8cd90affae7276d48bf8b8b0153ecfe3, type: 3}
+--- !u!1 &906013603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 906013605}
+  - component: {fileID: 906013604}
+  m_Layer: 0
+  m_Name: progressController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &906013604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906013603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4784cf6e6837644380b1706e3a0e364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropCollisionScript: {fileID: 5715359}
+  dropInformationScript: {fileID: 8433897}
+  alreadyDone: 0
+  requirementsMet: 0
+  desiredTemp: 0
+  hasCorrectTemp: 0
+  hasPbDisolved: 0
+  hasKDisolved: 0
+--- !u!4 &906013605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906013603}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1204797275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0c606f6f1bc2e2e4ca4e679fc84b6b6b, type: 3}
@@ -1299,8 +1355,12 @@ MonoBehaviour:
   temp: 0
   elementData: 
   dustRemoverScript: {fileID: 556627754}
+  RainLabCompleted: 0
+  PHlabCompleted: 0
   isChameleonExp: 0
   liquidColor: {r: 0, g: 0, b: 0, a: 0}
+  hasHidrox: 0
+  hasPermang: 0
   isErlenmeyerliquid: 0
   weirdTransformBool: 0
   liquidControllerScript: {fileID: 0}
@@ -1523,8 +1583,32 @@ PrefabInstance:
     - {fileID: 9220086498462433613, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
     - {fileID: 3116405211528768113, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4220068329275857749, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1522760116}
   m_SourcePrefab: {fileID: 100100000, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
+--- !u!1 &1522760115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4220068329275857749, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
+  m_PrefabInstance: {fileID: 1522760114}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1522760116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522760115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1e7045838e0db4a8705d571fe59540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navigation: {fileID: 0}
+  usernameInputField: {fileID: 0}
+  passwordInputField: {fileID: 0}
+  Flag: 
 --- !u!114 &1658762195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3041,7 +3125,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7059272685745449384}
-  - component: {fileID: 7059272685745449385}
   m_Layer: 0
   m_Name: Stirrer_prefab
   m_TagString: Untagged
@@ -3212,26 +3295,6 @@ Transform:
   - {fileID: 1172415462073269771}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7059272685745449385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5976710242548994792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4784cf6e6837644380b1706e3a0e364, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dropCollisionScript: {fileID: 5715359}
-  dropInformationScript: {fileID: 8433897}
-  alreadyDone: 0
-  requirementsMet: 0
-  desiredTemp: 80
-  hasCorrectTemp: 0
-  hasPbDisolved: 0
-  hasKDisolved: 0
 --- !u!33 &7775954093473775581
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3274,3 +3337,4 @@ SceneRoots:
   - {fileID: 543450651616198254}
   - {fileID: 543450652806448605}
   - {fileID: 7059272685745449384}
+  - {fileID: 906013605}

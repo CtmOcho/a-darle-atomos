@@ -6,6 +6,8 @@ public class ParticleCounterController : MonoBehaviour
     public bool isOn = false;
     public TextMeshPro counterTMP;
 
+    bool moved = false;
+    public bool labCompleted = false;
     int particleCounter = 0;
     public void RotatePlus()
     {
@@ -14,6 +16,7 @@ public class ParticleCounterController : MonoBehaviour
             if (transform.GetChild(0).transform.localEulerAngles.z < 270.0f)
             {
                 transform.GetChild(0).transform.Rotate(0, 0, 15);
+                moved = true;
             }
         }
         
@@ -25,6 +28,8 @@ public class ParticleCounterController : MonoBehaviour
             if (transform.GetChild(0).transform.localEulerAngles.z > 180.0f)
             {
                 transform.GetChild(0).transform.Rotate(0, 0, -15);
+                moved = true;
+
             }
         }
     }
@@ -42,5 +47,8 @@ public class ParticleCounterController : MonoBehaviour
     {
         particleCounter++;
         counterTMP.text = particleCounter.ToString();
+        if(moved){
+            labCompleted = true;
+        }
     }
 }

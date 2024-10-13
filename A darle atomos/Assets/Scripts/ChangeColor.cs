@@ -13,13 +13,22 @@ public class ChangeColor : MonoBehaviour
     public float changeTime = 1f;
     public bool boolPHDetector;
 
+
+    public bool isChameleonExp = false;
+    public string currentCompound;
+    public Color currentColor;
+
     public void ColorChange()
     {
-        targetColor = PhToColor(liquidProperties.actualPHvalue);
-        //Debug.Log(liquidProperties.actualPHvalue);
-        if (targetColor != objectRenderer.material.color && boolPHDetector)
-        {
-            StartCoroutine(ChangeColorCorroutine(objectRenderer, objectRendererTop, targetColor, transitionSpeed));
+        if(isChameleonExp){
+            Debug.Log("Acá va la lógica del cambio del color del camaleón como en el video, además mostrar el color actual y el compuesto que es en ese momento");
+        }else{
+            targetColor = PhToColor(liquidProperties.actualPHvalue);
+            //Debug.Log(liquidProperties.actualPHvalue);
+            if (targetColor != objectRenderer.material.color && boolPHDetector)
+            {
+                StartCoroutine(ChangeColorCorroutine(objectRenderer, objectRendererTop, targetColor, transitionSpeed));
+            }
         }
     }
 

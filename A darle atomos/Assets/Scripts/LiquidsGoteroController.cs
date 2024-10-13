@@ -68,7 +68,7 @@ public class LiquidsGoteroController : MonoBehaviour
         }
 
         if(isChameleonExp){
-            Renderer sourceRenderer = gameObject.GetComponent<Renderer>();
+            Renderer sourceRenderer = GetComponent<Renderer>();
             liquidColor = sourceRenderer.material.GetColor("_Color");
                             actualLiquidVolume = initialVolume / initialScaleZ; // Usamos el Z inicial corregido
                 currentLiquidVolume = initialVolume;

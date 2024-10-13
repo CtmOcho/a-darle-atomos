@@ -16,12 +16,15 @@ public class DropCollisionController : MonoBehaviour
     public float temp;
     public string elementData;
     public DustRemovalControllerRainLab dustRemoverScript;
+    public bool RainLabCompleted = false;
     
+    public bool PHlabCompleted = false;
+
     public bool isChameleonExp;
     public Color liquidColor;
     private Renderer thisRenderer;
-    private bool hasHidrox = false;
-    private bool hasPermang = false;
+    public bool hasHidrox = false;
+    public bool hasPermang = false;
    
 
 
@@ -30,6 +33,7 @@ public class DropCollisionController : MonoBehaviour
     public bool weirdTransformBool = false;
     public LiquidsGoteroController liquidControllerScript;
     public Glass glassScript;
+
 
     public float initialMaxVolume = 300f;
 
@@ -68,6 +72,7 @@ public class DropCollisionController : MonoBehaviour
             {
                 changeColorScript = GetComponent<ChangeColor>();
                 changeColorScript.ColorChange(); // Cambia el color según el pH actual, pero sin modificar el pH
+                PHlabCompleted = true;
             }
         }
         if(isRainExp){
@@ -155,7 +160,7 @@ public class DropCollisionController : MonoBehaviour
                         actualPHvalue = Mathf.Clamp(actualPHvalue, 0f, 14f);
 
                         // Mostramos el nuevo valor de pH en la consola
-                        Debug.Log("Nuevo valor de pH: " + actualPHvalue);
+                        //Debug.Log("Nuevo valor de pH: " + actualPHvalue);
                     }
             }
             if(isRainExp){
@@ -188,6 +193,7 @@ public class DropCollisionController : MonoBehaviour
                     elementData = dustRemoverScript.elementData;
                     glassScript.temperature = temp;
                     rainExpDustController = false;
+                    RainLabCompleted = true;
                 }
                 dustRemoverScript.ReduceScale();
             }

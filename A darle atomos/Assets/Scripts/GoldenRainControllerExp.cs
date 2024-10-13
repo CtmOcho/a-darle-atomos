@@ -8,6 +8,8 @@ public class GoldenRainControllerExp : MonoBehaviour
     public DropCollisionController dropCollisionScript;
     public DropperLiquidSpawner dropInformationScript;
     
+    private Login  login_script; // Referencia al otro script que contiene OnPutStudentProgress
+
     public bool alreadyDone = false;
     public bool requirementsMet = false;
     public float desiredTemp;
@@ -15,7 +17,11 @@ public class GoldenRainControllerExp : MonoBehaviour
     public bool hasPbDisolved = false;
     public bool hasKDisolved = false;
 
-
+    void Start()
+    {
+        login_script = FindObjectOfType<Login>(); // Cambia 'Login' al nombre de tu script
+        
+    }
     // Update is called once per frame
     void Update()
     {
@@ -32,13 +38,14 @@ public class GoldenRainControllerExp : MonoBehaviour
         }
 
 
-        if(!requirementsMet && hasKDisolved && hasPbDisolved && hasCorrectTemp && !alreadyDone){
+        if(!requirementsMet && hasKDisolved && hasPbDisolved && dropCollisionScript.RainLabCompleted && hasCorrectTemp && !alreadyDone){
             requirementsMet = true;
         }    
 
         if(requirementsMet && !alreadyDone){
             Debug.Log("Acá debiese accionarse el efecto de la lluvia.");
             alreadyDone = true;
+            login_script.OnPutStudentProgress(36);
         }
     
     }

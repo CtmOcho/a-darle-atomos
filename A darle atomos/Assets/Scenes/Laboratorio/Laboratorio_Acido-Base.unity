@@ -577,8 +577,16 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3143893560523407932, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1677931277}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4220068329275857749, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1885195092}
   m_SourcePrefab: {fileID: 100100000, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
+--- !u!1 &295355531 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4220068329275857749, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
+  m_PrefabInstance: {fileID: 295355530}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &304636707 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 531f4b5c57dfad94f8040eed76b66d77, type: 3}
@@ -607,7 +615,15 @@ MonoBehaviour:
   liquidPH: 2.4
   isPHDetector: 0
   actualLiquidVolume: 0
-  decreaseDuration: 1
+  currentLiquidVolume: 0
+  initialVolume: 200
+  isRainExp: 0
+  temp: 0
+  elementData: 
+  isChameleonExp: 0
+  liquidColor: {r: 0, g: 0, b: 0, a: 0}
+  initialScaleZ: 1
+  scaleController: 0
 --- !u!65 &304636713
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1018,7 +1034,15 @@ MonoBehaviour:
   liquidPH: 0
   isPHDetector: 1
   actualLiquidVolume: 0
-  decreaseDuration: 1
+  currentLiquidVolume: 0
+  initialVolume: 200
+  isRainExp: 0
+  temp: 0
+  elementData: 
+  isChameleonExp: 0
+  liquidColor: {r: 0, g: 0, b: 0, a: 0}
+  initialScaleZ: 1
+  scaleController: 0
 --- !u!65 &1565522748
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1241,6 +1265,51 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 211913676}
   m_SourcePrefab: {fileID: 100100000, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
+--- !u!1 &1713226682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1713226684}
+  - component: {fileID: 1713226683}
+  m_Layer: 0
+  m_Name: progressController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1713226683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713226682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f264828fd8080af4a873a0ad6c66d963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropCollisionScript: {fileID: 86898624}
+--- !u!4 &1713226684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713226682}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1752589572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1663,6 +1732,22 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 6855366436573026417, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
   m_PrefabInstance: {fileID: 295355530}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1885195092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295355531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1e7045838e0db4a8705d571fe59540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navigation: {fileID: 0}
+  usernameInputField: {fileID: 0}
+  passwordInputField: {fileID: 0}
+  Flag: 
 --- !u!1001 &1961649104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2039,3 +2124,4 @@ SceneRoots:
   - {fileID: 643460981}
   - {fileID: 488790093}
   - {fileID: 2032638774}
+  - {fileID: 1713226684}
