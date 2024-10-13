@@ -215,7 +215,7 @@ PrefabInstance:
     - target: {fileID: 4000856204446467103, guid: d1767e651238ad24484f036a00f6d3d3, type: 3}
       propertyPath: changeColor
       value: 
-      objectReference: {fileID: 2094379656}
+      objectReference: {fileID: 0}
     - target: {fileID: 4000856204446467103, guid: d1767e651238ad24484f036a00f6d3d3, type: 3}
       propertyPath: stirSurface
       value: 
@@ -288,9 +288,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2115217766383001991, guid: d1767e651238ad24484f036a00f6d3d3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2094379656}
     - targetCorrespondingSourceObject: {fileID: 2115217766383001991, guid: d1767e651238ad24484f036a00f6d3d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2094379658}
@@ -1591,11 +1588,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5912423827516684286, guid: d1767e651238ad24484f036a00f6d3d3, type: 3}
   m_PrefabInstance: {fileID: 178566857}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &1993123380 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 758243404964169093, guid: d1767e651238ad24484f036a00f6d3d3, type: 3}
-  m_PrefabInstance: {fileID: 178566857}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1993123382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1612,7 +1604,6 @@ MonoBehaviour:
   actualPHvalue: 0
   hasPHDetector: 0
   isPHExp: 0
-  changeColorScript: {fileID: 2094379656}
   isRainExp: 0
   rainExpDustController: 0
   temp: 0
@@ -1620,7 +1611,6 @@ MonoBehaviour:
   dustRemoverScript: {fileID: 0}
   isChameleonExp: 1
   liquidColor: {r: 0, g: 0, b: 0, a: 0}
-  alreadyDoneChameleon: 0
   isErlenmeyerliquid: 0
   weirdTransformBool: 0
   liquidControllerScript: {fileID: 0}
@@ -1755,29 +1745,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2115217766383001991, guid: d1767e651238ad24484f036a00f6d3d3, type: 3}
   m_PrefabInstance: {fileID: 178566857}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2094379656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094379651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0e0498c695651340851ad55dabce3f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  liquidProperties: {fileID: 1993123382}
-  objectRenderer: {fileID: 1993123380}
-  objectRendererTop: {fileID: 174854561}
-  targetColor: {r: 0, g: 0, b: 0, a: 1}
-  transitionSpeed: 2
-  changeTime: 0.02
-  boolPHDetector: 0
-  isPHExp: 0
-  isChameleonExp: 1
-  currentCompound: 
-  currentColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &2094379658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1811,8 +1778,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.074918285, y: 0.06618733, z: 0.36322778}
-  m_Center: {x: -0.00079928903, y: 0.001760464, z: 0.18564662}
+  m_Size: {x: 0.05706482, y: 0.057491615, z: 0.36322778}
+  m_Center: {x: -0.0015896766, y: 0.0061083245, z: 0.18564662}
 --- !u!114 &2094379668
 MonoBehaviour:
   m_ObjectHideFlags: 0
