@@ -89,6 +89,7 @@ public class DropCollisionController : MonoBehaviour
                 transform.localScale = newScale;
                 weirdTransformBool = false;
             }
+            temp = glassScript.temperature;
         }   
         if(isChameleonExp){
             if(weirdTransformBool){

@@ -215,27 +215,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2365181308647901443, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2365181308647901443, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2365181308647901443, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2365181308647901443, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.002
+      value: -0.983
       objectReference: {fileID: 0}
     - target: {fileID: 2365181308647901443, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.952
+      value: 0.9317
       objectReference: {fileID: 0}
     - target: {fileID: 2365181308647901443, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.05
+      value: 0.0649
       objectReference: {fileID: 0}
     - target: {fileID: 2365181308647901443, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
       propertyPath: m_LocalRotation.w
@@ -297,7 +297,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8626157200910421788, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8626157200910421788, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5380038738562647668, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -307,6 +316,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3141576793478812601, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
       insertIndex: -1
       addedObject: {fileID: 160914648}
+    - targetCorrespondingSourceObject: {fileID: 3141576793478812601, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 160914650}
   m_SourcePrefab: {fileID: 100100000, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
 --- !u!114 &8433897 stripped
 MonoBehaviour:
@@ -618,12 +630,34 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160914642}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcec10ebfc37a9a49b03ec0864e3c4bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   minYValue: -20
+--- !u!114 &160914650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160914642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 945b464bdcd0d5c47aefeaec3d188d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temperature: 0
+  maxTemperature: 99
+  minTemperature: 20
+  tempStep: 0.01
+  contents: []
+  isHot: 0
+  flame: {fileID: 0}
+  distilationLab: 0
+  yodoLab: 0
+  rainLab: 1
 --- !u!1001 &207218067
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6128,7 +6162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8389872762982487058, guid: 8cd90affae7276d48bf8b8b0153ecfe3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0762
+      value: -0.01760339
       objectReference: {fileID: 0}
     - target: {fileID: 8389872762982487058, guid: 8cd90affae7276d48bf8b8b0153ecfe3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6206,9 +6240,10 @@ MonoBehaviour:
   dropCollisionScript: {fileID: 5715359}
   dropInformationScript: {fileID: 8433897}
   rainFX: {fileID: 502230236}
+  goldenColor: {r: 1, g: 0.88086545, b: 0.25943398, a: 0.078431375}
   alreadyDone: 0
   requirementsMet: 0
-  desiredTemp: 0
+  desiredTemp: 50
   hasCorrectTemp: 0
   hasPbDisolved: 0
   hasKDisolved: 0
@@ -6626,7 +6661,7 @@ MonoBehaviour:
   temperature: 0
   maxTemperature: 99
   minTemperature: 20
-  tempStep: 0.15
+  tempStep: 0.05
   contents: []
   isHot: 0
   flame: {fileID: 0}
@@ -6886,8 +6921,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.073042445, y: 0.06331163, z: 0.28627056}
-  m_Center: {x: -0.0018185861, y: 0.0027261302, z: 0.14313567}
+  m_Size: {x: 0.047935095, y: 0.052596074, z: 0.17756633}
+  m_Center: {x: -0.0013231579, y: 0.0027488992, z: 0.19748779}
 --- !u!1001 &1690559579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7334,7 +7369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 945b464bdcd0d5c47aefeaec3d188d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  temperature: 80
+  temperature: 60
   maxTemperature: 99
   minTemperature: 20
   tempStep: 0.15
@@ -7411,8 +7446,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.06331022, y: 0.051608488, z: 0.32496908}
-  m_Center: {x: 0, y: -4.5619755e-16, z: 0.282102}
+  m_Size: {x: 0.03331022, y: 0.033, z: 0.26337963}
+  m_Center: {x: 0, y: -8.938171e-16, z: 0.31289673}
 --- !u!114 &1830667172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7425,7 +7460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f78fa3421104d41ba72e123cc48228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPbZone: 0
+  isPbZone: 1
 --- !u!1 &1962953104
 GameObject:
   m_ObjectHideFlags: 0
@@ -8533,7 +8568,7 @@ Transform:
   m_GameObject: {fileID: 5976710242548994792}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.8791, y: 0.9144002, z: 0.01660339}
+  m_LocalPosition: {x: -0.8791, y: 0.9144002, z: 0.0752}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

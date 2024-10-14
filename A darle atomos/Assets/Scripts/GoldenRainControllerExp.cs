@@ -8,7 +8,8 @@ public class GoldenRainControllerExp : MonoBehaviour
     public DropCollisionController dropCollisionScript;
     public DropperLiquidSpawner dropInformationScript;
     public ParticleSystem rainFX;
-    
+    private Renderer liquidRenderer;
+    public Color goldenColor;
     private Login  login_script; // Referencia al otro script que contiene OnPutStudentProgress
 
     public bool alreadyDone = false;
@@ -35,7 +36,7 @@ public class GoldenRainControllerExp : MonoBehaviour
             hasKDisolved = true;
         }
 
-        if(dropCollisionScript.temp >= desiredTemp && !alreadyDone){
+        if(dropCollisionScript.transform.localScale.y > 0 && dropCollisionScript.temp <= desiredTemp && !alreadyDone){
             hasCorrectTemp = true;
         }
 
@@ -45,8 +46,13 @@ public class GoldenRainControllerExp : MonoBehaviour
         }    
 
         if(requirementsMet && !alreadyDone){
-            Debug.Log("Acá debiese accionarse el efecto de la lluvia.");
+            //Debug.Log("Acá debiese accionarse el efecto de la lluvia.");
+            liquidRenderer = dropCollisionScript.GetComponent<Renderer>();
+            if(liquidRenderer != null){
+                liquidRenderer.material.SetColor("_Color", goldenColor);
+            }
             rainFX.Play();
+
             alreadyDone = true;
             login_script.OnPutStudentProgress(36);
         }

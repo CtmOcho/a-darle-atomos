@@ -744,7 +744,7 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _Fresnel: 0.77
+    - _Fresnel: 0.01
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -1370,6 +1370,10 @@ PrefabInstance:
       propertyPath: Manos
       value: 
       objectReference: {fileID: 745365715}
+    - target: {fileID: 230230739122891394, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 320056072582042631, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1721,6 +1725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropCollisionScript: {fileID: 1993123382}
+  camaleonScript: {fileID: 2094379670}
 --- !u!4 &1749147117
 Transform:
   m_ObjectHideFlags: 0
@@ -2055,7 +2060,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colors:
   - {r: 0.51507664, g: 0, b: 1, a: 0}
+  - {r: 0, g: 0.11066723, b: 1, a: 0}
   - {r: 0, g: 0.6745098, b: 1, a: 0}
+  - {r: 0.03137255, g: 0.39607847, b: 0.34901962, a: 0}
+  - {r: 0.40784317, g: 0.5058824, b: 0.31764707, a: 0}
+  - {r: 0.6039216, g: 0.5137255, b: 0.20784315, a: 0}
   - {r: 1, g: 0.77873486, b: 0, a: 0}
   delay: 10
   changeColorScript: {fileID: 2094379669}

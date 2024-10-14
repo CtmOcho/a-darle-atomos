@@ -6,6 +6,7 @@ public class DropperLiquidSpawner : MonoBehaviour
 {
     public GameObject objectToSpawn;
     public GameObject dropperLiquid;
+    public Glass glassScript;
     public float objectQuantity; // Número total de gotas
     public bool isFull;
     public float liquidInitScale  = 1f;
@@ -41,6 +42,7 @@ public class DropperLiquidSpawner : MonoBehaviour
         currentDropperVolume = 0f; // Inicializamos el volumen actual en 0
         currentObjectsToSpawn = 0; // Inicializamos la cantidad de objetos en 0
         dropAmmount = decreaseAmount * maxDropperVolume;
+        glassScript = GetComponent<Glass>();
         if (isRainExp)
         {
             subCounter = 0;
@@ -53,15 +55,16 @@ public class DropperLiquidSpawner : MonoBehaviour
         // Control del experimento de lluvia
         if (isRainExp)
         {
-            if (Mathf.Abs(Vector3.Dot(transform.up, Vector3.down)) < 1f && currentObjectsToSpawn > 0 && subCounter > 30 && dropperLiquid.transform.localScale.z > 0.002f && isInValidZone && !controllerPotasiumRainExp)
+            temp = glassScript.temperature;
+
+            if (Mathf.Abs(Vector3.Dot(transform.up, Vector3.down)) < 1f && currentObjectsToSpawn > 0 && subCounter > 10 && dropperLiquid.transform.localScale.z > 0.002f && isInValidZone && !controllerPotasiumRainExp)
             {
                 // Reducimos la escala del líquido (vaciado)
                 SetLiquidScale(dropperLiquid.transform.localScale.z - decreaseAmount);
                 currentDropperVolume -= decreaseAmount * maxDropperVolume; // Reducimos el volumen actual según el vaciado
                 
                 // Creamos la posición donde instanciar el drop
-                Vector3 pos = new Vector3(transform.position.x, transform.position.y - 0.01f, transform.position.z);
-                
+                Vector3 pos = new Vector3(transform.position.x, transform.position.y - 0.01f, transform.position.z + 0.02f);
                 // Instanciamos el drop
                 GameObject drop = Instantiate(objectToSpawn, pos, Quaternion.identity);
                 

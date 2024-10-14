@@ -10,14 +10,15 @@ public class Camaleon : MonoBehaviour
     public float delay;
     public ChangeColor changeColorScript;
 
-    void Start()
-    {
+    public void StartCamaleonRutina(){
+
         StartCoroutine(CamaleonCoroutine());
+
     }
 
     public IEnumerator CamaleonCoroutine()
     {
-        Debug.Log("Cambio de color camaleon");
+        //Debug.Log("Cambio de color camaleon");
         for (int i = 0; i < colors.Length; i++)
         {
             changeColorScript.ColorChange(colors[i]);

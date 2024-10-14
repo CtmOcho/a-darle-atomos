@@ -89,7 +89,7 @@ public class Glass : MonoBehaviour
         {
             return;
         }
-        tempStep = 0.01f;
+        
         temperature -= tempStep / 10;
         for (int i = contents.Count - 1; i >= 0; i--)
         {

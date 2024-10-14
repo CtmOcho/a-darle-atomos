@@ -101,9 +101,10 @@ public class LiquidsGoteroController : MonoBehaviour
                     if (isRainExp)
                     {
                         if(elementData == "ioduropotasio"){
-                            dropper.controllerPotasiumRainExp = false;
+                            dropper.controllerPotasiumRainExp = true;
                         }
                         dropper.temp = glassScript.temperature;
+                        dropper.glassScript.temperature =  glassScript.temperature;
                         dropper.elementData = elementData;
                         dropper.isRainExp = isRainExp;
                     }

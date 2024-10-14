@@ -7,7 +7,7 @@ public class ChameleonLabProgress : MonoBehaviour
     private bool labCompleted = false;
     private Login  login_script; // Referencia al otro script que contiene OnPutStudentProgress
     public DropCollisionController dropCollisionScript; 
-
+    public Camaleon camaleonScript;
     //AGREGAR LOS BOTONES PARA PODER HACER LA LOGICA CULIA DE PROGRESO.
     // Start is called before the first frame update
     void Start()
@@ -20,6 +20,7 @@ public class ChameleonLabProgress : MonoBehaviour
     {
         if(!labCompleted){
             if(dropCollisionScript.hasPermang && dropCollisionScript.hasHidrox ){
+                camaleonScript.StartCamaleonRutina();
                 login_script.OnPutStudentProgress(31);
                 labCompleted = true;
             }
