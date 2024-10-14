@@ -1370,6 +1370,10 @@ PrefabInstance:
       propertyPath: Manos
       value: 
       objectReference: {fileID: 745365715}
+    - target: {fileID: 320056072582042631, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 817755044020759564, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.021
@@ -1378,17 +1382,63 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.032
       objectReference: {fileID: 0}
+    - target: {fileID: 1153481989648263809, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163332137046885445, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_text
+      value: "1- agrega el hidr\xF3xido de sodio al agua"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163332137046885445, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_fontSize
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163332137046885445, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 56
+      objectReference: {fileID: 0}
     - target: {fileID: 1178659469215122711, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_Name
       value: Scene UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374279864763306300, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374279864763306300, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374279864763306300, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1928996673928893183, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: Manos
       value: 
       objectReference: {fileID: 745365715}
+    - target: {fileID: 2814905098226087001, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3347738046883307500, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: escena_camaleon_mol
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926924080073805052, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_text
+      value: '2- Agrega el permanganato de potasio
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926924080073805052, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_fontSize
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926924080073805052, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 56
       objectReference: {fileID: 0}
     - target: {fileID: 4432048747598610642, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1408,6 +1458,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4792186817232032713, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948695153082237590, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948695153082237590, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948695153082237590, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5568645479822255452, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
@@ -1461,6 +1523,12 @@ PrefabInstance:
     - target: {fileID: 7236032991953181214, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7331573155452590193, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_text
+      value: '3- OBSERVA EL CAMBIO DE COLOR
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 7877530108389225136, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: Manos

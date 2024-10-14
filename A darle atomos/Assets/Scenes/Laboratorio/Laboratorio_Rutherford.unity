@@ -571,6 +571,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.142
       objectReference: {fileID: 0}
+    - target: {fileID: 1163332137046885445, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_text
+      value: "1- Encender la fuente de part\xEDculas \n"
+      objectReference: {fileID: 0}
     - target: {fileID: 1178659469215122711, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_Name
       value: Scene UI
@@ -618,6 +622,22 @@ PrefabInstance:
     - target: {fileID: 3347738046883307500, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: escena_Rutherford
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926924080073805052, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_text
+      value: "2- Ajusta la posici\xF3n\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432048747598610642, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432048747598610642, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432048747598610642, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4792186817232032713, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_Enabled
@@ -691,10 +711,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7331573155452590193, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_text
+      value: "3- Observa el contador de part\xEDculas"
+      objectReference: {fileID: 0}
     - target: {fileID: 7877530108389225136, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: Manos
       value: 
       objectReference: {fileID: 1485512247}
+    - target: {fileID: 7938068541051064919, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8014640589103618171, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_text
       value: Experimento de Rutherford
