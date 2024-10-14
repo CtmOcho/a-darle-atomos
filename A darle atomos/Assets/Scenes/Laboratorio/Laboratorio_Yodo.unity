@@ -590,6 +590,79 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &214294140
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740848087912048235, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623228144685169854, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_Name
+      value: Musica_Selector
+      objectReference: {fileID: 0}
+    - target: {fileID: 9173780215148380738, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: scenesWithMusic.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9173780215148380738, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: scenesWithMusic.Array.data[6].musicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+    - target: {fileID: 9173780215148380738, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: scenesWithMusic.Array.data[6].sceneName
+      value: Laboratorio_Yodo
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
 --- !u!1 &252103660
 GameObject:
   m_ObjectHideFlags: 0
@@ -2575,5 +2648,6 @@ SceneRoots:
   - {fileID: 114390111}
   - {fileID: 1721202107}
   - {fileID: 1000796453}
+  - {fileID: 214294140}
   - {fileID: 1495026340}
   - {fileID: 8687287905565549031}

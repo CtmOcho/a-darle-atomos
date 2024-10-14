@@ -226,3 +226,19 @@ MonoBehaviour:
     musicClip: {fileID: 8300000, guid: 861676d6b94114c4c90076730591bdf4, type: 3}
   - sceneName: Login_profesor
     musicClip: {fileID: 8300000, guid: 861676d6b94114c4c90076730591bdf4, type: 3}
+  - sceneName: Laboratorio_Yodo
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: Laboratorio_Destilacion
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: Laboratorio_Olla
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: Laboratorio_Acido-Base
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: Laboratorio_Rutherford
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: Laboratorio_Camaleon
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: Laboratorio_Sodio
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: Laboratorio_Lluvia
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}

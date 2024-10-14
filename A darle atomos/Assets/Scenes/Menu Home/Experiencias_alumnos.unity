@@ -7257,6 +7257,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1740848087912048235, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740848087912048235, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 77dfb509a3fe1fe489f0b196c2254e3b, type: 2}
     - target: {fileID: 5623228144685169854, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
       propertyPath: m_Name
       value: Musica_Menu

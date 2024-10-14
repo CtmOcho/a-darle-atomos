@@ -1829,6 +1829,75 @@ RectTransform:
   m_AnchoredPosition: {x: -1.0243, y: 0.9266}
   m_SizeDelta: {x: 0.61, y: 0.37}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &2061735914
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 461861318687944524, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740848087912048235, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740848087912048235, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+    - target: {fileID: 1740848087912048235, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 77dfb509a3fe1fe489f0b196c2254e3b, type: 2}
+    - target: {fileID: 5623228144685169854, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
+      propertyPath: m_Name
+      value: Musica_Selector
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 90a308d3372b44842b204e3231f84f5e, type: 3}
 --- !u!1 &2094379651 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2115217766383001991, guid: d1767e651238ad24484f036a00f6d3d3, type: 3}
@@ -1985,6 +2054,18 @@ PrefabInstance:
     - target: {fileID: 2906145807285409945, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437270478045994883, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
+      propertyPath: scenesWithMusic.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437270478045994883, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
+      propertyPath: scenesWithMusic.Array.data[7].musicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+    - target: {fileID: 3437270478045994883, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
+      propertyPath: scenesWithMusic.Array.data[7].sceneName
+      value: Laboratorio_Yodo
       objectReference: {fileID: 0}
     - target: {fileID: 4987953644539011085, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
       propertyPath: m_Name
@@ -2157,3 +2238,4 @@ SceneRoots:
   - {fileID: 1060163076}
   - {fileID: 1229211731}
   - {fileID: 1749147117}
+  - {fileID: 2061735914}
