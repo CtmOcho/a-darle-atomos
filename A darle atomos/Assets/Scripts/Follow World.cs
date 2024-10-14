@@ -11,10 +11,6 @@ public class FollowWorld : MonoBehaviour
 
     [Header("Logic")]
     private Camera cam;
-    void Start()
-    {
-        //cam = Camera.main;
-    }
 
     void Update()
     {
@@ -22,6 +18,6 @@ public class FollowWorld : MonoBehaviour
 
         if(transform.position != pos){
             transform.position = pos;
-        }
+        }    
     }
 }

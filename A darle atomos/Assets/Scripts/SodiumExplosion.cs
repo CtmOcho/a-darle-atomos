@@ -12,6 +12,11 @@ public class SodiumExplosion : MonoBehaviour
     private AudioSource audioSource;
     private Rigidbody rb;
     private MeshRenderer mesh;
+    public float sodiumMass; 
+     
+
+    public SodiumLabProgressController progressController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +25,8 @@ public class SodiumExplosion : MonoBehaviour
         audioSource = GetComponentInChildren<AudioSource>();
         rb = GetComponent<Rigidbody>();
         mesh = GetComponentInChildren<MeshRenderer>();
+        sodiumMass = rb.mass;
+        progressController = FindObjectOfType<SodiumLabProgressController>();
     }
 
 
@@ -27,6 +34,7 @@ public class SodiumExplosion : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Liquid"))
         {
+            
             StartCoroutine(ExplosionCorroutine());
             StartCoroutine(ReduceSize());
         }
@@ -37,6 +45,9 @@ public class SodiumExplosion : MonoBehaviour
         float time = 0;
         vfx.Play();
         audioSource.Play();
+        if(sodiumMass >= 0.12f){
+            progressController.blinkingIntermediaryStart();
+        }
         while (time < duration)
         {
             ApplyRandomForce();
@@ -46,7 +57,14 @@ public class SodiumExplosion : MonoBehaviour
         }
         vfx.Stop();
         audioSource.Stop();
+
+        if(sodiumMass >= 0.12f){
+            progressController.blinkingIntermediaryEnd();
+        }
         Destroy(gameObject);
+        
+        progressController.sodiumComsumed = true;
+
     }
 
     IEnumerator ReduceSize()
