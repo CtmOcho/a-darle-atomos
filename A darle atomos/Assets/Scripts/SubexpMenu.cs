@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SubexpMenuTrigger : MonoBehaviour
 {
     public GameObject Subexperience;
-    public GameObject Manos; // Referencia al objeto "manos"
+
     public float holdTime = 2.0f; // Tiempo en segundos para activar el menú
     private float timer = 0.0f;
     private bool isTouching = false;
@@ -27,7 +27,7 @@ public class SubexpMenuTrigger : MonoBehaviour
         if (other.gameObject.layer == 8) // Verifica si el objeto está en la capa 8
         {
             isTouching = false;
-            StopAllCoroutines(); // Asegura que no haya corrutinas activas
+
 
             // Restablecer la posibilidad de activar el menú cuando las manos salen del trigger
             if (menuActive)
@@ -121,7 +121,7 @@ public class SubexpMenuTrigger : MonoBehaviour
          // Reanudar el juego
         timer = 0.0f;
         isTouching = false;
-        StopAllCoroutines(); // Asegura que no haya corrutinas activas
+
         Debug.Log("State reset.");
     }
 

@@ -45,7 +45,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 861676d6b94114c4c90076730591bdf4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -241,4 +241,26 @@ MonoBehaviour:
   - sceneName: Laboratorio_Sodio
     musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
   - sceneName: Laboratorio_Lluvia
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: destilacion
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: Escena_acido-base
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: escena_bohr
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: escena_camaleon_mol
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: escena_creador_comp
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: escena_exotermica_mol
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: escena_lluviadorada
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: escena_Rutherford
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: ley_gases
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: sublimacion
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: tabla_periodica_color
     musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}

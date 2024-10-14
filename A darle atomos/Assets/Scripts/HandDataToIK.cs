@@ -137,14 +137,16 @@ public class HandDataToIK : MonoBehaviour
     {
         if(interpreterReady)
         {
-            StartCoroutine(dataInterpreter(0.035f));
+            dataInterpreter(0.035f);
         }
     }
 
-    IEnumerator dataInterpreter(float dataDelay)
+void dataInterpreter(float dataDelay)
+{
+    interpreterReady = false;
+    try
     {
-        interpreterReady = false;
-        if (wsc.GetHandData() != null)
+        if (wsc.GetHandData() != null) 
         {
             data = wsc.GetHandData();
             if ((int)data[126] == 1)
@@ -159,7 +161,7 @@ public class HandDataToIK : MonoBehaviour
             }
             if (firstCycleFlag)
             {
-                getDataVectors(data,ref prevVecArray);
+                getDataVectors(data, ref prevVecArray);
                 setHandTargetPosAndRot(leftHand, thumbTargetL, indexTargetL, middleTargetL, ringTargetL, pinkieTargetL, handsPivot, prevVecArray, offset0);
                 setHandTargetPosAndRot(rightHand, thumbTargetR, indexTargetR, middleTargetR, ringTargetR, pinkieTargetR, handsPivot, prevVecArray, offset1);
                 setFingersHintPos(leftHand, thumbHintAimL, indexHintAimL, middleHintAimL, ringHintAimL, pinkieHintAimL);
@@ -176,23 +178,25 @@ public class HandDataToIK : MonoBehaviour
                 rWristDistanceMagnitude = (vecArray[0 + offset1] - prevVecArray[0 + offset1]).magnitude;
                 if (lWristDistanceMagnitude > 0 && rWristDistanceMagnitude > 0)
                 {
-                    //if (lWristDistanceMagnitude < tolerance && rWristDistanceMagnitude < tolerance)
-                    //{
-                        //Debug.Log((vecArray[0 + offset0] - prevVecArray[0 + offset0]).magnitude.ToString("F8"));
-                        setHandTargetPosAndRot(leftHand, thumbTargetL, indexTargetL, middleTargetL, ringTargetL, pinkieTargetL, handsPivot, prevVecArray, offset0);
-                        setHandTargetPosAndRot(rightHand, thumbTargetR, indexTargetR, middleTargetR, ringTargetR, pinkieTargetR, handsPivot, prevVecArray, offset1);
-                        setFingersHintPos(leftHand, thumbHintAimL, indexHintAimL, middleHintAimL, ringHintAimL, pinkieHintAimL);
-                        setFingersHintPos(rightHand, thumbHintAimR, indexHintAimR, middleHintAimR, ringHintAimR, pinkieHintAimR);
-                        setFingersAimPos(thumbTargetAimL, indexTargetAimL, middleTargetAimL, ringTargetAimL, pinkieTargetAimL, handsPivot, prevVecArray, offset0);
-                        setFingersAimPos(thumbTargetAimR, indexTargetAimR, middleTargetAimR, ringTargetAimR, pinkieTargetAimR, handsPivot, prevVecArray, offset1);
-                    //}
+                    setHandTargetPosAndRot(leftHand, thumbTargetL, indexTargetL, middleTargetL, ringTargetL, pinkieTargetL, handsPivot, prevVecArray, offset0);
+                    setHandTargetPosAndRot(rightHand, thumbTargetR, indexTargetR, middleTargetR, ringTargetR, pinkieTargetR, handsPivot, prevVecArray, offset1);
+                    setFingersHintPos(leftHand, thumbHintAimL, indexHintAimL, middleHintAimL, ringHintAimL, pinkieHintAimL);
+                    setFingersHintPos(rightHand, thumbHintAimR, indexHintAimR, middleHintAimR, ringHintAimR, pinkieHintAimR);
+                    setFingersAimPos(thumbTargetAimL, indexTargetAimL, middleTargetAimL, ringTargetAimL, pinkieTargetAimL, handsPivot, prevVecArray, offset0);
+                    setFingersAimPos(thumbTargetAimR, indexTargetAimR, middleTargetAimR, ringTargetAimR, pinkieTargetAimR, handsPivot, prevVecArray, offset1);
                 }
                 getDataVectors(data, ref prevVecArray);
             }
         }
-        yield return new WaitForSeconds(dataDelay);
         interpreterReady = true;
     }
+    catch (NullReferenceException)
+    {
+        interpreterReady = true;
+    }
+
+}
+
 
     void setTargetPosition(Transform target, Transform pivot, Vector3 O)
     {

@@ -805,10 +805,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3023763316995588332}
+  - component: {fileID: 6020732156364806436}
   - component: {fileID: 6743343065880071190}
   - component: {fileID: 8434778680046801576}
   - component: {fileID: 4339489475829845138}
-  - component: {fileID: 6020732156364806436}
   m_Layer: 0
   m_Name: Manos
   m_TagString: Untagged
@@ -836,6 +836,18 @@ Transform:
   - {fileID: 325659770064745410}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6020732156364806436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432868404740023571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8d8a90e15cf6344a314ba568cff5c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6743343065880071190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -885,18 +897,6 @@ MonoBehaviour:
   grabbableLayer:
     serializedVersion: 2
     m_Bits: 128
---- !u!114 &6020732156364806436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1432868404740023571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed8d8a90e15cf6344a314ba568cff5c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1474098961136022919
 GameObject:
   m_ObjectHideFlags: 0

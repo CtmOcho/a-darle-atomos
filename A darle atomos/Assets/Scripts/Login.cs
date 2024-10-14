@@ -22,7 +22,7 @@ public class LoginResponse
 }
 
 
-private string baseBackendUrl => ConfigManager.Instance.BaseBackendUrl;
+private string baseBackendUrl => "localhost:13756";
 
 public Navigation1.Navigation navigation;
 // Usar la URL base para definir los endpoints

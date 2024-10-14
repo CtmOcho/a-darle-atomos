@@ -5,7 +5,6 @@ using UnityEngine;
 public class PauseMenuTrigger : MonoBehaviour
 {
     public GameObject pauseMenu;
-    public GameObject Manos; // Referencia al objeto "manos"
     public float holdTime = 2.0f; // Tiempo en segundos para activar el menú
     private float timer = 0.0f;
     private bool isTouching = false;
@@ -25,7 +24,7 @@ public class PauseMenuTrigger : MonoBehaviour
         if (other.gameObject.layer == 8) // Verifica si el objeto está en la capa 8
         {
             isTouching = false;
-            StopAllCoroutines(); // Asegura que no haya corrutinas activas
+
 
             // Permitir activar el menú solo después de que las manos hayan salido del trigger
             canActivateMenu = true;
@@ -91,7 +90,7 @@ public class PauseMenuTrigger : MonoBehaviour
         // Reinicia todas las variables relevantes
         timer = 0.0f;
         isTouching = false;
-        StopAllCoroutines(); // Asegura que no haya corrutinas activas
+
         Debug.Log("State reset.");
     }
 
