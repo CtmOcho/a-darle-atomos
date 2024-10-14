@@ -53,7 +53,7 @@ public class DropperLiquidSpawner : MonoBehaviour
         // Control del experimento de lluvia
         if (isRainExp)
         {
-            if (Mathf.Abs(Vector3.Dot(transform.up, Vector3.down)) < 0.3f && currentObjectsToSpawn > 0 && subCounter > 30 && dropperLiquid.transform.localScale.z > 0.002f && isInValidZone && !controllerPotasiumRainExp)
+            if (Mathf.Abs(Vector3.Dot(transform.up, Vector3.down)) < 1f && currentObjectsToSpawn > 0 && subCounter > 30 && dropperLiquid.transform.localScale.z > 0.002f && isInValidZone && !controllerPotasiumRainExp)
             {
                 // Reducimos la escala del líquido (vaciado)
                 SetLiquidScale(dropperLiquid.transform.localScale.z - decreaseAmount);
@@ -88,7 +88,7 @@ public class DropperLiquidSpawner : MonoBehaviour
         // Control del experimento de pH
         if (isPHExp)
         {
-            if (Mathf.Abs(Vector3.Dot(transform.up, Vector3.down)) < 0.3f && currentObjectsToSpawn > 0 && dropperLiquid.transform.localScale.z > 0.002f && isInValidZone)
+            if (Mathf.Abs(Vector3.Dot(transform.up, Vector3.down)) < 1f && currentObjectsToSpawn > 0 && dropperLiquid.transform.localScale.z > 0.002f && isInValidZone)
             {
                 // Reducimos la escala del líquido (vaciado)
                 SetLiquidScale(dropperLiquid.transform.localScale.z - decreaseAmount);
@@ -119,7 +119,7 @@ public class DropperLiquidSpawner : MonoBehaviour
         }
 
         if(isChameleonExp){
-            if (Mathf.Abs(Vector3.Dot(transform.up, Vector3.down)) < 0.3f && currentObjectsToSpawn > 0 && dropperLiquid.transform.localScale.z > 0.002f && isInValidZone)
+            if (Mathf.Abs(Vector3.Dot(transform.up, Vector3.down)) < 1f && currentObjectsToSpawn > 0 && dropperLiquid.transform.localScale.z > 0.002f && isInValidZone)
             {
                 // Reducimos la escala del líquido (vaciado)
                 SetLiquidScale(dropperLiquid.transform.localScale.z - decreaseAmount);

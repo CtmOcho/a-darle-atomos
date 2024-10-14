@@ -7,6 +7,7 @@ public class GoldenRainControllerExp : MonoBehaviour
 
     public DropCollisionController dropCollisionScript;
     public DropperLiquidSpawner dropInformationScript;
+    public ParticleSystem rainFX;
     
     private Login  login_script; // Referencia al otro script que contiene OnPutStudentProgress
 
@@ -20,7 +21,8 @@ public class GoldenRainControllerExp : MonoBehaviour
     void Start()
     {
         login_script = FindObjectOfType<Login>(); // Cambia 'Login' al nombre de tu script
-        
+        rainFX.Stop();
+
     }
     // Update is called once per frame
     void Update()
@@ -44,6 +46,7 @@ public class GoldenRainControllerExp : MonoBehaviour
 
         if(requirementsMet && !alreadyDone){
             Debug.Log("Acá debiese accionarse el efecto de la lluvia.");
+            rainFX.Play();
             alreadyDone = true;
             login_script.OnPutStudentProgress(36);
         }
