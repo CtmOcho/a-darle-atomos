@@ -6,7 +6,6 @@ public class GoldenRainControllerExp : MonoBehaviour
 {
 
     public DropCollisionController dropCollisionScript;
-    public DropperLiquidSpawner dropInformationScript;
     public ParticleSystem rainFX;
     private Renderer liquidRenderer;
     public Color goldenColor;
@@ -32,7 +31,7 @@ public class GoldenRainControllerExp : MonoBehaviour
             hasPbDisolved = true;
         }
 
-        if(dropInformationScript.elementData == "ioduropotasio" && !alreadyDone){
+        if(dropCollisionScript.hasPotasiumSol  && !alreadyDone){
             hasKDisolved = true;
         }
 

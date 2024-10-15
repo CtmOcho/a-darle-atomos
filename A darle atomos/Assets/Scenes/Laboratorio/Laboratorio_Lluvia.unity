@@ -149,6 +149,7 @@ MonoBehaviour:
   liquidColor: {r: 0, g: 0, b: 0, a: 0}
   hasHidrox: 0
   hasPermang: 0
+  hasPotasiumSol: 0
   isErlenmeyerliquid: 1
   weirdTransformBool: 1
   liquidControllerScript: {fileID: 0}
@@ -305,8 +306,7 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5380038738562647668, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -315,22 +315,8 @@ PrefabInstance:
       addedObject: {fileID: 160914643}
     - targetCorrespondingSourceObject: {fileID: 3141576793478812601, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 160914648}
-    - targetCorrespondingSourceObject: {fileID: 3141576793478812601, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 160914650}
   m_SourcePrefab: {fileID: 100100000, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
---- !u!114 &8433897 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3856969375384356855, guid: d29b034d3c4868e42be4c92e3b137eef, type: 3}
-  m_PrefabInstance: {fileID: 8433896}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160914642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20aa45bd05d14a04f91a27aa3729013c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &66812855 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c606f6f1bc2e2e4ca4e679fc84b6b6b, type: 3}
@@ -623,19 +609,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &160914648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160914642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcec10ebfc37a9a49b03ec0864e3c4bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minYValue: -20
 --- !u!114 &160914650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6295,7 +6268,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropCollisionScript: {fileID: 5715359}
-  dropInformationScript: {fileID: 8433897}
   rainFX: {fileID: 502230236}
   goldenColor: {r: 1, g: 0.88086545, b: 0.25943398, a: 0.078431375}
   alreadyDone: 0
@@ -6698,6 +6670,7 @@ MonoBehaviour:
   liquidColor: {r: 0, g: 0, b: 0, a: 0}
   hasHidrox: 0
   hasPermang: 0
+  hasPotasiumSol: 0
   isErlenmeyerliquid: 0
   weirdTransformBool: 0
   liquidControllerScript: {fileID: 0}

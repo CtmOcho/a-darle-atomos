@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.Networking;
 using Navigation1;
 using interfaz = UnityEngine.UI;
-
+using System.IO;
 
 
 public class Login : MonoBehaviour
@@ -20,9 +20,36 @@ public class LoginResponse
     public string[] curso;
     public string type;
 }
+    [System.Serializable]
+    public class ConfigData
+    {
+        public string baseBackendUrl;
+    }
+
+private string baseBackendUrl;
 
 
-private string baseBackendUrl => "localhost:13756";
+    void Start()
+    {
+        LoadConfigFile();
+    }
+
+   void LoadConfigFile()
+    {
+        string path = Path.Combine(Application.streamingAssetsPath, "config.json");
+
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            ConfigData configData = JsonUtility.FromJson<ConfigData>(json);
+            baseBackendUrl = configData.baseBackendUrl;
+            Debug.Log($"Backend URL loaded: {baseBackendUrl}");
+        }
+        else
+        {
+            Debug.LogError("Config file not found!");
+        }
+    }
 
 public Navigation1.Navigation navigation;
 // Usar la URL base para definir los endpoints
@@ -37,6 +64,8 @@ private int progressValue;
 [SerializeField] private TMP_InputField usernameInputField;
 [SerializeField] private TMP_InputField passwordInputField;
 [SerializeField] public string Flag;
+
+
 
 
 public void OnLoginClick()

@@ -26,6 +26,7 @@ async def handler(websocket, path):
 
 async def main():
     async with websockets.serve(handler, "localhost", 8765):
+        print("WebSocket server is ready on ws://localhost:8765")  
         await asyncio.Future()  # run forever
 
 if __name__ == "__main__":

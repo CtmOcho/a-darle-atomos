@@ -26,6 +26,7 @@ public class DropCollisionController : MonoBehaviour
     public bool hasHidrox = false;
     public bool hasPermang = false;
    
+    public bool hasPotasiumSol;
 
 
     public bool isErlenmeyerliquid = false;
@@ -189,6 +190,10 @@ public class DropCollisionController : MonoBehaviour
                         liquidControllerScript.currentLiquidVolume = actualLiquidVolume;
                         liquidControllerScript.isRainExp = isRainExp;
                         liquidControllerScript.initialScaleZ = liquidControllerScript.transform.localScale.z;
+                    }else{
+                        if(dropInfo.elementData == "ioduropotasio"){
+                            hasPotasiumSol = true;
+                        }
                     }
                     temp = dropInfo.temp;
                     elementData = dustRemoverScript.elementData;
