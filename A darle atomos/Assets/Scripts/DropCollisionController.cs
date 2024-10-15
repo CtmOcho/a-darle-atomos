@@ -67,15 +67,6 @@ public class DropCollisionController : MonoBehaviour
 
     void Update()
     {
-        if (isPHExp)
-        {
-            if (hasPHDetector)
-            {
-                changeColorScript = GetComponent<ChangeColor>();
-                changeColorScript.ColorChange(); // Cambia el color según el pH actual, pero sin modificar el pH
-                PHlabCompleted = true;
-            }
-        }
         if(isRainExp){
             if(dustRemoverScript.disolvedDust && !rainExpDustController){
                if(!isErlenmeyerliquid){
@@ -157,9 +148,17 @@ public class DropCollisionController : MonoBehaviour
                     {
                         // Calculamos el nuevo pH utilizando el SolutionPHCalculator solo si no es el detector de pH
                         actualPHvalue = phCalculator.CalculateNewPH(actualPHvalue, actualLiquidVolume, dropInfo.liquidPH, addedVolume);
+                        
 
                         // Aseguramos que el pH esté entre 0 y 14
                         actualPHvalue = Mathf.Clamp(actualPHvalue, 0f, 14f);
+
+                        if (hasPHDetector)
+                        {
+                            changeColorScript = GetComponent<ChangeColor>();
+                            changeColorScript.ColorChange(); // Cambia el color según el pH actual, pero sin modificar el pH
+                            PHlabCompleted = true;
+                        }
 
                         // Mostramos el nuevo valor de pH en la consola
                         //Debug.Log("Nuevo valor de pH: " + actualPHvalue);
@@ -177,8 +176,8 @@ public class DropCollisionController : MonoBehaviour
                         liquidControllerScript.isRainExp = isRainExp;
                         liquidControllerScript.initialScaleZ = liquidControllerScript.transform.localScale.z;
                     }
-                    temp = dropInfo.temp;
-                    elementData = dropInfo.elementData;
+                    hasPotasiumSol = true;
+                    elementData = dustRemoverScript.elementData;
                     glassScript.temperature = temp;
                     rainExpDustController = false;
                 }else{
@@ -190,11 +189,8 @@ public class DropCollisionController : MonoBehaviour
                         liquidControllerScript.currentLiquidVolume = actualLiquidVolume;
                         liquidControllerScript.isRainExp = isRainExp;
                         liquidControllerScript.initialScaleZ = liquidControllerScript.transform.localScale.z;
-                    }else{
-                        if(dropInfo.elementData == "ioduropotasio"){
-                            hasPotasiumSol = true;
-                        }
                     }
+
                     temp = dropInfo.temp;
                     elementData = dustRemoverScript.elementData;
                     glassScript.temperature = temp;

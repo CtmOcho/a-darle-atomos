@@ -110,10 +110,11 @@ def run_mp(input_stream1, input_stream2, P0, P1):
         This contains the 3d position of each keypoint in current frame.
         For real time application, this is what you want.
         '''
-        if frame_p3ds.size == 42 * 3:  # Verificamos si tiene el tamaño correcto para hacer reshape
+        if len(frame_p3ds) == 42:  # Verificamos si tiene el tamaño correcto para hacer reshape
             frame_p3ds = np.array(frame_p3ds).reshape((42, 3))
         else:
             print("No se puede hacer reshape, continuando...")
+            print(len(frame_p3ds))
             continue
         #kpts_3d.append(frame_p3ds)
         #print(frame_p3ds)

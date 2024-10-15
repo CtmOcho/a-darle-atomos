@@ -1850,6 +1850,7 @@ MonoBehaviour:
   liquidColor: {r: 0, g: 0, b: 0, a: 0}
   hasHidrox: 0
   hasPermang: 0
+  hasPotasiumSol: 0
   isErlenmeyerliquid: 0
   weirdTransformBool: 0
   liquidControllerScript: {fileID: 0}
@@ -2143,7 +2144,7 @@ MonoBehaviour:
   - {r: 0.40784317, g: 0.5058824, b: 0.31764707, a: 0}
   - {r: 0.6039216, g: 0.5137255, b: 0.20784315, a: 0}
   - {r: 1, g: 0.77873486, b: 0, a: 0}
-  delay: 10
+  delay: 6
   changeColorScript: {fileID: 2094379669}
 --- !u!1001 &2101444842
 PrefabInstance:

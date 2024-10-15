@@ -37,7 +37,7 @@ public class BottleContentSpawner : MonoBehaviour
             Vector3 dir = transform.TransformPoint(point) - transform.position;
             Vector3 rotatedPoint = Quaternion.Euler(0, randAngle, 0) * dir;
             point = rotatedPoint + transform.position;
-            Instantiate(objectToSpawn[UnityEngine.Random.Range(0, 2)], point, Quaternion.identity);
+            Instantiate(objectToSpawn[UnityEngine.Random.Range(0, 2)], point, Quaternion.identity, null);
             counter++;
             subCounter = 0;
         }

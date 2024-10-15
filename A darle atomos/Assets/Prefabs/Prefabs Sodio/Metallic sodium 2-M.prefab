@@ -320,7 +320,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.01156995, y: 0.05529408, z: 0}
-  m_LocalScale: {x: 1.6, y: 2.03624, z: 1.4931504}
+  m_LocalScale: {x: 2, y: 2.5452993, z: 1.8664374}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3296528191634369488}
@@ -373,7 +373,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &7329593976495337770
 MonoBehaviour:
@@ -388,4 +388,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 10
-  force: 15
+  force: 0
+  sodiumMass: 0
+  progressController: {fileID: 0}

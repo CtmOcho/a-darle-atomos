@@ -98,6 +98,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a41a50a2a232dfd4086c33f0bca39895, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5380038738562647668}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a41a50a2a232dfd4086c33f0bca39895, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6511830644827345905}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a41a50a2a232dfd4086c33f0bca39895, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6999798082804467809}
   m_SourcePrefab: {fileID: 100100000, guid: a41a50a2a232dfd4086c33f0bca39895, type: 3}
 --- !u!1 &129492043418940385 stripped
 GameObject:
@@ -123,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 2720148867374294540, guid: 0798fec1659d95942ad86a5075626e3f, type: 3}
   dropperLiquid: {fileID: 129492043418940385}
+  glassScript: {fileID: 0}
   objectQuantity: 100
   isFull: 0
   liquidInitScale: 1
@@ -134,11 +141,14 @@ MonoBehaviour:
   isRainExp: 0
   temp: 0
   elementData: 
+  isChameleonExp: 0
+  liquidColor: {r: 0, g: 0, b: 0, a: 0}
   controllerPotasiumRainExp: 0
   maxDropperVolume: 100
   currentDropperVolume: 0
   currentObjectsToSpawn: 0
   subCounter: 0
+  decreaseAmount: 0
 --- !u!114 &5380038738562647668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,3 +162,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minYValue: -20
+--- !u!54 &6511830644827345905
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141576793478812601}
+  serializedVersion: 4
+  m_Mass: 0.1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
+--- !u!114 &6999798082804467809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141576793478812601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcec10ebfc37a9a49b03ec0864e3c4bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minYValue: -10

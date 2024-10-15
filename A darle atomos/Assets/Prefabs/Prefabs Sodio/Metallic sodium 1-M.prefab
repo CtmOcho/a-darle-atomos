@@ -112,7 +112,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.01156995, y: 0.04151401, z: 0}
-  m_LocalScale: {x: 0.99999994, y: 1.2726499, z: 1.1206295}
+  m_LocalScale: {x: 1.2499999, y: 1.5908118, z: 1.4007865}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2155777254042063364}
@@ -165,7 +165,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &7399689651637343376
 MonoBehaviour:
@@ -180,7 +180,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 10
-  force: 15
+  force: 0
+  sodiumMass: 0
+  progressController: {fileID: 0}
 --- !u!1 &7779473580285172290
 GameObject:
   m_ObjectHideFlags: 0

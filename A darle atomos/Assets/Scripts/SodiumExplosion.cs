@@ -27,6 +27,7 @@ public class SodiumExplosion : MonoBehaviour
         mesh = GetComponentInChildren<MeshRenderer>();
         sodiumMass = rb.mass;
         progressController = FindObjectOfType<SodiumLabProgressController>();
+        
     }
 
 
