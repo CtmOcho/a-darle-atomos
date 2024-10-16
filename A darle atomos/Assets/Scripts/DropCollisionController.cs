@@ -31,7 +31,7 @@ public class DropCollisionController : MonoBehaviour
 
     public bool isErlenmeyerliquid = false;
 
-    public bool weirdTransformBool = false;
+    public bool weirdTransformBool;
     public LiquidsGoteroController liquidControllerScript;
     public Glass glassScript;
 
@@ -57,6 +57,10 @@ public class DropCollisionController : MonoBehaviour
                 liquidControllerScript = GetComponent<LiquidsGoteroController>();
             }
             glassScript = GetComponent<Glass>();
+            if(weirdTransformBool){
+                Vector3 newScale = new Vector3(transform.localScale.x, -1f, transform.localScale.z );
+                transform.localScale = newScale;
+            }
         }
         if(isChameleonExp){
             thisRenderer = GetComponent<Renderer>(); 
@@ -75,11 +79,6 @@ public class DropCollisionController : MonoBehaviour
                }
                elementData =  dustRemoverScript.elementData;
                rainExpDustController = true;
-            }
-            if(weirdTransformBool){
-                Vector3 newScale = new Vector3(transform.localScale.x, -1f, transform.localScale.z );
-                transform.localScale = newScale;
-                weirdTransformBool = false;
             }
             temp = glassScript.temperature;
         }   
