@@ -142,6 +142,8 @@ public class DropCollisionController : MonoBehaviour
                         // Si la gota que se está añadiendo es el detector de pH, no modificamos el pH
                         hasPHDetector = true;
                         changeColorScript.boolPHDetector = true;
+                        changeColorScript.ColorChange(); // Cambia el color según el pH actual, pero sin modificar el pH
+
                     }
                     else
                     {
