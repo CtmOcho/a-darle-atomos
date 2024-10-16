@@ -83,7 +83,7 @@ Para compilar y ejecutar el reconocimiento de manos:
 
 ### 3.1 Configuración
 1. Navega a la carpeta `frontend/atomos`.
-2. Actualiza el valor de `BackendUrl` en el archivo `src/config/config.js` con la URL copiada desde` la termina`l `Ngrok para` `el Backend.`
+2. Actualiza el valor de `BackendUrl` en el archivo `src/config/config.js` con la URL copiada desde` la terminal` `Ngrok para` `el Backend.`
 
 ### 3.2 Compilación
 1. Buildea el proyecto con el siguiente comando:
