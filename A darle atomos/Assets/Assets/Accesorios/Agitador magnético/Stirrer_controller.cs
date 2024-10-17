@@ -10,6 +10,8 @@ public class Stirrer_controller : MonoBehaviour
     public GameObject bubbles;
     public Renderer objectRenderer;
 
+    public bool isRainExp = false;
+
     public float liquidHeight = 0.4f;
     public bool isActive = false;
     bool stirFlag = false;
@@ -20,9 +22,14 @@ public class Stirrer_controller : MonoBehaviour
     
     
     void Start()
-    {
-        liquid.transform.localScale = new Vector3(1f, liquidHeight, 1f);
+    {   
+        if(!isRainExp){
+            liquid.transform.localScale = new Vector3(1f, liquidHeight, 1f);
+
+        }
+
         liquid.transform.GetChild(0).transform.localScale = new Vector3(1f, 0.001f, 1f);
+        
     }
 
     // Update is called once per frame
