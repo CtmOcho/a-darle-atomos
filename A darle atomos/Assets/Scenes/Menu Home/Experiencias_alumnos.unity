@@ -20092,7 +20092,7 @@ MonoBehaviour:
     utilizando indicadores de pH y observar c\xF3mo cambian de color en diferentes
     medios."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: eff9c0f6341a52d448d4eb85eff13e0d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc63591584ba3b047a9abb86358606ce, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
