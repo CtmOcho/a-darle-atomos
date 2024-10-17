@@ -81,8 +81,6 @@ def run_mp(input_stream1, input_stream2, P0, P1):
         if len(frame0_keypoints) < 42:
             frame0_keypoints.extend([[-1, -1]] * (42 - len(frame0_keypoints)))
 
-        kpts_cam0.append(frame0_keypoints)
-
         frame1_keypoints = []
         if results1.multi_hand_landmarks:
             for hand_landmarks in results1.multi_hand_landmarks:
@@ -94,8 +92,6 @@ def run_mp(input_stream1, input_stream2, P0, P1):
 
         if len(frame1_keypoints) < 42:
             frame1_keypoints.extend([[-1, -1]] * (42 - len(frame1_keypoints)))
-
-        kpts_cam1.append(frame1_keypoints)
 
         #calculate 3d position
         frame_p3ds = []
@@ -112,23 +108,21 @@ def run_mp(input_stream1, input_stream2, P0, P1):
         '''
         if len(frame_p3ds) == 42:  # Verificamos si tiene el tamaño correcto para hacer reshape
             frame_p3ds = np.array(frame_p3ds).reshape((42, 3))
+            if -1 not in frame_p3ds:
+                if results0.multi_hand_landmarks:
+                    for idx, hand_handedness in enumerate(results0.multi_handedness):
+                        results0_handedness = hand_handedness.classification[0].label
+                        if results0_handedness == "Right": #Al estar mirrored image, están invertidas, por lo que si es right es 0 pero se interpreta como 1. y viceversa DE LA PRIMERA MANO QUE APARECE
+                            results0_handedness = 0
+                        else:
+                            results0_handedness = 1
+                data = frame_p3ds.flatten().tolist()
+                data.append(results0_handedness)
+                asyncio.get_event_loop().run_until_complete(send_data(ws_uri,data))
         else:
             print("No se puede hacer reshape, continuando...")
             print(len(frame_p3ds))
             continue
-        #kpts_3d.append(frame_p3ds)
-        #print(frame_p3ds)
-        if -1 not in frame_p3ds:
-            if results0.multi_hand_landmarks:
-                for idx, hand_handedness in enumerate(results0.multi_handedness):
-                    results0_handedness = hand_handedness.classification[0].label
-                    if results0_handedness == "Right": #Al estar mirrored image, están invertidas, por lo que si es right es 0 pero se interpreta como 1. y viceversa DE LA PRIMERA MANO QUE APARECE
-                        results0_handedness = 0
-                    else:
-                        results0_handedness = 1
-            data = frame_p3ds.flatten().tolist()
-            data.append(results0_handedness)
-            asyncio.get_event_loop().run_until_complete(send_data(ws_uri,data))
 
         # Draw the hand annotations on the image.
         frame0.flags.writeable = True
@@ -153,7 +147,7 @@ def run_mp(input_stream1, input_stream2, P0, P1):
     for cap in caps:
         cap.release()
 
-    return np.array(kpts_cam0), np.array(kpts_cam1), np.array(kpts_3d)
+    return np.array(kpts_3d)
 
 if __name__ == '__main__':
     input_stream1 = 0  # Cámara 1
@@ -167,9 +161,4 @@ if __name__ == '__main__':
     P0 = get_projection_matrix(0)
     P1 = get_projection_matrix(1)
 
-    kpts_cam0, kpts_cam1, kpts_3d = run_mp(input_stream1, input_stream2, P0, P1)
-
-    #this will create keypoints file in current working folder
-    # write_keypoints_to_disk('kpts_cam0.dat', kpts_cam0)
-    # write_keypoints_to_disk('kpts_cam1.dat', kpts_cam1)
-    # write_keypoints_to_disk('kpts_3d.dat', kpts_3d)
+    kpts_3d = run_mp(input_stream1, input_stream2, P0, P1)
