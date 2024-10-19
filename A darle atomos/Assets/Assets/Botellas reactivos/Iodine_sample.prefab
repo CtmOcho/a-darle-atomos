@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.03
-  quantity: 2000
+  quantity: 200
   weight:
     serializedVersion: 2
     m_Curve:
