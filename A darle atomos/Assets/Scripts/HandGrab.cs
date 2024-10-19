@@ -12,6 +12,8 @@ public class HandController : MonoBehaviour
     public float distanceThreshold;
     public LayerMask grabbableLayer;
 
+    public Color outlineColorSelect;
+
     Transform lCurrentObject;
     Transform lThumbFingerTip;
     Transform lIndexFingerTip;
@@ -72,6 +74,14 @@ public class HandController : MonoBehaviour
                 lCurrentObject = hit.transform;
                 lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                if (lCurrentObject.transform.gameObject.GetComponent<Outline>() != null){
+                   lCurrentObject.transform.gameObject.GetComponent<Outline>().enabled = true;
+                }else{
+                    Outline outline = lCurrentObject.transform.gameObject.AddComponent<Outline>();
+                    outline.enabled = true;
+                    lCurrentObject.transform.gameObject.GetComponent<Outline>().OutlineColor = outlineColorSelect;
+                    lCurrentObject.transform.gameObject.GetComponent<Outline>().OutlineWidth = 9.0f;
+                }
                 lCurrentObject.parent = lWrist;
             }
         }
@@ -84,6 +94,8 @@ public class HandController : MonoBehaviour
                     lCurrentObject.parent = null;
                     lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                     lCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = true;
+                    lCurrentObject.transform.gameObject.GetComponent<Outline>().enabled = false;
+                    
                     lGrabbingObject = false;
                     lCurrentObject = null;
                 }
@@ -106,6 +118,14 @@ public class HandController : MonoBehaviour
                 rCurrentObject = hit.transform;
                 rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                if (rCurrentObject.transform.gameObject.GetComponent<Outline>() != null){
+                   rCurrentObject.transform.gameObject.GetComponent<Outline>().enabled = true;
+                }else{
+                    Outline outline = rCurrentObject.transform.gameObject.AddComponent<Outline>();
+                    outline.enabled = true;
+                    rCurrentObject.transform.gameObject.GetComponent<Outline>().OutlineColor = outlineColorSelect;
+                    rCurrentObject.transform.gameObject.GetComponent<Outline>().OutlineWidth = 9.0f;
+                }
                 rCurrentObject.parent = rWrist;
             }
         }
@@ -118,6 +138,7 @@ public class HandController : MonoBehaviour
                     rCurrentObject.parent = null;
                     rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                     rCurrentObject.transform.gameObject.GetComponent<Rigidbody>().useGravity = true;
+                    rCurrentObject.transform.gameObject.GetComponent<Outline>().enabled = false;
                     rGrabbingObject = false;
                     rCurrentObject = null;
                 }
