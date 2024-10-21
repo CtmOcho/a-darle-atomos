@@ -7,11 +7,14 @@ using UnityEngine.VFX;
 public class SodiumExplosion : MonoBehaviour
 {
     public float duration;
-    public float force;
+    public float force = 15f;
+    public float maxWaveStrenght = 0.7f;
+    public float minWaveStrenght = 0.1f;
     private VisualEffect vfx;
     private AudioSource audioSource;
     private Rigidbody rb;
     private MeshRenderer mesh;
+    private MeshRenderer water;
     public float sodiumMass;
 
 
@@ -35,7 +38,7 @@ public class SodiumExplosion : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Liquid"))
         {
-
+            water = collision.gameObject.GetComponent<MeshRenderer>();
             StartCoroutine(ExplosionCorroutine());
             StartCoroutine(ReduceSize());
         }
@@ -45,9 +48,11 @@ public class SodiumExplosion : MonoBehaviour
     {
         float time = 0;
         vfx.Play();
+        water.material.SetFloat("_Wave_Intensity", maxWaveStrenght / 2);
         yield return new WaitForSeconds(duration / 5);
         vfx.SendEvent(Shader.PropertyToID("OnPlayExplosion"));
         audioSource.Play();
+        water.material.SetFloat("_Wave_Intensity", maxWaveStrenght);
         if (sodiumMass >= 0.12f)
         {
             progressController.blinkingIntermediaryStart();
@@ -59,6 +64,7 @@ public class SodiumExplosion : MonoBehaviour
             yield return new WaitForSeconds(randFloat);
             time += randFloat;
         }
+        water.material.SetFloat("_Wave_Intensity", minWaveStrenght);
         vfx.Stop();
         audioSource.Stop();
 
