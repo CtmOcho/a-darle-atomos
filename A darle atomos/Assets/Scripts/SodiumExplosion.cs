@@ -12,8 +12,8 @@ public class SodiumExplosion : MonoBehaviour
     private AudioSource audioSource;
     private Rigidbody rb;
     private MeshRenderer mesh;
-    public float sodiumMass; 
-     
+    public float sodiumMass;
+
 
     public SodiumLabProgressController progressController;
 
@@ -27,7 +27,7 @@ public class SodiumExplosion : MonoBehaviour
         mesh = GetComponentInChildren<MeshRenderer>();
         sodiumMass = rb.mass;
         progressController = FindObjectOfType<SodiumLabProgressController>();
-        
+
     }
 
 
@@ -35,7 +35,7 @@ public class SodiumExplosion : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Liquid"))
         {
-            
+
             StartCoroutine(ExplosionCorroutine());
             StartCoroutine(ReduceSize());
         }
@@ -45,8 +45,11 @@ public class SodiumExplosion : MonoBehaviour
     {
         float time = 0;
         vfx.Play();
+        yield return new WaitForSeconds(duration / 5);
+        vfx.SendEvent(Shader.PropertyToID("OnPlayExplosion"));
         audioSource.Play();
-        if(sodiumMass >= 0.12f){
+        if (sodiumMass >= 0.12f)
+        {
             progressController.blinkingIntermediaryStart();
         }
         while (time < duration)
@@ -59,11 +62,12 @@ public class SodiumExplosion : MonoBehaviour
         vfx.Stop();
         audioSource.Stop();
 
-        if(sodiumMass >= 0.12f){
+        if (sodiumMass >= 0.12f)
+        {
             progressController.blinkingIntermediaryEnd();
         }
         Destroy(gameObject);
-        
+
         progressController.sodiumComsumed = true;
 
     }
