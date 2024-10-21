@@ -8,7 +8,7 @@ const ProgressPage = () => {
   const { user } = useContext(UserContext);
   const { username } = useParams();
   const navigate = useNavigate();
-  const [progressData, setProgressData] = useState(Array(55).fill(0)); // Inicializar con un array de 55 ceros
+  const [progressData, setProgressData] = useState(Array(50).fill(0)); // Inicializar con un array de 50 ceros
   const [generalProgress, setGeneralProgress] = useState(0);
 
 

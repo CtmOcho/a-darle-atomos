@@ -145,9 +145,7 @@ img.btn-profile:active {
 }
 .experiment-card {
   box-sizing: border-box;
-  margin-bottom: 1rem;
   background-color: #DCDBD7cc;
-  border-radius: 2rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, background-color 0.3s ease;
   text-align: center;
@@ -156,6 +154,10 @@ img.btn-profile:active {
   overflow: hidden; /* Oculta cualquier desbordamiento para mantener el tamaño */
 }
 .experiment-card img {
+  max-width: 80%;
+  border-radius: 0.5rem;
+  width: 300px;
+  height: 300px;
   margin: 0 auto;
   border-radius: 3rem;
   transition: transform 0.3s ease;

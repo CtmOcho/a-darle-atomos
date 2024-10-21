@@ -1,5 +1,5 @@
 .home-container .logo {
-  height: auto;
+  height: auto !important;
 }
 
 .home-container .title {

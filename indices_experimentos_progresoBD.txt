@@ -9,8 +9,8 @@ UNITY Y REACT -> EN NODE SE LE RESTA 1 PARA ACCEDER AL ÍNDICE QUE PARTE DESDE 0
 36 a 40 :  'Lluvia Dorada' 
 41 a 45 :  'Identificación Ácido-base' 
 46 a 50 :  'Pasta de Dientes para Elefantes' 
-51 a 55 :  'Solución conductora'
-
+51 a 55 :  'Solución conductora' BORRAR
+ 
 cada experiencia tiene 5:   
 numero_experiencia =>  {'Color a la Llama'                      1
                         'Sublimación del Yodo Sólido'           2

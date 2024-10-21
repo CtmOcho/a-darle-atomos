@@ -180,11 +180,16 @@ const RegisterPage = () => {
         classNames="fade"
         unmountOnExit
       >
-        <div className="custom-modal-overlay d-flex justify-content-center align-items-center">
-          <div className="custom-modal-content p-4">
+        <div className="custom-modal-overlay d-flex justify-content-center align-items-center col-12 col-sm-6 col-md-6 col-lg-5 col-xl-5 col-xxl-5">
+          <div className="custom-modal-content justify-content-center p-4">
             <h2>¡Usuario creado exitosamente!</h2>
-            <button className="btn btn-primary" onClick={() => handleNavigation('/login')}>Iniciar Sesión</button>
-            <button className="btn btn-secondary" onClick={closeModals}>Volver</button>
+            <div className = "row col-12 justify-content-center">
+            <button className="btn btn-primary justify-content-center " onClick={() => handleNavigation('/login')}>Iniciar Sesión</button>
+            </div>
+            <div className = "row col-12 justify-content-center">
+
+            <button className="btn btn-secondary justify-content-center" onClick={closeModals}>Volver</button>
+            </div>
           </div>
         </div>
       </CSSTransition>

@@ -496,7 +496,7 @@ app.put('/updateStudent/:user/prog/:progressvalue', async (req, res) => {
     const search = req.params.user;
     const progressIndex = req.params.progressvalue - 1;
 
-    if (progressIndex < 0 || progressIndex >= 55) {
+    if (progressIndex < 0 || progressIndex >= 50) {
         res.status(400).send('Valor de progressvalue inválido');
         return;
     }

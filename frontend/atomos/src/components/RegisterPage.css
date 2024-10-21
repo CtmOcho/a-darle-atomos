@@ -59,12 +59,12 @@
 /* Nueva clase para el overlay del modal */
 .custom-modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 50;
+  left: 50;
   height: 100%;
   width: 100%;
-  background:  #DCDBD7aa; /* Fondo oscuro personalizado */
   z-index: 1050; /* Superponer sobre el contenido */
+
 }
 
 /* Nueva clase para el contenido del modal */
@@ -75,6 +75,10 @@
   width: 80%; /* Ancho del modal al 50% */
   height: auto; /* Altura automática */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+
+  justify-content: center;
+
+
 }
 
 .custom-modal-content h2 {

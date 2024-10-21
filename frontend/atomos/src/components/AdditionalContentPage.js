@@ -234,10 +234,10 @@ const AdditionalContentPage = () => {
       <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
     </nav>
       <h1 className='display-3'>Contenido Adicional: {experimentName}</h1>
-      <div className="content-grid col-12">
+      <div className="row grid-content col-12">
         {content.map((item, index) => (
-          <div key={index} className="content-item col-3.5">
-            <img className='img-fluid' src={item.imgSrc} alt={`Contenido ${index + 1}`} />
+          <div key={index} className="content-item col-12 col-lg-4 col-xxl-4 col-xl-4">
+            <img className='img-fluid col-12' src={item.imgSrc} alt={`Contenido ${index + 1}`} />
             <p className='col-12 text-start fs-5'>{item.description}</p>
           </div>
         ))}

@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: center;
   background-color: #DCDBD7;
-  padding: 0.5rem;
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     
@@ -23,6 +22,7 @@
   
   .additional-content-page-container .content-grid {
     display: flex;
+    
     gap: 1rem;
 
   }
@@ -36,6 +36,9 @@
   }
   
   .additional-content-page-container .content-item img {
-
-    border-radius: 0.5rem;
-  }
+  max-width: 80%;
+  border-radius: 0.5rem;
+  width: 300px;
+  height: 300px;
+  object-fit: cover; /* Mantiene la calidad mientras ajusta */ 
+}

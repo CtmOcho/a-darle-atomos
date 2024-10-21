@@ -7,7 +7,7 @@ const accountSchema = new Schema({
     progress: Number,
     type: String,
     curso: Array,
-    progressdata: {type: Array, default: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},
+    progressdata: {type: Array, default: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},
     lastAuth: Date,
 });
 
@@ -31,7 +31,6 @@ const testSchema = new Schema({
     quiz8: {type: Array, default: [0,0,0,0,0,0]},
     quiz9: {type: Array, default: [0,0,0,0,0,0]},
     quiz10: {type: Array, default: [0,0,0,0,0,0]},
-    quiz11: {type: Array, default: [0,0,0,0,0,0]},
 
     lastUpd: Date,
 });

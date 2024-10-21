@@ -4,17 +4,16 @@ import { UserContext } from '../context/UserContext';
 import './DashboardPage.css';
 import profileImage from '../media/perfil.png';
 import Modal from './Modal';
-import image1 from '../media/dest-1.png';
-import image2 from '../media/sublimacion-1.png';
-import image3 from '../media/Heisenberg.png';
-import image4 from '../media/ley-gas1.png';
-import image5 from '../media/ruther1.png';
-import image6 from '../media/yodo-en-agua.png';
-import image7 from '../media/cam1.png';
-import image8 from '../media/abas1.png';
-import image9 from '../media/dor1.png';
-import image10 from '../media/cond1.png';
-import image11 from '../media/pasta1.png';
+import image1 from '../media/dest-lab.png';
+import image2 from '../media/yodo-lab.png';
+import image3 from '../media/llama-lab.png';
+import image4 from '../media/gases-lab.png';
+import image5 from '../media/ruther-lab.png';
+import image6 from '../media/yodo-lab.png';
+import image7 from '../media/camaleon-lab.png';
+import image8 from '../media/ph-lab.png';
+import image9 from '../media/lluvia-lab.png';
+import image10 from '../media/pasta1.png';
 import { CSSTransition, TransitionGroup  } from 'react-transition-group';
 
 const experiments = {
@@ -34,8 +33,7 @@ const experiments = {
   ],
   '2do': [
     { title: 'Lluvia Dorada', image: image9 },
-    { title: 'Solución Conductora', image: image10 },
-    { title: 'Pasta de Dientes para Elefantes', image: image11 },
+    { title: 'Pasta de Dientes para Elefantes', image: image10 }
   ],
 };
 
@@ -203,22 +201,31 @@ const DashboardPage = () => {
         classNames="fade"
         unmountOnExit
       >
-      <div className="row experiments-container col-12">
+   <div className="row experiments-container col-12">
+  {experiments[selectedCourse].map((experiment, index) => {
+    const experimentCount = experiments[selectedCourse].length;
+    const columnClass =
+      experimentCount === 2
+        ? "col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6"
+        : experimentCount === 3
+        ? "col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4"
+        : "col-12"; // Default column class if more than 3
 
-        {experiments[selectedCourse].map((experiment, index) => (
-          <div
-            key={index}
-            className="row experiment-card col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 col-xxl-5 b-1 mx-5 "
-            onClick={() => handleModalOpen(experiment)}
-            onMouseEnter={(e) => e.currentTarget.classList.add('hovered')}
-            onMouseLeave={(e) => e.currentTarget.classList.remove('hovered')}
-          >
-            <div className="display-5 mb-2 col-12">{experiment.title}</div>
-            <img src={experiment.image} alt={experiment.title} className="img-fluid col-12"/>
-          </div>
-
-))}
+    return (
+      <div
+        key={index}
+        className={`row experiment-card ${columnClass} `}
+        onClick={() => handleModalOpen(experiment)}
+        onMouseEnter={(e) => e.currentTarget.classList.add('hovered')}
+        onMouseLeave={(e) => e.currentTarget.classList.remove('hovered')}
+      >
+        <div className="display-5 mb-2 col-12">{experiment.title}</div>
+        <img src={experiment.image} alt={experiment.title} className="img-fluid col-12"/>
       </div>
+    );
+  })}
+</div>
+
           </CSSTransition>
 
       {/* Modal para mostrar detalles del experimento */}
