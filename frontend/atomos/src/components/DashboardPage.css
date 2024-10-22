@@ -140,7 +140,7 @@ img.btn-profile:active {
 .experiments-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content:space-evenly;
   text-align: center;
 }
 .experiment-card {
@@ -156,14 +156,19 @@ img.btn-profile:active {
 .experiment-card img {
   max-width: 80%;
   border-radius: 0.5rem;
-  width: 300px;
-  height: 300px;
-  margin: 0 auto;
+  width: 420px;
+  height: 420px;
+  margin: auto ;
   border-radius: 3rem;
   transition: transform 0.3s ease;
   object-fit:cover;/* Escala la imagen, manteniendo la proporción, sin deformarla */
 }
 
 .experiment-card:hover{
-  transform: scale(1.05);
+  transform: scale(1.01);
+  cursor: pointer;  
+}
+
+.textDashboard{
+  height: 120px ;
 }

@@ -35,27 +35,35 @@
     transition: width 0.5s ease-in-out;
   }
   
-  .table {
+  .progress-page-container  .table {
     width: 100%;
     margin-top: 1rem;
   }
-  .table th{
-    color: #764652FF;
+  .progress-page-container    .table th{
+    color: black;
   }
 
-  .table th, .table td {
+  .progress-page-container    .table th, .table td {
     text-align: center;
   }
   
-  .table .first-column {
-    color:#764652
+  .progress-page-container    .table .first-column {
+    color:black;
   }
-  .table  .completed {
+  .progress-page-container    .table  .completed {
     background-color: #d4edda; /* Verde claro para completado */
     color: #155724; /* Texto verde oscuro */
   }
   
-  .table  .not-completed {
+  .progress-page-container    .table  .not-completed {
     background-color: #f8d7da; /* Rojo claro para no completado */
     color: #721c24; /* Texto rojo oscuro */
   }
+  .progress-page-container    .table-responsive {
+    width: 100%;
+    overflow-x: auto; /* Permite el scroll horizontal */
+}
+
+.status-image-progress{
+  width: 30% !important;
+}

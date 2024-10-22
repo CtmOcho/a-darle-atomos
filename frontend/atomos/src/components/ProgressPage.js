@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 import './ProgressPage.css';
 import config from '../config/config';
+import checkIcon from '../media/check-circle.svg';
+import crossIcon from '../media/close-circle.svg';
 
 const ProgressPage = () => {
   const { user } = useContext(UserContext);
@@ -15,9 +17,7 @@ const ProgressPage = () => {
 
   const carouselItems = [
     'Color a la Llama', 'Sublimación del Yodo Sólido', 'Experimento de Destilación', 'Ley de Gases', 'Experimento de Rutherford',
-    'Sodio Metálico y Agua', 'Camaleón Químico', 'Lluvia Dorada', 'Identificación Ácido-base', 'Pasta de Dientes para Elefantes',
-    'Solución conductora'
-  ];
+    'Sodio Metálico y Agua', 'Camaleón Químico', 'Lluvia Dorada', 'Identificación Ácido-base', 'Pasta de Dientes para Elefantes'  ];
 
   useEffect(() => {
     const fetchProgressDetails = async () => {
@@ -57,8 +57,10 @@ const ProgressPage = () => {
         <td className='first-column col-2'>{carouselItems[experimentIndex]}</td>
         {progressData.slice(startIndex, startIndex + 5).map((value, index) => (
           <td key={index} className={value === 1 ? 'completed' : 'not-completed'}>
-            {value === 1 ? 'Completado' : 'No completado'}
-          </td>
+          {/* Reemplazar el texto por las imágenes */}
+          <img src={value === 1 ? checkIcon : crossIcon} alt={value === 1 ? 'Completado' : 'No Completado'} className="img-fluid status-image-progress" />
+        </td>
+
         ))}
       </tr>
     );
@@ -70,12 +72,14 @@ const ProgressPage = () => {
       <nav className="navbar col-12">
         <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
       </nav>
-      <div className="progress-details-container col-lg-8 col-xs-12 col-md-10 col-sm-10 col-xl-8 col-xxl-6 justify-content-center">
+      <div className="progress-details-container col-lg-10 col-12 col-md-12 col-sm-12 col-xl-10 col-xxl-10 justify-content-center">
         <h1 className="display-4">Detalles progreso del estudiante: {username}</h1>
         <div className="progress-bar">
           <div className="progress" style={{ width: `${generalProgress}%` }}></div>
         </div>
         <h1 className="display-4">{generalProgress.toFixed(2)}%</h1>
+        <div className='table-responsive'>
+
         <table className="table table-striped mt-4 col-12">
           <thead>
             <tr>
@@ -88,9 +92,10 @@ const ProgressPage = () => {
             </tr>
           </thead>
           <tbody>
-            {Array.from({ length: 11 }, (_, index) => renderProgressRow(index))}
+            {Array.from({ length: 10 }, (_, index) => renderProgressRow(index))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ import image2 from '../media/yodo-lab.png';
 import image3 from '../media/llama-lab.png';
 import image4 from '../media/gases-lab.png';
 import image5 from '../media/ruther-lab.png';
-import image6 from '../media/yodo-lab.png';
+import image6 from '../media/lab-sodio.png';
 import image7 from '../media/camaleon-lab.png';
 import image8 from '../media/ph-lab.png';
 import image9 from '../media/lluvia-lab.png';
@@ -206,21 +206,22 @@ const DashboardPage = () => {
     const experimentCount = experiments[selectedCourse].length;
     const columnClass =
       experimentCount === 2
-        ? "col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6"
+        ? "col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 col-xxl-5"
         : experimentCount === 3
-        ? "col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4"
+        ? "col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3"
         : "col-12"; // Default column class if more than 3
 
     return (
       <div
         key={index}
-        className={`row experiment-card ${columnClass} `}
+        className={`row experiment-card mx-1${columnClass} `}
         onClick={() => handleModalOpen(experiment)}
         onMouseEnter={(e) => e.currentTarget.classList.add('hovered')}
         onMouseLeave={(e) => e.currentTarget.classList.remove('hovered')}
       >
-        <div className="display-5 mb-2 col-12">{experiment.title}</div>
-        <img src={experiment.image} alt={experiment.title} className="img-fluid col-12"/>
+        <div className="display-5 col-12 textDashboard">{experiment.title}</div>
+        <div className= "row col-12"></div>
+        <img src={experiment.image} alt={experiment.title} className="img-fluid col-12 my-5"/>
       </div>
     );
   })}

@@ -37,7 +37,7 @@ const ProfilePage = () => {
       <nav className='navbar col-12'>
         <button className="btn-back" onClick={() => navigate("/dashboard")}>Volver</button>
       </nav>
-      <div className="profile-container row align-items-center text-center col-12 justify-content-center">
+      <div className="profile-container row align-items-center text-center col-12 justify-content-center col-lg-10 col-xl-10 col-xxl-10">
         <h1 className='display-1'>Perfil del Usuario</h1>
         <div className="profile-info row col-12 justify-content-center align-items-center">
           <div className={`profile-item username ${user.type === 'P' ? 'professor' : ''}`}>
@@ -51,20 +51,20 @@ const ProfilePage = () => {
               <div className="profile-item progress-container">
                 <h1 className='display-4'>Progreso:</h1>
                 <div className="progress-bar">
-                  <div className="progress" style={{ width: `${progress / 55 * 100}%` }}></div>
+                  <div className="progress" style={{ width: `${progress / 50 * 100}%` }}></div>
                 </div>
-                <h1 className='display-4'>{(progress / 55 * 100).toFixed(2)}%</h1> {/* Ajusta esto según sea necesario */}
+                <h1 className='display-4'>{(progress / 50 * 100).toFixed(2)}%</h1> {/* Ajusta esto según sea necesario */}
               </div>
             </>
           )}
         </div>
-        <div className="row profile-buttons col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 justify-content-center">
-          <button className="btn col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3" onClick={() => navigate('/edit-profile')}>Editar</button>
-          <button className="btn col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3" onClick={() => navigate('/delete-profile')}>Borrar</button>
+        <div className="row profile-buttons col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 justify-content-center">
+          <button className="btn col-12 col-sm-10 col-md-3 col-lg-3 col-xl-3" onClick={() => navigate('/edit-profile')}>Editar</button>
+          <button className="btn col-12 col-sm-10 col-md-3 col-lg-3 col-xl-3" onClick={() => navigate('/delete-profile')}>Borrar</button>
           {user.type === 'E' && (
             <>
         
-          <button className="btn col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3" onClick={() => navigate(`/progress-detail/${user.username}`)}>Progreso</button>
+          <button className="btn col-12 col-sm-10 col-md-3 col-lg-3 col-xl-3" onClick={() => navigate(`/progress-detail/${user.username}`)}>Progreso</button>
           </>
 
           )}
