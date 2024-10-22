@@ -1414,6 +1414,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene UI
       objectReference: {fileID: 0}
+    - target: {fileID: 1266365022374424013, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Size.x
+      value: 1.2925446
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266365022374424013, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Size.z
+      value: 1.0822952
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266365022374424013, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Center.x
+      value: 0.18639922
+      objectReference: {fileID: 0}
+    - target: {fileID: 1266365022374424013, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Center.z
+      value: -0.010622144
+      objectReference: {fileID: 0}
     - target: {fileID: 1374279864763306300, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
@@ -1426,6 +1442,42 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1409625815354363516, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.867
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409625815354363516, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0073
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409625815354363516, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.3664
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884196069725810976, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6387889
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884196069725810976, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0393214
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884196069725810976, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Size.z
+      value: 0.77405334
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884196069725810976, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Center.x
+      value: -0.18060562
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884196069725810976, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Center.y
+      value: 0.0976336
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884196069725810976, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Center.z
+      value: 0.03070414
+      objectReference: {fileID: 0}
     - target: {fileID: 1928996673928893183, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: Manos
       value: 
@@ -1434,9 +1486,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3151518404306634289, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.062
+      objectReference: {fileID: 0}
     - target: {fileID: 3347738046883307500, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: escena_camaleon_mol
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720053575214983161, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.167
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720053575214983161, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.306
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720053575214983161, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.721
       objectReference: {fileID: 0}
     - target: {fileID: 3926924080073805052, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_text

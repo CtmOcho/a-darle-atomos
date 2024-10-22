@@ -539,6 +539,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &538564263 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2569880221911949630, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+  m_PrefabInstance: {fileID: 1709683436}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &592071700 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4220068329275857749, guid: 8b3af72cba4ff1d48aa2a6d679719e65, type: 3}
@@ -1483,13 +1488,33 @@ PrefabInstance:
       propertyPath: Manos
       value: 
       objectReference: {fileID: 1844687904}
+    - target: {fileID: 2967539218893880764, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3347738046883307500, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3347738046883307500, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: escena_exotermica_mol
       objectReference: {fileID: 0}
+    - target: {fileID: 3391229018622656188, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: imageObject
+      value: 
+      objectReference: {fileID: 538564263}
     - target: {fileID: 4792186817232032713, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5568645479822255452, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.752
+      objectReference: {fileID: 0}
+    - target: {fileID: 5568645479822255452, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.88
       objectReference: {fileID: 0}
     - target: {fileID: 6297036373496117096, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1568,7 +1593,8 @@ PrefabInstance:
       value: -4.63
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5329667239474870, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
@@ -1837,6 +1863,10 @@ PrefabInstance:
     - target: {fileID: 1432868404740023571, guid: 240de60616c95b74ca2a20ddb0d3f824, type: 3}
       propertyPath: m_Name
       value: Manos
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432868404740023571, guid: 240de60616c95b74ca2a20ddb0d3f824, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3023763316995588332, guid: 240de60616c95b74ca2a20ddb0d3f824, type: 3}
       propertyPath: m_LocalPosition.x

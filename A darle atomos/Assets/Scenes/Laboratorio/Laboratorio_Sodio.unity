@@ -1487,6 +1487,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene UI
       objectReference: {fileID: 0}
+    - target: {fileID: 1409625815354363516, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.9778
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409625815354363516, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.4986
+      objectReference: {fileID: 0}
     - target: {fileID: 1637253816963287102, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.9
@@ -1919,7 +1927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1432868404740023571, guid: 240de60616c95b74ca2a20ddb0d3f824, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3023763316995588332, guid: 240de60616c95b74ca2a20ddb0d3f824, type: 3}
       propertyPath: m_LocalPosition.x
