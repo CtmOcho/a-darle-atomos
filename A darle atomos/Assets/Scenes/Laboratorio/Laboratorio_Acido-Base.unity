@@ -1715,6 +1715,10 @@ PrefabInstance:
       propertyPath: m_text
       value: "\xC1cido Base"
       objectReference: {fileID: 0}
+    - target: {fileID: 8940521983950450824, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -1480,7 +1480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &59487210
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2969,7 +2969,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 75}
+  m_AnchoredPosition: {x: -400, y: 75}
   m_SizeDelta: {x: 550, y: 730}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &209411452
@@ -9848,7 +9848,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: Laboratorio_Sodio
+          m_StringArgument: Laboratorio_elefante
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &962832018
@@ -11188,7 +11188,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000011444, y: 306}
+  m_AnchoredPosition: {x: 0.000011444, y: 315}
   m_SizeDelta: {x: 429.4183, y: 59.7012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1105565471
@@ -11211,7 +11211,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Metales Alcalinos y agua
+  m_text: Pasta de elefante
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
   m_sharedMaterial: {fileID: 3382691729065641351, guid: a330df463ae60bd4c8b1756d7ec82bf8, type: 2}
@@ -11238,8 +11238,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 46
+  m_fontSizeBase: 46
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15946,7 +15946,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000011444, y: 296}
+  m_AnchoredPosition: {x: 0.000011444, y: 315}
   m_SizeDelta: {x: 429.4183, y: 59.7012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1616212849
