@@ -1,13 +1,10 @@
+// RemoveStudent.js
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
 import './RemoveStudentPage.css';
 import config from '../config/config';
-//${config.backendUrl} -> reemplazar ht tp://localhost:13756 por esto!!!
+import back from '../media/back.svg';
 
-
-const RemoveStudentPage = () => {
-  const navigate = useNavigate();
-  const { courseName } = useParams();
+const RemoveStudent = ({ courseName, onNavigateBack }) => {
   const [students, setStudents] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState('');
   const [error, setError] = useState(null);
@@ -18,7 +15,7 @@ const RemoveStudentPage = () => {
       try {
         const response = await fetch(url, {
           headers: {
-            'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
+            'ngrok-skip-browser-warning': 'true',
           },
         });
         if (response.ok) {
@@ -31,10 +28,9 @@ const RemoveStudentPage = () => {
         setError('Error al conectar con el servidor');
       }
     };
-  
     fetchStudents();
   }, [courseName]);
-  
+
   const handleRemoveStudent = async (e) => {
     e.preventDefault();
     const url = `${config.backendUrl}/updateCurso/${courseName}/removeStudents`;
@@ -43,31 +39,30 @@ const RemoveStudentPage = () => {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
+          'ngrok-skip-browser-warning': 'true',
         },
         body: JSON.stringify({ students: [selectedStudent] }),
       });
-  
+
       if (response.ok) {
         console.log('Estudiante eliminado con éxito');
-        navigate('/modify-course');
+        onNavigateBack(); // Regresa a ModifyCourse después de eliminar al estudiante
       } else {
         const errorMessage = await response.text();
-        console.log('Error al eliminar el estudiante:', errorMessage);
         setError(errorMessage);
       }
     } catch (error) {
-      console.error('Error al eliminar el estudiante:', error);
       setError('Error al eliminar el estudiante');
     }
   };
-  
+
   return (
     <div className="page-container">
-          <nav className="navbar col-12">
-      <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
-    </nav>
+
       <div className="remove-student-container col-12 justify-content-center col-lg-8 col-xs-12 col-md-10 col-sm-10 col-xl-8 col-xxl-6">
+      <div className="col-12">
+            <img className="img-fluid btn-back-svg" onClick={onNavigateBack} src={back} alt="Volver" />
+          </div>
         <h1 className='display-2'>Eliminar Alumno de {courseName}</h1>
         <form onSubmit={handleRemoveStudent}>
           <div className="form-group">
@@ -85,7 +80,7 @@ const RemoveStudentPage = () => {
           </div>
           {error && <p className="error-message">{error}</p>}
           <div className="form-buttons col-12 justify-content-center m-1 p-1">
-            <button type="submit" className="btn col-6 p-2 m-4">Eliminar</button>
+            <button type="submit" className="btn btn-remove col-6 p-2 m-4">Eliminar</button>
           </div>
         </form>
       </div>
@@ -93,4 +88,4 @@ const RemoveStudentPage = () => {
   );
 };
 
-export default RemoveStudentPage;
+export default RemoveStudent;

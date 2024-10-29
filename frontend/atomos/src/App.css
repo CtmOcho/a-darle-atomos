@@ -121,3 +121,14 @@ color:white !important;
   transform: scale(0.9);
   transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
 }
+
+.btn-back-svg{
+  max-height: 6rem;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+  filter: brightness(0) saturate(100%) invert(46%) sepia(10%) saturate(1377%) hue-rotate(295deg) brightness(89%) contrast(82%);
+}
+.btn-back-svg:hover{
+  filter: brightness(0) saturate(100%) invert(78%) sepia(4%) saturate(2978%) hue-rotate(299deg) brightness(94%) contrast(73%);
+}

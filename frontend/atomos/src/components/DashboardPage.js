@@ -13,8 +13,8 @@ import image6 from '../media/lab-sodio.png';
 import image7 from '../media/camaleon-lab.png';
 import image8 from '../media/ph-lab.png';
 import image9 from '../media/lluvia-lab.png';
-import image10 from '../media/pasta1.png';
-import { CSSTransition, TransitionGroup  } from 'react-transition-group';
+import image10 from '../media/lluvia-lab.png';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const experiments = {
   '7mo': [
@@ -46,15 +46,13 @@ const DashboardPage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [inProp, setInProp] = useState(false); // Controla la transición del contenido
 
-    // Simula la carga de la página sin pantalla de carga
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        setInProp(true); // Comienza la transición del contenido principal
-      }, 100);
-  
-      return () => clearTimeout(timer); // Limpia el timeout si el componente se desmonta
-    }, []);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setInProp(true); // Comienza la transición del contenido principal
+    }, 100);
 
+    return () => clearTimeout(timer); // Limpia el timeout si el componente se desmonta
+  }, []);
 
   useEffect(() => {
     if (!user || !user.username) {
@@ -76,13 +74,11 @@ const DashboardPage = () => {
   };
 
   const handleItemClick = (experimentTitle) => {
-     // Iniciar fade-out del contenido
-     setInProp(false);
+    setInProp(false);
 
-     // Espera a que el fade-out termine antes de navegar
-     setTimeout(() => {
-       navigate(`/experiment/${experimentTitle}`);
-     }, 500); // La duración del timeout coincide con la duración del fade-out (500ms)
+    setTimeout(() => {
+      navigate(`/experiment/${experimentTitle}`);
+    }, 500); // La duración del timeout coincide con la duración del fade-out (500ms)
   };
 
   // Lógica para alternar el collapse y el dropdown, asegurando que solo uno esté abierto a la vez
@@ -99,141 +95,105 @@ const DashboardPage = () => {
   return (
     <div className="dashboard-container col-12">
       <nav className="navbar navbar-expand-lg col-12">
-      <CSSTransition
-        in={inProp}
-        timeout={500}
-        classNames="fade"
-        unmountOnExit
-      >
-        {/* Botón "Salir" con distribución de columnas */}
-        <button className="btn-back col-xxl-1 col-xl-1 col-lg-1 col-md-2 col-sm-2 col-3" onClick={() => navigate('/')}>
-          Salir
-        </button>
+        <CSSTransition in={inProp} timeout={500} classNames="fade" unmountOnExit>
+          <button className="btn-back col-xxl-1 col-xl-1 col-lg-1 col-md-2 col-sm-2 col-3" onClick={() => navigate('/')}>
+            Salir
+          </button>
         </CSSTransition>
 
-        <CSSTransition
-        in={inProp}
-        timeout={500}
-        classNames="fade"
-        unmountOnExit
-      >
-        {/* Navbar Toggler con distribución de columnas */}
-        <button
-          className="navbar-toggler col-xxl-7 col-xl-7 col-lg-8 col-md-4 col-sm-4 col-3"
-          type="button"
-          onClick={toggleMenu} // Abre y cierra el menú colapsable
-          aria-controls="navbarNav"
-          aria-expanded={menuOpen}
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+        <CSSTransition in={inProp} timeout={500} classNames="fade" unmountOnExit>
+          <button
+            className="navbar-toggler col-xxl-7 col-xl-7 col-lg-8 col-md-4 col-sm-4 col-3"
+            type="button"
+            onClick={toggleMenu}
+            aria-controls="navbarNav"
+            aria-expanded={menuOpen}
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
         </CSSTransition>
 
-        {/* Contenido colapsable de la navbar */}
-        <CSSTransition
-        in={inProp}
-        timeout={500}
-        classNames="fade"
-        unmountOnExit
-      >
-        <div className={`collapse navbar-collapse col-xxl-7 col-xl-7 col-lg-8 col-md-4 col-sm-4 col-3 ${menuOpen ? 'show' : ''}`} id="navbarNav">
-          <ul className="navbar-nav">
-            {Object.keys(experiments).map((course) => (
-              <li className="nav-item" key={course}>
-                <a
-                  className={`courseButtons nav-link fs-1 ${selectedCourse === course ? 'active' : ''}`}
-                  onClick={() => handleCourseSelect(course)}
+        <CSSTransition in={inProp} timeout={500} classNames="fade" unmountOnExit>
+          <div className={`collapse navbar-collapse col-xxl-7 col-xl-7 col-lg-8 col-md-4 col-sm-4 col-3 ${menuOpen ? 'show' : ''}`} id="navbarNav">
+            <ul className="navbar-nav">
+              {Object.keys(experiments).map((course) => (
+                <li className="nav-item" key={course}>
+                  <a
+                    className={`courseButtons nav-link fs-1 ${selectedCourse === course ? 'active' : ''}`}
+                    onClick={() => handleCourseSelect(course)}
+                  >
+                    {course === '7mo' && '7mo Básico'}
+                    {course === '8vo' && '8vo Básico'}
+                    {course === '1ro' && '1ro Medio'}
+                    {course === '2do' && '2do Medio'}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </CSSTransition>
+
+        <CSSTransition in={inProp} timeout={500} classNames="fade" unmountOnExit>
+          <div className="top-buttons d-flex justify-content-end col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-sm-4 col-4">
+            <div className={`dropdown col-12 ${dropdownOpen ? 'show' : ''}`}>
+              <img
+                src={profileImage}
+                alt="Perfil"
+                className="btn-profile img-fluid"
+                onClick={toggleDropdown}
+              />
+              <div className="dropdown-content">
+                <button onClick={() => navigate('/profile')}>Mi Perfil</button>
+                {user.type === 'P' && (
+                  <button onClick={() => navigate('/professorTools')}>Herramientas de Profesor</button>
+                )}
+                <button
+                  onClick={() => {
+                    setUser(null);
+                    navigate('/');
+                  }}
                 >
-                  {course === '7mo' && '7mo Básico'}
-                  {course === '8vo' && '8vo Básico'}
-                  {course === '1ro' && '1ro Medio'}
-                  {course === '2do' && '2do Medio'}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-        </CSSTransition>
-
-        {/* Dropdown del perfil */}
-        <CSSTransition
-        in={inProp}
-        timeout={500}
-        classNames="fade"
-        unmountOnExit
-      >
-        <div className="top-buttons d-flex justify-content-end col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-sm-4 col-4">
-          <div className={`dropdown col-12 ${dropdownOpen ? 'show' : ''}`}>
-            <img
-              src={profileImage}
-              alt="Perfil"
-              className="btn-profile img-fluid"
-              onClick={toggleDropdown} // Abre y cierra el dropdown
-            />
-            <div className="dropdown-content">
-              <button onClick={() => navigate('/profile')}>Mi Perfil</button>
-              {user.type === 'P' && (
-                <>
-                  <button onClick={() => navigate('/edit-courses')}>Gestor de Cursos</button>
-                  <button onClick={() => navigate('/check-progress')}>Ver Progresos</button>
-                </>
-              )}
-              <button
-                onClick={() => {
-                  setUser(null);
-                  navigate('/');
-                }}
-              >
-                Cerrar Sesión
-              </button>
+                  Cerrar Sesión
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </CSSTransition>
-
+        </CSSTransition>
       </nav>
 
       {/* Contenedor de experimentos */}
-      <CSSTransition
-        in={inProp}
-        timeout={500}
-        classNames="fade"
-        unmountOnExit
-      >
-   <div className="row experiments-container col-12">
-  {experiments[selectedCourse].map((experiment, index) => {
-    const experimentCount = experiments[selectedCourse].length;
-    const columnClass =
-      experimentCount === 2
-        ? "col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 col-xxl-5"
-        : experimentCount === 3
-        ? "col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3"
-        : "col-12"; // Default column class if more than 3
+      <CSSTransition in={inProp} timeout={500} classNames="fade" unmountOnExit>
+        <div className="row experiments-container col-12">
+          {experiments[selectedCourse].map((experiment, index) => {
+            const experimentCount = experiments[selectedCourse].length;
+            const columnClass =
+              experimentCount === 2
+                ? "col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 col-xxl-5"
+                : experimentCount === 3
+                ? "col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3"
+                : "col-12";
 
-    return (
-      <div
-        key={index}
-        className={`row experiment-card mx-1${columnClass} `}
-        onClick={() => handleModalOpen(experiment)}
-        onMouseEnter={(e) => e.currentTarget.classList.add('hovered')}
-        onMouseLeave={(e) => e.currentTarget.classList.remove('hovered')}
-      >
-        <div className="display-5 col-12 textDashboard">{experiment.title}</div>
-        <div className= "row col-12"></div>
-        <img src={experiment.image} alt={experiment.title} className="img-fluid col-12 my-5"/>
-      </div>
-    );
-  })}
-</div>
+            return (
+              <div
+                key={index}
+                className={`row experiment-card mx-1${columnClass} `}
+                onClick={() => handleModalOpen(experiment)}
+                onMouseEnter={(e) => e.currentTarget.classList.add('hovered')}
+                onMouseLeave={(e) => e.currentTarget.classList.remove('hovered')}
+              >
+                <div className="display-5 col-12 textDashboard">{experiment.title}</div>
+                <div className="row col-12"></div>
+                <img src={experiment.image} alt={experiment.title} className="img-fluid col-12 my-5" />
+              </div>
+            );
+          })}
+        </div>
+      </CSSTransition>
 
-          </CSSTransition>
-
-      {/* Modal para mostrar detalles del experimento */}
       {activeModal && (
         <Modal experiment={activeModal} onClose={handleModalClose} onNavigate={handleItemClick} />
       )}
-
     </div>
   );
 };

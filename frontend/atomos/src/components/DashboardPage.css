@@ -13,7 +13,7 @@
 
 .dashboard-container .top-buttons {
   display: flex;
-  z-index: 0;
+  z-index: 2;
   justify-content: flex-end; /* Alinea los elementos a la derecha */
   flex-direction: column;
   position: relative;
@@ -25,6 +25,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  z-index: 2;
+
 }
 
 .dashboard-container .dropdown-content {
@@ -35,6 +37,7 @@
   background: #764652;
   font-size: 2rem;
   width: auto;
+  z-index: 2;
 }
 
 .dashboard-container .dropdown-content button {
@@ -46,6 +49,8 @@
   font-size: 2rem;
   text-align: right;
   width: 100%;
+  z-index: 2;
+
 }
 
 .dashboard-container .dropdown-content button:hover {
@@ -105,6 +110,9 @@ img.btn-profile:active {
   border: none;
 }
 
+.dashboard-container nav .navbar-toggler:active{
+  outline: none;
+} 
 /* Mantén el comportamiento normal en pantallas grandes */
 @media (min-width: 992px) {
   .dashboard-container .collapse.navbar-collapse {

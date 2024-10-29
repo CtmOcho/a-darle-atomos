@@ -1,13 +1,15 @@
+// TeacherProgressCourse.js
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import StudentProgressDetails from './StudentProgressDetails';
 import './TeacherProgressCourse.css';
 import config from '../config/config';
+import back from '../media/back.svg';
 
-const TeacherProgressCourse = () => {
-  const navigate = useNavigate();
-  const { courseName } = useParams();
+
+const TeacherProgressCourse = ({ courseName, onNavigateBack }) => {
   const [students, setStudents] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState('');
+  const [currentView, setCurrentView] = useState('main');
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -16,7 +18,7 @@ const TeacherProgressCourse = () => {
       try {
         const response = await fetch(url, {
           headers: {
-            'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
+            'ngrok-skip-browser-warning': 'true',
           },
         });
         if (response.ok) {
@@ -29,43 +31,59 @@ const TeacherProgressCourse = () => {
         setError('Error al conectar con el servidor');
       }
     };
-  
+
     fetchStudents();
   }, [courseName]);
-  
 
-    const handleSelecStudent = () => {
-        navigate(`/progress-detail/${selectedStudent}`);
-      };
+  const handleSelectStudent = () => {
+    setCurrentView('details');
+  };
+
+  const handleBack = () => {
+    if (currentView === 'details') {
+      setCurrentView('main');
+      setSelectedStudent('');
+    } else {
+      onNavigateBack();
+    }
+  };
 
   return (
     <div className="page-container">
-          <nav className="navbar col-12">
-      <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
-    </nav>
-      <div className="teacher-progress-course-container m-1 p-2 justify-content-center col-lg-8 col-xs-12 col-md-10 col-sm-10 col-xl-8 col-xxl-6">
-        <h1 className='display-2' >Seleccionar estudiante para ver su progreso</h1>
-        <form onSubmit={handleSelecStudent}>
-          <div className="form-group col-12 text-center">
-            <label className='display-4 col-12'>Nombre del Alumno:</label>
-            <select
-            className='col-8 fs-2'
-              value={selectedStudent}
-              onChange={(e) => setSelectedStudent(e.target.value)}
-              required
-            >
-              <option value="" disabled>Seleccione un alumno</option>
-              {students.map(student => (
-                <option key={student._id} value={student.username}>{student.username}</option>
-              ))}
-            </select>
+      {currentView === 'main' && (
+        <>
+          <div className="teacher-progress-course-container m-1 p-2 justify-content-center col-lg-8 col-xs-12 col-md-10 col-sm-10 col-xl-8 col-xxl-6">
+          <div className="col-12 justify-content-start">
+            <img className="img-fluid btn-back-svg" onClick={onNavigateBack} src={back} alt="Volver" />
           </div>
-          {error && <p className="error-message">{error}</p>}
-          <div className="form-buttons col-12 justify-content-center">
-            <button type="submit" className="btn col-6 p-2 m-4">Seleccionar</button>
+            <h1 className='display-2'>Seleccionar estudiante para ver su progreso</h1>
+            <form onSubmit={(e) => { e.preventDefault(); handleSelectStudent(); }}>
+              <div className="form-group col-12 text-center">
+                <label className='display-4 col-12'>Nombre del Alumno:</label>
+                <select
+                  className='col-8 fs-2'
+                  value={selectedStudent}
+                  onChange={(e) => setSelectedStudent(e.target.value)}
+                  required
+                >
+                  <option value="" disabled>Seleccione un alumno</option>
+                  {students.map(student => (
+                    <option key={student._id} value={student.username}>{student.username}</option>
+                  ))}
+                </select>
+              </div>
+              {error && <p className="error-message">{error}</p>}
+              <div className="form-buttons col-12 justify-content-center">
+                <button type="submit" className="btn col-6 p-2 m-4">Seleccionar</button>
+              </div>
+            </form>
           </div>
-        </form>
-      </div>
+        </>
+      )}
+
+      {currentView === 'details' && (
+        <StudentProgressDetails username={selectedStudent} onNavigateBack={handleBack} />
+      )}
     </div>
   );
 };

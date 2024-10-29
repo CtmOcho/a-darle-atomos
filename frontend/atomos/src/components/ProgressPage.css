@@ -60,8 +60,8 @@
     color: #721c24; /* Texto rojo oscuro */
   }
   .progress-page-container    .table-responsive {
-    width: 100%;
-    overflow-x: auto; /* Permite el scroll horizontal */
+    /* Permite el scroll horizontal */
+    overflow: scroll;
 }
 
 .status-image-progress{

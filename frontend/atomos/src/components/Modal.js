@@ -9,7 +9,7 @@ const Modal = ({ experiment, onClose, onNavigate }) => {
   return (
     <div className="modal-overlay ">
       <div className="modal-content justify-content-center text-center">
-        <h1 className="display-1 pt-5">{experiment.title}</h1>
+        <h1 className="display-5 ">{experiment.title}</h1>
         <img 
           src={experiment.image} 
           alt={experiment.title} 

@@ -60,3 +60,11 @@
     margin-bottom: 1rem;
   }
   
+  .btn-remove{
+    background-color: #936570 !important;
+
+  }
+  .btn-remove:hover{
+    background-color: #D29EAA !important;
+
+  }

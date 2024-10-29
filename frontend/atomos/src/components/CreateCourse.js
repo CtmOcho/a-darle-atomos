@@ -1,12 +1,12 @@
+// CreateCourse.js
 import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
 import './CreateCoursePage.css';
 import config from '../config/config';
+import back from '../media/back.svg';
 
-const CreateCoursePage = () => {
-  const navigate = useNavigate();
-  const { user } = useContext(UserContext);  // Obtener el nombre del profesor del contexto de usuario
+const CreateCourse = ({ onNavigateBack }) => {
+  const { user } = useContext(UserContext);
   const [courseName, setCourseName] = useState('');
   const [error, setError] = useState(null);
 
@@ -19,41 +19,38 @@ const CreateCoursePage = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'ngrok-skip-browser-warning': 'true',  // Añadir este encabezado
+          'ngrok-skip-browser-warning': 'true',
         },
       });
 
       if (response.status === 201) {
         console.log('Curso creado con éxito');
-        navigate('/edit-courses'); // Redirigir a la página de edición de cursos después de crear el curso
+        onNavigateBack(); // Volver a EditCourses después de crear el curso
       } else if (response.status === 409) {
-        console.log('El curso ya existe');
         setError('El curso ya existe');
       } else if (response.status === 404) {
-        console.log('El profesor no existe');
         setError('El profesor no existe');
       } else {
-        console.log('Error al crear el curso');
         setError('Error al crear el curso');
       }
     } catch (error) {
-      console.error('Error al crear el curso:', error);
       setError('Error al crear el curso');
     }
   };
 
   return (
-    <div className="page-container">
-    <nav className="navbar col-12">
-      <button className="btn-back" onClick={() => navigate(-1)}>Volver</button>
-    </nav>
+    <div className="container-fluid col-12 page-container">
       <div className="create-course-container justify-content-center col-lg-8 col-xs-12 col-md-10 col-sm-10 col-xl-8 col-xxl-6">
+      <div className="col-12">
+        <img className="img-fluid btn-back-svg"  onClick={onNavigateBack} src={back} />
+
+      </div>
         <h1 className='display-2'>Crear Curso</h1>
         <form className="col-10 justify-content-center p-1 m-1 align-items-center" onSubmit={handleCreateCourse}>
           <div className="form-group">
             <label className='col-6 display-4'>Nombre del Curso</label>
             <input
-            className='col-6'
+              className='col-6'
               type="text"
               value={courseName}
               onChange={(e) => setCourseName(e.target.value)}
@@ -70,4 +67,4 @@ const CreateCoursePage = () => {
   );
 };
 
-export default CreateCoursePage;
+export default CreateCourse;
