@@ -7,6 +7,7 @@ import { CSSTransition } from 'react-transition-group';
 import profileImage from '../media/perfil.png';
 import EditCourses from './EditCourses';
 import TeacherProgress from './TeacherProgress';
+import TeacherQuiz from './TeacherQuiz'; // Importa el componente TeacherQuiz
 
 const ProfessorToolsPage = () => {
   const navigate = useNavigate();
@@ -40,6 +41,8 @@ const ProfessorToolsPage = () => {
         return <EditCourses onNavigate={handleNavigateBack} />;
       case 'Ver Progresos':
         return <TeacherProgress onNavigateBack={handleNavigateBack} />;
+      case 'Ver Cuestionarios':
+        return <TeacherQuiz onNavigateBack={handleNavigateBack} />; // Cambiado a TeacherQuiz
       default:
         return null;
     }

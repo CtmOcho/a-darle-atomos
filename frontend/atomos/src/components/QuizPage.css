@@ -50,7 +50,8 @@
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
-    font-size: 2rem;
+    padding: 0.5rem;
+    font-size: 1rem;
   }
   
   .quiz .quiz-submit:hover {

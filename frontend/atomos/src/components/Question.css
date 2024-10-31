@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.question-container {
+  background: #ddd;
+  padding: 20px 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.options-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+label.box {
+  display: flex;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  width: 100%;
+  transition: background 0.3s;
+}
+
+.radio-input {
+  display: none;
+}
+
+label.box:hover {
+  background: #f0e6ff;
+}
+
+label.box .course {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+label.box .circle {
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  margin-right: 15px;
+  border: 2px solid #ddd;
+  display: inline-block;
+}
+
+input[type="radio"]:checked + label .circle {
+  border: 6px solid #936570;
+  background-color: #fff;
+}
+
+input[type="radio"]:checked + label {
+  border-color: #936570;
+}

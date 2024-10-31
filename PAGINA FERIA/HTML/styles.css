@@ -138,23 +138,23 @@ button:hover, button:active {
 
 /* Background gradients for sections */
 .section-1 {
-  background: linear-gradient(to bottom, #D29EAA, #D29EAA, #D29EAA,#D29EAA, #E7D691);
+  background: linear-gradient(to bottom, #526f6f, #5e7f7f);
 }
 
 .section-2 {
-  background: linear-gradient(to bottom, #E7D691,#E7D691,#E7D691,#E7D691, #AED18D);
+  background: linear-gradient(to bottom, #5e7f7f, #74A29F);
 }
 
 .section-3 {
-  background: linear-gradient(to bottom, #AED18D,#AED18D,#AED18D,#AED18D, #DCDBD7);
+  background: linear-gradient(to bottom, #74A29F, #90b4b1);
 }
 
 .section-4 {
-  background: linear-gradient(to bottom, #DCDBD7,#DCDBD7,#DCDBD7,#DCDBD7, #b8b6b1);
+  background: linear-gradient(to bottom, #90b4b1, #acc6c3);
 
 }
 .section-3-quienessomos{
-  background: linear-gradient(to bottom, #AED18D,#AED18D,#AED18D,#AED18D, #87a36e);
+  background: linear-gradient(to bottom, #AED18D, #87a36e);
 }
 
 .section-2-contacto{
@@ -186,7 +186,7 @@ button:hover, button:active {
 
 /* Footer */
 .footer {
-  background-color: #74A29F;
+  background-color: #acc6c3;
   color: black;
   padding: 20px;
   margin-top: auto;
@@ -252,7 +252,7 @@ button:hover, button:active {
   border-radius: 1%;
 }
 .rrss-icons{
-  width: 100%;
+  width: 50%;
   height: auto;
 }
 
@@ -290,4 +290,8 @@ button:hover, button:active {
 .fade-out {
   opacity: 0;
   display: none;
+}
+
+.icono-index{
+  width: 50%;
 }

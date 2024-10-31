@@ -549,8 +549,8 @@ app.get('/quiz/:user/:test', async (req, res) => {
         res.status(404).send('Usuario no encontrado');
         return;
     }
-    console.log(test);
-    console.log(studentSearch);
+    //console.log(test);
+    //console.log(studentSearch);
     res.status(200).send(studentSearch[test]);
 });
 
