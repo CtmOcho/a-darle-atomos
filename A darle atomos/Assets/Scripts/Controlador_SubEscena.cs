@@ -34,7 +34,11 @@ public class Controlador_SubEscena : MonoBehaviour
             yield return null;
         }
 
-        canvasGroup.alpha = 0f; // Asegura que el fade in termine en transparencia total
+        canvasGroup.alpha = 0f;
+        canvasGroup.interactable = false;  // Desactiva la interacción
+        canvasGroup.blocksRaycasts = false; // Evita que bloquee otros objetos
+        canvasGroup.gameObject.SetActive(false); // Descarga el canvas sin destruirlo
+        // Asegura que el fade in termine en transparencia total
 
     }
     IEnumerator FadeInCum()

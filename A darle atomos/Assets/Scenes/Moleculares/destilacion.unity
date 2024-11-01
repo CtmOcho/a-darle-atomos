@@ -2030,6 +2030,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FadeInSubexp
       objectReference: {fileID: 0}
+    - target: {fileID: 2153984167782875825, guid: 3dfed86179e1fe6458e6bd39c9e498a2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2230541161185935921, guid: 3dfed86179e1fe6458e6bd39c9e498a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
