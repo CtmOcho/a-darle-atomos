@@ -18,6 +18,16 @@ TagManager:
   - Selectable
   - dropperLiquid
   - Manos
+  - h1_m1
+  - h1_m2
+  - h2_m1
+  - h2_m2
+  - o1_m1
+  - o1_m2
+  - o2_m1
+  - o2_m2
+  - KI
+  - H2O2
   layers:
   - Default
   - TransparentFX
