@@ -25,14 +25,14 @@ public class MoleculeBehavior : MonoBehaviour
             AttractNearbyMolecules();
             //PropagateVibrations();
         }
-/*
-        // Propagar vibraciones antes de los 60º
-        if (currentTemperature < 30f)
-        {
-            AttractNearbyMolecules();
-            PropagateVibrations();
-        }
-    */
+        /*
+                // Propagar vibraciones antes de los 60º
+                if (currentTemperature < 30f)
+                {
+                    AttractNearbyMolecules();
+                    PropagateVibrations();
+                }
+            */
     }
 
     void Vibrate()
@@ -75,17 +75,17 @@ public class MoleculeBehavior : MonoBehaviour
     }
 
     void OnCollisionEnter(Collider other)
-{
-    if (other.CompareTag("Boundary"))
     {
-        if (rb != null)
+        if (other.CompareTag("Boundary"))
         {
-            // Aplicar una fuerza hacia el centro del cubo
-            Vector3 directionToCenter = (Vector3.zero - transform.position).normalized;
-            rb.AddForce(directionToCenter * 500f); // Ajusta la magnitud de la fuerza según sea necesario
+            if (rb != null)
+            {
+                // Aplicar una fuerza hacia el centro del cubo
+                Vector3 directionToCenter = (Vector3.zero - transform.position).normalized;
+                rb.AddForce(directionToCenter * 500f); // Ajusta la magnitud de la fuerza según sea necesario
+            }
         }
     }
-}
 
 
     public void IncreaseTemperature(float amount)
@@ -95,41 +95,41 @@ public class MoleculeBehavior : MonoBehaviour
     }
 
     public void AttractNearbyMolecules()
-{
-    // Encuentra todas las moléculas cercanas y atrae esta molécula hacia ellas
-    Collider[] nearbyMolecules = Physics.OverlapSphere(transform.position, 0.45f); // Radio ajustable
-
-    foreach (Collider collider in nearbyMolecules)
     {
-        // Verificar si el collider pertenece a una molécula individual dentro de Yodo_Pair
-        MoleculeBehavior otherMolecule = collider.GetComponentInParent<MoleculeBehavior>();
+        // Encuentra todas las moléculas cercanas y atrae esta molécula hacia ellas
+        Collider[] nearbyMolecules = Physics.OverlapSphere(transform.position, 0.45f); // Radio ajustable
 
-        if (otherMolecule != null && otherMolecule != this)
+        foreach (Collider collider in nearbyMolecules)
         {
-            // Atrae la molécula hacia la posición de la otra molécula cercana
-            Vector3 directionToOther = (otherMolecule.transform.position - transform.position).normalized;
-            rb.velocity += directionToOther * vibrationSpeed * 0.1f * Time.deltaTime;
+            // Verificar si el collider pertenece a una molécula individual dentro de Yodo_Pair
+            MoleculeBehavior otherMolecule = collider.GetComponentInParent<MoleculeBehavior>();
+
+            if (otherMolecule != null && otherMolecule != this)
+            {
+                // Atrae la molécula hacia la posición de la otra molécula cercana
+                Vector3 directionToOther = (otherMolecule.transform.position - transform.position).normalized;
+                rb.velocity += directionToOther * vibrationSpeed * 0.1f * Time.deltaTime;
+            }
         }
     }
-}
 
-/*
-    public void PropagateVibrations()
-{
-    // Encuentra todas las moléculas cercanas
-    Collider[] nearbyMolecules = Physics.OverlapSphere(transform.position, 0.45f); // Radio ajustable
-
-    foreach (Collider collider in nearbyMolecules)
+    /*
+        public void PropagateVibrations()
     {
-        MoleculeBehavior otherMolecule = collider.GetComponentInParent<MoleculeBehavior>();
+        // Encuentra todas las moléculas cercanas
+        Collider[] nearbyMolecules = Physics.OverlapSphere(transform.position, 0.45f); // Radio ajustable
 
-        if (otherMolecule != null && otherMolecule != this && otherMolecule.currentTemperature < currentTemperature)
+        foreach (Collider collider in nearbyMolecules)
         {
-            // Igualar la temperatura de la otra molécula a la temperatura de esta molécula
-            otherMolecule.currentTemperature = currentTemperature;
-            otherMolecule.StartVibration(); // Iniciar la vibración en la molécula afectada
+            MoleculeBehavior otherMolecule = collider.GetComponentInParent<MoleculeBehavior>();
+
+            if (otherMolecule != null && otherMolecule != this && otherMolecule.currentTemperature < currentTemperature)
+            {
+                // Igualar la temperatura de la otra molécula a la temperatura de esta molécula
+                otherMolecule.currentTemperature = currentTemperature;
+                otherMolecule.StartVibration(); // Iniciar la vibración en la molécula afectada
+            }
         }
     }
-}
-*/
+    */
 }
