@@ -87,6 +87,7 @@ MonoBehaviour:
   maxVibrationIntensity: 5
   vibrationSpeed: 5
   isVibrating: 0
+  moleculeType: 
   currentTemperature: 0
 --- !u!1001 &3442668740067630613
 PrefabInstance:
