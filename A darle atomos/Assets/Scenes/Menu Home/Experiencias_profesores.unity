@@ -8401,8 +8401,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Este experimento muestra c\xF3mo diferentes metales emiten colores al
-    ser calentados, ayudando a entender el modelo at\xF3mico de Bohr.\r\n\n\n\r"
+  m_text: "Este experimento demuestra una reacci\xF3n de descomposici\xF3n r\xE1pida
+    del per\xF3xido de hidr\xF3geno que resulta en la producci\xF3n de grandes cantidades
+    de espuma.\n\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc63591584ba3b047a9abb86358606ce, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -19528,9 +19529,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "1. Comprender c\xF3mo los \xE1tomos emiten luz cuando se calientan.\r\n\r\n2.
-    Identificar los colores emitidos por calcio, potasio, sodio, cobre y plomo.\r\n\r\n3.
-    Usar el color para identificar diferentes elementos.\r\n\r"
+  m_text: "1. Comprender la reacci\xF3n de descomposici\xF3n del per\xF3xido de hidr\xF3geno.\r\n\r\n2.
+    Observar el papel de un catalizador en acelerar una reacci\xF3n qu\xEDmica.\r\n\r\n3.
+    Analizar las aplicaciones de reacciones similares en la industria qu\xEDmica.\n\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc63591584ba3b047a9abb86358606ce, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
