@@ -980,7 +980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2807205121605137053, guid: f7831dfccb98e004db312149ea59bd2b, type: 3}
       propertyPath: currentTime
-      value: 0
+      value: 9.958333
       objectReference: {fileID: 0}
     - target: {fileID: 7696721640967459720, guid: f7831dfccb98e004db312149ea59bd2b, type: 3}
       propertyPath: m_Materials.Array.data[0]
