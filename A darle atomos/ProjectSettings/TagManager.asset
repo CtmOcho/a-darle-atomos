@@ -28,6 +28,7 @@ TagManager:
   - o2_m2
   - KI
   - H2O2
+  - particleCam
   layers:
   - Default
   - TransparentFX
@@ -40,7 +41,7 @@ TagManager:
   - Finger colider
   - Tripod
   - Alpha Particles
-  - 
+  - Gold
   - 
   - 
   - 
