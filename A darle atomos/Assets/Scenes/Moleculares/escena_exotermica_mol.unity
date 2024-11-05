@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 283}
+  m_AnchoredPosition: {x: -160, y: 195}
   m_SizeDelta: {x: 240, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &165558442
@@ -569,8 +569,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -328.7091, y: 362.48}
-  m_SizeDelta: {x: 657.417, y: 509.49}
+  m_AnchoredPosition: {x: -340.41638, y: 185}
+  m_SizeDelta: {x: 680.8315, y: 463.2805}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &401758192
 MonoBehaviour:
@@ -610,6 +610,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401758190}
   m_CullTransparentMesh: 1
+--- !u!1001 &659651138
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2153984167782875825, guid: 3dfed86179e1fe6458e6bd39c9e498a2, type: 3}
+      propertyPath: m_Name
+      value: FadeInSubexp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230541161185935921, guid: 3dfed86179e1fe6458e6bd39c9e498a2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230541161185935921, guid: 3dfed86179e1fe6458e6bd39c9e498a2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230541161185935921, guid: 3dfed86179e1fe6458e6bd39c9e498a2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230541161185935921, guid: 3dfed86179e1fe6458e6bd39c9e498a2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230541161185935921, guid: 3dfed86179e1fe6458e6bd39c9e498a2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230541161185935921, guid: 3dfed86179e1fe6458e6bd39c9e498a2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230541161185935921, guid: 3dfed86179e1fe6458e6bd39c9e498a2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230541161185935921, guid: 3dfed86179e1fe6458e6bd39c9e498a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230541161185935921, guid: 3dfed86179e1fe6458e6bd39c9e498a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230541161185935921, guid: 3dfed86179e1fe6458e6bd39c9e498a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3dfed86179e1fe6458e6bd39c9e498a2, type: 3}
 --- !u!1 &730858298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,8 +1557,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -100, y: 25}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -120.34207, y: 174}
+  m_SizeDelta: {x: 240.684, y: -312.4238}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1625023234
 MonoBehaviour:
@@ -1526,15 +1583,15 @@ MonoBehaviour:
   m_text: "El sodio es un metal muy reactivo. Cuando se mezcla con agua, produce
     hidr\xF3xido de sodio y gas hidr\xF3geno, liberando mucho calor."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc63591584ba3b047a9abb86358606ce, type: 2}
+  m_sharedMaterial: {fileID: -4390734839353692636, guid: dc63591584ba3b047a9abb86358606ce, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283712890
+  m_fontColor: {r: 0.47843137, g: 0.27058825, b: 0.32941177, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1551,14 +1608,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60.45
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_fontStyle: 1
+  m_HorizontalAlignment: 16
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1715,3 +1772,4 @@ SceneRoots:
   - {fileID: 182645049}
   - {fileID: 1705028863}
   - {fileID: 1311507453}
+  - {fileID: 659651138}
