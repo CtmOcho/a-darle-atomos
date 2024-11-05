@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RainBehavior : MonoBehaviour
@@ -9,6 +10,7 @@ public class RainBehavior : MonoBehaviour
     public float vibrationSpeed = 5f; // Velocidad de la vibración
     public bool isVibrating = false; // Estado de vibración de la molécula
     public string moleculeType; // Tipo de molécula: "Agua" o "Etanol"
+    public float minHeight = 0f;
 
     private Rigidbody[] particleRigidbodies;
     public float currentTemperature;
@@ -46,7 +48,7 @@ public class RainBehavior : MonoBehaviour
 
             // Generar vibración con un sesgo hacia el eje Y positivo solo si se ha alcanzado la temperatura máxima
             Vector3 vibration;
-            if (isMaxTemperatureReached)
+            if (isMaxTemperatureReached && rb.gameObject.transform.position.y > minHeight)
             {
                 vibration = new Vector3(
                     Random.Range(-1f, 1f) * vibrationIntensity * Time.deltaTime,

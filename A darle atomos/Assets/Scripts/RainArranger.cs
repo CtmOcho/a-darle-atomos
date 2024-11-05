@@ -143,22 +143,18 @@ public class RainArranger : MonoBehaviour
 
     void ShowExplanation()
     {
-        explanationText.text = "Las moléculas están en una mezcla. A medida que aumentas la temperatura con el slider, las moléculas comienzan a vibrar simulando su separación.";
+        explanationText.text = "Las moléculas están en una mezcla. A medida que disminuyes la temperatura con el slider, las moléculas comienzan a vibrar simulando su separación.";
     }
 
     void UpdateExplanationText(float temperature)
     {
-        if (temperature < 80f)
+        if (temperature > 60f)
         {
-            explanationText.text = "Las moléculas están mezcladas y vibran lentamente debido al estado líquido.\nA menos de 80º, la vibración aumenta lentamente, ya que las dos moleculas siguen siendo estables.";
+            explanationText.text = "Las moléculas están mezcladas y vibran rapidamente debido al estado líquido.";
         }
-        else if (temperature >= 80f && temperature < 100f)
+        else if (temperature <= 60f)
         {
-            explanationText.text = "Al alcanzar los 80º, se llega al punto de ebullición del etanol, por lo que empezará a evaporarse, aumentando la vibración de sus moleculas.\nLa temperatura se mantiene constante hasta que se evapora todo el etanol";
-        }
-        else if (temperature >= 100f)
-        {
-            explanationText.text = "Al alcanzar los 100º, se alcanza el punto de ebullición del Agua, donde se inicia a evaporar: las moléculas se separan y vibran intensamente, representando el estado gaseoso.";
+            explanationText.text = "Al alcanzar los 60º, el yoduro de plomo se comienza a separar del nitrato de potasio";
         }
     }
 }
