@@ -306,6 +306,20 @@ app.put('/updateCurso/:course/insertStudents',async(req,res) => {
             res.status(404).send(student +" no encontrado");
             return;
         }
+        /*
+        if (studentAccont.curso != null){
+            const deleteCourse = await Cursos.findOneAndUpdate(
+                { course: studentAccont.curso },
+                { $pull: { students: student} },
+                { new: true, runValidators: true }
+            );
+            const deleteAccCourse = await Account.findOneAndUpdate(
+                { username: student },
+                { $pull: { students: studentAccont.curso} },
+                { new: true, runValidators: true }
+            );
+        }
+        */
     }
 
     try {

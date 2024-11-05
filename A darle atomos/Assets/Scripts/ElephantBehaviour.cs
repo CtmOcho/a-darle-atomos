@@ -1,10 +1,16 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
+/*
+Al agregar el KI, este actúa como catalizador de la descomposición del peróxido de hidrógeno, acelerando la reacción de forma inmediata. El peróxido de hidrógeno se descompone rápidamente en agua y oxígeno, liberando burbujas de oxígeno que el jabón atrapa para formar una gran cantidad de espuma. Esta reacción también es exotérmica, lo que genera calor y hace que la espuma esté tibia. Al finalizar, quedan agua, jabón y el KI sin consumir, junto con la espuma formada por el oxígeno atrapado.
+*/
 
 public class ElephantBehaviour : MonoBehaviour
 {
     public GameObject oxygenPrefab; // Prefab para el O₂ resultante
     public GameObject waterPrefab; // Prefab para el H₂O resultante
+    public TMP_Text explanationText;
+
 
     private bool reactionOccurred = false; // Bandera para verificar si la reacción ya ocurrió
 
@@ -13,7 +19,7 @@ public class ElephantBehaviour : MonoBehaviour
         // Verificar si la reacción ya ocurrió
         if (reactionOccurred) return;
 
-        Debug.Log("Colisiona");
+        explanationText.text = "Al agregar el KI, este actúa como catalizador para la descomposición del peróxido de hidrógeno, acelerando la reacción. El peróxido de hidrógeno se descompone rápidamente en agua y oxígeno, liberando burbujas de oxígeno que el jabón atrapa para formar una gran cantidad de espuma. Esta reacción es exotérmica, por lo que genera calor y hace que la espuma esté tibia.";
 
         // Verificar si el objeto colisionado es el KI y este objeto es H₂O₂
         if (other.gameObject.CompareTag("KI") && gameObject.CompareTag("H2O2"))

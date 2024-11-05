@@ -49,23 +49,7 @@ public class ElephantArranger : MonoBehaviour
 
     void ShowExplanation()
     {
-        explanationText.text = "Esta es una solución de agua pura. Ajusta el pH con el deslizador para observar cómo las moléculas reaccionan en función de la acidez o alcalinidad.";
-    }
-
-    public void UpdateExplanationText(float pH)
-    {
-        if (pH < 7)
-        {
-            explanationText.text = "El pH es ácido. A medida que el pH disminuye, las moléculas de agua liberan protones (H+), aumentando la concentración de iones de hidrógeno.";
-        }
-        else if (pH == 7)
-        {
-            explanationText.text = "El pH es neutro. El agua está en equilibrio, sin una tendencia ácida o básica significativa.";
-        }
-        else if (pH > 7)
-        {
-            explanationText.text = "El pH es básico. A medida que el pH aumenta, se reduce la concentración de protones (H+) y las moléculas pueden formar iones hidróxido (OH-).";
-        }
+        explanationText.text = "Solo está el peróxido de hidrógeno y el jabón líquido. El peróxido de hidrógeno es químicamente inestable y tiende a descomponerse lentamente en agua y oxígeno, pero este proceso es muy lento. El jabón está presente en la mezcla, pero no interviene activamente en ninguna reacción.";
     }
 
     // Método para activar la gravedad en todos los objetos instanciados

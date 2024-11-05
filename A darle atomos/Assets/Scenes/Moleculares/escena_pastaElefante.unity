@@ -1594,6 +1594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oxygenPrefab: {fileID: 1795286415906877743, guid: 5263f1635e3d0dc41a2d56eeb1256aab, type: 3}
   waterPrefab: {fileID: 1395592041846249462, guid: f3730ef848d582b4598876f88aea9de0, type: 3}
+  explanationText: {fileID: 1495802495}
 --- !u!65 &1398259748
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2112,7 +2113,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4283976319
   m_fontColor: {r: 0.49803922, g: 0.2901961, b: 0.34509805, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
