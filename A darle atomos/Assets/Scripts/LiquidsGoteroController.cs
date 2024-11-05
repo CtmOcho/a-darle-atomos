@@ -23,6 +23,8 @@ public class LiquidsGoteroController : MonoBehaviour
     private Renderer sourceRenderer;
 
 
+    public bool isElephantExp;
+    public bool isSoap;
 
     public float initialScaleZ = 1f; // Corregimos para usar el valor Z del localScale inicial
     public float scaleController;
@@ -130,6 +132,25 @@ public class LiquidsGoteroController : MonoBehaviour
                         dropper.liquidColor = liquidColor;
                         dropper.elementData = elementData;
                     }
+
+                    if(isElephantExp){
+                        GameObject dropperLiquidObject = GameObject.FindWithTag("dropperLiquid");
+                        if (dropperLiquidObject != null)
+                            {
+                                // Obtenemos el Renderer del objeto que tiene el tag
+                                Renderer dropperLiquidRenderer = dropperLiquidObject.GetComponent<Renderer>();
+
+                                if (dropperLiquidRenderer != null)
+                                {
+                                    // Asignamos el color del material
+                                    dropperLiquidRenderer.material.SetColor("_Color", liquidColor);
+                                }
+                            }
+                            dropper.isElephantExp = true;
+                            dropper.liquidColor = liquidColor;
+                        }
+                    
+
                     // Aquí reducimos directamente la escala sin corrutinas
                     DecreaseScale();
                 }

@@ -13,5 +13,8 @@ public class DropInformation : MonoBehaviour
     public string elementData;
     public bool isChameleonExp;
     public Color liquidColor;
-
+    public bool isElephantExp;
+    public bool isSoap;
+    public bool isDust;
+    public bool isColorant;
 }

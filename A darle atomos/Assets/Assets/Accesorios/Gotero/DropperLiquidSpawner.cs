@@ -19,6 +19,10 @@ public class DropperLiquidSpawner : MonoBehaviour
     public float temp;
     public string elementData;
     
+    public bool isElephantExp;
+    public bool isSoap; 
+    public bool isColorant;
+
     public bool isChameleonExp;
     public Color liquidColor;
     
@@ -157,7 +161,41 @@ public class DropperLiquidSpawner : MonoBehaviour
 
         }
 
+        if(isElephantExp){
+            if (Mathf.Abs(Vector3.Dot(transform.up, Vector3.down)) < 0.8f && currentObjectsToSpawn > 0 && dropperLiquid.transform.localScale.z > 0.002f && isInValidZone)
+            {
+                // Reducimos la escala del líquido (vaciado)
+                SetLiquidScale(dropperLiquid.transform.localScale.z - decreaseAmount);
+                currentDropperVolume -= decreaseAmount * maxDropperVolume; // Reducimos el volumen actual según el vaciado
 
+                // Creamos la posición donde instanciar el drop
+                Vector3 pos = new Vector3(transform.position.x, transform.position.y - 0.01f, transform.position.z);
+
+                // Instanciamos el drop
+                GameObject drop = Instantiate(objectToSpawn, pos, Quaternion.identity);
+                Renderer dropRenderer = drop.GetComponent<Renderer>();
+                if (dropRenderer != null)
+                {
+                    // Asignamos el color del líquido al drop
+                    dropRenderer.material.SetColor("_Color", liquidColor);
+                }
+                // Actualizamos la información del drop (gota)
+                DropInformation dropInfo = drop.GetComponent<DropInformation>();
+                if (dropInfo != null)
+                {
+                    dropInfo.liquidColor = liquidColor;
+                    dropInfo.isElephantExp = isElephantExp;
+                    dropInfo.isSoap = isSoap;
+                    dropInfo.isColorant = isColorant;
+                }
+
+                Destroy(drop, 1);
+                currentObjectsToSpawn--; // Disminuimos la cantidad de objetos en el gotero
+                SetDropperFalse();
+
+            }
+
+        }
         // Verificamos si el gotero está lleno
         if (currentObjectsToSpawn >= objectQuantity)
         {
