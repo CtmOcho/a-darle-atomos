@@ -848,6 +848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 526675721}
   - component: {fileID: 526675722}
+  - component: {fileID: 526675723}
   m_Layer: 0
   m_Name: Arranger
   m_TagString: Untagged
@@ -894,6 +895,20 @@ MonoBehaviour:
   pHSlider: {fileID: 749706480}
   pHText: {fileID: 54575910}
   explanationText: {fileID: 1486692576}
+  labCompleted: 0
+--- !u!114 &526675723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526675720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9b62ddb2064ff40a280740372797fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrangerScript: {fileID: 526675722}
 --- !u!1 &609450271
 GameObject:
   m_ObjectHideFlags: 0
@@ -2059,7 +2074,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc63591584ba3b047a9abb86358606ce, type: 2}
   m_sharedMaterial: {fileID: -4390734839353692636, guid: dc63591584ba3b047a9abb86358606ce, type: 2}
@@ -2086,7 +2101,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

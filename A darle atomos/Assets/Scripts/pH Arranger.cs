@@ -19,6 +19,8 @@ public class pHArranger : MonoBehaviour
     public TMP_Text pHText;
     public TMP_Text explanationText;
     private GameObject[] molecules;
+    
+    public bool labCompleted = false;
 
     void Start()
     {
@@ -103,6 +105,7 @@ void UpdateExplanationText(float pH)
     }
     else if (pH > 7)
     {
+        labCompleted = true;
         explanationText.text = "El pH es básico. A medida que el pH aumenta, se reduce la concentración de protones (H+) y las moléculas pueden formar iones hidróxido (OH-).";
     }
 }
