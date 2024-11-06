@@ -1140,8 +1140,9 @@ GameObject:
   m_Component:
   - component: {fileID: 909707892}
   - component: {fileID: 909707893}
+  - component: {fileID: 909707894}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Arranger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1156,7 +1157,7 @@ Transform:
   m_GameObject: {fileID: 909707890}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.58, y: -3.77, z: 0}
+  m_LocalPosition: {x: -13.58, y: 3.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1176,9 +1177,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ethanolPrefab: {fileID: 7816491426822663238}
   waterPrefab: {fileID: 6105889458519847103}
-  sizeX: 5
-  sizeY: 3
-  sizeZ: 5
+  sizeX: 4
+  sizeY: 2
+  sizeZ: 4
   spacingX: 4
   spacingY: 4
   spacingZ: 4
@@ -1186,8 +1187,22 @@ MonoBehaviour:
   temperatureSlider: {fileID: 1628478376}
   temperatureText: {fileID: 646634908}
   explanationText: {fileID: 2119610168}
+  labCompleted: 0
   ethanolTargetHeight: 10
   ethanolTargetTemperature: 81
+--- !u!114 &909707894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909707890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: babbc2858e2290a4ca9f7bd8cd69bd36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrangerScript: {fileID: 909707893}
 --- !u!1001 &1111541343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1711,7 +1726,7 @@ MonoBehaviour:
   m_MinValue: 40
   m_MaxValue: 101
   m_WholeNumbers: 0
-  m_Value: 95
+  m_Value: 80
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2143,12 +2158,28 @@ PrefabInstance:
       value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 3744780079911432211, guid: 95211315c5e40784c9a4202e653d8656, type: 3}
+      propertyPath: isVibrating
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744780079911432211, guid: 95211315c5e40784c9a4202e653d8656, type: 3}
       propertyPath: maxTemperature
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3744780079911432211, guid: 95211315c5e40784c9a4202e653d8656, type: 3}
+      propertyPath: vibrationSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744780079911432211, guid: 95211315c5e40784c9a4202e653d8656, type: 3}
+      propertyPath: currentTemperature
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744780079911432211, guid: 95211315c5e40784c9a4202e653d8656, type: 3}
       propertyPath: initialTemperature
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744780079911432211, guid: 95211315c5e40784c9a4202e653d8656, type: 3}
+      propertyPath: vibrationIntensity
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6002087338012624229, guid: 95211315c5e40784c9a4202e653d8656, type: 3}
       propertyPath: m_Name
@@ -2220,6 +2251,10 @@ PrefabInstance:
       value: 102
       objectReference: {fileID: 0}
     - target: {fileID: 9112991477572739086, guid: 51ffedf11e71a314cba771fb946ccf25, type: 3}
+      propertyPath: vibrationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112991477572739086, guid: 51ffedf11e71a314cba771fb946ccf25, type: 3}
       propertyPath: currentTemperature
       value: 80
       objectReference: {fileID: 0}
@@ -2230,6 +2265,10 @@ PrefabInstance:
     - target: {fileID: 9112991477572739086, guid: 51ffedf11e71a314cba771fb946ccf25, type: 3}
       propertyPath: vibrationIntensity
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112991477572739086, guid: 51ffedf11e71a314cba771fb946ccf25, type: 3}
+      propertyPath: maxVibrationIntensity
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

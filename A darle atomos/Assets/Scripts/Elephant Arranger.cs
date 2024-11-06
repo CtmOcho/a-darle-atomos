@@ -15,6 +15,8 @@ public class ElephantArranger : MonoBehaviour
     public float spacingZ = 3.0f;
     public bool H2O2 = false;
 
+    public bool labCompleted = false;
+
     public TMP_Text explanationText;
     private List<GameObject> molecules = new List<GameObject>(); // Lista para almacenar los objetos instanciados
 
@@ -23,7 +25,26 @@ public class ElephantArranger : MonoBehaviour
         ArrangeMolecules();
         ShowExplanation();
     }
-
+void Update()
+    {
+        // Verificar solo si H2O2 es false
+        if (!H2O2)
+        {
+            foreach (GameObject molecule in molecules)
+            {
+                // Verificar si la posición en y es menor o igual a -7
+                if (molecule.transform.position.y <= -7f)
+                {
+                    Rigidbody rb = molecule.GetComponent<Rigidbody>();
+                    if (rb != null)
+                    {
+                        rb.useGravity = false;
+                        rb.velocity = Vector3.zero;
+                    }
+                }
+            }
+        }
+    }
     void ArrangeMolecules()
     {
         Vector3 origin = transform.position - new Vector3(sizeX - 1, sizeY - 1, sizeZ - 1) * spacing / 2;
@@ -55,12 +76,14 @@ public class ElephantArranger : MonoBehaviour
     // Método para activar la gravedad en todos los objetos instanciados
     public void ActivateGravity()
     {
-        foreach (GameObject molecule in molecules)
-        {
-            Rigidbody rb = molecule.GetComponent<Rigidbody>();
-            if (rb != null)
+        if(!labCompleted){
+            foreach (GameObject molecule in molecules)
             {
-                rb.useGravity = true;
+                Rigidbody rb = molecule.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.useGravity = true;
+                }
             }
         }
     }

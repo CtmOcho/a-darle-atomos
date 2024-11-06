@@ -176,6 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5181143974144266266}
   - component: {fileID: 1971132602877919257}
+  - component: {fileID: 6237793759562591438}
   m_Layer: 0
   m_Name: H2
   m_TagString: Untagged
@@ -227,3 +228,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6237793759562591438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8849073453071165346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f37681f06383e489cf892096538bd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vibrationIntensity: 1
+  maxVibrationIntensity: 100
+  vibrationSpeed: 30
+  isVibrating: 1

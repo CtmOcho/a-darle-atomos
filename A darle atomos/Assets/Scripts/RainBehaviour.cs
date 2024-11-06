@@ -36,7 +36,6 @@ public class RainBehavior : MonoBehaviour
             Vibrate();
         }
 
-        MaintainStructure(); // Intentar mantener la estructura unida
     }
 
     void Vibrate()
@@ -55,6 +54,7 @@ public class RainBehavior : MonoBehaviour
                     -Mathf.Abs(Random.Range(0f, 1f)) * vibrationIntensity * Time.deltaTime * 0.7f, // Sesgo más fuerte hacia el eje Y positivo
                     Random.Range(-1f, 1f) * vibrationIntensity * Time.deltaTime
                 );
+                AttractNearbyMolecules();
             }
             else
             {
@@ -143,7 +143,7 @@ public class RainBehavior : MonoBehaviour
     public void AttractNearbyMolecules()
     {
         // Encuentra todas las moléculas cercanas y atrae esta molécula hacia ellas
-        Collider[] nearbyMolecules = Physics.OverlapSphere(transform.position, 0.45f); // Radio ajustable
+        Collider[] nearbyMolecules = Physics.OverlapSphere(transform.position, 1.5f); // Radio ajustable
 
         foreach (Collider collider in nearbyMolecules)
         {
@@ -155,7 +155,7 @@ public class RainBehavior : MonoBehaviour
                 Vector3 directionToOther = (otherMolecule.transform.position - transform.position).normalized;
                 foreach (Rigidbody rb in particleRigidbodies)
                 {
-                    rb.velocity += directionToOther * vibrationSpeed * 0.3f * Time.deltaTime;
+                    rb.velocity += directionToOther * vibrationSpeed * 1.0f * Time.deltaTime;
                 }
             }
         }

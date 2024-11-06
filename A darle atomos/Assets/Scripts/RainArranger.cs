@@ -19,6 +19,8 @@ public class RainArranger : MonoBehaviour
     public TMP_Text explanationText;
     private GameObject[] molecules;
 
+    public bool labCompleted = false;
+
     private bool hasReachedMaxTemperature = false;
     private bool ethanolReachedHeight = false;  // Estado para saber si el etanol alcanzó la altura deseada
 
@@ -154,6 +156,7 @@ public class RainArranger : MonoBehaviour
         }
         else if (temperature <= 60f)
         {
+            labCompleted = true;
             explanationText.text = "Al alcanzar los 60º, el yoduro de plomo se comienza a separar del nitrato de potasio";
         }
     }

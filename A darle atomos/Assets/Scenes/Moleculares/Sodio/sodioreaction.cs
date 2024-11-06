@@ -15,6 +15,8 @@ public class SodiumWaterReaction : MonoBehaviour
     public TMP_Text buttonText; 
     public TMP_Text reactionText;
 
+    public bool labCompleted = false;
+
     private bool isReleased = false;
 
     private void Start()
@@ -44,6 +46,7 @@ public class SodiumWaterReaction : MonoBehaviour
         if (!isReleased)
         {
             ReleaseSodium();
+            labCompleted = true;
             buttonText.text = "Re-establecer";
             reactionText.text = "El sodio reaccionó con el agua formando hidróxido de sodio y liberando hidrógeno. La ecuación es: 2Na + 2H2O -> 2NaOH + H2. El calor generado puede incluso encender el hidrógeno, generando la explosión si la cantidad de hidrógeno que se incendia en un instante es suficiente";
             isReleased = true;
@@ -104,7 +107,7 @@ public class SodiumWaterReaction : MonoBehaviour
                 Rigidbody rb = sodium.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
-                    rb.velocity = new Vector3(0, -10f, 0);
+                    rb.velocity = new Vector3(0, -100f, 0);
                 }
             }
         }
