@@ -155,8 +155,8 @@ public class ElephantBehaviour : MonoBehaviour
 
             StartCoroutine(AttractNearbyMolecules(o2_m1, o2_m2, 3f));
 
-            o2Rb1.velocity = new Vector3(0, 20.0f, 0);
-            o2Rb2.velocity = new Vector3(0, 20.0f, 0);
+            o2Rb1.velocity = new Vector3(0, 100.0f, 0);
+            o2Rb2.velocity = new Vector3(0, 100.0f, 0);
         }
         else
         {

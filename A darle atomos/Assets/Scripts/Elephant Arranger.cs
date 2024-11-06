@@ -83,6 +83,7 @@ void Update()
                 if (rb != null)
                 {
                     rb.useGravity = true;
+                    rb.velocity = new Vector3(0, -75.0f, 0);;
                 }
             }
         }

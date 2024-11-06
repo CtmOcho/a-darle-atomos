@@ -244,7 +244,7 @@ MonoBehaviour:
     musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
   - sceneName: destilacion
     musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
-  - sceneName: Escena_acido-base
+  - sceneName: escena_acidobase
     musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
   - sceneName: escena_bohr
     musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
@@ -263,4 +263,8 @@ MonoBehaviour:
   - sceneName: sublimacion
     musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
   - sceneName: tabla_periodica_color
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: Laboratorio_elefante
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: escena_pastaElefante
     musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}

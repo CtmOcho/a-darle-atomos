@@ -233,19 +233,16 @@ public class DropCollisionController : MonoBehaviour
                     
                 }
             }else{
-                if(dropInfo.isSoap && !hasPeroxide){
+                if(dropInfo.isSoap){
                     hasSoap = true;
                 }
-                if(dropInfo.isDust && hasSoap){
+
+                if(dropInfo.isDust){
                     hasPeroxide = true;
-                    
-                }else{
                     hasSoap = true;
-                    hasPeroxide = true;
-
                 }
-
-                if(dropInfo.isColorant){
+                
+                if (dropInfo.isColorant){
                     liquidColor = dropInfo.liquidColor;
                 }
             }
