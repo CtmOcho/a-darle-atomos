@@ -57,5 +57,9 @@ namespace Navigation1
                 Debug.LogWarning("No hay una escena anterior guardada en PlayerPrefs.");
             }
         }
+        public void OnApplicationQuit()
+        {
+            Application.Quit();
+        }
     }
 }

@@ -177,7 +177,7 @@ public class NavbarController : MonoBehaviour
                 {
                     RectTransform newButtonRect = newButtonTransform.GetComponent<RectTransform>();
                     newButtonRect.anchoredPosition = new Vector2(200, -300); // Ajustar la posición al área inferior derecha
-                    newButtonRect.sizeDelta = new Vector2(200, 100); // Tamaño ajustado para el área azul
+                    newButtonRect.sizeDelta = new Vector2(300, 100); // Tamaño ajustado para el área azul
                     newButtonTransform.gameObject.SetActive(true); // Mostrar el nuevo botón
                 }
 
@@ -187,7 +187,7 @@ public class NavbarController : MonoBehaviour
                 {
                     RectTransform backButtonRect = backButtonTransform.GetComponent<RectTransform>();
                     backButtonRect.anchoredPosition = new Vector2(-200, -300); // Ajustar la posición a la izquierda del nuevo botón
-                    backButtonRect.sizeDelta = new Vector2(200, 100); // Tamaño ajustado para el back button
+                    backButtonRect.sizeDelta = new Vector2(300, 100); // Tamaño ajustado para el back button
                     backButtonTransform.gameObject.SetActive(true); // Mostrar el botón de volver
                 }
 
