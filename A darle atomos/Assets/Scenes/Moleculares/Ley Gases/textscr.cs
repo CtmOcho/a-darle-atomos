@@ -17,11 +17,9 @@ public class TypewriterEffectTMP : MonoBehaviour
 
     IEnumerator ShowText()
     {
-        for (int i = 0; i < fullText.Length; i++)
-        {
-            currentText = fullText.Substring(0, i + 1);
-            uiText.text = currentText;
+
+            uiText.text =fullText;
             yield return new WaitForSeconds(delay);
-        }
+        
     }
 }
