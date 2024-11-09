@@ -25,33 +25,26 @@ const StudentQuizDetails = ({ username, onNavigateBack }) => {
   useEffect(() => {
     const fetchQuizData = async () => {
       try {
-        const quizzes = await Promise.all(
-          Array.from({ length: 10 }, async (_, index) => {
-            const response = await fetch(`${config.backendUrl}/quiz/${username}/${index}`, {
-              headers: {
-                'ngrok-skip-browser-warning': 'true',
-              },
-            });
-
-            if (response.ok) {
-              const data = await response.json();
-              return data; // Se espera un array de 6 elementos
-            } else {
-              console.error(`Error al obtener el quiz ${index}`);
-              return Array(6).fill(0); // Fallback en caso de error
-            }
-          })
-        );
-
-        setQuizData(quizzes);
+        const response = await fetch(`${config.backendUrl}/quiz/${username}`, {
+          headers: {
+            'ngrok-skip-browser-warning': 'true',
+          },
+        });
+  
+        if (response.ok) {
+          const quizzes = await response.json();
+          setQuizData(quizzes); // Ahora solo establece los datos de los quizzes directamente
+        } else {
+          console.error('Error al obtener los datos del usuario');
+        }
       } catch (error) {
         console.error('Error al conectarse con el servidor', error);
       }
     };
-
+  
     fetchQuizData();
   }, [username]);
-
+  
   const renderQuizRow = (experimentIndex) => (
     <tr key={experimentIndex}>
       <td className="first-column col-2">{carouselItems[experimentIndex]}</td>

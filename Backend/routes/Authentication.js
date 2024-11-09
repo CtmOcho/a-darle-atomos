@@ -555,17 +555,26 @@ app.get('/getStudent/:user/prog/:progressvalue', async (req, res) => {
     }
 });
 
-app.get('/quiz/:user/:test', async (req, res) => {
+app.get('/quiz/:user', async (req, res) => {
     const user = req.params.user;
-    const test = req.params.test;
     const studentSearch = await Quiz.findOne({username: user});
     if (studentSearch == null){
         res.status(404).send('Usuario no encontrado');
         return;
     }
-    //console.log(test);
-    //console.log(studentSearch);
-    res.status(200).send(studentSearch[test]);
+        const quizzes = [
+            studentSearch.quiz1,
+            studentSearch.quiz2,
+            studentSearch.quiz3,
+            studentSearch.quiz4,
+            studentSearch.quiz5,
+            studentSearch.quiz6,
+            studentSearch.quiz7,
+            studentSearch.quiz8,
+            studentSearch.quiz9,
+            studentSearch.quiz10,
+          ];
+          res.status(200).send(quizzes);
 });
 
 app.put('/updateQuiz/:user/:test/:type/:values', async (req, res) => {

@@ -51,12 +51,10 @@
     color:black;
   }
   .progress-page-container    .table  .completed {
-    background-color: #d4edda; /* Verde claro para completado */
     color: #155724; /* Texto verde oscuro */
   }
   
   .progress-page-container    .table  .not-completed {
-    background-color: #f8d7da; /* Rojo claro para no completado */
     color: #721c24; /* Texto rojo oscuro */
   }
   .progress-page-container    .table-responsive {

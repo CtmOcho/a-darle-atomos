@@ -20,7 +20,7 @@ public class ElephantLabProgress : MonoBehaviour
     {
         if(!labCompleted){
             if(collisionControllerScript.elephantLabCompleted ){
-                login_script.OnPutStudentProgress(47);
+                login_script.OnPutStudentProgress(46);
                 labCompleted = true;
             }
         }
