@@ -9,7 +9,7 @@ public class DropCollisionController : MonoBehaviour
     public bool hasPHDetector; // Indica si el detector universal está presente
     private float totalMolesHPlus; // Moles totales de H+ en la solución
     public bool isPHExp;
-    private ChangeColor changeColorScript;
+    public ChangeColor changeColorScript;
     private SolutionPHCalculator phCalculator; // Referencia al controlador SolutionPHCalculator
     public bool isRainExp;
     public bool rainExpDustController = false;

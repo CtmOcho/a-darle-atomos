@@ -143,7 +143,7 @@ MonoBehaviour:
   objectRenderer: {fileID: 86898626}
   objectRendererTop: {fileID: 2011753936}
   targetColor: {r: 0, g: 0, b: 0, a: 0}
-  transitionSpeed: 0.01
+  transitionSpeed: 0.4
   changeTime: 1
   boolPHDetector: 0
   isChameleonExp: 0
@@ -605,6 +605,8 @@ MonoBehaviour:
   elementData: 
   isChameleonExp: 0
   liquidColor: {r: 0, g: 0, b: 0, a: 0}
+  isElephantExp: 0
+  isSoap: 0
   initialScaleZ: 1
   scaleController: 0
 --- !u!65 &304636713
@@ -1081,6 +1083,8 @@ MonoBehaviour:
   elementData: 
   isChameleonExp: 0
   liquidColor: {r: 0, g: 0, b: 0, a: 0}
+  isElephantExp: 0
+  isSoap: 0
   initialScaleZ: 1
   scaleController: 0
 --- !u!65 &1565522748
@@ -1935,6 +1939,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 86898622}
     - target: {fileID: 4119255774875427087, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+      propertyPath: liquidHeight
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119255774875427087, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
       propertyPath: objectRenderer
       value: 
       objectReference: {fileID: 86898626}
@@ -1999,7 +2007,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7155170115241991860, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+      propertyPath: isElephantExp
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155170115241991860, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+      propertyPath: initialMaxVolume
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155170115241991860, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
       propertyPath: hasPhenolphtalein
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155170115241991860, guid: c0947d7879bed984da4c6771476e2e48, type: 3}
+      propertyPath: actualLiquidVolume
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8353616211051867630, guid: c0947d7879bed984da4c6771476e2e48, type: 3}

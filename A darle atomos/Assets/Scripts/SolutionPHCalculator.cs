@@ -4,23 +4,40 @@ using UnityEngine;
 
 public class SolutionPHCalculator : MonoBehaviour
 {
-    // Método para calcular el nuevo pH usando dilución
     public float CalculateNewPH(float currentPH, float currentVolume, float addedPH, float addedVolume)
     {
-        // Convertimos el pH actual y el pH agregado en concentraciones de H+ y OH-
-        float currentHPlusConcentration = Mathf.Pow(10, -currentPH); // Concentración de H+ en la solución actual
-        float addedHPlusConcentration = Mathf.Pow(10, -addedPH); // Concentración de H+ en la sustancia agregada
+        // Convertimos pH en concentraciones de H+ y OH-
+        float currentHPlusConcentration = Mathf.Pow(10, -currentPH);
+        float currentOHMinusConcentration = Mathf.Pow(10, -(14 - currentPH));
+        float addedHPlusConcentration = Mathf.Pow(10, -addedPH);
+        float addedOHMinusConcentration = Mathf.Pow(10, -(14 - addedPH));   
 
-        // Calculamos el nuevo volumen total de la mezcla
+        // Calcular nueva concentración de H+ y OH- considerando neutralización
+        float newHPlusConcentration = (currentHPlusConcentration * currentVolume + addedHPlusConcentration * addedVolume);
+        float newOHMinusConcentration = (currentOHMinusConcentration * currentVolume + addedOHMinusConcentration * addedVolume);
+
+        // Ajustar concentraciones por neutralización mutua
+        if (newHPlusConcentration > newOHMinusConcentration)
+        {
+            newHPlusConcentration -= newOHMinusConcentration;
+            newOHMinusConcentration = 0;
+        }
+        else
+        {
+            newOHMinusConcentration -= newHPlusConcentration;
+            newHPlusConcentration = 0;
+        }
+
+        // Calcular el nuevo volumen total
         float totalVolume = currentVolume + addedVolume;
 
-        // Calculamos la concentración promedio de H+ usando la dilución
-        float newHPlusConcentration = (currentHPlusConcentration * currentVolume + addedHPlusConcentration * addedVolume) / totalVolume;
+        // Calculamos la concentración final de H+ y OH- usando dilución
+        float finalHPlusConcentration = newHPlusConcentration / totalVolume;
+        float finalOHMinusConcentration = newOHMinusConcentration / totalVolume;
 
-        // Calculamos el nuevo pH a partir de la nueva concentración de H+
-        float newPH = -Mathf.Log10(newHPlusConcentration);
+        // Determina el pH a partir de las concentraciones finales
+        float newPH = finalHPlusConcentration > 0 ? -Mathf.Log10(finalHPlusConcentration) : 14f + Mathf.Log10(finalOHMinusConcentration);
 
-        // Aseguramos que el pH esté dentro del rango (0 a 14)
         return Mathf.Clamp(newPH, 0f, 14f);
     }
 }
