@@ -90,7 +90,7 @@ public class Glass : MonoBehaviour
             return;
         }
         
-        temperature -= tempStep / 10;
+        temperature -= tempStep / 2;
         for (int i = contents.Count - 1; i >= 0; i--)
         {
             contents[i].GetComponent<IodineReaction>().temperature = temperature;
