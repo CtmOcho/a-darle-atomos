@@ -2136,11 +2136,11 @@ MonoBehaviour:
   moleculePrefabContainer: {fileID: 371616212088344276}
   sizeX: 3
   sizeY: 1
-  sizeZ: 3
+  sizeZ: 1
   spacing: 1
-  spacingX: 3
-  spacingY: 2
-  spacingZ: 3
+  spacingX: 6
+  spacingY: 5
+  spacingZ: 6
   H2O2: 0
   ChameleonlabCompleted: 0
   imagenColor: {fileID: 1164764061}
@@ -2154,7 +2154,7 @@ Transform:
   m_GameObject: {fileID: 1763222957}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7.9}
+  m_LocalPosition: {x: -5.75, y: 0, z: 7.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -102,10 +102,7 @@ public class ChameleonArranger : MonoBehaviour
             explanation = "El dióxido de manganeso (MnO2) se oxida a hipomanganato de potasio (K2MnO4) al ganar potasio y oxígeno adicional.";
             imagenColor.color = new Color(0.0f, 0.0f, 1.0f);
         }
-        else
-        {
-            explanation = "Estado actual de la molécula.";
-        }
+        
 
         explanationText.text = explanation;
     }
