@@ -13,6 +13,8 @@ public class ChangeColor : MonoBehaviour
     public float changeTime = 1f;
     public bool boolPHDetector;
 
+     
+
 
     public bool isChameleonExp = false;
     public string currentCompound;
@@ -46,7 +48,6 @@ public class ChangeColor : MonoBehaviour
         {
             objectRenderer.material.color = Color.Lerp(initialColor, targetColor, changeTime);
             objectRendererTop.material.color = Color.Lerp(initialColorTop, targetColor, changeTime);
-
             changeTime += Time.deltaTime * transitionSpeed;
 
             yield return new WaitForUpdate();

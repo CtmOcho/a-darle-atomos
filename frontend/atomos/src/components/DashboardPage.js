@@ -13,7 +13,7 @@ import image6 from '../media/lab-sodio.png';
 import image7 from '../media/camaleon-lab.png';
 import image8 from '../media/ph-lab.png';
 import image9 from '../media/lluvia-lab.png';
-import image10 from '../media/lluvia-lab.png';
+import image10 from '../media/elefante-lab.png';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const experiments = {

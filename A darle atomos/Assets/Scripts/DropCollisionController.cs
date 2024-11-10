@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class DropCollisionController : MonoBehaviour
 {
@@ -25,7 +28,8 @@ public class DropCollisionController : MonoBehaviour
     private Renderer thisRenderer;
     public bool hasHidrox = false;
     public bool hasPermang = false;
-   
+    public TMP_Text explanationText;
+
     public bool hasPotasiumSol;
 
 
@@ -99,10 +103,7 @@ public class DropCollisionController : MonoBehaviour
                 transform.localScale = newScale;
                 weirdTransformBool = false;
             }
-            if(hasHidrox && hasPermang){
-                
-                changeColorScript.ColorChange();
-            }
+
         }
         if(isElephantExp){
             if(hasPeroxide && hasSoap && !elephantLabCompleted)
@@ -226,8 +227,10 @@ public class DropCollisionController : MonoBehaviour
                     elementData = dropInfo.elementData;
                     liquidColor = dropInfo.liquidColor;
                     if(elementData == "permanganatopotasio"){
+                        explanationText.text = "KMnO4 + NaOH";
                         hasPermang = true;
                     }else{
+                        explanationText.text = "NaOH";
                         hasHidrox = true;
                     }
                     

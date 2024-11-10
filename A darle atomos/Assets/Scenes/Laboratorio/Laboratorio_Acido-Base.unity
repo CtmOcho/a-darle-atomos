@@ -1451,6 +1451,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.16
       objectReference: {fileID: 0}
+    - target: {fileID: 1126699490087924098, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1153481989648263809, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1473,7 +1477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1266365022374424013, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_Size.x
-      value: 0.7305622
+      value: 1.087625
       objectReference: {fileID: 0}
     - target: {fileID: 1266365022374424013, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_Size.y
@@ -1481,19 +1485,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1266365022374424013, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_Size.z
-      value: 1.1073041
+      value: 1.389885
       objectReference: {fileID: 0}
     - target: {fileID: 1266365022374424013, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_Center.x
-      value: 0.17420948
+      value: 0.33373535
       objectReference: {fileID: 0}
     - target: {fileID: 1266365022374424013, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_Center.y
-      value: -0.22257201
+      value: -0.22257197
       objectReference: {fileID: 0}
     - target: {fileID: 1266365022374424013, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_Center.z
-      value: 0.08707523
+      value: 0.22836566
       objectReference: {fileID: 0}
     - target: {fileID: 1374279864763306300, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1531,12 +1535,36 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.9452
       objectReference: {fileID: 0}
+    - target: {fileID: 1802283043306969052, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802283043306969052, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -395.096
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802283043306969052, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -188.75104
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884196069725810976, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Size.y
+      value: 2.1556563
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884196069725810976, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Center.y
+      value: 0.57782793
+      objectReference: {fileID: 0}
     - target: {fileID: 1928996673928893183, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: Manos
       value: 
       objectReference: {fileID: 1822015660}
     - target: {fileID: 2475316355974246004, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2569880221911949630, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2741124760106940416, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
@@ -1567,9 +1595,33 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -3.294
       objectReference: {fileID: 0}
+    - target: {fileID: 3831485599536153107, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.4867
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831485599536153107, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -395.19244
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831485599536153107, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -188.79262
+      objectReference: {fileID: 0}
     - target: {fileID: 3926924080073805052, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_text
       value: "2- ENCIENDE EL REVOLVEDOR MAGN\xC9TICO\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415777055442418910, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415777055442418910, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415777055442418910, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4432048747598610642, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1651,6 +1703,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 6444127108006907327, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6650605799194896655, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1707,6 +1763,30 @@ PrefabInstance:
       propertyPath: m_text
       value: 3- AGREGA ELEMENTOS Y OBSERVA EL CAMBIO DE PH Y COLOR
       objectReference: {fileID: 0}
+    - target: {fileID: 7662373786454677249, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Size.x
+      value: 2.1891725
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662373786454677249, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5571481
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662373786454677249, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Size.z
+      value: 1.5164453
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662373786454677249, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Center.x
+      value: 0.7005125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662373786454677249, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Center.y
+      value: 0.5266498
+      objectReference: {fileID: 0}
+    - target: {fileID: 7662373786454677249, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_Center.z
+      value: -0.735192
+      objectReference: {fileID: 0}
     - target: {fileID: 7877530108389225136, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: Manos
       value: 
@@ -1718,6 +1798,18 @@ PrefabInstance:
     - target: {fileID: 8014640589103618171, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_text
       value: "\xC1cido Base"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8221085294963621863, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.2835
+      objectReference: {fileID: 0}
+    - target: {fileID: 8221085294963621863, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -395.19098
+      objectReference: {fileID: 0}
+    - target: {fileID: 8221085294963621863, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -188.62567
       objectReference: {fileID: 0}
     - target: {fileID: 8940521983950450824, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_IsActive
