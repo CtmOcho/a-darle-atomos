@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.45490196, g: 0.63529414, b: 0.62352943, a: 1}
+  m_Color: {r: 0.45490196, g: 0.63529414, b: 0.62352943, a: 0.47058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5524,6 +5524,10 @@ PrefabInstance:
       propertyPath: Manos
       value: 
       objectReference: {fileID: 207218068}
+    - target: {fileID: 2524552074423680312, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: camara
+      value: 
+      objectReference: {fileID: 1275298436}
     - target: {fileID: 2569880221911949630, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_IsActive
       value: 0
