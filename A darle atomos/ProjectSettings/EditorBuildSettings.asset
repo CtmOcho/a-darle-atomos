@@ -66,9 +66,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Laboratorio/Laboratorio_Camaleon.unity
     guid: 52856e499e89b7746bae9e22a92df766
   - enabled: 1
-    path: Assets/Scenes/Moleculares/escena_creador_comp.unity
-    guid: 13b7bd6ed6a7de64bb0c6c37a4932382
-  - enabled: 1
     path: Assets/Scenes/Moleculares/escena_acidobase.unity
     guid: 9563eafebea331f4689a9f7826558d06
   - enabled: 1
@@ -89,4 +86,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Laboratorio/Laboratorio_elefante.unity
     guid: 8474c50c4816bd44f9096352dc7d49f9
+  - enabled: 1
+    path: Assets/Scenes/CalibrationScene.unity
+    guid: 944abbab174bf5b4f80649a6be3d28f3
   m_configObjects: {}
