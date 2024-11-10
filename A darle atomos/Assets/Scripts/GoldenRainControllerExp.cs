@@ -17,6 +17,8 @@ public class GoldenRainControllerExp : MonoBehaviour
     public bool hasCorrectTemp = false;
     public bool hasPbDisolved = false;
     public bool hasKDisolved = false;
+    public ChangeColor changeColorScript;
+
 
     void Start()
     {
@@ -48,7 +50,7 @@ public class GoldenRainControllerExp : MonoBehaviour
             //Debug.Log("Acá debiese accionarse el efecto de la lluvia.");
             liquidRenderer = dropCollisionScript.GetComponent<Renderer>();
             if(liquidRenderer != null){
-                liquidRenderer.material.SetColor("_Color", goldenColor);
+                changeColorScript.ColorChange(goldenColor);
             }
             rainFX.Play();
 
