@@ -301,25 +301,30 @@ app.put('/updateCurso/:course/insertStudents',async(req,res) => {
     for (let i = 0; i < students.length; i++) {
         const student = students[i];
         // Realiza la actualizaci贸n que necesites, por ejemplo, agregar o eliminar
-        const studentAccont = await Account.findOne({username: student},);
-        if (studentAccont == null){
+        const studentAccount = await Account.findOne({username: student},);
+        if (studentAccount == null){
             res.status(404).send(student +" no encontrado");
             return;
         }
-        /*
-        if (studentAccont.curso != null){
-            const deleteCourse = await Cursos.findOneAndUpdate(
-                { course: studentAccont.curso },
+        if (studentAccount.curso != null){
+            const course_act = studentAccount.curso[0];
+            await Cursos.findOneAndUpdate(
+                { course: course_act },
                 { $pull: { students: student} },
                 { new: true, runValidators: true }
             );
-            const deleteAccCourse = await Account.findOneAndUpdate(
-                { username: student },
-                { $pull: { students: studentAccont.curso} },
+           
+            const updateCourse  = await Account.findOneAndUpdate(
+                {username: student},
+                { $pull: { curso: course_act }},
                 { new: true, runValidators: true }
             );
+            if (!updateCourse) {
+                res.status(404).send('Curso no encontrado');
+                return;
+            }
+            
         }
-        */
     }
 
     try {
@@ -555,26 +560,17 @@ app.get('/getStudent/:user/prog/:progressvalue', async (req, res) => {
     }
 });
 
-app.get('/quiz/:user', async (req, res) => {
+app.get('/quiz/:user/:test', async (req, res) => {
     const user = req.params.user;
+    const test = req.params.test;
     const studentSearch = await Quiz.findOne({username: user});
     if (studentSearch == null){
         res.status(404).send('Usuario no encontrado');
         return;
     }
-        const quizzes = [
-            studentSearch.quiz1,
-            studentSearch.quiz2,
-            studentSearch.quiz3,
-            studentSearch.quiz4,
-            studentSearch.quiz5,
-            studentSearch.quiz6,
-            studentSearch.quiz7,
-            studentSearch.quiz8,
-            studentSearch.quiz9,
-            studentSearch.quiz10,
-          ];
-          res.status(200).send(quizzes);
+    //console.log(test);
+    //console.log(studentSearch);
+    res.status(200).send(studentSearch[test]);
 });
 
 app.put('/updateQuiz/:user/:test/:type/:values', async (req, res) => {
