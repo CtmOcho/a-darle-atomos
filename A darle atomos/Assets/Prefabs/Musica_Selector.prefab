@@ -268,3 +268,5 @@ MonoBehaviour:
     musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
   - sceneName: escena_pastaElefante
     musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
+  - sceneName: CalibrationScene
+    musicClip: {fileID: 8300000, guid: 87265d4ae7ce30e48bb51d203053c1d7, type: 3}
