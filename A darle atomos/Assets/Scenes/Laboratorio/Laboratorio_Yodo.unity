@@ -2704,6 +2704,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 3347738046883307500, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: sublimacion
+      objectReference: {fileID: 0}
     - target: {fileID: 3720053575214983161, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.263
@@ -2831,6 +2835,10 @@ PrefabInstance:
     - target: {fileID: 7938068541051064919, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014640589103618171, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_text
+      value: "Sublimaci\xF3n del yodo"
       objectReference: {fileID: 0}
     - target: {fileID: 8221085294963621863, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_LocalPosition.z

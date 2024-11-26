@@ -1511,6 +1511,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1163332137046885445, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_text
+      value: 1- Agarra un frasco
+      objectReference: {fileID: 0}
     - target: {fileID: 1178659469215122711, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_Name
       value: Scene UI
@@ -1566,6 +1570,12 @@ PrefabInstance:
     - target: {fileID: 3831485599536153107, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -188.81586
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926924080073805052, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_text
+      value: '2- Viertelo sobre el agua
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 4415777055442418910, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_Color.b
@@ -1659,10 +1669,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7331573155452590193, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_text
+      value: 3- Observa que sucede cuando el sodio toca el agua
+      objectReference: {fileID: 0}
     - target: {fileID: 7877530108389225136, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: Manos
       value: 
       objectReference: {fileID: 1844687904}
+    - target: {fileID: 7938068541051064919, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8014640589103618171, guid: 5d5fe8f3e01042e4baec4850db28b8f0, type: 3}
       propertyPath: m_text
       value: Sodio
